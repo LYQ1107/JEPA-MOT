@@ -159,3 +159,9 @@ seed23/42的BDD六组CL已排队，共享的仅为frozen image-pair计算，学�
 UA完整cloudy适应视频MVI_40152的geometry实时链路已完成1750帧：warmup后3.016 FPS，起止GPU未发现其他job，其他live方法继续。该测量是孤立效率benchmark，不改变研究checkpoint，也不是持续学习分数。
 
 已导出15个实际启动的控制配置到configs/JEPA_CMOT，替换的只有机器特定repo前缀；原始相对路径指向本地权重/校准。当前BDD仍仅stage0完整回测，后续阶段运行中，不提前填造forgetting。完成域的intermediate checkpoint压缩累计释放约4.10GB，域边界完整state及所有中间weights保留。
+
+## 复用实际相同的冻结stage0结果
+
+C2的四组初始θ、source-only校准、native输入和geometry完全相同于已完成的BDD source prediction+ranking frozen对照。reuse_frozen_evaluation逐项核对checkpoint SHA、校准JSON、19视频图片/检测/特征路径和帧数，再链接真实已生成的轨迹与disabled-learner快照；76个轨迹文件SHA均验证一致。这里只复用相同静态source评测，不复用任何adapted stage。
+
+run_controls在全部video均完成时无需建立新的shared matcher；已修正其None-resume分支并用真实76个output完成恢复验证。C2后续stage评测仍需实际运行，forwards=0仅标明本次恢复没有重新计算，不作为新FPS。记录BDD_COMPETITION_STAGE0_ACTUAL_REUSE_VERIFICATION.json。

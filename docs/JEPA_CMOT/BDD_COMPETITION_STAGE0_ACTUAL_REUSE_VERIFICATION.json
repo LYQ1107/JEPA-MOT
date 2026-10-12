@@ -1,0 +1,9 @@
+{
+  "videos": 19,
+  "controls": 4,
+  "reference": "development_all_v1/bdd100k_seed17",
+  "input_paths_checkpoint_hashes_and_calibration_verified": true,
+  "all_76_actual_track_hashes_verified": true,
+  "complete_resume_without_new_forward": true,
+  "GT_not_used_for_inference": true
+}

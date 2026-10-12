@@ -140,7 +140,7 @@ def main():
             timing_scope='shared-comparison-execution-not-standalone-online-FPS')
         (args.out/key/'complete.json').write_text(json.dumps(report,indent=2))
     (args.out/'complete.json').write_text(json.dumps(dict(status='COMPLETE',controls=list(reports),
-        videos=len(entries),shared_image_pair_forwards=shared.image_pair_forwards),indent=2))
+        videos=len(entries),shared_image_pair_forwards=0 if shared is None else shared.image_pair_forwards),indent=2))
     print('CONTROLS_COMPLETE',args.out,flush=True)
 
 
