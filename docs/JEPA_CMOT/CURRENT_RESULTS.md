@@ -165,3 +165,11 @@ UA完整cloudy适应视频MVI_40152的geometry实时链路已完成1750帧：war
 C2的四组初始θ、source-only校准、native输入和geometry完全相同于已完成的BDD source prediction+ranking frozen对照。reuse_frozen_evaluation逐项核对checkpoint SHA、校准JSON、19视频图片/检测/特征路径和帧数，再链接真实已生成的轨迹与disabled-learner快照；76个轨迹文件SHA均验证一致。这里只复用相同静态source评测，不复用任何adapted stage。
 
 run_controls在全部video均完成时无需建立新的shared matcher；已修正其None-resume分支并用真实76个output完成恢复验证。C2后续stage评测仍需实际运行，forwards=0仅标明本次恢复没有重新计算，不作为新FPS。记录BDD_COMPETITION_STAGE0_ACTUAL_REUSE_VERIFICATION.json。
+
+## 通用关系KD与资源调度
+
+针对RKD等已知关系蒸馏，新增normalized pairwise distance + smooth-L1的RKD-D式对照（teacher为各记忆样例的旧query），不使用当前候选列。它与replay、candidate-column组共享source checkpoint、native-group负例、九字段memory128、batch8/interval8/lr1e-4和冻结teacher。完整202帧实测三组均25更新、900确认，memory的history/candidates/physical keys一致。原candidate-column项在25步内mean约0.000336、max0.004129，13步大于1e-7，不以最后一步接近0误判整条loss路径无效。只证明运行与预算，不能证明防遗忘或新颖性。详见GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION.json。
+
+两数据集的通用RKD完整顺序对照排队在C2之后执行；沿用相同视频和独立冻结快照评测。C2的extra compute与普通row/feature/RKD对照必须最终报告。
+
+BDD clips source模型/校准已经准备好，完整开发集部署排队在rank_reward后运行。GPU0多组回测拥挤，UA历史长度组计划等GPU5实时benchmark完成后，先停止控制器派发、等待活跃完整视频终态，再迁移；已完成输出和模型不改写，不能因观察超时重启正在训练的模型。

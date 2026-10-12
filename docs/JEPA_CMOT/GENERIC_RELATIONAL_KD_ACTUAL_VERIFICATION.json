@@ -1,0 +1,53 @@
+{
+  "scope": "one complete adaptation video, same-teacher protocol verification only",
+  "frames": 202,
+  "controls": {
+    "predictive_ranking_none_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "last_loss": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.3857843577861786,
+        "prediction": 0.07902657985687256,
+        "ranking": 0.30675777792930603,
+        "retention": 0.0,
+        "competition_columns": 0,
+        "column_retention": 0.0
+      }
+    },
+    "predictive_ranking_competition_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "last_loss": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.3884322941303253,
+        "prediction": 0.07497032731771469,
+        "ranking": 0.3080059587955475,
+        "retention": 0.005455987527966499,
+        "competition_columns": 8,
+        "column_retention": -6.461050361394882e-09
+      }
+    },
+    "predictive_ranking_distance_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "last_loss": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.3862396776676178,
+        "prediction": 0.07904849201440811,
+        "ranking": 0.30650028586387634,
+        "retention": 0.0006908968207426369,
+        "competition_columns": 0,
+        "column_retention": 0.0
+      }
+    }
+  },
+  "same_memory_and_updates": true,
+  "GT_read": false
+}

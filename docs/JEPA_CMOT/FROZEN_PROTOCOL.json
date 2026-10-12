@@ -237,5 +237,16 @@
     "column_loss_scope": "same observed frame and detection shared by at least two forecast queries; not class-centroid topology",
     "novelty_status": "MOT-specific hypothesis; needs retention/transfer and matched distillation evidence",
     "extra_compute_must_be_reported": true
+  },
+  "generic_relational_distillation_control": {
+    "method": "RKD-D style normalized pairwise forecast distances with smooth-L1",
+    "teacher": "stored old forecast query",
+    "current_candidates_used_in_loss": false,
+    "retention_weight": 1,
+    "same_memory_format_and_capacity_as_C2": true,
+    "same_native_group_negatives": true,
+    "same_fixed_teacher": true,
+    "actual_update_budget_verified_on_complete_native_video": true,
+    "status": "queued full domain sequences; no retention claim"
   }
 }

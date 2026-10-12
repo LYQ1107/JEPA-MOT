@@ -26,3 +26,14 @@ def column_retention(query,candidates,valid,teacher_query,candidate_ids,query_id
     target=F.softmax(old[rows,slots].masked_fill(~active,-1e4),dim=1)
     loss=F.kl_div(F.log_softmax(student,dim=1),target,reduction='batchmean')
     return loss,len(groups)
+
+
+def distance_retention(query,teacher_query,query_ids):
+    """Generic RKD-D control over forecast embeddings, independent of candidates."""
+    mask=query_ids[:,None]!=query_ids[None,:]
+    if not mask.any():return query.sum()*0
+    current=torch.cdist(query,query,p=2)[mask]
+    old=torch.cdist(teacher_query.detach(),teacher_query.detach(),p=2)[mask]
+    current=current/current.mean().clamp_min(1e-6)
+    old=old/old.mean().clamp_min(1e-6)
+    return F.smooth_l1_loss(current,old)

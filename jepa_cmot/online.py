@@ -156,6 +156,10 @@ class ContinualLearner:
         elif self.config.retention in ['features','features_graph']:
             retention=(1-F.cosine_similarity(query,teacher_query,dim=-1)).mean()
             loss=loss+self.config.retention_weight*retention
+        elif self.config.retention=='distance_graph':
+            from .competition import distance_retention
+            retention=distance_retention(query,teacher_query,batch[8].to(self.device))
+            loss=loss+self.config.retention_weight*retention
         columns=0
         column_loss=torch.zeros((),device=self.device)
         if self.config.retention=='competition_graph':
