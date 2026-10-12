@@ -1,0 +1,34 @@
+# Local model weights, datasets and feature caches.
+**/checkpoints/
+*.pt
+*.pth
+*.pth.tar
+*.ckpt
+*.npz
+*.npy
+*.pkl
+*.partial
+/datasets_archive
+/GeneralTrack-main/datasets/
+/GeneralTrack-main/outputs/
+/JEPA/outputs/
+/DA-MOT/darth-main/data
+/DA-MOT/darth-main/outputs/
+/DA-MOT/darth-main/work_dirs/
+
+# Machine-local dependencies and execution output.
+/runtime/site-packages/
+/runtime/*.log
+/checkpoint_transfer.sftp
+__pycache__/
+*.py[cod]
+*.log
+*.egg-info/
+.env
+.venv/
+venv/
+.DS_Store
+
+# Platform-specific compiled artifacts and the upstream embedded-video demo.
+*.so
+/JEPA/GOT-main/pytracking/ltr/cotracker2/co_tracker/notebooks/demo.ipynb
