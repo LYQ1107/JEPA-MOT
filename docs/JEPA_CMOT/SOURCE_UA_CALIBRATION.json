@@ -1,0 +1,82 @@
+{
+  "frozen_last": {
+    "method": "frozen_last",
+    "slope": 12.100305557250977,
+    "intercept": 0.8415339589118958,
+    "loss": 0.9424561262130737,
+    "steps": 200,
+    "trainable_parameters": 2,
+    "fit_scope": "source-validation-only",
+    "videos": [
+      14,
+      15,
+      16
+    ],
+    "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+    "checkpoint_sha256": null,
+    "target_gt_used": false,
+    "score": "sigmoid(slope*(cosine-intercept))",
+    "source_feature_readout": "dense_current",
+    "identity_predictor_parameters": 0
+  },
+  "predictive": {
+    "method": "predictive",
+    "slope": 15.90567684173584,
+    "intercept": 0.8761810064315796,
+    "loss": 0.7693940997123718,
+    "steps": 200,
+    "trainable_parameters": 2,
+    "fit_scope": "source-validation-only",
+    "videos": [
+      14,
+      15,
+      16
+    ],
+    "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+    "checkpoint_sha256": "d4982577a5d75602abd92296e196b22346e2febfedc5f91074ffba9be33a4ea3",
+    "target_gt_used": false,
+    "score": "sigmoid(slope*(cosine-intercept))",
+    "source_feature_readout": "dense_current",
+    "identity_predictor_parameters": 662400
+  },
+  "discriminative": {
+    "method": "discriminative",
+    "slope": 14.163736343383789,
+    "intercept": 0.25762149691581726,
+    "loss": 0.6110050678253174,
+    "steps": 200,
+    "trainable_parameters": 2,
+    "fit_scope": "source-validation-only",
+    "videos": [
+      14,
+      15,
+      16
+    ],
+    "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+    "checkpoint_sha256": "e8e0ec64b6406b8a7237eae9bdd8fa0c9b69d7d1a4edef2adbcb26ca03e5ad81",
+    "target_gt_used": false,
+    "score": "sigmoid(slope*(cosine-intercept))",
+    "source_feature_readout": "dense_current",
+    "identity_predictor_parameters": 662400
+  },
+  "predictive_ranking": {
+    "method": "predictive_ranking",
+    "slope": 14.966859817504883,
+    "intercept": 0.6825594305992126,
+    "loss": 0.6015567183494568,
+    "steps": 200,
+    "trainable_parameters": 2,
+    "fit_scope": "source-validation-only",
+    "videos": [
+      14,
+      15,
+      16
+    ],
+    "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+    "checkpoint_sha256": "b63b044cad9ced9f9d312e396eabb7f9e44d5ec33fd67bdc5e17c983d7f16c10",
+    "target_gt_used": false,
+    "score": "sigmoid(slope*(cosine-intercept))",
+    "source_feature_readout": "dense_current",
+    "identity_predictor_parameters": 662400
+  }
+}

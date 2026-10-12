@@ -45,6 +45,18 @@ class CausalHistoryTracker(BYTETracker):
                 frame=int(self.frame_id),score=float(det.score),
                 candidates=self._current_candidates.copy())
 
+    def _jepa_similarity(self,tracks,detections):
+        similarity=super()._jepa_similarity(tracks,detections)
+        calibration=getattr(self.args,'source_calibration',None)
+        if calibration is not None:
+            valid=np.zeros_like(similarity,dtype=bool)
+            for i,track in enumerate(tracks):
+                for j,det in enumerate(detections):
+                    valid[i,j]=self._track_query(track) is not None and getattr(det,'jepa_feature',None) is not None
+            logits=np.clip(calibration['slope']*(similarity-calibration['intercept']),-60,60)
+            similarity=np.where(valid,1/(1+np.exp(-logits)),0.)
+        return similarity
+
     def _fuse_jepa(self,base_cost,tracks,detections,branch):
         # Reliability is measured with the original matcher, independently of
         # the learned query. Both row and column ambiguity are retained.

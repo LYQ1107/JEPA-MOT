@@ -67,5 +67,19 @@
     "target": "stopped-gradient positive latent response distribution to current competitor candidates",
     "same_parameters_and_candidates": true,
     "novelty_status": "hypothesis; overlaps ordinary soft distillation, must compare"
+  },
+  "affinity_calibration_control": {
+    "parameters": 2,
+    "steps": 200,
+    "fit_split": "source-only internal validation",
+    "objective": "identical balanced logistic BCE",
+    "all_controls": [
+      "frozen_last",
+      "discriminative",
+      "predictive",
+      "predictive_ranking"
+    ],
+    "target_gt_used": false,
+    "raw_cosine_controls_retained": true
   }
 }

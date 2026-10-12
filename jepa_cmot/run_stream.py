@@ -29,6 +29,7 @@ def main():
     parser.add_argument('--method',choices=['native','frozen_last','trained','online'],required=True)
     parser.add_argument('--checkpoint',type=Path)
     parser.add_argument('--online-config',type=Path)
+    parser.add_argument('--source-calibration',type=Path)
     parser.add_argument('--engineering-smoke',action='store_true')
     args=parser.parse_args()
     torch.set_num_threads(4);torch.manual_seed(17);np.random.seed(17);random.seed(17)
@@ -40,6 +41,7 @@ def main():
         learner=ContinualLearner(args.checkpoint,config)
     experiment=dict(method=args.method,inputs_sha256=hashlib.sha256(args.inputs.read_bytes()).hexdigest(),
         checkpoint=str(args.checkpoint),online_config=str(args.online_config),
+        source_calibration=str(args.source_calibration),
         engineering_smoke_only=args.engineering_smoke)
     report_path=args.out/'complete.json'
     if report_path.exists():
@@ -79,6 +81,9 @@ def main():
             '--jepa-feature-dim',str(dimension),'--jepa-lambda','0.15','--jepa-history',
             str(4 if learner is None else learner.model.config.history)])
         native.roialign_size=tuple(native.roialign_size)
+        if args.source_calibration:
+            native.source_calibration=json.loads(args.source_calibration.read_text())
+            if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')
         BaseTrack._count=0
         if learner is not None:learner.reset_video()
         tracker=CausalHistoryTracker(native,learner)

@@ -27,3 +27,9 @@ GeneralTrack 权重与作者公开文件 SHA256 完全一致。它是所有方�
 修正缓存后的 frozen-last 源验证 rank-1 为 97.83%，高于三种训练目标；这进一步说明工程小样本不能提供 H1 支持。UA detector 的 3,000 步已完成并登记 SHA256，完整 1,505 帧的 MVI_39311 与 800 帧的 MVI_20064 检测正在生成。
 
 两个正式 detector 均完成 3,000 步，SHA256 已登记于 SOURCE_DETECTOR_UA_RESULT.json 和 SOURCE_DETECTOR_BDD_RESULT.json。正式 source history 队列等待各自完成的 source-only cache，然后按固定 2,000 步、seed 17、gaps 1/2/4/8 执行三个同容量目标。
+
+## 首轮正式 source identity 训练
+
+UA dense-current 1024-D，三个模型各 662,400 参数，seed 17 / 2,000 步 / batch 64 / gaps 1、2、4、8。13 个视频拟合、3 个内部 source 视频验证，共 43,921 / 11,831 样例。计入候选最高分并列分数后，判别 / 预测 / 预测+ranking 的 rank-1 为 72.17% / 66.29% / 70.85%；prediction error 为 0.61463 / 0.06641 / 0.20999。frozen-last / mean / recent-weighted 为 55.98% / 49.41% / 52.55%。这只支持历史学习优于这些冻结摘要，不支持 JEPA 优于判别目标。
+
+当前 GT latent 的 source 读数上限为 93.15%，1,538 个样例因 dense 网格出现最高分并列。记录见 SOURCE_UA_BASELINE_DIAGNOSTICS.json、SOURCE_HISTORY_UA_V2_RESULTS.json。完整视频验证与相同 source-only 二参数 affinity 校准正在执行，不以这些 source 排序分数代替 HOTA。

@@ -179,13 +179,17 @@ def main():
                         'cuda_rng': torch.cuda.get_rng_state_all() if args.device.startswith('cuda') else [],
                         'losses': losses, 'seconds': previous_seconds + time.perf_counter() - start},
                        args.out / f'step_{step + 1:06d}.pt')
-    model.eval();hits = 0;total = 0;prediction_error = 0.
+    model.eval();hits = 0.;total = 0;prediction_error = 0.;tied_examples=0
     with torch.no_grad():
         for batch in DataLoader(valid, batch_size=args.batch, num_workers=0):
             features, geometry, mask, candidates, candidate_mask = [x.to(args.device) for x in batch]
             query = model(features, geometry, mask)
             scores = torch.einsum('bd,bnd->bn', query, candidates).masked_fill(~candidate_mask, -1e4)
-            hits += int((scores.argmax(1) == 0).sum());total += len(query)
+            maximum=scores.max(1).values
+            tied=torch.isclose(scores,maximum[:,None],rtol=0,atol=1e-6)&candidate_mask
+            counts=tied.sum(1)
+            hits += float((tied[:,0].float()/counts).sum());total += len(query)
+            tied_examples += int((counts>1).sum())
             prediction_error += float((1 - F.cosine_similarity(query, candidates[:, 0])).sum())
     payload = {'state_dict': model.state_dict(), 'config': asdict(config), 'method': args.method,
                'step': args.steps, 'seed': args.seed, 'source_domain': args.source_domain,
@@ -201,6 +205,8 @@ def main():
               'fit_videos': fitting, 'validation_videos': heldout,
               'fit_samples': len(train), 'validation_samples': len(valid),
               'source_validation_rank1': hits / total,
+              'source_validation_rank1_tie_rule':'fractional-credit-within-1e-6',
+              'source_validation_tied_examples':tied_examples,
               'source_validation_prediction_error': prediction_error / total,
               'loss_first': losses[0], 'loss_last': losses[-1],
               'checkpoint_sha256': sha256(final),

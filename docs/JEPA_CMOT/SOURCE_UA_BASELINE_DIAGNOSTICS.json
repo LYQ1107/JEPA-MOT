@@ -1,0 +1,38 @@
+{
+  "dataset": "ua_detrac",
+  "scope": "source-validation-only",
+  "cache_sha256": "b330cd156d65f0334d169d55755a59ef020b3e27828be9b2995c1506c52d3ab6",
+  "tie_rule": "fractional-within-1e-6",
+  "gaps": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "baselines": {
+    "last": {
+      "rank1": 0.5597723499072715,
+      "prediction_error": 0.09932475075013598,
+      "ties": 1349,
+      "examples": 11831
+    },
+    "mean": {
+      "rank1": 0.4941256030375068,
+      "prediction_error": 0.09740424824228514,
+      "ties": 1380,
+      "examples": 11831
+    },
+    "recent_weighted": {
+      "rank1": 0.5254979865930457,
+      "prediction_error": 0.0930942042109106,
+      "ties": 1399,
+      "examples": 11831
+    },
+    "oracle_current_source_GT": {
+      "rank1": 0.931479454604784,
+      "prediction_error": -4.818852398585169e-08,
+      "ties": 1538,
+      "examples": 11831
+    }
+  }
+}

@@ -25,3 +25,11 @@ BDD：train/val 文件数量一致，必须审计视频集合；源 detector 配
 ## 源视频缓存重置修复
 
 源缓存生成器只清空 frame_buffer，未清空 rgb_buffer；官方 predictor 裁剪读数因此可能携带前一独立视频像素。添加 rgb_buffer.clear()，作废 v1 小型源训练比较并重建 v2。目标缓存原本已正确清空两个缓冲。
+
+## dense 读数的 source 排序与校准风险
+
+多间隔 source-validation 的 frozen-last rank-1 为 55.98%，teacher 当前 GT latent 上限为 93.15%；11,831 样例中 teacher 上限有 1,538 个候选最高分并列，说明 dense ROI 分辨率不能区分所有身份。所有新比较使用最高分并列的分数信用，避免正样本总放在第 0 列导致虚高 rank-1。最初 source-history v1 的第一模型在这一规则冻结前已导入代码；保留原训练/中断记录，新比较重启至 v2。
+
+初始 CE-only source rank-1 约 76.38% 而 cosine prediction error 约 0.61，存在“排序改善但绝对相似度尺度变差”的风险。旧 residual-only 正增益融合可能偏向高 raw cosine 的预测目标，需在正式模型比较中加入相同 source-supervised 校准与 row-relative scorer 控制，不能将尺度差异误归因于 JEPA。
+
+源历史 v2 已冻结统一 tie 规则，三个正式目标均完成 2,000 步。共同 affinity 校准只拟合 source 内部验证上的两个单调参数，不改变候选排序；raw-cosine 路线保留用于判断改进是否来自尺度变化。校准结果及每个模型的 checkpoint/cache SHA256 见 SOURCE_UA_CALIBRATION.json。
