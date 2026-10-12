@@ -15,6 +15,8 @@ def main():
     parser.add_argument('--controls',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--reverse',action='store_true')
+    parser.add_argument('--teacher-calibration',type=Path)
+    parser.add_argument('--compact-intermediate',action='store_true')
     args=parser.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     manifest=json.loads(args.manifest.read_text());initial=json.loads(args.controls.read_text())
     source='sunny' if args.dataset=='ua_detrac' else 'clear'
@@ -23,6 +25,9 @@ def main():
     protocol=dict(dataset=args.dataset,order=[source]+domains,controls=initial,
         target_GT_in_training=False,sealed_test_used=False,
         evaluation='all saved stages, isolated frozen weights after training; no evaluation feedback')
+    if args.teacher_calibration:
+        protocol['fixed_teacher_calibration']=str(args.teacher_calibration.resolve())
+        protocol['actual_update_counts_matched_each_frame']=True
     path=args.out/'protocol.json'
     if path.exists() and json.loads(path.read_text())!=protocol:raise ValueError('Continual controls protocol changed')
     path.write_text(json.dumps(protocol,indent=2))
@@ -42,13 +47,25 @@ def main():
             config=args.out/f'controls/{domain}/{video["name"]}.json';config.parent.mkdir(parents=True,exist_ok=True)
             config.write_text(json.dumps(specs,indent=2))
             output=args.out/f'adaptation/stage{stage}_{domain}/{video["name"]}'
-            command(args.out/f'logs/adaptation/{domain}/{video["name"]}.log',
-                ['jepa_cmot.run_controls','--inputs',str(inputs),'--controls',str(config),'--out',str(output)])
+            runner='jepa_cmot.anchor_controls' if args.teacher_calibration else 'jepa_cmot.run_controls'
+            arguments=[runner,'--inputs',str(inputs),'--controls',str(config),'--out',str(output)]
+            if args.teacher_calibration:arguments+=['--teacher-calibration',str(args.teacher_calibration)]
+            if (output/'complete.json').exists():
+                # Completed videos need no replay of training commands. This
+                # also permits retaining full state only at domain boundaries.
+                for spec in initial:
+                    report=json.loads((output/spec['name']/video['name']/'complete.json').read_text())
+                    if report['frames']!=video['frames'] or report['GT_read']:
+                        raise ValueError('Completed adaptation video is inconsistent')
+            else:command(args.out/f'logs/adaptation/{domain}/{video["name"]}.log',arguments)
             for spec in initial:
                 previous[spec['name']]=str((output/spec['name']/video['name']/'learner.pt').resolve())
             print('CONTINUAL_CONTROL_VIDEO_COMPLETE',args.dataset,stage,domain,video['name'],flush=True)
         snapshots.append(dict(previous))
         (args.out/'snapshots.json').write_text(json.dumps(snapshots,indent=2))
+        if args.compact_intermediate:
+            from .compact_checkpoints import compact
+            compact(args.out)
         print('CONTINUAL_CONTROL_STAGE_COMPLETE',args.dataset,stage,domain,flush=True)
     development=[v for v in manifest['videos'] if v['dataset']==args.dataset and v['split']=='development']
     inputs=args.out/'inputs/development.json'

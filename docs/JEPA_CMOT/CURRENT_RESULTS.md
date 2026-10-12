@@ -83,3 +83,11 @@ uniform source 的实际预测帧间隔：UA 最小 6、中位 19、p90 75，del
 完整 frozen 开发集队列已启动：BDD 10 个控制、UA 12 个控制（含两种 relation objective），覆盖全部 source 和三个目标域的 development 视频；适应和 sealed 不进入这些 frozen 对照。逐视频完成后汇总 TrackEval，新增 paired video bootstrap 会从原始计数重新聚合，以相同视频重采样而非平均每视频 HOTA。
 
 六组持续学习的 BDD forward seed17 已完成 overcast、rainy 两阶段并进入 night；UA cloudy 已持续跨多个完整视频更新。未完成全域矩阵，不报告遗忘结论。
+
+## H2 实际更新预算与教师流控制
+
+冻结 frozen-last 教师在 BDD overcast adaptation 的完整 202 帧上提供同一因果轨迹与 native 独立可靠性证据。P+ranking 的 confidence-FIFO / prediction-priority / frozen-appearance-hard，以及 CE 的 confidence-FIFO / prediction-priority，共五个学习器都执行 25 次更新、确认 907 个伪对、replay 128，history/candidates 的 replay 内容逐 tensor 一致，每个学习器 6 个参数 tensor 改变；两个 prioritization 的最终参数与 FIFO 不同。每帧断言实际更新预算一致。该验证没有评测 GT，也不证明 H2 有收益。
+
+该控制保持预测查询在当前 detection/feature 行选择前冻结，下一帧独立确认后才训练。优先级仅重新排列同一 fresh buffer，不硬拒绝低预测误差样例，从而避免 gate 降低训练次数的混淆。完整序列会在学习结束后，用各学习器快照单独部署评测；教师的 adaptation 轨迹不能冒充已学习模型的跟踪输出。见 MATCHED_TEACHER_H2_FIRST_ACTUAL_RESULTS.json 和 MATCHED_PRIORITY_PROTOCOL_VERIFICATION.json。
+
+source uniform-dense 的 seed23/42 训练与校准已经启动，BDD seed23 完成；多种子 MOT 矩阵仍未完成。存储按域边界保留完整 model/optimizer/replay 状态，中间视频保留参数、loss 和更新记录；仅在已完成域且 domain snapshot 保留后压缩重复状态，失败记录和原始权重保留。

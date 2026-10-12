@@ -1,0 +1,64 @@
+{
+  "scope": "one complete native adaptation video; no MOT gain conclusion",
+  "dataset": "bdd100k",
+  "domain": "overcast",
+  "video": "b22f385b-5d7e5202",
+  "controls": {
+    "predictive_ranking_confidence": {
+      "frames": 202,
+      "updates": 25,
+      "confirmed": 907,
+      "proposed": 1411,
+      "reliability_rejected": 454,
+      "changed_parameter_tensors": 6,
+      "replay_rows": 128,
+      "query_causality_violations": 0
+    },
+    "predictive_ranking_prediction_priority": {
+      "frames": 202,
+      "updates": 25,
+      "confirmed": 907,
+      "proposed": 1411,
+      "reliability_rejected": 454,
+      "changed_parameter_tensors": 6,
+      "replay_rows": 128,
+      "query_causality_violations": 0
+    },
+    "predictive_ranking_appearance_hard_priority": {
+      "frames": 202,
+      "updates": 25,
+      "confirmed": 907,
+      "proposed": 1411,
+      "reliability_rejected": 454,
+      "changed_parameter_tensors": 6,
+      "replay_rows": 128,
+      "query_causality_violations": 0
+    },
+    "discriminative_confidence": {
+      "frames": 202,
+      "updates": 25,
+      "confirmed": 907,
+      "proposed": 1411,
+      "reliability_rejected": 454,
+      "changed_parameter_tensors": 6,
+      "replay_rows": 128,
+      "query_causality_violations": 0
+    },
+    "discriminative_prediction_priority": {
+      "frames": 202,
+      "updates": 25,
+      "confirmed": 907,
+      "proposed": 1411,
+      "reliability_rejected": 454,
+      "changed_parameter_tensors": 6,
+      "replay_rows": 128,
+      "query_causality_violations": 0
+    }
+  },
+  "actual_update_budget_equal_each_frame": true,
+  "teacher_confirmations_equal": true,
+  "replay_input_histories_and_candidates_byte_identical": true,
+  "prediction_need_versus_confidence_parameters_differ": true,
+  "appearance_hard_versus_confidence_parameters_differ": true,
+  "target_GT_used": false
+}

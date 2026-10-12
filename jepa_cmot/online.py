@@ -109,8 +109,26 @@ class ContinualLearner:
             return
         replay_count=self.config.batch//2 if self.memory and self.config.replay else 0
         fresh_count=self.config.batch-replay_count
+        pool=list(self.recent)
+        if self.config.reliability in ['prediction_priority','appearance_hard_priority']:
+            # All independently confirmed pairs remain eligible. Prioritize
+            # within the same fresh buffer without reducing the update budget.
+            def hardness(example):
+                features,_,_,candidates,_,_,query=example
+                reference=query if self.config.reliability=='prediction_priority' else features[-1]
+                return 1-float(reference@candidates[0])
+            self.recent.sort(key=hardness,reverse=True)
         selected=self.recent[:fresh_count]
         self.recent=self.recent[fresh_count:]
+        if self.config.reliability in ['prediction_priority','appearance_hard_priority']:
+            need=lambda e:1-float(e[6]@e[3][0])
+            hard=lambda e:1-float(e[0][-1]@e[3][0])
+            self.stats.setdefault('priority_selection',[]).append(dict(update=self.updates+1,
+                fresh_count=fresh_count,pool_count=len(pool),
+                selected_prediction_need=float(np.mean([need(e) for e in selected])),
+                pool_prediction_need=float(np.mean([need(e) for e in pool])),
+                selected_appearance_hardness=float(np.mean([hard(e) for e in selected])),
+                pool_appearance_hardness=float(np.mean([hard(e) for e in pool]))))
         if replay_count:
             selected+=self.rng.choices(self.memory,k=replay_count)
         for example in ready:self._remember(example)

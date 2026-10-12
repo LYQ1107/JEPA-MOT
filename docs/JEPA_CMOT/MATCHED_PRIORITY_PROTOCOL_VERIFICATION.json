@@ -1,0 +1,21 @@
+{
+  "synthetic_only": true,
+  "policies": {
+    "confidence": {
+      "updates": 3,
+      "confirmed": 25,
+      "resume_exact": true
+    },
+    "prediction_priority": {
+      "updates": 3,
+      "confirmed": 25,
+      "resume_exact": true
+    },
+    "appearance_hard_priority": {
+      "updates": 3,
+      "confirmed": 25,
+      "resume_exact": true
+    }
+  },
+  "selection_priority_checked": true
+}

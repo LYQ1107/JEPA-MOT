@@ -35,3 +35,13 @@ DOI、CVF 部分页面存在访问限制，使用作者 arXiv 和 CVF 已索引�
 当前 reliability gating、reservoir replay、候选 KL 保持仍属于待验证组件，不能仅靠组合命名称为新方法。需与 CE+同样门控、普通 replay 和蒸馏使用相同预算进行对照。
 
 [MOTIP，CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Gao_Multiple_Object_Tracking_as_ID_Prediction_CVPR_2025_paper.html) 已将轨迹关联建模为基于轨迹上下文的 ID 解码。不能声称首次预测身份。本任务需要验证的是候选出现前的 latent forecasting 及其无标签连续适应价值。另需区分 [TrackTrack，CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/papers/Shim_Focusing_on_Tracks_for_Online_Multi-Object_Tracking_CVPR_2025_paper.pdf) 的关联/初始化改进与参数持续学习；当前共同 geometry-null 规则本身不是新贡献。
+
+## 2026-10-13 新近原文核实：在线预测与保持并非空白
+
+[JEPA-TTT（2026-09-30 arXiv v1）](https://arxiv.org/html/2610.00722v1) 已研究 frozen encoder、trainable latent predictor、跨 episode 保留参数/optimizer/replay 的自监督 test-time training。其对象是 action-conditioned planning，使用逐时间 offset 的 growing dense replay；原文 limitations 明确没有测试多次 dynamics shift、回到旧 dynamics 或遗忘。不能声称首次跨独立 episode 持续适应 JEPA。这里可检验的差别是 MOT 无标签身份关联中的伪对误差、一对一竞争以及多天气旧域回测；这是研究定位，尚未被结果支持。
+
+[AdaJEPA（2026-06-30）](https://arxiv.org/abs/2606.32026) 同样从实际 next-state transition 做闭环预测适应。只将 observed future latent 作为自监督信号不足以构成新颖性。
+
+[TCA，CVPR 2025 原文](https://openaccess.thecvf.com/content/CVPR2025/papers/Ni_Maintaining_Consistent_Inter-Class_Topology_in_Continual_Test-Time_Adaptation_CVPR_2025_paper.pdf) 已通过 class centroid 拓扑、一致性与类内紧致保持持续适应的关系结构。不能将泛化的 relation/topology retention 或 row-output KL 本身称为首次创新。若继续构建 MOT-specific 保持，需要显式区分同帧动态身份的 row/column 候选竞争与固定类别 centroid，提供同样 replay 和蒸馏预算的独立证据。
+
+以上只依赖作者 arXiv 和 CVF 原文；未用第三方总结作技术证据。当前 row KL 仍按普通输出蒸馏对照解释。

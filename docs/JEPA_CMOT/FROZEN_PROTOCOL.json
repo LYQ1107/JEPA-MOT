@@ -156,5 +156,29 @@
       "predictive_ranking"
     ],
     "purpose": "time-support mismatch diagnostic; not a JEPA novelty claim"
+  },
+  "H2_fixed_teacher_wave": {
+    "status": "registered-after-actual-update-verification-before-full-sequence-results",
+    "teacher": "frozen-last, common geometry, calibrated only on source",
+    "replay": 128,
+    "batch": 8,
+    "interval": 8,
+    "learning_rate": 0.0001,
+    "policies": [
+      "confidence FIFO",
+      "prediction error priority",
+      "frozen appearance hard priority"
+    ],
+    "objectives": [
+      "discriminative",
+      "predictive_ranking"
+    ],
+    "query_before_current_candidate_rows": true,
+    "delay_frames": 1,
+    "hard_need_rejection": false,
+    "actual_updates_equal_each_frame": true,
+    "teacher_confirmed_pairs_common": true,
+    "independent_frozen_snapshot_deployment_evaluation": true,
+    "teacher_tracks_are_not_learned_method_outputs": true
   }
 }
