@@ -183,3 +183,9 @@ BDD clips source模型/校准已经准备好，完整开发集部署排队在ran
 当前证据支持“规则显著限制了语义介入”，不支持“JEPA有实际独立收益”。不据此放宽目标GT门控、改split或用新阈值筛选有利视频。完整结果BDD_FULL_RANK_REWARD_RESULTS.json，生成命令为`./run_python.sh -m jepa_cmot.rank_reward_analysis --root runs/JEPA_CMOT/development_rank_reward_v1/bdd100k_seed17 --reference runs/JEPA_CMOT/development_all_v1/bdd100k_seed17 --manifest runs/JEPA_CMOT/native_protocol_v3/manifest.json --out docs/JEPA_CMOT/BDD_FULL_RANK_REWARD_RESULTS.json`。
 
 纯预测FT/replay、两数据集reverse17以及UA23/42的完整序列已注册源权重和配置并排队。当前新增队列不读取开发指标，也不会基于该负结果改变预算；等待既有完整实验释放GPU后启动。未完成任务不计作科研证据。
+
+## BDD 第一目标域的完整回测（持续矩阵仍不完整）
+
+第一波六组stage1完成全部19开发视频回测，stage0逐指标等于此前实际source frozen结果。适应overcast后HOTA变化（clear / overcast）：CE FT -0.417 / +0.045，联合FT +0.255 / -0.173；CE replay -0.604 / +0.092，联合replay +0.016 / -0.158；feature KD -0.259 / -0.607，row KD -0.379 / -0.489。联合replay四域均值相对本身source仅+0.071，其它组均值下降。
+
+联合模型在这一阶段的旧source HOTA较稳定，但新域分数下降，普通KD也没有自动改善，不能据此宣称stability-plasticity优势。self-teacher实际预算差异仍须报告，固定教师H2/H3进一步检验。stage2/3回测未完成，不填最终forgetting/BWT/FWT；完整指标见BDD_CONTINUAL_STAGE1_PARTIAL_RESULTS.json。
