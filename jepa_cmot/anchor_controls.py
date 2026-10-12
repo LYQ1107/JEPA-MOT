@@ -51,6 +51,8 @@ def main():
         adaptation_tracks='teacher outputs; learned deployment is evaluated independently')
     protocol['code_sha256']={name:hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
         for name in ['anchor_controls.py','online.py','causal_tracker.py','history.py','models.py']}
+    if any(learner.config.retention.endswith('_graph') for learner in learners.values()):
+        protocol['code_sha256']['competition.py']=hashlib.sha256(Path(__file__).with_name('competition.py').read_bytes()).hexdigest()
     path=args.out/'protocol.json'
     if path.exists() and json.loads(path.read_text())!=protocol:raise ValueError('Anchor protocol changed')
     path.write_text(json.dumps(protocol,indent=2));reports={s['name']:[] for s in specs}

@@ -65,3 +65,11 @@ Observation：clips 内 CE88.54%、预测88.62%、联合89.80%，两种普通/�
 ## 缓存数值与真实链路存在微小差异
 
 Observation：实际 detector 数值相同、短序列轨迹一致；FP16 latent最大差约1.4e-3，3次更新后参数最大差2.8e-4。不能把位级 checkpoint 可复现扩展到两种 GPU 执行环境的数学近似。Discriminating experiment：完成长视频真实链路，保留精度和硬件竞争说明；正式受控主表仍共用同一固定 feature cache。没有用 reference cache 替代 live inference。
+
+## 四域平均的随机特征与预测接近
+
+Observation：predictive39.829、geometry39.902、random39.871；预测超过CE的分层区间为正，但不优于简单几何。Hypothesis：部分收益可能来自residual score scale而非身份排序。Discriminating experiment：rank_reward匹配CE/frozen/random，不整体衰减native，不产生原本不可行的边；记录实际一步counterfactual。首个完整视频目前无收益，全域保留。
+
+## 更新间隔相同仍可能更新数不同
+
+Observation：第一波FT1073/1074、replay1096、KD1097，真实state与optimizer step相同但不同policy间更新量略异。Discriminating experiment：H2/H3共享冻结teacher并逐帧断言更新数相等，负例与记忆字段一致；避免将伪对供给造成的更新量解释为预测或保持机制。

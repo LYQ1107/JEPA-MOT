@@ -1,0 +1,74 @@
+{
+  "scope": "one full adaptation video, actual update protocol verification only",
+  "frames": 202,
+  "controls": {
+    "predictive_ranking_none_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "memory_tuple_fields": 9,
+      "competition_columns": 0,
+      "loss_last": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.3857843577861786,
+        "prediction": 0.07902657985687256,
+        "ranking": 0.30675777792930603,
+        "retention": 0.0,
+        "competition_columns": 0
+      }
+    },
+    "predictive_ranking_features_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "memory_tuple_fields": 9,
+      "competition_columns": 0,
+      "loss_last": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.39188194274902344,
+        "prediction": 0.07869875431060791,
+        "ranking": 0.3064393103122711,
+        "retention": 0.006743863224983215,
+        "competition_columns": 0
+      }
+    },
+    "predictive_ranking_relations_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "memory_tuple_fields": 9,
+      "competition_columns": 0,
+      "loss_last": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.38900014758110046,
+        "prediction": 0.07580582052469254,
+        "ranking": 0.3078738749027252,
+        "retention": 0.005320445634424686,
+        "competition_columns": 0
+      }
+    },
+    "predictive_ranking_competition_graph": {
+      "updates": 25,
+      "confirmed": 900,
+      "memory_rows": 128,
+      "memory_tuple_fields": 9,
+      "competition_columns": 264,
+      "loss_last": {
+        "update": 25,
+        "frame": 200,
+        "loss": 0.3884322941303253,
+        "prediction": 0.07497032731771469,
+        "ranking": 0.3080059587955475,
+        "retention": 0.005455987527966499,
+        "competition_columns": 8
+      }
+    }
+  },
+  "update_counts_equal_each_frame": true,
+  "memory_histories_candidates_and_physical_keys_equal": true,
+  "online_GT_read": false,
+  "new_native_group_negative_rule_shared_by_all_controls": true
+}

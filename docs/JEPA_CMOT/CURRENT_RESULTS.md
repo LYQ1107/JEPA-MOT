@@ -119,3 +119,31 @@ BDD 24/203 帧的工程检查：detector 与已有 source-only 检测逐数值�
 单次 decode 的 RGB IPC 检查保持检测与轨迹结果：共享 GPU 条件下 warmup 后约1.74 FPS，相比重复读取约1.45 FPS。这只是24帧工程测量，不能作为最终效率数字。完整适应视频的 geometry / frozen-feature / CE /预测联合 / online 计时已排队；benchmark 学习器独立，禁止恢复进正式研究训练。记录 p50/p95、实际更新耗时及两个进程的 torch memory，明确硬件竞争。
 
 Native 可靠性计算从每个 pair 重复 sort 改为每行/列一次 sort；空矩阵、单行/列和 ties 检查证明所有 evidence 字段逐值相同。完成视频的 pending 不会跨独立视频确认，保存完整域状态时移除该无效 pending，保留参数、optimizer、replay/recent、RNG和计数。
+
+## BDD 四域完整 frozen 开发结果
+
+全部19视频、3844原生帧已完成。每域固定权重1/4：geometry-null 39.902，frozen-last 39.386，CE39.391，预测39.829，联合39.486，单观测projection38.989，预测last-only39.437，shuffle39.120，random39.871。source checkpoint hashes 未变化，sealed未使用。
+
+预测相对CE +0.438，按域分层的视频配对bootstrap区间[+0.066,+0.733]；相对geometry -0.073，区间[-0.417,+0.215]；相对random -0.042，区间[-0.347,+0.313]。source clear和三个target域都完整纳入，不能只强调CE对比而忽略更强的简单基线。这是seed17 frozen结果，不能当作持续学习结果或跨seed结论。详见BDD_FULL_FROZEN_DEVELOPMENT_RESULTS.json与figures/bdd_full_development_hota.svg。
+
+## 一步分配反事实与受限介入
+
+记录真实native原始cost、融合cost、语义分数、过去raw框、当前选项、branch、更新状态；GT只在独立audit_counterfactual中匹配诊断。原残差预测在首个203帧视频改变91个一步分配：23个局部身份修复、20个反改错，另有混合历史/未评分/两边都正确等情况。这不是独立baseline整条轨迹，也不是官方IDSW。开启日志后原轨迹逐字节不变。
+
+新rank_reward只在同native类别组、两个原始score-fused可行候选、native margin≤0.1、语义margin≥0.02、短gap和排序分歧时给予小正奖励。其余cost保持不变，避免随机低分导致整体衰减。首个视频预测/CE/frozen-last的HOTA约51.04/51.03/51.09，random与geometry 51.0847逐值相同；预测仅改变4个一步分配，没有该视频的正收益。全19视频对照继续，不据此调阈值或挑视频。
+
+## 实际训练预算与进一步H3控制
+
+BDD第一波44适应视频、8811原生帧已核查完整model/optimizer/replay状态。最终FT的CE/联合更新1073/1074，replay为1096/1096，feature/row-KL为1097/1097。相同interval不等于相同实际更新次数；这是self-teacher伪对供给差异，主表明确记录，不能声称全六组exact budget。
+
+新增固定教师四组H3：相同native-group负例、记忆容量128、相同9个tensor字段、batch8/interval8/lr1e-4。replay、feature角距离、普通row-KL、row-KL+同帧candidate-column竞争保持。候选全局frame/detection键和物理track键只用于同帧关系，不把独立视频ID链接起来；重复replay副本按物理键去重，描述符相同的不同轨迹仍参与竞争。
+
+在完整202帧BDD overcast验证中，四组均25更新、900确认，replay的histories/candidates/physical keys一致；新机制累计处理264个竞争column。只有旧预测query响应作为stop-gradient teacher，没有目标GT。Column KL额外计算成本另计；这是MOT-specific保持假设，尚未证明优于普通KD或遗忘更低。完整多域训练将继续。
+
+## 完整实时效率与多seed/order推进
+
+在独立的202帧适应视频、同一GPU5、startup权重载入不计、warmup10帧后：geometry2.607 FPS、frozen-last1.763、CE frozen1.660、联合frozen1.693、CE online1.711、联合online1.603。在线两组实际25更新，update-call p50约9.70/12.20ms；该调用包含伪对/batch/replay和optimizer。整个wall time包含图片读取、detector IPC、encoder和关联；torch peak memory按进程列出。所测GPU起止未发现其他job，但整个server仍共享，不把单视频数值泛化为全部场景或实时30FPS。
+
+source初始化的benchmark权重独立，禁止恢复到研究训练；P_*路径实际为prediction+ranking，未称pure prediction。完整表见BDD_FULL_LIVE_EFFICIENCY_RESULTS.json，UA全视频计时继续。
+
+seed23/42的BDD六组CL已排队，共享的仅为frozen image-pair计算，学习器/优化器/记忆与物理轨迹分别独立；随后反顺序使用相同44视频和development集合。检测器始终seed17共同输入，source heads与online sampler种子不同。

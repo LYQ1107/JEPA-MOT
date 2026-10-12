@@ -212,5 +212,30 @@
     ],
     "history1_motion_velocity": "zero because a single observation contains no measured velocity",
     "scope": "source and frozen development ablation; independent online teacher reliability remains history4"
+  },
+  "competition_retention_wave": {
+    "status": "registered-after-full-video-update-verification-before-full-domain-results",
+    "query": "history-only forecast unchanged",
+    "teacher": "shared frozen-last track assignments plus native independent reliability and delay1",
+    "objectives": "same prediction+ranking source checkpoint and online objective",
+    "controls": [
+      "replay only",
+      "feature angular distillation",
+      "ordinary row-softmax output distillation",
+      "row distillation plus column competition KL"
+    ],
+    "native_group_negatives": "same rule in every controlled learner",
+    "memory_capacity": 128,
+    "memory_fields": "same histories, competitors, old query/probability, global-frame detection keys and physical-track keys in all four learners",
+    "batch": 8,
+    "interval": 8,
+    "learning_rate": 0.0001,
+    "retention_weight": 1,
+    "actual_update_counts_matched_each_frame": true,
+    "physical_track_IDs_never_linked_across_independent_videos": true,
+    "identical_descriptors_from_distinct_physical_tracks_remain_competitors": true,
+    "column_loss_scope": "same observed frame and detection shared by at least two forecast queries; not class-centroid topology",
+    "novelty_status": "MOT-specific hypothesis; needs retention/transfer and matched distillation evidence",
+    "extra_compute_must_be_reported": true
   }
 }

@@ -60,12 +60,14 @@ class ContinualLearner:
     def _example(self,sample):
         features,geometry,mask=sample['packed'];positive=sample['positive']
         positive_index=sample['positive_index']
-        others=[c for index,c in enumerate(sample['candidates'])
-                if index!=positive_index and np.linalg.norm(c)>1e-8]
+        graph=self.config.retention.endswith('_graph')
+        others=[(index,c) for index,c in enumerate(sample['candidates'])
+                if index!=positive_index and np.linalg.norm(c)>1e-8 and
+                (not graph or sample['candidate_groups'][index]==sample['track_group'])]
         if not others:return None
-        others.sort(key=lambda c:-float(features[-1]@c))
+        others.sort(key=lambda row:-float(features[-1]@row[1]))
         candidates=np.zeros((16,len(positive)),np.float32);valid=np.zeros(16,np.bool_)
-        rows=[positive]+others[:15];candidates[:len(rows)]=rows;valid[:len(rows)]=True
+        rows=[positive]+[row[1] for row in others[:15]];candidates[:len(rows)]=rows;valid[:len(rows)]=True
         # Preserve the prediction made before this pair was assigned. A later
         # confirming frame must not replace it with an already-updated query.
         query=sample['query']
@@ -75,8 +77,15 @@ class ContinualLearner:
         with torch.no_grad():
             scores=torch.as_tensor(candidates@query/.07).masked_fill(~torch.from_numpy(valid),-1e4)
             teacher=scores.softmax(-1).numpy()
-        return tuple(torch.from_numpy(np.asarray(a).copy()) for a in
+        example=tuple(torch.from_numpy(np.asarray(a).copy()) for a in
                      (features,geometry,mask,candidates,valid,teacher,query))
+        if graph:
+            candidate_ids=np.zeros(16,np.int64)
+            indices=[positive_index]+[row[0] for row in others[:15]]
+            candidate_ids[:len(indices)]=(self.frames-1)*(1<<32)+np.asarray(indices)+1
+            example+=(torch.from_numpy(candidate_ids),)
+            example+=(torch.tensor((self.frames-1)*(1<<32)+sample['physical_track_id'],dtype=torch.int64),)
+        return example
 
     def _remember(self,example):
         self.seen+=1
@@ -114,7 +123,7 @@ class ContinualLearner:
             # All independently confirmed pairs remain eligible. Prioritize
             # within the same fresh buffer without reducing the update budget.
             def hardness(example):
-                features,_,_,candidates,_,_,query=example
+                features,_,_,candidates,_,_,query=example[:7]
                 reference=query if self.config.reliability=='prediction_priority' else features[-1]
                 return 1-float(reference@candidates[0])
             self.recent.sort(key=hardness,reverse=True)
@@ -134,26 +143,35 @@ class ContinualLearner:
         for example in ready:self._remember(example)
         self.model.train()
         batch=default_collate(selected)
-        features,geometry,mask,candidates,valid,teacher,teacher_query=[a.to(self.device) for a in batch]
+        features,geometry,mask,candidates,valid,teacher,teacher_query=[a.to(self.device) for a in batch[:7]]
         query=self.model(features,geometry,mask)
         loss,parts=objective(query,candidates,torch.zeros(len(query),device=self.device,dtype=torch.long),
                              self.config.method,candidate_mask=valid)
         retention=torch.zeros((),device=self.device)
-        if self.config.retention=='relations':
+        if self.config.retention in ['relations','relations_graph','competition_graph']:
             logits=torch.einsum('bd,bnd->bn',query,F.normalize(candidates.detach(),dim=-1))/.07
             logits=logits.masked_fill(~valid,-1e4)
             retention=F.kl_div(F.log_softmax(logits,dim=-1),teacher,reduction='batchmean')
             loss=loss+self.config.retention_weight*retention
-        elif self.config.retention=='features':
+        elif self.config.retention in ['features','features_graph']:
             retention=(1-F.cosine_similarity(query,teacher_query,dim=-1)).mean()
             loss=loss+self.config.retention_weight*retention
+        columns=0
+        column_loss=torch.zeros((),device=self.device)
+        if self.config.retention=='competition_graph':
+            from .competition import column_retention
+            column_loss,columns=column_retention(query,candidates,valid,teacher_query,
+                                                batch[7].to(self.device),batch[8].to(self.device))
+            loss=loss+self.config.retention_weight*column_loss
+            self.stats.setdefault('competition_columns',0);self.stats['competition_columns']+=columns
         self.optimizer.zero_grad(set_to_none=True);loss.backward()
         norm=torch.nn.utils.clip_grad_norm_(self.model.parameters(),1.)
         if not torch.isfinite(loss) or not torch.isfinite(norm):raise FloatingPointError('Online update is nonfinite')
         self.optimizer.step();self.model.eval();self.updates+=1
         self.stats['updates']=self.updates
         self.stats['losses'].append(dict(update=self.updates,frame=self.frames,loss=float(loss.detach()),
-            prediction=float(parts['prediction']),ranking=float(parts['ranking']),retention=float(retention.detach())))
+            prediction=float(parts['prediction']),ranking=float(parts['ranking']),retention=float(retention.detach()),
+            competition_columns=columns,column_retention=float(column_loss.detach())))
 
     def save(self,path,*,video_complete=False):
         Path(path).parent.mkdir(parents=True,exist_ok=True)

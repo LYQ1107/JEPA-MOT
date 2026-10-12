@@ -79,6 +79,12 @@ def main():
             native.jepa_duplicate_iou=.2
             native.history_control=spec.get('history_control','full')
             native.semantic_constant=spec.get('semantic_constant')
+            native.affinity_control=spec.get('affinity_control','residual')
+            if spec.get('association_audit'):
+                audit_path=args.out/key/name/'association_changes.jsonl';audit_path.parent.mkdir(parents=True,exist_ok=True)
+                def write_event(event,path=audit_path):
+                    with path.open('a') as stream:stream.write(json.dumps(event,separators=(',',':'))+'\n')
+                native.association_audit=write_event
             if spec.get('calibration'):
                 native.source_calibration=json.loads(Path(spec['calibration']).read_text())
                 if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')

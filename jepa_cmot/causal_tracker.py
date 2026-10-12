@@ -63,6 +63,9 @@ class CausalHistoryTracker(BYTETracker):
                 positive=np.asarray(feature,np.float32).copy(),evidence=evidence,
                 frame=int(self.frame_id),score=float(det.score),
                 candidates=self._current_candidates.copy())
+            self._accepted[track_id]['candidate_groups']=np.asarray([matching.sig(c) for c in self._current_classes])
+            self._accepted[track_id]['track_group']=matching.sig(track.cls)
+            self._accepted[track_id]['physical_track_id']=track_id
             self._accepted[track_id]['positive_index']=int(np.argmin(
                 np.linalg.norm(self._current_boxes-np.asarray(det.tlbr)[None],axis=1)))
 
@@ -105,19 +108,76 @@ class CausalHistoryTracker(BYTETracker):
                     cost=float(cost[i,j]),row_top1=int(row_best[i])==j,
                     column_top1=int(column_best[j])==i,
                     row_margin=float(row_margins[i]),column_margin=float(column_margins[j]),branch=branch)
-        return super()._fuse_jepa(base_cost,tracks,detections,branch)
+        if getattr(self.args,'affinity_control','residual')=='rank_reward':
+            fused=self._rank_reward(cost,tracks,detections,branch)
+        else:fused=super()._fuse_jepa(base_cost,tracks,detections,branch)
+        sink=getattr(self.args,'association_audit',None)
+        if sink is not None:self._audit_assignment(cost,fused,tracks,detections,branch,sink)
+        return fused
+
+    def _rank_reward(self,cost,tracks,detections,branch):
+        """Change ordering only inside an ambiguous, native-viable competition."""
+        native=matching.fuse_score(cost,detections) if not self.args.mot20 else cost
+        semantic=self._jepa_similarity(tracks,detections)
+        output=cost.copy()
+        for i,track in enumerate(tracks):
+            query=self._track_query(track)
+            if query is None or self.frame_id-self._query_frames[int(track.track_id)]>self.jepa_max_gap:continue
+            valid=np.asarray([matching.sig(track.cls)==matching.sig(d.cls) and
+                              getattr(d,'jepa_feature',None) is not None for d in detections])
+            viable=np.flatnonzero(valid & (native[i]<=self.args.match_thresh))
+            if len(viable)<2:continue
+            native_order=viable[np.argsort(native[i,viable],kind='stable')]
+            if float(native[i,native_order[1]]-native[i,native_order[0]])>.1:continue
+            order=viable[np.argsort(-semantic[i,viable],kind='stable')]
+            best,second=map(int,order[:2]);margin=float(semantic[i,best]-semantic[i,second])
+            if best==int(native_order[0]) or margin<.02:continue
+            output[i,best]=max(0.,float(cost[i,best])-self.jepa_lambda*margin)
+            self.jepa_stats.setdefault('rank_reward_disagreements',0)
+            self.jepa_stats['rank_reward_disagreements']+=1
+        return output
+
+    def _audit_assignment(self,native,fused,tracks,detections,branch,sink):
+        before=matching.fuse_score(native,detections) if not self.args.mot20 else native
+        after=matching.fuse_score(fused,detections) if not self.args.mot20 else fused
+        original=matching.linear_assignment(before,thresh=self.args.match_thresh)[0]
+        changed=matching.linear_assignment(after,thresh=self.args.match_thresh)[0]
+        original={int(i):int(j) for i,j in original};changed={int(i):int(j) for i,j in changed}
+        semantic=self._jepa_similarity(tracks,detections)
+        for i in set(original)|set(changed):
+            a=original.get(i);b=changed.get(i)
+            if a==b:continue
+            track=tracks[i];tid=int(track.track_id)
+            candidates=[]
+            for j in np.argsort(before[i],kind='stable')[:min(6,len(detections))]:
+                d=detections[int(j)]
+                candidates.append(dict(index=int(j),box=np.asarray(d.tlbr).tolist(),
+                    native_class=int(d.cls),score=float(d.score),native_cost=float(before[i,j]),
+                    fused_cost=float(after[i,j]),semantic=float(semantic[i,j])))
+            def choice(j):
+                if j is None:return None
+                d=detections[j]
+                return dict(index=j,box=np.asarray(d.tlbr).tolist(),native_class=int(d.cls),
+                            native_cost=float(before[i,j]),fused_cost=float(after[i,j]),semantic=float(semantic[i,j]))
+            sink(dict(frame=self.frame_id,branch=branch,track_id=tid,native_class=int(track.cls),
+                history=self._prior_trace.get(tid,[]),native_choice=choice(a),jepa_choice=choice(b),
+                candidates=candidates,updates_before_frame=0 if self.learner is None else self.learner.updates,
+                scope='one-step counterfactual on this tracker state; not independent baseline trajectory',GT_read=False))
 
     def prepare_queries(self,width,height):
         """Freeze queries before a caller performs current-frame perception."""
         current=self.frame_id+1
         if self._prepared_frame==current:return
-        self._queries={};self._packed={};self._query_frames={}
+        self._queries={};self._packed={};self._query_frames={};self._prior_trace={}
         existing=list(self.tracked_stracks)+list(self.lost_stracks)
         for track in existing:
             track_id=int(track.track_id);rows=self._observations.get(track_id)
             if not rows:continue
             self._query_frames[track_id]=int(rows[-1]['frame'])
             selected_rows=list(rows)
+            if getattr(self.args,'association_audit',None):
+                self._prior_trace[track_id]=[dict(frame=r['frame'],box=r['box'].tolist(),
+                    confidence=r['confidence']) for r in selected_rows]
             if getattr(self.args,'history_control','full')=='last_only':selected_rows=selected_rows[-1:]
             self._packed[track_id]=pack_history(selected_rows,current,self.jepa_history,
                                                self.feature_dim,width,height)
@@ -139,6 +199,7 @@ class CausalHistoryTracker(BYTETracker):
         values=output_results.detach().cpu().numpy() if torch.is_tensor(output_results) else output_results
         self._current_candidates=np.asarray(values[:,6:6+self.feature_dim],np.float32)
         self._current_boxes=np.asarray(values[:,:4],np.float32)
+        self._current_classes=np.asarray(values[:,5],np.int64)
         result=super().update(output_results,img_info,img_size,imgs,jepa_maps)
         self.causal_stats['frames']+=1
         self.causal_stats['empty_detection_frames']+=int(len(values)==0)
