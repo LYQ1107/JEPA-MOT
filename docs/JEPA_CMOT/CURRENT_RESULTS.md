@@ -189,3 +189,21 @@ BDD clips source模型/校准已经准备好，完整开发集部署排队在ran
 第一波六组stage1完成全部19开发视频回测，stage0逐指标等于此前实际source frozen结果。适应overcast后HOTA变化（clear / overcast）：CE FT -0.417 / +0.045，联合FT +0.255 / -0.173；CE replay -0.604 / +0.092，联合replay +0.016 / -0.158；feature KD -0.259 / -0.607，row KD -0.379 / -0.489。联合replay四域均值相对本身source仅+0.071，其它组均值下降。
 
 联合模型在这一阶段的旧source HOTA较稳定，但新域分数下降，普通KD也没有自动改善，不能据此宣称stability-plasticity优势。self-teacher实际预算差异仍须报告，固定教师H2/H3进一步检验。stage2/3回测未完成，不填最终forgetting/BWT/FWT；完整指标见BDD_CONTINUAL_STAGE1_PARTIAL_RESULTS.json。
+
+## 固定教师伪样本的离线身份诊断
+
+在C2已完成overcast/rainy域边界，按九字段memory的全局frame/detection key还原正例和历史框；正例descriptor逐值一致，608/619个可还原历史观测的feature最大差5.96e-8、bbox最大误差6.87e-5像素。四组的frames/updates/seen和memory/recent的7个输入/物理字段完全相同；query/teacher分布允许因模型不同而不同。目标GT只在独立诊断使用。
+
+stage1 memory128：119身份一致、4混合历史、5历史无GT匹配；remaining fresh25全部一致。stage2 memory128：114一致、6混合、1确认身份错配、6历史未匹配、1当前检测未匹配；remaining fresh28全部一致。这是reservoir和残余fresh buffer的终态，不能外推为全部15,667/后续确认对的错误率，也不能代表按梯度重复次数加权的训练分布。
+
+stage2那1个确认错配的prediction need=0.1333，而一致样本均值约0.1206；不能由单个错误证明error gate有效。高预测误差也可能反映困难身份/检测噪声。当前有限记忆中大多可核对的正例身份正确，持续学习负迁移不能直接全归咎于伪对错配；完整source-validation snapshot检查继续，以区分表示/排序退化和MOT融合问题。聚合证据BDD_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT.json。
+
+## 完整源验证快照：预测loss下降但身份排序下降
+
+对六组×四stage的24个实际快照，使用原source内部5个heldout视频的全部23,623对、相同gaps1/2/4/8和source_GT候选，CPU FP32无优化复评。按训练fingerprint核验输入几何1280×720，stage0 source rank1与原GPU验证最大差小于1e-8、预测error差小于3e-8。不是新的目标GT监督。
+
+从stage0到stage3：CE replay rank1 .524940→.507086，prediction error .671088→.593682；联合replay rank1 .515276→.506683，error .232598→.207897；联合FT .515276→.503150、error .232598→.185719。联合feature KD最终rank1 .506580，row KD .504503。latent接近真目标并不自动保持hard-negative区分：联合replay的positive-minus-hard-negative mean cosine .020826→.014724。
+
+该联合replay全源query covariance trace .542556→.567305，distinct-pair mean cosine .457421→.432671，未显示全局完全collapse；不能用这一项排除条件性/身份级退化。四stage的source描述符诊断已完整，stage2/3的MOT回测仍在运行，不能把该表称为完整MOT遗忘证据。不同目标的loss尺度不同，不跨模型池化报告loss与AssA相关性；等真实完整矩阵后再做逐方法探索性分析。见BDD_COMPLETE_SOURCE_VALIDATION_SNAPSHOT_AUDIT.json。
+
+已将53个本次完成source模型的冗余中间optimizer/RNG状态缩减，保存所有901份中间模型weight、全部final.pt及首/中/末完整训练state；逐文件验证θ tensor相同并记录前后SHA，释放约4.797GB。历史备份与NAS不改。详见SOURCE_CHECKPOINT_COMPACTION_SUMMARY.json。

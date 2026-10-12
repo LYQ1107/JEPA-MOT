@@ -1,0 +1,151 @@
+{
+  "scope": "offline completed-domain reservoir and remaining fresh buffer identity audit",
+  "target_GT_fed_to_training_or_gates": false,
+  "definition": "nearest IoU05 group-compatible GT; dominant matched-history identity purity >=.75",
+  "limitation": "not all proposed/confirmed pseudo pairs or frequency-weighted training batches; unmatched boxes are separate from confirmed identity mismatches; clipped historical gaps cannot be recovered and are excluded",
+  "sequence_protocol_sha256": "63a09a3cc68641a662990c170541271baf8a7cbbd8c1f10bdc2ea1e499258648",
+  "snapshots": [
+    {
+      "stage": 1,
+      "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/predictive_ranking_none_graph/b251064f-5f6b663e/learner.pt",
+      "checkpoint_sha256": "b38172430d885af1d2771bcead1ab440edeb5d7f089bf9ebc83eccf02d852dc4",
+      "native_frames": 2630,
+      "updates": 328,
+      "all_delayed_confirmed": 15667,
+      "counts": {
+        "memory": {
+          "identity_consistent": 119,
+          "mixed_identity_history": 4,
+          "unmatched_history": 5
+        },
+        "recent": {
+          "identity_consistent": 25
+        }
+      },
+      "maximum_positive_feature_reconstruction_error": 0.0,
+      "reconstructed_history_observations": 608,
+      "maximum_history_feature_reconstruction_error": 5.960464477539063e-08,
+      "maximum_history_box_reconstruction_error_pixels": 6.866455078125e-05,
+      "matched_controls": {
+        "predictive_ranking_none_graph": {
+          "sample_fields_equal": true,
+          "updates": 328,
+          "checkpoint_sha256": "b38172430d885af1d2771bcead1ab440edeb5d7f089bf9ebc83eccf02d852dc4"
+        },
+        "predictive_ranking_features_graph": {
+          "sample_fields_equal": true,
+          "updates": 328,
+          "checkpoint_sha256": "3331edf297984d2749a8b44f15ad07f607894cc31e347f0af5fb84c69b3df25b"
+        },
+        "predictive_ranking_relations_graph": {
+          "sample_fields_equal": true,
+          "updates": 328,
+          "checkpoint_sha256": "7ecdf634950f07535d65b731d7bfd2453361a48a938bccd6f71ce83d03bf3f18"
+        },
+        "predictive_ranking_competition_graph": {
+          "sample_fields_equal": true,
+          "updates": 328,
+          "checkpoint_sha256": "f8a1c3336520f9d4a6ce3c66f5bf9ff7cb88d50b7d4ef502d3ac75490e37e048"
+        }
+      },
+      "discrepancy_by_status": {
+        "unmatched_history": {
+          "prediction_need": 0.11275060176849365,
+          "appearance_hardness": 0.01267150640487671
+        },
+        "mixed_identity_history": {
+          "prediction_need": 0.1713697463274002,
+          "appearance_hardness": 0.09097030758857727
+        },
+        "identity_consistent": {
+          "prediction_need": 0.11845879794822799,
+          "appearance_hardness": 0.03640285299883948
+        }
+      },
+      "history_coverage_counts": {
+        "4/4": 139,
+        "2/3": 2,
+        "2/4": 1,
+        "3/4": 4,
+        "0/4": 5,
+        "3/3": 2
+      }
+    },
+    {
+      "stage": 2,
+      "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage2_rainy/0081da60-5fa22cc6/predictive_ranking_none_graph/0081da60-5fa22cc6/learner.pt",
+      "checkpoint_sha256": "68ba0db96fdf0afc6e13653cddeb342470bab047f7d152c3c3cd5c0fc2efc642",
+      "native_frames": 4560,
+      "updates": 570,
+      "all_delayed_confirmed": 26973,
+      "counts": {
+        "memory": {
+          "identity_consistent": 114,
+          "mixed_identity_history": 6,
+          "confirmed_identity_mismatch": 1,
+          "unmatched_history": 6,
+          "unmatched_current_detection": 1
+        },
+        "recent": {
+          "identity_consistent": 28
+        }
+      },
+      "maximum_positive_feature_reconstruction_error": 0.0,
+      "reconstructed_history_observations": 619,
+      "maximum_history_feature_reconstruction_error": 5.960464477539063e-08,
+      "maximum_history_box_reconstruction_error_pixels": 6.866455078125e-05,
+      "matched_controls": {
+        "predictive_ranking_none_graph": {
+          "sample_fields_equal": true,
+          "updates": 570,
+          "checkpoint_sha256": "68ba0db96fdf0afc6e13653cddeb342470bab047f7d152c3c3cd5c0fc2efc642"
+        },
+        "predictive_ranking_features_graph": {
+          "sample_fields_equal": true,
+          "updates": 570,
+          "checkpoint_sha256": "0aad51ce88c3102b9fee4e79c43488ad6c22b42677aa50bb474ed4d2353c54cc"
+        },
+        "predictive_ranking_relations_graph": {
+          "sample_fields_equal": true,
+          "updates": 570,
+          "checkpoint_sha256": "b9273ed91068395c6bfe75a556fdc6c9a2b70131fda1622df566b3601d9ef751"
+        },
+        "predictive_ranking_competition_graph": {
+          "sample_fields_equal": true,
+          "updates": 570,
+          "checkpoint_sha256": "365db33eaad80b1e01e7a34929b41a486deb322a9effc4edeb187bce579dfeec"
+        }
+      },
+      "discrepancy_by_status": {
+        "unmatched_current_detection": {
+          "prediction_need": 0.3343997001647949,
+          "appearance_hardness": 0.20853197574615479
+        },
+        "mixed_identity_history": {
+          "prediction_need": 0.13210845987002054,
+          "appearance_hardness": 0.020671685536702473
+        },
+        "identity_consistent": {
+          "prediction_need": 0.12056621951116643,
+          "appearance_hardness": 0.03571828780039935
+        },
+        "confirmed_identity_mismatch": {
+          "prediction_need": 0.13330858945846558,
+          "appearance_hardness": 0.020588159561157227
+        },
+        "unmatched_history": {
+          "prediction_need": 0.14612356821695963,
+          "appearance_hardness": 0.0518050491809845
+        }
+      },
+      "history_coverage_counts": {
+        "4/4": 139,
+        "0/4": 6,
+        "2/4": 2,
+        "1/3": 1,
+        "3/4": 4,
+        "3/3": 4
+      }
+    }
+  ]
+}

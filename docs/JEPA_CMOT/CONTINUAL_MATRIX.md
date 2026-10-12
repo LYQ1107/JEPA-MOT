@@ -9,3 +9,5 @@
 每个 stage 评测所有四个 development 域，报告 HOTA/AssA/IDF1/DetA/MOTA/IDSW。最终平均对四域等权，不按视频数量调权。Average Forgetting 使用旧域在学会后到最终阶段之前的最佳值减最终值，主表截断为非负，同时报告未截断值和相对学完当时的BWT；FWT使用该方法实际stage0未适应目标域分数为参考。continual_analysis.py强制完整矩阵后才生成最终汇总。
 
 冻结预测器参考来自实际完整stage0评测，同一静态权重、校准和测试输入在每stage重复该结果；不借用旧历史抽帧实验值。配对统计从各视频 raw TrackEval 计数重新聚合。
+
+BDD六组stage1已完成19视频/四域回测，详细记录BDD_CONTINUAL_STAGE1_PARTIAL_RESULTS.json；stage2/3仍待MOT回测。source内部完整23,623对上的24快照descriptor诊断已独立完成，见BDD_COMPLETE_SOURCE_VALIDATION_SNAPSHOT_AUDIT.json，不能填充缺失MOT矩阵。新增reverse17、UA23/42及pure-prediction在线任务已登记队列，状态仍QUEUED而非结果。

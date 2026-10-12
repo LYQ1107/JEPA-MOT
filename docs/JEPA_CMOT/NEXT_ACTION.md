@@ -15,3 +15,5 @@ C2还需与通用RKD-D距离保持比较，相同教师/负例/九字段memory/�
 BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测迁移只在当前完整视频终态之后，GPU5先完成现有真实链路benchmark。
 
 纯预测目标的在线贡献不能由prediction+ranking替代。已补排seed17纯预测FT/replay的两数据集forward与reverse；reverse17的CE/联合六组同时保留。UA source seeds23/42已真实训练和source-only校准完成，forward12组及reverse17/23/42共18组已补排（各附pure17两组），相同detector/caches/splits。队列等待现有完整矩阵/开发组终态之后占用GPU；排队状态不能作为已运行的科学结果。BDD原seed23/42两顺序队列继续，新增任务等待该队列两次complete，GPU0队列等待六个已有完整实验。
+
+完整source-validation诊断已经覆盖24快照，需与后续source AssA/HOTA逐方法对应；避免混合CE与预测模型不同loss尺度。官方1664-D predictor先前小规模工程cache不能代替正式读数对照；补充需要相同合法时序输入、明确encoder与masked predictor的信息差别、匹配head参数/源预算和全视频部署，作为仍未完成的要求保留。

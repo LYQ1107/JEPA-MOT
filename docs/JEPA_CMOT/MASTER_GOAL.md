@@ -1,4 +1,4 @@
-# 当前状态：ACTIVE / Phase A
+# 当前状态：ACTIVE / 完整原生视频持续适应与诊断
 
 研究分支：`research/predictive-jepa-cmot-20261013`。历史结果与新训练分开；尚未形成新方法结论。
 

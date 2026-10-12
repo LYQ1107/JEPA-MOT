@@ -81,3 +81,11 @@ Observation：clips源验证的pure prediction排序接近CE，但同一三视�
 ## 保守竞争奖励没有建立JEPA优势
 
 Observation：全BDD开发集新预测规则39.9134，geometry39.9022，同规则CE39.9124；预测只改变23次一步决策、局部修复和反改错各1。原残差虽改变1732次，修复与损害均存在。Hypothesis：目前latent预测的有效身份信息和检测噪声不足以稳定改变正确的native排序；过于保守的介入也会使机制近似geometry。Discriminating experiment：既有crop/history长度的完整域检验、纯预测的在线适应、固定教师同预算与多顺序遗忘矩阵；不能仅放宽rank阈值来得到更多改动，不能从这些事件数量宣布因果泛化结论。
+
+## 伪关联错误不是已经证实的唯一原因
+
+Observation：固定教师completed stage1/2的reservoir128中，身份一致119/114，确认错配0/1，混合历史4/6，另有GT无法匹配；真实global候选键与历史feature/box重构已验证。Hypothesis：除了伪对噪声，还可能有latent预测/排序受更新影响或固定source校准在新θ上失配。Discriminating experiment：在不改变θ的前提下，以完全相同source内部验证视频、候选、gaps复评所有域边界snapshots，后续与真实source AssA/HOTA对照。该终态reservoir诊断不等于全训练错误率，不据此删除训练样例或调目标GT门控。
+
+## “预测更准”与“身份更可分”出现分离
+
+Observation：完整原source-validation上联合replay最终error下降.02470，但rank1下降.00859、hard-negative cosine margin从.02083降至.01472；全局query covariance trace并未趋于零。Hypothesis：latent匹配的改善没有保护身份区分，可能受域变化、候选来源和source-calibration与更新θ的交互影响；全局collapse目前缺乏证据。Discriminating experiment：已有固定教师matched负例、candidate-column和通用RKD的完整矩阵，纯预测在线对照与对象crop/history长度；补齐encoder/official-predictor读数。Architectural Change：C2保护同帧跨轨迹候选竞争、对全部对照统一native-group负例，不改变检测/生命周期；结果仍待完整MOT回测，不能由源验证表宣告该机制有效。

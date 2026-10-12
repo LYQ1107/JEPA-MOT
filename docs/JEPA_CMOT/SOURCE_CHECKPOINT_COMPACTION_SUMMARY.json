@@ -1,0 +1,70 @@
+{
+  "scope": "only completed new source experiments; every trained intermediate model weight preserved",
+  "families": [
+    {
+      "family": "source_history_v1",
+      "completed_models": 10,
+      "intermediate_weights": 170,
+      "full_checkpoints_retained": 40,
+      "bytes_released": 905691120,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v1/source_checkpoint_compaction.json"
+    },
+    {
+      "family": "source_history_v2",
+      "completed_models": 3,
+      "intermediate_weights": 51,
+      "full_checkpoints_retained": 12,
+      "bytes_released": 271707048,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/source_checkpoint_compaction.json"
+    },
+    {
+      "family": "source_history_multiseed_v1",
+      "completed_models": 12,
+      "intermediate_weights": 204,
+      "full_checkpoints_retained": 48,
+      "bytes_released": 1086828896,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_multiseed_v1/source_checkpoint_compaction.json"
+    },
+    {
+      "family": "source_history_clips_v1",
+      "completed_models": 6,
+      "intermediate_weights": 102,
+      "full_checkpoints_retained": 24,
+      "bytes_released": 543414672,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_clips_v1/source_checkpoint_compaction.json"
+    },
+    {
+      "family": "source_projection_v1",
+      "completed_models": 2,
+      "intermediate_weights": 34,
+      "full_checkpoints_retained": 8,
+      "bytes_released": 180721072,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_projection_v1/source_checkpoint_compaction.json"
+    },
+    {
+      "family": "source_relation_v1",
+      "completed_models": 2,
+      "intermediate_weights": 34,
+      "full_checkpoints_retained": 8,
+      "bytes_released": 181137904,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_relation_v1/source_checkpoint_compaction.json"
+    },
+    {
+      "family": "history_length_clips_v1",
+      "completed_models": 18,
+      "intermediate_weights": 306,
+      "full_checkpoints_retained": 72,
+      "bytes_released": 1627073200,
+      "all_model_tensors_verified_equal": true,
+      "local_audit": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/history_length_clips_v1/source_checkpoint_compaction.json"
+    }
+  ],
+  "total_bytes_released": 4796573912,
+  "major_checkpoints": "final.pt plus first/middle/final full training states; no NAS data or historical backup modified"
+}

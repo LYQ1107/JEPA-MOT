@@ -42,10 +42,63 @@ def compact(root):
     return result
 
 
+def compact_source(root):
+    """Retain every model weight and first/middle/final complete source states."""
+    root=Path(root);records=[];retained=[];models=0
+    report_path=root/'source_checkpoint_compaction.json'
+    if report_path.exists():records=json.loads(report_path.read_text())['intermediate_states']
+    active=set()
+    for process in Path('/proc').iterdir():
+        if not process.name.isdigit():continue
+        try:argv=(process/'cmdline').read_bytes().decode().split('\0')
+        except (OSError,UnicodeDecodeError):continue
+        if 'jepa_cmot.train_source' in argv and '--out' in argv:
+            active.add(str(Path(argv[argv.index('--out')+1]).resolve()))
+    for metric_path in root.glob('**/metrics.json'):
+        metric=json.loads(metric_path.read_text());directory=metric_path.parent
+        if metric.get('status')!='complete' or metric.get('engineering_smoke_only') is not False:continue
+        if str(directory.resolve()) in active:continue
+        final=directory/'final.pt'
+        if sha256(final)!=metric['checkpoint_sha256']:
+            raise ValueError('Completed source checkpoint differs from its metrics')
+        checkpoints=sorted(directory.glob('step_*.pt'))
+        if not checkpoints:continue
+        final_step=int(metric['steps']);models+=1
+        keep={int(checkpoints[0].stem.split('_')[1]),final_step//2,final_step}
+        for checkpoint in checkpoints:
+            step=int(checkpoint.stem.split('_')[1])
+            if step in keep:
+                retained.append(str(checkpoint.resolve()));continue
+            payload=torch.load(checkpoint,map_location='cpu')
+            if payload['experiment_fingerprint']!=metric['experiment_fingerprint']:
+                raise ValueError('Source intermediate belongs to a different experiment')
+            export={key:payload[key] for key in ['state_dict','config','step','method','experiment_fingerprint','losses','seconds']}
+            export['scope']='source intermediate model weights; first/middle/final optimizer states and final.pt retained'
+            lightweight=checkpoint.with_name('weights_'+checkpoint.name[5:])
+            torch.save(export,lightweight);saved=torch.load(lightweight,map_location='cpu')
+            if not all(torch.equal(value,saved['state_dict'][key]) for key,value in payload['state_dict'].items()):
+                raise ValueError('Source intermediate model export differs')
+            record=dict(original=str(checkpoint.resolve()),original_sha256=sha256(checkpoint),
+                        original_bytes=checkpoint.stat().st_size,weights=str(lightweight.resolve()),
+                        weights_sha256=sha256(lightweight),weights_bytes=lightweight.stat().st_size,step=step)
+            checkpoint.unlink();records.append(record)
+        retained.append(str(final.resolve()))
+    result=dict(scope='completed formal source training only; every intermediate model weight retained',
+                completed_models=models,intermediate_states=records,full_checkpoints_retained=sorted(retained),
+                bytes_released=sum(r['original_bytes']-r['weights_bytes'] for r in records))
+    report_path.write_text(json.dumps(result,indent=2))
+    print('SOURCE_CHECKPOINTS_COMPACTED',root,'bytes_released',result['bytes_released'],flush=True)
+    return result
+
+
 def main():
     parser=argparse.ArgumentParser()
-    parser.add_argument('--root',type=Path,required=True)
-    args=parser.parse_args();compact(args.root)
+    targets=parser.add_mutually_exclusive_group(required=True)
+    targets.add_argument('--root',type=Path)
+    targets.add_argument('--source-root',type=Path)
+    args=parser.parse_args();torch.set_num_threads(4)
+    if args.root:compact(args.root)
+    else:compact_source(args.source_root)
 
 
 if __name__=='__main__':main()
