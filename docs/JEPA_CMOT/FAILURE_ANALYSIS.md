@@ -33,3 +33,7 @@ BDD：train/val 文件数量一致，必须审计视频集合；源 detector 配
 初始 CE-only source rank-1 约 76.38% 而 cosine prediction error 约 0.61，存在“排序改善但绝对相似度尺度变差”的风险。旧 residual-only 正增益融合可能偏向高 raw cosine 的预测目标，需在正式模型比较中加入相同 source-supervised 校准与 row-relative scorer 控制，不能将尺度差异误归因于 JEPA。
 
 源历史 v2 已冻结统一 tie 规则，三个正式目标均完成 2,000 步。共同 affinity 校准只拟合 source 内部验证上的两个单调参数，不改变候选排序；raw-cosine 路线保留用于判断改进是否来自尺度变化。校准结果及每个模型的 checkpoint/cache SHA256 见 SOURCE_UA_CALIBRATION.json。
+
+## 六类到原生八类的语义接口
+
+恢复工具把 COCO 六类直接映射为 0..5，但 GeneralTrack 原始 sig 将 0/1 视为 person/rider，2..5 为车辆，6/7 为两轮车。修正映射为 [0,2,3,4,6,7] 并把输出转换回六类。另发现 legacy JEPA positive residual 能让原生类别 mask=0 的边重新达到匹配阈值；新 scorer 对跨原生类别组的相似度置零。旧 full-video v1 原始记录保留并标记失效，v2 使用相同检测行和缓存重跑全部控制。这些是共同接口修正，不能归因于 JEPA。

@@ -1,0 +1,16 @@
+{
+  "0": {
+    "updates": 2,
+    "resume_bit_identical": true,
+    "memory": 0,
+    "recent": 0,
+    "uses_prediction_from_before_assignment": true
+  },
+  "8": {
+    "updates": 2,
+    "resume_bit_identical": true,
+    "memory": 4,
+    "recent": 1,
+    "uses_prediction_from_before_assignment": true
+  }
+}

@@ -81,5 +81,26 @@
     ],
     "target_gt_used": false,
     "raw_cosine_controls_retained": true
+  },
+  "native_class_interface": {
+    "detector_classes": [
+      "pedestrian",
+      "car",
+      "truck",
+      "bus",
+      "motorcycle",
+      "bicycle"
+    ],
+    "to_native_bdd8": [
+      0,
+      2,
+      3,
+      4,
+      6,
+      7
+    ],
+    "JEPA_cross_group_edges_allowed": false,
+    "geometry_cross_group_duplicate_allowed": false,
+    "all_methods_rerun": true
   }
 }

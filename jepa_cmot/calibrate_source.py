@@ -18,14 +18,16 @@ def main():
     parser.add_argument('--models',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--dataset',required=True)
+    parser.add_argument('--methods',nargs='+',default=['frozen_last','discriminative','predictive','predictive_ranking'])
+    parser.add_argument('--reference-metrics',type=Path)
     args=parser.parse_args();torch.set_num_threads(4)
     metadata=json.loads(args.cache.with_suffix('.npz.json').read_text())
     if not metadata['gt_read'] or metadata['target_domains_read']:raise ValueError('Calibration is source-only')
-    reference=json.loads((args.models/'discriminative/metrics.json').read_text())
+    reference=json.loads((args.reference_metrics or args.models/'discriminative/metrics.json').read_text())
     width,height=(960,540) if args.dataset=='ua_detrac' else (1280,720)
     data=SourcePairs(args.cache,4,reference['validation_videos'],width,height,prediction_gaps=[1,2,4,8])
     args.out.mkdir(parents=True,exist_ok=True)
-    for method in ['frozen_last','discriminative','predictive','predictive_ranking']:
+    for method in args.methods:
         model=None;checkpoint=args.models/method/'final.pt'
         if method!='frozen_last':
             payload=torch.load(checkpoint,map_location='cpu');model=HistoryPredictor(PredictorConfig(**payload['config']))

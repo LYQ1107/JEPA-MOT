@@ -1,0 +1,150 @@
+{
+  "relation_predictive": {
+    "status": "complete",
+    "engineering_smoke_only": false,
+    "method": "relation_predictive",
+    "config": {
+      "feature_dim": 1024,
+      "history": 4,
+      "metadata_dim": 10,
+      "hidden_dim": 128,
+      "residual_scale": 0.25
+    },
+    "seed": 17,
+    "steps": 2000,
+    "batch_size": 64,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": 662400,
+    "fit_videos": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "validation_videos": [
+      14,
+      15,
+      16
+    ],
+    "fit_samples": 43921,
+    "validation_samples": 11831,
+    "source_validation_rank1": 0.7474008992562461,
+    "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+    "source_validation_tied_examples": 1097,
+    "source_validation_prediction_error": 0.5679121996844352,
+    "loss_first": {
+      "step": 1,
+      "prediction": 0.10384409129619598,
+      "ranking": 1.5681729316711426,
+      "relation": 0.6047050952911377,
+      "gradient_norm": 1.011231780052185
+    },
+    "loss_last": {
+      "step": 2000,
+      "prediction": 0.5643277764320374,
+      "ranking": 0.8473329544067383,
+      "relation": 0.15704765915870667,
+      "gradient_norm": 0.36481577157974243
+    },
+    "checkpoint_sha256": "3945ce16edb596d2fc9ea5fdbc4827cb9c1c13dc6daac912f901f692877153c6",
+    "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+    "experiment_fingerprint": "959338912868f6b45b63a850e749e0bf7ba95d3535f3a4d0eb61564404374a7a",
+    "training_code_sha256": {
+      "train_source.py": "99c806bb1a65501a2c8466f371d73f9bdc8a694f4ac18a14d6ffd890cb76085a",
+      "models.py": "dd004c2400c841598cfd40cd8058a5e49e24fcba6025988d36c3728c09600d8c",
+      "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+    },
+    "git_commit": "c759693381c8b640339dde284c8b659f00072c3b",
+    "seconds": 71.26102347671986,
+    "target_gt_used": false,
+    "candidate_input_to_history_predictor": false
+  },
+  "relation_ranking": {
+    "status": "complete",
+    "engineering_smoke_only": false,
+    "method": "relation_ranking",
+    "config": {
+      "feature_dim": 1024,
+      "history": 4,
+      "metadata_dim": 10,
+      "hidden_dim": 128,
+      "residual_scale": 0.25
+    },
+    "seed": 17,
+    "steps": 2000,
+    "batch_size": 64,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": 662400,
+    "fit_videos": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "validation_videos": [
+      14,
+      15,
+      16
+    ],
+    "fit_samples": 43921,
+    "validation_samples": 11831,
+    "source_validation_rank1": 0.7442735225911898,
+    "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+    "source_validation_tied_examples": 1133,
+    "source_validation_prediction_error": 0.5973473783378095,
+    "loss_first": {
+      "step": 1,
+      "prediction": 0.10384409129619598,
+      "ranking": 1.5681729316711426,
+      "relation": 0.6047050952911377,
+      "gradient_norm": 2.507201910018921
+    },
+    "loss_last": {
+      "step": 2000,
+      "prediction": 0.6098524928092957,
+      "ranking": 0.627692699432373,
+      "relation": 0.22254237532615662,
+      "gradient_norm": 1.0852612257003784
+    },
+    "checkpoint_sha256": "2652b26cd5815301ff9d43076e9be441cd41c4ff49b3b76e3db25df5f27d0345",
+    "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+    "experiment_fingerprint": "4d3fe3aa1dbda8dcd1c87f0710a80443ae184e36fe00a4a30adb3b081499a7d2",
+    "training_code_sha256": {
+      "train_source.py": "99c806bb1a65501a2c8466f371d73f9bdc8a694f4ac18a14d6ffd890cb76085a",
+      "models.py": "dd004c2400c841598cfd40cd8058a5e49e24fcba6025988d36c3728c09600d8c",
+      "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+    },
+    "git_commit": "c759693381c8b640339dde284c8b659f00072c3b",
+    "seconds": 71.57897284626961,
+    "target_gt_used": false,
+    "candidate_input_to_history_predictor": false
+  }
+}

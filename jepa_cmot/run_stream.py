@@ -20,6 +20,8 @@ from .causal_tracker import CausalHistoryTracker
 from .online import ContinualLearner,OnlineConfig
 
 ROOT=Path(__file__).resolve().parents[1]
+COCO6_TO_NATIVE8=np.asarray([0,2,3,4,6,7],np.int64)
+NATIVE8_TO_COCO6={int(native):index+1 for index,native in enumerate(COCO6_TO_NATIVE8)}
 
 
 def main():
@@ -30,6 +32,8 @@ def main():
     parser.add_argument('--checkpoint',type=Path)
     parser.add_argument('--online-config',type=Path)
     parser.add_argument('--source-calibration',type=Path)
+    parser.add_argument('--resume-learner',type=Path)
+    parser.add_argument('--geometry-duplicates',action='store_true')
     parser.add_argument('--engineering-smoke',action='store_true')
     args=parser.parse_args()
     torch.set_num_threads(4);torch.manual_seed(17);np.random.seed(17);random.seed(17)
@@ -39,9 +43,13 @@ def main():
         config=OnlineConfig(**json.loads(args.online_config.read_text())) if args.online_config else OnlineConfig()
         if args.method=='trained' and config.enabled:raise ValueError('Frozen evaluation cannot adapt')
         learner=ContinualLearner(args.checkpoint,config)
+        if args.resume_learner:learner.resume(args.resume_learner)
     experiment=dict(method=args.method,inputs_sha256=hashlib.sha256(args.inputs.read_bytes()).hexdigest(),
         checkpoint=str(args.checkpoint),online_config=str(args.online_config),
         source_calibration=str(args.source_calibration),
+        resume_learner=str(args.resume_learner),
+        geometry_duplicates=args.geometry_duplicates,
+        class_mapping='coco6-to-author-bdd8-v1',
         engineering_smoke_only=args.engineering_smoke)
     report_path=args.out/'complete.json'
     if report_path.exists():
@@ -81,6 +89,8 @@ def main():
             '--jepa-feature-dim',str(dimension),'--jepa-lambda','0.15','--jepa-history',
             str(4 if learner is None else learner.model.config.history)])
         native.roialign_size=tuple(native.roialign_size)
+        native.geometry_duplicates=args.geometry_duplicates
+        native.jepa_duplicate_iou=.2
         if args.source_calibration:
             native.source_calibration=json.loads(args.source_calibration.read_text())
             if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')
@@ -96,6 +106,7 @@ def main():
                 tensor=torch.from_numpy(raw).permute(2,0,1).float()
                 tensor=resize(tensor,[720,1280],antialias=False).unsqueeze(0).cuda()
                 detections=np.asarray(image.get('detection',[]),np.float32).reshape(-1,6)
+                detections[:,5]=COCO6_TO_NATIVE8[detections[:,5].astype(np.int64)]
                 if cache is not None:
                     key=indices[int(image['id'])];features=cache['features'][offsets[key]:offsets[key+1]]
                     if len(features)!=len(detections):raise ValueError('Detection/feature offsets changed')
@@ -105,7 +116,7 @@ def main():
                 for track in tracks:
                     x,y,w,h=track.tlwh
                     if w*h<=native.min_box_area:continue
-                    lines.append(f"{image['frame_id']},{track.track_id},{x:.4f},{y:.4f},{w:.4f},{h:.4f},{track.score:.6f},{int(track.cls)+1},-1,-1\n")
+                    lines.append(f"{image['frame_id']},{track.track_id},{x:.4f},{y:.4f},{w:.4f},{h:.4f},{track.score:.6f},{NATIVE8_TO_COCO6[int(track.cls)]},-1,-1\n")
                 if (index+1)%100==0:print('TRACK_PROGRESS',name,index+1,len(images),flush=True)
         (directory/'tracks.txt').write_text(''.join(lines))
         if learner is not None:learner.save(directory/'learner.pt')

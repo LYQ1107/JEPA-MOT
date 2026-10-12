@@ -35,6 +35,7 @@ class ContinualLearner:
         self.config=config;self.device=device;self.rng=random.Random(config.seed)
         self.source_feature_metadata=payload.get('source_feature_metadata')
         self.pending={};self.memory=[];self.seen=0;self.frames=0;self.updates=0
+        self.recent=[]
         self.stats=dict(proposed=0,delayed_confirmed=0,reliability_rejected=0,need_rejected=0,
                         video_resets=0,updates=0,losses=[])
 
@@ -58,13 +59,16 @@ class ContinualLearner:
 
     def _example(self,sample):
         features,geometry,mask=sample['packed'];positive=sample['positive']
-        others=[c for c in sample['candidates'] if np.linalg.norm(c)>1e-8 and
-                np.linalg.norm(c-positive)>1e-6]
+        positive_index=sample['positive_index']
+        others=[c for index,c in enumerate(sample['candidates'])
+                if index!=positive_index and np.linalg.norm(c)>1e-8]
         if not others:return None
         others.sort(key=lambda c:-float(features[-1]@c))
         candidates=np.zeros((16,len(positive)),np.float32);valid=np.zeros(16,np.bool_)
         rows=[positive]+others[:15];candidates[:len(rows)]=rows;valid[:len(rows)]=True
-        query=self.predict(features[None],geometry[None],mask[None])[0]
+        # Preserve the prediction made before this pair was assigned. A later
+        # confirming frame must not replace it with an already-updated query.
+        query=sample['query']
         need=1-float(query@positive)
         if self.config.reliability=='prediction_need' and need<self.config.need_threshold:
             self.stats['need_rejected']+=1;return None
@@ -72,7 +76,7 @@ class ContinualLearner:
             scores=torch.as_tensor(candidates@query/.07).masked_fill(~torch.from_numpy(valid),-1e4)
             teacher=scores.softmax(-1).numpy()
         return tuple(torch.from_numpy(np.asarray(a).copy()) for a in
-                     (features,geometry,mask,candidates,valid,teacher))
+                     (features,geometry,mask,candidates,valid,teacher,query))
 
     def _remember(self,example):
         self.seen+=1
@@ -98,11 +102,21 @@ class ContinualLearner:
             self.stats['proposed']+=1
             if self.reliable(sample):self.pending[track_id]=sample
             else:self.stats['reliability_rejected']+=1
+        self.recent.extend(ready)
+        self.recent=self.recent[-4*self.config.batch:]
+        if self.frames%self.config.interval or len(self.recent)<self.config.batch:
+            for example in ready:self._remember(example)
+            return
+        replay_count=self.config.batch//2 if self.memory and self.config.replay else 0
+        fresh_count=self.config.batch-replay_count
+        selected=self.recent[:fresh_count]
+        self.recent=self.recent[fresh_count:]
+        if replay_count:
+            selected+=self.rng.choices(self.memory,k=replay_count)
         for example in ready:self._remember(example)
-        if self.frames%self.config.interval or len(self.memory)<self.config.batch:return
         self.model.train()
-        batch=default_collate(self.rng.sample(self.memory,self.config.batch))
-        features,geometry,mask,candidates,valid,teacher=[a.to(self.device) for a in batch]
+        batch=default_collate(selected)
+        features,geometry,mask,candidates,valid,teacher,teacher_query=[a.to(self.device) for a in batch]
         query=self.model(features,geometry,mask)
         loss,parts=objective(query,candidates,torch.zeros(len(query),device=self.device,dtype=torch.long),
                              self.config.method,candidate_mask=valid)
@@ -111,6 +125,9 @@ class ContinualLearner:
             logits=torch.einsum('bd,bnd->bn',query,F.normalize(candidates.detach(),dim=-1))/.07
             logits=logits.masked_fill(~valid,-1e4)
             retention=F.kl_div(F.log_softmax(logits,dim=-1),teacher,reduction='batchmean')
+            loss=loss+self.config.retention_weight*retention
+        elif self.config.retention=='features':
+            retention=(1-F.cosine_similarity(query,teacher_query,dim=-1)).mean()
             loss=loss+self.config.retention_weight*retention
         self.optimizer.zero_grad(set_to_none=True);loss.backward()
         norm=torch.nn.utils.clip_grad_norm_(self.model.parameters(),1.)
@@ -125,11 +142,13 @@ class ContinualLearner:
         torch.save(dict(state_dict=self.model.state_dict(),config=asdict(self.model.config),
             online_config=asdict(self.config),optimizer=self.optimizer.state_dict(),memory=self.memory,
             sampler_state=self.rng.getstate(),seen=self.seen,frames=self.frames,updates=self.updates,
-            stats=self.stats,pending=self.pending,source_feature_metadata=self.source_feature_metadata),path)
+            stats=self.stats,pending=self.pending,recent=self.recent,
+            source_feature_metadata=self.source_feature_metadata),path)
 
     def resume(self,path):
         payload=torch.load(path,map_location='cpu')
         if payload['online_config']!=asdict(self.config):raise ValueError('Online resume configuration changed')
         self.model.load_state_dict(payload['state_dict']);self.optimizer.load_state_dict(payload['optimizer'])
         self.memory=payload['memory'];self.rng.setstate(payload['sampler_state']);self.pending=payload['pending']
+        self.recent=payload['recent']
         for key in ['seen','frames','updates','stats']:setattr(self,key,payload[key])

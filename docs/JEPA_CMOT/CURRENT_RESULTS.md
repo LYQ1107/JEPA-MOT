@@ -33,3 +33,27 @@ GeneralTrack 权重与作者公开文件 SHA256 完全一致。它是所有方�
 UA dense-current 1024-D，三个模型各 662,400 参数，seed 17 / 2,000 步 / batch 64 / gaps 1、2、4、8。13 个视频拟合、3 个内部 source 视频验证，共 43,921 / 11,831 样例。计入候选最高分并列分数后，判别 / 预测 / 预测+ranking 的 rank-1 为 72.17% / 66.29% / 70.85%；prediction error 为 0.61463 / 0.06641 / 0.20999。frozen-last / mean / recent-weighted 为 55.98% / 49.41% / 52.55%。这只支持历史学习优于这些冻结摘要，不支持 JEPA 优于判别目标。
 
 当前 GT latent 的 source 读数上限为 93.15%，1,538 个样例因 dense 网格出现最高分并列。记录见 SOURCE_UA_BASELINE_DIAGNOSTICS.json、SOURCE_HISTORY_UA_V2_RESULTS.json。完整视频验证与相同 source-only 二参数 affinity 校准正在执行，不以这些 source 排序分数代替 HOTA。
+
+## 首个完整 native 视频
+
+全 1,505 帧 MVI_39311（sunny development）已完成实际图像读取、统一新 detector 输入、native GeneralTrack 和离线评测。B0 HOTA 49.49、AssA 52.27、IDF1 62.11、IDSW 43。这是一个完整开发视频的基线，尚无同视频 JEPA 对照，也不是最终全域证据。geometry-null 对照和匹配 source/readout 的完整特征缓存正在运行。
+
+第二类关系目标的 source 训练已完成：relation-KL rank-1 74.74%，relation-KL+ranking 74.43%，均为同样 662,400 参数和 2,000 步。其 source 排序高于 CE 的 72.17%，但尚无完整 MOT 对照；该损失与普通 soft distillation 重合，不能据此声称 JEPA 创新成立。
+
+BDD dense-current 的同容量 source rank-1：CE 52.49%、预测 46.95%、预测+ranking 51.53%；source 样例 97,827 / 23,623，20 视频拟合、5 视频内部验证。尚未形成 JEPA 优于判别的 source 证据。
+
+MVI_39311 geometry-null HOTA 49.73、AssA 52.29、IDF1 62.53、IDSW 34。该相同盒子规则已接入所有学习目标的匹配控制，避免把几何处理收益算作 JEPA。
+
+## 完整视频接口修正
+
+上述 first_full_video_v1 完整视频分数已标记 SUPERSEDED_NATIVE_CATEGORY_MAPPING，不能作为正式基线。六类原始检测输出依次为 person/car/truck/bus/motorcycle/bicycle，原始 GeneralTrack 的 BDD8 编号为 0/2/3/4/6/7；直接使用 0..5 会使类别组错误。新 v2 在 matcher 输入边界统一转换，输出映射回六类评测，JEPA 与 geometry duplicate 都限制在原生类别组内。检测行、图像、特征缓存与 source 模型不变；所有控制重跑。
+
+## 类别接口修正后的 v2
+
+统一 native8 映射后，完整 MVI_39311 native / geometry-null HOTA 为 48.58 / 48.83，AssA 50.24 / 50.27，IDF1 60.11 / 60.52。完整 BDD clear 开发视频 b202cae2-672e61c5 共 203 帧，native HOTA 50.70、AssA 53.96、IDF1 59.57。还没有同视频最终学习目标比较，均不是全域研究结论。
+
+object-crop source 读数已完成：同容量 CE / 预测 / 预测+ranking rank-1 为 81.54% / 84.02% / 83.70%。这一趋势与 dense-current 不同，需和 crop 的 frozen-history 对照及全视频指标区分，不能把读数变化算作 JEPA 收益。
+
+已开始第一条实际无标签在线学习：BDD overcast adaptation 的完整 202 帧，预测+ranking / 无 replay / 延迟确认。只有 images、detections 和因果缓存进入训练；该步骤尚未完成域顺序和遗忘回测。
+
+第一条真实无标签在线训练已完成：BDD overcast adaptation / b22f385b-5d7e5202 全 202 帧，25 次更新、904 个延迟确认伪对、458 个可靠性拒绝，6 个参数 tensor 发生变化，replay=0。原始指标和首末 loss 见 FIRST_ACTUAL_ONLINE_TRAINING.json；这证明在线更新实际运行，不证明多域遗忘改善。

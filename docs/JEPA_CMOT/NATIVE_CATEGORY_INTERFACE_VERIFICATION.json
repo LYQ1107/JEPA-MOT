@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "mapping": [
+    0,
+    2,
+    3,
+    4,
+    6,
+    7
+  ],
+  "native_groups": [
+    1,
+    2,
+    2,
+    2,
+    3,
+    3
+  ],
+  "cross_group_semantic_edges_zero": true,
+  "missing_feature_not_reintroduced_by_calibration": true
+}

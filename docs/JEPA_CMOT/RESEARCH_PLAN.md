@@ -42,3 +42,7 @@ BDD 的文件名 `train` / `val` 不能作为划分证据：初步数量完全�
 关系预测沿用完全相同的历史网络、参数和输入，在候选出现后计算其响应分布。teacher target 为停止梯度的正身份当前 latent 与同帧竞争候选的相似分布，student 为仅由 H<t 生成 query 的相似分布。KL 关系预测与 KL+ranking 已加入训练入口；当前候选仍不进入 P 的前向。该定义有与普通软标签蒸馏重合的风险，必须在同容量、同预算下比较，不能凭命名称为创新。
 
 1024-D encoder 路线的三个模型各有 662,400 个参数；1664-D official-predictor 路线各有 1,072,640 个参数。主对照在同一特征族内进行，跨族差异需要容量与算力审计。
+
+## 连续状态与回测执行
+
+continual_sequence 按冻结的视频顺序逐域消费 adaptation，跨域恢复 learner/optimizer/replay/recent/counters；物理轨迹与 pending 在独立视频重置。先保存全部域后快照，再用新建且禁用更新的 evaluator 对每个 stage 的 source+三个目标域 development 完整视频回测，避免评测污染未来训练。平均遗忘以域学完后的历史最佳 HOTA 相对最后阶段计算；sealed 留待方法/超参数冻结。

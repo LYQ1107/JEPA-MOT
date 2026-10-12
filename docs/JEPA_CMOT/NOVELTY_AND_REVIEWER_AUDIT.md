@@ -33,3 +33,5 @@ DOI、CVF 部分页面存在访问限制，使用作者 arXiv 和 CVF 已索引�
 [GeneralTrack 作者仓库](https://github.com/qinzheng2000/GeneralTrack) 的 checkpoint 与本地 SHA256 逐位相同。[作者论文](https://arxiv.org/html/2406.00429v1) 说明其关联表示先以 KITTI flow 预训练，并在 BDD 上训练/评测；不把共享 BDD 监督先验描述为本次单天气 source-only 预训练。新 source-only detector 和 history learner 的源视频列表单独记录。
 
 当前 reliability gating、reservoir replay、候选 KL 保持仍属于待验证组件，不能仅靠组合命名称为新方法。需与 CE+同样门控、普通 replay 和蒸馏使用相同预算进行对照。
+
+[MOTIP，CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/html/Gao_Multiple_Object_Tracking_as_ID_Prediction_CVPR_2025_paper.html) 已将轨迹关联建模为基于轨迹上下文的 ID 解码。不能声称首次预测身份。本任务需要验证的是候选出现前的 latent forecasting 及其无标签连续适应价值。另需区分 [TrackTrack，CVPR 2025](https://openaccess.thecvf.com/content/CVPR2025/papers/Shim_Focusing_on_Tracks_for_Online_Multi-Object_Tracking_CVPR_2025_paper.pdf) 的关联/初始化改进与参数持续学习；当前共同 geometry-null 规则本身不是新贡献。

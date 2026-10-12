@@ -5,6 +5,7 @@ import numpy as np
 import torch
 
 from yolox.tracker.byte_tracker_bdd_jepa import BYTETracker
+from yolox.tracker import matching_bdd as matching
 from .history import pack_history
 
 
@@ -26,6 +27,22 @@ class CausalHistoryTracker(BYTETracker):
             raise ValueError('A current observation entered the frozen query')
         return self._queries.get(track_id)
 
+    def _jepa_duplicate(self,det,tracks):
+        if not getattr(self.args,'geometry_duplicates',False):
+            return super()._jepa_duplicate(det,tracks)
+        # The historical geometry-null baseline removes duplicate births
+        # after native assignment. Apply that same box-only rule to every
+        # learned objective when this common foundation is requested.
+        current={int(t.track_id):t for t in list(self.tracked_stracks)+list(tracks)
+            if int(getattr(t,'frame_id',-1))==self.frame_id and
+            matching.sig(t.cls)==matching.sig(det.cls)}
+        for track in current.values():
+            self.jepa_stats['duplicate_candidates']+=1
+            if float(1-matching.iou_distance([track],[det])[0,0])>=.2:
+                self.jepa_stats['duplicate_suppressed']+=1
+                return True
+        return False
+
     def _commit_feature(self,track,det,allow=True):
         super()._commit_feature(track,det,allow)
         feature=getattr(det,'jepa_feature',None)
@@ -41,18 +58,25 @@ class CausalHistoryTracker(BYTETracker):
         evidence=self._native_evidence.get((track_id,id(det)))
         if evidence is not None and track_id in self._packed:
             self._accepted[track_id]=dict(packed=self._packed[track_id],
+                query=self._queries[track_id].copy(),
                 positive=np.asarray(feature,np.float32).copy(),evidence=evidence,
                 frame=int(self.frame_id),score=float(det.score),
                 candidates=self._current_candidates.copy())
+            self._accepted[track_id]['positive_index']=int(np.argmin(
+                np.linalg.norm(self._current_boxes-np.asarray(det.tlbr)[None],axis=1)))
 
     def _jepa_similarity(self,tracks,detections):
         similarity=super()._jepa_similarity(tracks,detections)
+        groups=np.asarray([[matching.sig(t.cls)==matching.sig(d.cls) for d in detections]
+                           for t in tracks],dtype=bool).reshape(similarity.shape)
+        similarity=np.where(groups,similarity,0.)
         calibration=getattr(self.args,'source_calibration',None)
         if calibration is not None:
             valid=np.zeros_like(similarity,dtype=bool)
             for i,track in enumerate(tracks):
                 for j,det in enumerate(detections):
-                    valid[i,j]=self._track_query(track) is not None and getattr(det,'jepa_feature',None) is not None
+                    valid[i,j]=(groups[i,j] and self._track_query(track) is not None and
+                                getattr(det,'jepa_feature',None) is not None)
             logits=np.clip(calibration['slope']*(similarity-calibration['intercept']),-60,60)
             similarity=np.where(valid,1/(1+np.exp(-logits)),0.)
         return similarity
@@ -94,6 +118,7 @@ class CausalHistoryTracker(BYTETracker):
             self.causal_stats['history_queries']+=len(ids)
         values=output_results.detach().cpu().numpy() if torch.is_tensor(output_results) else output_results
         self._current_candidates=np.asarray(values[:,6:6+self.feature_dim],np.float32)
+        self._current_boxes=np.asarray(values[:,:4],np.float32)
         result=super().update(output_results,img_info,img_size,imgs,jepa_maps)
         self.causal_stats['frames']+=1
         self.causal_stats['empty_detection_frames']+=int(len(values)==0)

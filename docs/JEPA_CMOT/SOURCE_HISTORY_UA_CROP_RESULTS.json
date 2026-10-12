@@ -1,0 +1,224 @@
+{
+  "discriminative": {
+    "status": "complete",
+    "engineering_smoke_only": false,
+    "method": "discriminative",
+    "config": {
+      "feature_dim": 1024,
+      "history": 4,
+      "metadata_dim": 10,
+      "hidden_dim": 128,
+      "residual_scale": 0.25
+    },
+    "seed": 17,
+    "steps": 2000,
+    "batch_size": 64,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": 662400,
+    "fit_videos": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "validation_videos": [
+      14,
+      15,
+      16
+    ],
+    "fit_samples": 43921,
+    "validation_samples": 11831,
+    "source_validation_rank1": 0.8154002197616431,
+    "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+    "source_validation_tied_examples": 0,
+    "source_validation_prediction_error": 0.5882538387674863,
+    "loss_first": {
+      "step": 1,
+      "prediction": 0.02338220924139023,
+      "ranking": 1.60173761844635,
+      "relation": 0.06373848021030426,
+      "gradient_norm": 1.5241174697875977
+    },
+    "loss_last": {
+      "step": 2000,
+      "prediction": 0.5927379131317139,
+      "ranking": 0.6073029637336731,
+      "relation": 0.47614189982414246,
+      "gradient_norm": 0.7400425672531128
+    },
+    "checkpoint_sha256": "cc6aa3195022bb0ed8da54ad550fbd84d490a315dbf364c200a31f323ea87198",
+    "cache_sha256": "a3d487bd3bc95da0ffaec6a07880d889de82eaedb8b6d9e6b29fa61e0a3ae98a",
+    "experiment_fingerprint": "af9eb5ba5a283e81f9ce0f4cffb44c658c169f454b255e741d1396f5ea0477e8",
+    "training_code_sha256": {
+      "train_source.py": "99c806bb1a65501a2c8466f371d73f9bdc8a694f4ac18a14d6ffd890cb76085a",
+      "models.py": "dd004c2400c841598cfd40cd8058a5e49e24fcba6025988d36c3728c09600d8c",
+      "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+    },
+    "git_commit": "c759693381c8b640339dde284c8b659f00072c3b",
+    "seconds": 70.272779032588,
+    "target_gt_used": false,
+    "candidate_input_to_history_predictor": false
+  },
+  "predictive": {
+    "status": "complete",
+    "engineering_smoke_only": false,
+    "method": "predictive",
+    "config": {
+      "feature_dim": 1024,
+      "history": 4,
+      "metadata_dim": 10,
+      "hidden_dim": 128,
+      "residual_scale": 0.25
+    },
+    "seed": 17,
+    "steps": 2000,
+    "batch_size": 64,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": 662400,
+    "fit_videos": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "validation_videos": [
+      14,
+      15,
+      16
+    ],
+    "fit_samples": 43921,
+    "validation_samples": 11831,
+    "source_validation_rank1": 0.8401656664694447,
+    "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+    "source_validation_tied_examples": 0,
+    "source_validation_prediction_error": 0.016973956365192767,
+    "loss_first": {
+      "step": 1,
+      "prediction": 0.02338220924139023,
+      "ranking": 1.60173761844635,
+      "relation": 0.06373848021030426,
+      "gradient_norm": 0.0736449584364891
+    },
+    "loss_last": {
+      "step": 2000,
+      "prediction": 0.012137670069932938,
+      "ranking": 1.5492446422576904,
+      "relation": 0.021555304527282715,
+      "gradient_norm": 0.02925163321197033
+    },
+    "checkpoint_sha256": "291dafecfe0a6ac9014bf8b71cef1087abae59562122186a14a3b3469d7874e8",
+    "cache_sha256": "a3d487bd3bc95da0ffaec6a07880d889de82eaedb8b6d9e6b29fa61e0a3ae98a",
+    "experiment_fingerprint": "0b892d8dd77e4a443073593b1241b215856407e3392aa458e07c6357ad793140",
+    "training_code_sha256": {
+      "train_source.py": "99c806bb1a65501a2c8466f371d73f9bdc8a694f4ac18a14d6ffd890cb76085a",
+      "models.py": "dd004c2400c841598cfd40cd8058a5e49e24fcba6025988d36c3728c09600d8c",
+      "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+    },
+    "git_commit": "c759693381c8b640339dde284c8b659f00072c3b",
+    "seconds": 62.14858999103308,
+    "target_gt_used": false,
+    "candidate_input_to_history_predictor": false
+  },
+  "predictive_ranking": {
+    "status": "complete",
+    "engineering_smoke_only": false,
+    "method": "predictive_ranking",
+    "config": {
+      "feature_dim": 1024,
+      "history": 4,
+      "metadata_dim": 10,
+      "hidden_dim": 128,
+      "residual_scale": 0.25
+    },
+    "seed": 17,
+    "steps": 2000,
+    "batch_size": 64,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "parameters": 662400,
+    "fit_videos": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "validation_videos": [
+      14,
+      15,
+      16
+    ],
+    "fit_samples": 43921,
+    "validation_samples": 11831,
+    "source_validation_rank1": 0.8370382892401319,
+    "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+    "source_validation_tied_examples": 2,
+    "source_validation_prediction_error": 0.21177531276145395,
+    "loss_first": {
+      "step": 1,
+      "prediction": 0.02338220924139023,
+      "ranking": 1.60173761844635,
+      "relation": 0.06373848021030426,
+      "gradient_norm": 1.5379078388214111
+    },
+    "loss_last": {
+      "step": 2000,
+      "prediction": 0.21724572777748108,
+      "ranking": 0.7303364872932434,
+      "relation": 0.32359597086906433,
+      "gradient_norm": 0.8052299618721008
+    },
+    "checkpoint_sha256": "66e1804dd0568d7d0ef08c9e6f7ecc0f2b9e20eae1e2c53aafb22147dd55f301",
+    "cache_sha256": "a3d487bd3bc95da0ffaec6a07880d889de82eaedb8b6d9e6b29fa61e0a3ae98a",
+    "experiment_fingerprint": "a555d414df1178f92776a468a9b963b7c1bea01f15c022ac24c6c226cad15dac",
+    "training_code_sha256": {
+      "train_source.py": "99c806bb1a65501a2c8466f371d73f9bdc8a694f4ac18a14d6ffd890cb76085a",
+      "models.py": "dd004c2400c841598cfd40cd8058a5e49e24fcba6025988d36c3728c09600d8c",
+      "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+    },
+    "git_commit": "c759693381c8b640339dde284c8b659f00072c3b",
+    "seconds": 65.47390533983707,
+    "target_gt_used": false,
+    "candidate_input_to_history_predictor": false
+  }
+}

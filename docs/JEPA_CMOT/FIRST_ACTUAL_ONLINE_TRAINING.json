@@ -1,0 +1,32 @@
+{
+  "status": "ACTUAL_CAUSAL_ONLINE_TRAINING_PASS",
+  "dataset": "bdd100k",
+  "domain": "overcast",
+  "split": "adaptation",
+  "video": "b22f385b-5d7e5202",
+  "frames": 202,
+  "updates": 25,
+  "parameter_tensors_changed": 6,
+  "replay_examples": 0,
+  "proposed": 1412,
+  "delayed_confirmed": 904,
+  "reliability_rejected": 458,
+  "loss_first": {
+    "update": 1,
+    "frame": 8,
+    "loss": 0.27208253741264343,
+    "prediction": 0.09081462025642395,
+    "ranking": 0.18126791715621948,
+    "retention": 0.0
+  },
+  "loss_last": {
+    "update": 25,
+    "frame": 200,
+    "loss": 0.4584769904613495,
+    "prediction": 0.07410809397697449,
+    "ranking": 0.384368896484375,
+    "retention": 0.0
+  },
+  "target_gt_used": false,
+  "continual_domain_matrix_complete": false
+}

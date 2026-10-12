@@ -1,7 +1,9 @@
 # 下一步
 
-等待两个源 detector 及 source-only frozen V-JEPA 特征完成；登记 checkpoint 哈希和实际耗时。统一生成完整 development/adaptation 视频检测流，sealed 推理与评测暂不运行。
+完成修正 native 类别接口后的 B0/B1、frozen-history、CE、预测、预测+ranking 和关系目标的完整开发视频对照。检测与特征队列继续准备 UA/BDD 的所有 adaptation/development 视频，sealed 不参与本阶段。
 
-首轮使用每个读数族内部同容量的三个目标，并固定 prediction gaps 1/2/4/8。在完整 development 跟踪比较 last、判别、预测、预测+ranking，分析纠错、反改错、候选竞争和重现间隔。随后比较预测对象、可靠性门控和关系保持机制，推进两个数据集完整顺序域适应。
+核查第一条实际在线训练的更新次数、可靠伪对、loss 与参数变化；跨域恢复必须同时载入 optimizer/replay/recent/counters，独立评测只加载权重并关闭更新。
 
-已有训练/延迟更新/类感知评测都可执行，但尚无算法结论。坚持目标 GT 不进入训练；已冻结方法和超参数后才运行 sealed。
+随后建立完整顺序学习矩阵，比较无 replay、同容量 replay、普通 feature distillation 和候选关系保持。保持目标 GT 不进入训练、参数和 replay 跨视频持续、物理轨迹状态重置。
+
+source 排序和一个完整开发视频仍不能支持最终结论；继续 no-history/projection/shuffle、两个域顺序、多种子和效率验证。
