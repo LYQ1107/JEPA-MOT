@@ -173,3 +173,13 @@ run_controls在全部video均完成时无需建立新的shared matcher；已修�
 两数据集的通用RKD完整顺序对照排队在C2之后执行；沿用相同视频和独立冻结快照评测。C2的extra compute与普通row/feature/RKD对照必须最终报告。
 
 BDD clips source模型/校准已经准备好，完整开发集部署排队在rank_reward后运行。GPU0多组回测拥挤，UA历史长度组计划等GPU5实时benchmark完成后，先停止控制器派发、等待活跃完整视频终态，再迁移；已完成输出和模型不改写，不能因观察超时重启正在训练的模型。
+
+## BDD 完整开发集的关联规则检验
+
+19个开发视频、3,844个native帧、source head seed17，冻结相同输入和source-only校准。四域等权HOTA：原预测残差39.8291、新预测rank reward39.9134、相同规则CE39.9124、frozen-last39.9204、random和geometry均39.9022。预测相对geometry +0.01122，2,000次分层配对视频bootstrap 95%区间[-0.02173,0.04409]；预测相对同规则CE约+0.00098。这是固定seed的开发集不确定性，未做选择校正，不能替代多seed或sealed结论。
+
+原残差日志1732次局部分配变化，354个局部身份修复、300个反改错；新预测规则23次变化，仅1个修复、1个反改错。其它记录含混合历史、未评分、双方正确/错误，不能相加解释为官方IDSW。日志开启后的原预测19条轨迹与此前结果逐字节一致；random新规则19条轨迹与geometry逐字节一致。事件文件按变化惰性写入，完整且开启audit的零事件视频可以没有jsonl。
+
+当前证据支持“规则显著限制了语义介入”，不支持“JEPA有实际独立收益”。不据此放宽目标GT门控、改split或用新阈值筛选有利视频。完整结果BDD_FULL_RANK_REWARD_RESULTS.json，生成命令为`./run_python.sh -m jepa_cmot.rank_reward_analysis --root runs/JEPA_CMOT/development_rank_reward_v1/bdd100k_seed17 --reference runs/JEPA_CMOT/development_all_v1/bdd100k_seed17 --manifest runs/JEPA_CMOT/native_protocol_v3/manifest.json --out docs/JEPA_CMOT/BDD_FULL_RANK_REWARD_RESULTS.json`。
+
+纯预测FT/replay、两数据集reverse17以及UA23/42的完整序列已注册源权重和配置并排队。当前新增队列不读取开发指标，也不会基于该负结果改变预算；等待既有完整实验释放GPU后启动。未完成任务不计作科研证据。

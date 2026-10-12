@@ -77,3 +77,7 @@ Observation：第一波FT1073/1074、replay1096、KD1097，真实state与optimiz
 ## 时间支持修正没有自动产生MOT增益
 
 Observation：clips源验证的pure prediction排序接近CE，但同一三视频sunny native开发集合，clips预测HOTA56.292，uniform预测56.913，geometry56.907。Hypothesis：短间隔源排序、detector历史噪声与latent目标的可判别性可能不是同一问题；不能仅由源loss选方法。Discriminating experiment：继续匹配容量的真实历史长度部署、crop读数、事件mixed-history审计和多域持续回测，保留整个失败路径。未基于这三个source视频改变目标域split或在线GT门控。
+
+## 保守竞争奖励没有建立JEPA优势
+
+Observation：全BDD开发集新预测规则39.9134，geometry39.9022，同规则CE39.9124；预测只改变23次一步决策、局部修复和反改错各1。原残差虽改变1732次，修复与损害均存在。Hypothesis：目前latent预测的有效身份信息和检测噪声不足以稳定改变正确的native排序；过于保守的介入也会使机制近似geometry。Discriminating experiment：既有crop/history长度的完整域检验、纯预测的在线适应、固定教师同预算与多顺序遗忘矩阵；不能仅放宽rank阈值来得到更多改动，不能从这些事件数量宣布因果泛化结论。
