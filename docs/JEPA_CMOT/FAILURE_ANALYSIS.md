@@ -21,3 +21,7 @@ UA：MVI_39501 XML/图片 540 帧，历史 prepared 80 个抽样帧。不能将�
 BDD：train/val 文件数量一致，必须审计视频集合；源 detector 配置使用 clear_all，存在与新 source 测试划分重合的风险。需要根据训练视频清单重建冲突的源模型/缓存。
 
 下一步：冻结完整视频划分之前先完成覆盖与训练 provenance 审计；不通过删除困难视频或更改测试分母解决。
+
+## 源视频缓存重置修复
+
+源缓存生成器只清空 frame_buffer，未清空 rgb_buffer；官方 predictor 裁剪读数因此可能携带前一独立视频像素。添加 rgb_buffer.clear()，作废 v1 小型源训练比较并重建 v2。目标缓存原本已正确清空两个缓冲。

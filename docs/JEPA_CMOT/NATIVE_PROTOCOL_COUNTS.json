@@ -1,0 +1,64 @@
+{
+  "ua_detrac": {
+    "videos": 100,
+    "native_frames": 140131,
+    "known_label_frames": 138252,
+    "counts": {
+      "cloudy": {
+        "source_train": 0,
+        "adaptation": 18,
+        "development": 6,
+        "sealed": 6
+      },
+      "night": {
+        "source_train": 0,
+        "adaptation": 16,
+        "development": 5,
+        "sealed": 7
+      },
+      "rainy": {
+        "source_train": 0,
+        "adaptation": 11,
+        "development": 3,
+        "sealed": 5
+      },
+      "sunny": {
+        "source_train": 16,
+        "adaptation": 0,
+        "development": 3,
+        "sealed": 4
+      }
+    }
+  },
+  "bdd100k": {
+    "videos": 111,
+    "native_frames": 22074,
+    "known_label_frames": 22074,
+    "counts": {
+      "clear": {
+        "source_train": 25,
+        "adaptation": 0,
+        "development": 5,
+        "sealed": 6
+      },
+      "night": {
+        "source_train": 0,
+        "adaptation": 21,
+        "development": 7,
+        "sealed": 8
+      },
+      "overcast": {
+        "source_train": 0,
+        "adaptation": 13,
+        "development": 4,
+        "sealed": 5
+      },
+      "rainy": {
+        "source_train": 0,
+        "adaptation": 10,
+        "development": 3,
+        "sealed": 4
+      }
+    }
+  }
+}

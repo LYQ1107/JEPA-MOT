@@ -1,0 +1,36 @@
+{
+  "status": "FROZEN_INPUT_AND_SOURCE_TRAINING_PROTOCOL",
+  "split_sha256": "6d439579881bc7199ab3e4ee595ec2c9a849613a6acef65f0831c51054f0cc00",
+  "ua_native_frames": 140131,
+  "ua_xml_frames": 138252,
+  "bdd_native_frames": 22074,
+  "source_detector": {
+    "architecture": "FasterRCNN-ResNet50-FPN",
+    "initialization": "COCO-public-2x",
+    "source_steps": 3000,
+    "frames_per_source_video": 128,
+    "learning_rate": 0.0025,
+    "seed": 17,
+    "target_gt_used": false,
+    "legacy_all_source_checkpoints_reused": false
+  },
+  "association_prior": {
+    "checkpoint_sha256": "4a0243876a69c7eaccede582817cfb0701b49962d1abe03087a77fef27d384dd",
+    "public_author_checkpoint_exact_match": true,
+    "source": "BDD100K pretrained fixed GeneralTrack",
+    "limitation": "Training video list is not encoded; broader BDD supervised pretraining is shared by all methods. Do not claim an entirely source-weather-only full-system pretraining protocol."
+  },
+  "evaluation": {
+    "ua": "vehicle aggregation",
+    "bdd": "six classes, detection-weighted HOTA plus class diagnostics",
+    "ignore_prediction_ioa": 0.5,
+    "unknown_XML_frames": "process in tracker; exclude from source detector fitting and metric scoring",
+    "sealed": "not opened for evaluation until method and hyperparameters are frozen"
+  },
+  "online": {
+    "query": "H<t only",
+    "confirmation_delay": 1,
+    "video_reset": "tracks/history/pending only; persist learner/optimizer/replay",
+    "gt_in_stream": false
+  }
+}

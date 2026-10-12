@@ -35,6 +35,7 @@ from build_generaltrack_vjepa21_cache import (  # noqa: E402
     _letterbox_rgb,
     _normalize_frame,
     _extract_causal_box_crop_predictor_features,
+    _extract_box_crop_features,
     _pool_temporal_box_features,
     _temporal_maps,
     sha256_file,
@@ -61,7 +62,7 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--resolution", type=int, default=DEFAULT_RESOLUTION)
     ap.add_argument("--patch-size", type=int, default=DEFAULT_PATCH)
     ap.add_argument("--roi-pool", choices=["box_mean", "center", "center3"], default="box_mean")
-    ap.add_argument("--roi-mode", choices=["dense", "causal_box_crop_predictor"], default="dense")
+    ap.add_argument("--roi-mode", choices=["dense", "box_crop", "causal_box_crop_predictor"], default="dense")
     ap.add_argument("--roi-context", type=float, default=1.5)
     ap.add_argument("--crop-batch-size", type=int, default=8)
     ap.add_argument("--predictor-pool", choices=["mean", "center", "center3"], default="mean")
@@ -127,7 +128,7 @@ def main() -> int:
         checkpoint,
         model_name=args.model_name,
         img_size=args.resolution,
-        num_frames=args.window,
+        num_frames=2 if args.roi_mode == "box_crop" else args.window,
         patch_size=args.patch_size,
         tubelet_size=2,
         device=device,
@@ -172,6 +173,7 @@ def main() -> int:
         if video_id != current_video:
             current_video = video_id
             frame_buffer.clear()
+            rgb_buffer.clear()
             frame_count_in_video = 0
         frame_count_in_video += 1
         if args.max_frames_per_video is not None and frame_count_in_video > int(args.max_frames_per_video):
@@ -198,7 +200,12 @@ def main() -> int:
         detections = np.asarray(
             [[*box.tolist(), 1.0, 1.0] for _, box in rows], dtype=np.float32
         ).reshape(-1, 6) if rows else np.zeros((0, 6), dtype=np.float32)
-        if args.roi_mode == "causal_box_crop_predictor":
+        if args.roi_mode == "box_crop":
+            pooled = _extract_box_crop_features(encoder, rgb, detections,
+                context=args.roi_context, resolution=args.resolution, device=device,
+                feature_layers="final", layer_count=1, batch_size=args.crop_batch_size,
+                temporal_replicates=2)
+        elif args.roi_mode == "causal_box_crop_predictor":
             pooled = _extract_causal_box_crop_predictor_features(
                 encoder,
                 predictor,
@@ -244,7 +251,7 @@ def main() -> int:
         all_frame_ids.extend([frame_id] * len(rows))
         offsets.append(offsets[-1] + len(rows))
         forwards += 1
-        if args.roi_mode != "causal_box_crop_predictor":
+        if args.roi_mode == "dense":
             del clip, tokens, maps
         if (index + 1) % max(1, int(args.log_every)) == 0:
             print("[source-vjepa21] {}/{} rows={} elapsed_sec={:.1f}".format(

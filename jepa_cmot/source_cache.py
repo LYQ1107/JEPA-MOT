@@ -17,7 +17,8 @@ def main():
     parser.add_argument('--engineering-smoke', action='store_true')
     args = parser.parse_args()
     inventory = json.loads((ROOT / 'docs/JEPA_CMOT/DATA_INVENTORY.json').read_text())
-    splits = json.loads((ROOT / 'docs/JEPA_CMOT/PROPOSED_VIDEO_SPLITS.json').read_text())
+    split_file = ROOT / 'docs/JEPA_CMOT' / ('PROPOSED_VIDEO_SPLITS.json' if args.engineering_smoke else 'VIDEO_SPLITS.json')
+    splits = json.loads(split_file.read_text())
     if not args.engineering_smoke and splits['status'] != 'frozen':
         raise ValueError('Formal extraction requires frozen splits and checkpoint provenance')
     selected = splits['datasets']['ua_detrac']['sunny']['source_train']

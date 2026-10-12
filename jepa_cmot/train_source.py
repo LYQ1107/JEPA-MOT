@@ -13,10 +13,11 @@ from torch.utils.data import Dataset, DataLoader, default_collate
 from torch.nn import functional as F
 
 from .models import HistoryPredictor, PredictorConfig, objective
+from .history import pack_history
 
 
 class SourcePairs(Dataset):
-    def __init__(self, path, history, videos, width, height, max_candidates=16):
+    def __init__(self, path, history, videos, width, height, max_candidates=16, prediction_gaps=(1,)):
         with np.load(path, allow_pickle=False) as data:
             self.features = np.asarray(data['features'], np.float32)
             self.boxes = np.asarray(data['boxes'], np.float32)
@@ -38,9 +39,10 @@ class SourcePairs(Dataset):
         for indices in groups.values():
             indices.sort(key=lambda i: int(self.frames[i]))
             self.birth_frames[(int(self.videos[indices[0]]), int(self.tracks[indices[0]]))] = int(self.frames[indices[0]])
-            for position in range(1, len(indices)):
+            for position,gap in [(p,g) for p in range(1,len(indices)) for g in prediction_gaps if p>=g]:
                 target = indices[position]
-                previous = indices[max(0, position - history):position]
+                end = position-gap+1
+                previous = indices[max(0,end-history):end]
                 candidates = by_frame[(int(self.videos[target]), int(self.frames[target]))]
                 negatives = [i for i in candidates if i != target]
                 if not negatives:
@@ -56,24 +58,11 @@ class SourcePairs(Dataset):
     def __getitem__(self, index):
         previous, target, candidates = self.samples[index]
         feature_dim = self.features.shape[1]
-        features = np.zeros((self.history, feature_dim), np.float32)
-        metadata = np.zeros((self.history, 10), np.float32)
-        mask = np.zeros(self.history, np.float32)
-        for slot, row in enumerate(previous, start=self.history - len(previous)):
-            features[slot] = self.features[row]
-            x1, y1, x2, y2 = self.boxes[row] / self.scale
-            dt = int(self.frames[target] - self.frames[row])
-            age = int(self.frames[row]) - self.birth_frames[(int(self.videos[row]), int(self.tracks[row]))] + 1
-            metadata[slot] = [(x1 + x2) / 2, (y1 + y2) / 2, x2 - x1, y2 - y1,
-                              1.0, min(dt, 128) / 128, min(age, 1024) / 1024,
-                              max(0, dt - 1) / 128, 0, 0]
-            if slot > self.history - len(previous):
-                prior = previous[slot - (self.history - len(previous)) - 1]
-                center = (self.boxes[row][:2] + self.boxes[row][2:]) / 2
-                old_center = (self.boxes[prior][:2] + self.boxes[prior][2:]) / 2
-                velocity = (center - old_center) / self.scale[:2] / max(1, int(self.frames[row] - self.frames[prior]))
-                metadata[slot, 8:] = velocity
-            mask[slot] = 1
+        observations = [dict(feature=self.features[row],box=self.boxes[row],frame=int(self.frames[row]),
+            birth=self.birth_frames[(int(self.videos[row]),int(self.tracks[row]))],confidence=1.)
+            for row in previous]
+        features,metadata,mask = pack_history(observations,int(self.frames[target]),
+            self.history,feature_dim,self.scale[0],self.scale[1])
         candidate_features = np.zeros((self.max_candidates, feature_dim), np.float32)
         valid = np.zeros(self.max_candidates, np.bool_)
         candidate_features[:len(candidates)] = self.features[candidates]
@@ -98,6 +87,7 @@ def main():
     parser.add_argument('--seed', type=int, default=17)
     parser.add_argument('--history', type=int, default=4)
     parser.add_argument('--hidden', type=int, default=128)
+    parser.add_argument('--prediction-gaps', type=int, nargs='+', default=[1])
     parser.add_argument('--steps', type=int, default=1000)
     parser.add_argument('--batch', type=int, default=64)
     parser.add_argument('--width', type=float, default=960)
@@ -105,6 +95,7 @@ def main():
     parser.add_argument('--device', default='cuda')
     parser.add_argument('--engineering-smoke', action='store_true')
     args = parser.parse_args()
+    if min(args.prediction_gaps)<1:raise ValueError('Prediction gaps must be positive')
     torch.set_num_threads(4)
     metadata = json.loads(args.cache.with_suffix(args.cache.suffix + '.json').read_text())
     if metadata.get('source_domain') != args.source_domain or metadata.get('target_domains_read'):
@@ -123,8 +114,8 @@ def main():
     # provides an additional video-disjoint source-only development check.
     heldout = videos[-max(1, int(len(videos) * .20)):]
     fitting = sorted(set(videos) - set(heldout))
-    train = SourcePairs(args.cache, args.history, fitting, args.width, args.height)
-    valid = SourcePairs(args.cache, args.history, heldout, args.width, args.height)
+    train = SourcePairs(args.cache,args.history,fitting,args.width,args.height,prediction_gaps=args.prediction_gaps)
+    valid = SourcePairs(args.cache,args.history,heldout,args.width,args.height,prediction_gaps=args.prediction_gaps)
     if not len(train) or not len(valid):
         raise ValueError('No temporal source examples in one of the video-disjoint splits')
     config = PredictorConfig(feature_dim=dimension, history=args.history, hidden_dim=args.hidden)
@@ -135,8 +126,9 @@ def main():
     experiment = dict(config=asdict(config), method=args.method, seed=args.seed,
                       steps=args.steps, batch=args.batch, source_domain=args.source_domain,
                       width=args.width, height=args.height, cache_sha256=sha256(args.cache),
+                      prediction_gaps=args.prediction_gaps,
                       engineering_smoke_only=args.engineering_smoke,
-                      sampler='uniform-with-replacement-v1', geometry='true-track-age-v1')
+                      sampler='uniform-with-replacement-v1', geometry='shared-causal-history-v2')
     fingerprint = hashlib.sha256(json.dumps(experiment, sort_keys=True).encode()).hexdigest()
     report_path = args.out / 'metrics.json'
     if final.exists() and report_path.exists():
@@ -192,11 +184,13 @@ def main():
             prediction_error += float((1 - F.cosine_similarity(query, candidates[:, 0])).sum())
     payload = {'state_dict': model.state_dict(), 'config': asdict(config), 'method': args.method,
                'step': args.steps, 'seed': args.seed, 'source_domain': args.source_domain,
+               'source_feature_metadata': metadata,
                'experiment_fingerprint': fingerprint}
     torch.save(payload, final)
     report = {'status': 'complete', 'engineering_smoke_only': args.engineering_smoke,
               'method': args.method, 'config': asdict(config), 'seed': args.seed,
               'steps': args.steps, 'batch_size': args.batch,
+              'prediction_gaps': args.prediction_gaps,
               'parameters': sum(p.numel() for p in model.parameters()),
               'fit_videos': fitting, 'validation_videos': heldout,
               'fit_samples': len(train), 'validation_samples': len(valid),

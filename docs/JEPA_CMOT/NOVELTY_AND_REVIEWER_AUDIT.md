@@ -26,4 +26,10 @@ DOI、CVF 部分页面存在访问限制，使用作者 arXiv 和 CVF 已索引�
 
 ## 尚缺证据
 
-尚无本次新训练、完整连续域矩阵或三种子结果，因此不能声称创新成立或已达到 CVPR 论文标准。后续继续检索 2025–2026 的预测关联、在线 MOT、predictive replay，并审计公开实现和训练协议。
+已有工程训练，但尚无正式完整视频、连续域矩阵或三种子结果，因此不能声称创新成立或已达到 CVPR 论文标准。后续继续检索 2025–2026 的预测关联、在线 MOT、predictive replay，并审计公开实现和训练协议。
+
+## 追加核实
+
+[GeneralTrack 作者仓库](https://github.com/qinzheng2000/GeneralTrack) 的 checkpoint 与本地 SHA256 逐位相同。[作者论文](https://arxiv.org/html/2406.00429v1) 说明其关联表示先以 KITTI flow 预训练，并在 BDD 上训练/评测；不把共享 BDD 监督先验描述为本次单天气 source-only 预训练。新 source-only detector 和 history learner 的源视频列表单独记录。
+
+当前 reliability gating、reservoir replay、候选 KL 保持仍属于待验证组件，不能仅靠组合命名称为新方法。需与 CE+同样门控、普通 replay 和蒸馏使用相同预算进行对照。

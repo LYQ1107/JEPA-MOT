@@ -1,0 +1,286 @@
+{
+  "status": "frozen",
+  "datasets": {
+    "ua_detrac": {
+      "sunny": {
+        "source_train": [
+          "MVI_20052",
+          "MVI_20011",
+          "MVI_39031",
+          "MVI_41073",
+          "MVI_39051",
+          "MVI_20012",
+          "MVI_39361",
+          "MVI_39371",
+          "MVI_20035",
+          "MVI_41063",
+          "MVI_20061",
+          "MVI_20051",
+          "MVI_39401",
+          "MVI_20065",
+          "MVI_39271",
+          "MVI_20063"
+        ],
+        "development": [
+          "MVI_39311",
+          "MVI_20064",
+          "MVI_39211"
+        ],
+        "sealed": [
+          "MVI_20032",
+          "MVI_20062",
+          "MVI_20033",
+          "MVI_20034"
+        ]
+      },
+      "cloudy": {
+        "adaptation": [
+          "MVI_40152",
+          "MVI_40243",
+          "MVI_40855",
+          "MVI_40211",
+          "MVI_40852",
+          "MVI_40851",
+          "MVI_39931",
+          "MVI_39511",
+          "MVI_40701",
+          "MVI_40172",
+          "MVI_40162",
+          "MVI_39501",
+          "MVI_40131",
+          "MVI_40711",
+          "MVI_40192",
+          "MVI_40212",
+          "MVI_40241",
+          "MVI_40191"
+        ],
+        "development": [
+          "MVI_40141",
+          "MVI_40213",
+          "MVI_40244",
+          "MVI_40854",
+          "MVI_40201",
+          "MVI_40712"
+        ],
+        "sealed": [
+          "MVI_40853",
+          "MVI_40714",
+          "MVI_40161",
+          "MVI_40204",
+          "MVI_40181",
+          "MVI_40171"
+        ]
+      },
+      "rainy": {
+        "adaptation": [
+          "MVI_63552",
+          "MVI_40905",
+          "MVI_63561",
+          "MVI_40901",
+          "MVI_40902",
+          "MVI_63554",
+          "MVI_40903",
+          "MVI_63525",
+          "MVI_40892",
+          "MVI_63563",
+          "MVI_40891"
+        ],
+        "development": [
+          "MVI_63544",
+          "MVI_40904",
+          "MVI_40864"
+        ],
+        "sealed": [
+          "MVI_63562",
+          "MVI_40871",
+          "MVI_63553",
+          "MVI_63521",
+          "MVI_40863"
+        ]
+      },
+      "night": {
+        "adaptation": [
+          "MVI_40751",
+          "MVI_39861",
+          "MVI_40775",
+          "MVI_40752",
+          "MVI_40773",
+          "MVI_39811",
+          "MVI_39801",
+          "MVI_40981",
+          "MVI_39781",
+          "MVI_40763",
+          "MVI_40962",
+          "MVI_39821",
+          "MVI_40991",
+          "MVI_40732",
+          "MVI_40772",
+          "MVI_40793"
+        ],
+        "development": [
+          "MVI_40771",
+          "MVI_40992",
+          "MVI_40742",
+          "MVI_40774",
+          "MVI_40792"
+        ],
+        "sealed": [
+          "MVI_40761",
+          "MVI_40963",
+          "MVI_39851",
+          "MVI_40743",
+          "MVI_40762",
+          "MVI_39761",
+          "MVI_39771"
+        ]
+      }
+    },
+    "bdd100k": {
+      "clear": {
+        "source_train": [
+          "b1dce572-c6a8cb5e",
+          "b1df722f-5bcc3db7",
+          "b205eb4d-f84aaa1a",
+          "b1f4491b-97465266",
+          "b20b69d2-64b9cdb8",
+          "b231a630-c4522992",
+          "b20ff95c-b9444127",
+          "b250fb0c-01a1b8d3",
+          "b20b69d2-ca16c907",
+          "b202cae2-f46c74a6",
+          "b1d7b3ac-36f2d3b7",
+          "b1dac7f7-6b2e0382",
+          "b20b69d2-e31380a7",
+          "b1e3e9f5-92377424",
+          "b20b69d2-bd242bf0",
+          "b251064f-8d92db81",
+          "b2331b83-a28e6b57",
+          "b1d10d08-c35503b8",
+          "b20b69d2-7767e6b6",
+          "b1d7b3ac-995f9d8a",
+          "b20b69d2-6e2b9e73",
+          "b1ff4656-94ee8536",
+          "b1cebfb7-284f5117",
+          "b20b69d2-ffc1d6af",
+          "b24f7455-e8c55d6a"
+        ],
+        "development": [
+          "b202cae2-672e61c5",
+          "b1df722f-57d21f3f",
+          "b1f0efd9-e900c6e5",
+          "b2208b0f-2796a692",
+          "b2169b74-fa197951"
+        ],
+        "sealed": [
+          "b20d494a-cdebe83e",
+          "b1e8ad72-c3c79240",
+          "b20b69d2-650e674d",
+          "b1d7b3ac-5744370e",
+          "b20841f9-cef732d5",
+          "b20e291a-6012d836"
+        ]
+      },
+      "overcast": {
+        "adaptation": [
+          "b251064f-30002542",
+          "b1d968b9-563405f4",
+          "b1f4491b-cf446195",
+          "b1d0091f-f2c2d2ae",
+          "b1e0c01d-dd9e6e2f",
+          "b1f85377-44885085",
+          "b24d283f-33783d1b",
+          "b22f385b-5d7e5202",
+          "b1fc95c9-cb2882c7",
+          "b24071b8-b3ee1196",
+          "b2408e45-984ba5aa",
+          "b200e97a-bf074435",
+          "b251064f-5f6b663e"
+        ],
+        "development": [
+          "b1ff4656-ebcfeb35",
+          "b23b2649-8349d2a1",
+          "b1ff4656-0435391e",
+          "b23b2649-6af03cd5"
+        ],
+        "sealed": [
+          "b1f4491b-dd8dfed5",
+          "b1c66a42-6f7d68ca",
+          "b1d971b4-ac67ca0d",
+          "b251064f-4696b75e",
+          "b20b9c19-91e01a50"
+        ]
+      },
+      "rainy": {
+        "adaptation": [
+          "b1e9ee0e-67e26f2e",
+          "0062e803-38c0a33a",
+          "0010bf16-9ee17cd9",
+          "b1e1a7b8-a7426a97",
+          "0051e391-d32a618e",
+          "006dd004-34630e8d",
+          "b1e1a7b8-b397c445",
+          "00699de6-58847872",
+          "b2156f8e-72e1547c",
+          "0081da60-5fa22cc6"
+        ],
+        "development": [
+          "0081da60-27997c07",
+          "00810e80-37641274",
+          "b1e1a7b8-65ec7612"
+        ],
+        "sealed": [
+          "00690c26-e4bbbd72",
+          "b1d0091f-75824d0d",
+          "b1cac6a7-04e33135",
+          "0024b742-acbed4fb"
+        ]
+      },
+      "night": {
+        "adaptation": [
+          "b1f20aa0-3401c3bf",
+          "b2102d00-5eb86b71",
+          "b2194b15-1825056a",
+          "b242f6b2-f5da110f",
+          "b23f7012-32d284ce",
+          "b20234fd-822029be",
+          "b230132b-ff8f2719",
+          "b242f6b2-99d2f2c1",
+          "b2505382-1423f56a",
+          "b1db7e22-cfa74dc3",
+          "b1ee702d-4a193906",
+          "b206a78b-99f405ab",
+          "b2064e61-2beadd45",
+          "b1e62c91-eca210a9",
+          "b229488e-e4714bb7",
+          "b21547c1-796757ac",
+          "b251b746-00138418",
+          "b1e88fd2-c1e4fd2b",
+          "b1ebfc3c-cc9c2bb8",
+          "b2102d00-a8c09be1",
+          "b1f6c103-8b75ea3e"
+        ],
+        "development": [
+          "b1ebfc3c-740ec84a",
+          "b214d1e1-f248c616",
+          "b21547c1-73e457f8",
+          "b21d5efb-5e2cd743",
+          "b23f7012-fab06dac",
+          "b2505382-272e7823",
+          "b20eae11-6817ba7a"
+        ],
+        "sealed": [
+          "b242f6b2-0033bdfb",
+          "b1fbf878-b31a8293",
+          "b1f20aa0-50213047",
+          "b24380ab-6dbeb908",
+          "b23a79d1-43dfeecd",
+          "b21c68e6-65674a17",
+          "b200b84e-4a792877",
+          "b21bfb83-ea32f716"
+        ]
+      }
+    }
+  },
+  "frozen_before_new_development_results": true,
+  "native_protocol": "runs/JEPA_CMOT/native_protocol_v3/manifest.json"
+}

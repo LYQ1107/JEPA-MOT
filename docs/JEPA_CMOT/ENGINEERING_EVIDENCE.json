@@ -159,5 +159,253 @@
       "feature_score_min_smoke_only": 0.85,
       "gpu": "6"
     }
+  },
+  "source_training_v1_status": "SUPERSEDED_INVALID_VIDEO_BUFFER",
+  "source_training_v1_reason": "Source RGB temporal buffer was not reset between independent videos",
+  "source_training_v2": {
+    "discriminative": {
+      "status": "complete",
+      "engineering_smoke_only": true,
+      "method": "discriminative",
+      "config": {
+        "feature_dim": 1664,
+        "history": 4,
+        "metadata_dim": 10,
+        "hidden_dim": 128,
+        "residual_scale": 0.25
+      },
+      "seed": 17,
+      "steps": 200,
+      "batch_size": 32,
+      "parameters": 1072640,
+      "fit_videos": [
+        1
+      ],
+      "validation_videos": [
+        2
+      ],
+      "fit_samples": 98,
+      "validation_samples": 46,
+      "source_validation_rank1": 0.8695652173913043,
+      "source_validation_prediction_error": 0.7541051118270211,
+      "loss_first": {
+        "step": 1,
+        "prediction": 0.02217107079923153,
+        "ranking": 1.3190809488296509,
+        "gradient_norm": 1.3484702110290527
+      },
+      "loss_last": {
+        "step": 200,
+        "prediction": 0.631948709487915,
+        "ranking": 0.21834836900234222,
+        "gradient_norm": 0.1602417677640915
+      },
+      "checkpoint_sha256": "f38f600fcc24787ba32a85b373a817d014a5008802b26d9f6124229588f65a3a",
+      "cache_sha256": "ad05f5e08ee636aa63f2828b8bd07da9b277d7f590cee676423271df5249dae2",
+      "experiment_fingerprint": "b5c7aa0a51a625a28d5893a122a7adc61d01feb7d96fe4be406e0a84a7b636d3",
+      "seconds": 4.840732827782631,
+      "target_gt_used": false,
+      "candidate_input_to_history_predictor": false
+    },
+    "predictive": {
+      "status": "complete",
+      "engineering_smoke_only": true,
+      "method": "predictive",
+      "config": {
+        "feature_dim": 1664,
+        "history": 4,
+        "metadata_dim": 10,
+        "hidden_dim": 128,
+        "residual_scale": 0.25
+      },
+      "seed": 17,
+      "steps": 200,
+      "batch_size": 32,
+      "parameters": 1072640,
+      "fit_videos": [
+        1
+      ],
+      "validation_videos": [
+        2
+      ],
+      "fit_samples": 98,
+      "validation_samples": 46,
+      "source_validation_rank1": 0.9565217391304348,
+      "source_validation_prediction_error": 0.019205983566201252,
+      "loss_first": {
+        "step": 1,
+        "prediction": 0.02217107079923153,
+        "ranking": 1.3190809488296509,
+        "gradient_norm": 0.12430839985609055
+      },
+      "loss_last": {
+        "step": 200,
+        "prediction": 0.0048875268548727036,
+        "ranking": 1.1814603805541992,
+        "gradient_norm": 0.02748708799481392
+      },
+      "checkpoint_sha256": "1c93acf17872f7aa563b4858a052744593c09b2c1a8252a431100b1c40e4554d",
+      "cache_sha256": "ad05f5e08ee636aa63f2828b8bd07da9b277d7f590cee676423271df5249dae2",
+      "experiment_fingerprint": "e620407c08a97f476bfcaf74e81aa809d3629249f4baba7bd801c7c8f5b3cbc8",
+      "seconds": 5.274926722049713,
+      "target_gt_used": false,
+      "candidate_input_to_history_predictor": false
+    },
+    "predictive_ranking": {
+      "status": "complete",
+      "engineering_smoke_only": true,
+      "method": "predictive_ranking",
+      "config": {
+        "feature_dim": 1664,
+        "history": 4,
+        "metadata_dim": 10,
+        "hidden_dim": 128,
+        "residual_scale": 0.25
+      },
+      "seed": 17,
+      "steps": 200,
+      "batch_size": 32,
+      "parameters": 1072640,
+      "fit_videos": [
+        1
+      ],
+      "validation_videos": [
+        2
+      ],
+      "fit_samples": 98,
+      "validation_samples": 46,
+      "source_validation_rank1": 0.9130434782608695,
+      "source_validation_prediction_error": 0.18261223253996475,
+      "loss_first": {
+        "step": 1,
+        "prediction": 0.02217107079923153,
+        "ranking": 1.3190809488296509,
+        "gradient_norm": 1.3703556060791016
+      },
+      "loss_last": {
+        "step": 200,
+        "prediction": 0.17609167098999023,
+        "ranking": 0.3432016372680664,
+        "gradient_norm": 0.24036824703216553
+      },
+      "checkpoint_sha256": "35b417382b1a6a173b1ee50d60f19472021dfe9cd4897617758532043b65a9d3",
+      "cache_sha256": "ad05f5e08ee636aa63f2828b8bd07da9b277d7f590cee676423271df5249dae2",
+      "experiment_fingerprint": "6c0d00f4889014dce75406d659d30ca64bcef795c0fe921b82bd43ab51617c40",
+      "seconds": 5.480091743171215,
+      "target_gt_used": false,
+      "candidate_input_to_history_predictor": false
+    }
+  },
+  "source_training_v2_video_buffer_reset": true,
+  "online_protocol": {
+    "status": "ENGINEERING_PROTOCOL_PASS",
+    "same_frame_updates": 0,
+    "delayed_updates": 1,
+    "resume_bit_identical": true,
+    "video_reset_preserves_memory_optimizer": true,
+    "current_history_rejected": true,
+    "target_gt_read": false
+  },
+  "evaluation_protocol": {
+    "status": "PASS",
+    "perfect_vehicle_HOTA": 100.0,
+    "ignored_prediction_removed": true,
+    "unknown_frame_not_false_negative": true,
+    "BDD_wrong_class_HOTA": 0.0
+  },
+  "native_disabled_parity": {
+    "status": "PASS",
+    "frames": 6,
+    "forced_empty_detection_frames": 1,
+    "native_vs_disabled_causal_tracker_output_equal": true,
+    "reference": "Original native BYTETracker called on every frame",
+    "target_gt_read": false
+  },
+  "causal_tracker_trained": {
+    "experiment": {
+      "method": "trained",
+      "inputs_sha256": "04a1b219d6bd59f532b244cdcab5de16cd7d48be75135ce9ff2b626d3006e6aa",
+      "checkpoint": "runs/JEPA_CMOT/source_training_smoke/v2/predictive_ranking/final.pt",
+      "online_config": "None",
+      "engineering_smoke_only": true
+    },
+    "videos": [
+      {
+        "video": "MVI_39311",
+        "frames": 6,
+        "seconds": 3.1371574327349663,
+        "tracker_stats": {
+          "mode": "all",
+          "feature_dim": 1664,
+          "lambda": 0.15,
+          "max_gap": 8,
+          "ambiguity_margin": 0.08,
+          "relative_margin": 0.03,
+          "history_aggregation": "mean",
+          "momentum_beta": 0.25,
+          "high_iou": 0.05,
+          "candidate_pairs": 5,
+          "eligible_pairs": 5,
+          "fused_pairs": 5,
+          "missing_track_feature_pairs": 0,
+          "missing_detection_feature_pairs": 0,
+          "top2_reorder_rows": 0,
+          "low_fallback_pairs": 0,
+          "temporal_query_count": 0,
+          "temporal_fallback_count": 0,
+          "lost_consensus_pairs": 0,
+          "lost_consensus_vetoes": 0,
+          "lost_fallback_pairs": 0,
+          "lost_fallback_rejections": 0,
+          "high_consensus_pairs": 0,
+          "high_consensus_vetoes": 0,
+          "high_relative_consensus_pairs": 0,
+          "high_relative_consensus_vetoes": 0,
+          "lost_relative_rows": 0,
+          "lost_relative_switches": 0,
+          "lost_score_gate_skips": 0,
+          "high_fallback_pairs": 0,
+          "high_fallback_rejections": 0,
+          "high_swap_pairs": 0,
+          "high_reassign_pairs": 0,
+          "box_hold_candidates": 0,
+          "box_holds": 0,
+          "duplicate_candidates": 0,
+          "duplicate_suppressed": 0,
+          "duplicate_feature_expanded": 0,
+          "dormant_gallery_archives": 0,
+          "dormant_gallery_matches": 0,
+          "dormant_gallery_rejections": 0,
+          "consensus_gap_skips": 0,
+          "pair_candidate_pairs": 0,
+          "pair_eligible_pairs": 0,
+          "birth_pending": 0,
+          "birth_confirmed": 0,
+          "birth_low_similarity": 0,
+          "birth_output_suppressed": 0,
+          "primary_pairs": 0
+        },
+        "causal_stats": {
+          "frames": 6,
+          "empty_detection_frames": 0,
+          "history_queries": 5,
+          "current_history_violations": 0
+        },
+        "output_sha256": "466eab16432e5e86b3eceb48c7d399ee85ca6ecf163a0a2c563ab38bc0e0399f",
+        "updates": 0,
+        "gt_read": false
+      }
+    ],
+    "seconds": 3.2108881697058678,
+    "learner_stats": {
+      "proposed": 0,
+      "delayed_confirmed": 0,
+      "reliability_rejected": 0,
+      "need_rejected": 0,
+      "video_resets": 1,
+      "updates": 0,
+      "losses": []
+    },
+    "status": "ENGINEERING_ONLY"
   }
 }

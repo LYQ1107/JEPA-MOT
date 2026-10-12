@@ -1,0 +1,12 @@
+# Private venv: --system-site-packages on OC_SORT Python3.8 / torch1.13.1+cu117.
+# mmcv-full wheel index: https://download.openmmlab.com/mmcv/dist/cu117/torch1.13.0/index.html
+mmcv-full==1.7.2
+mmdet==2.28.2
+PyYAML==6.0.1
+addict==2.4.0
+yapf==0.40.1
+terminaltables==3.1.10
+packaging==24.0
+opencv-python==4.8.1.78
+platformdirs==4.2.0
+tomli==2.0.1
