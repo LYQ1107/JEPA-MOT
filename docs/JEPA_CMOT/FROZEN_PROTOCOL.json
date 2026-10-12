@@ -180,5 +180,37 @@
     "teacher_confirmed_pairs_common": true,
     "independent_frozen_snapshot_deployment_evaluation": true,
     "teacher_tracks_are_not_learned_method_outputs": true
+  },
+  "history_length_source_clips": {
+    "status": "registered-before-native-MOT-results",
+    "histories": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "hidden_by_history": {
+      "1": 320,
+      "2": 213,
+      "4": 128,
+      "8": 71
+    },
+    "parameters_by_history": {
+      "1": 660864,
+      "2": 660685,
+      "4": 662400,
+      "8": 661821
+    },
+    "same_source_cache": true,
+    "steps": 2000,
+    "batch": 64,
+    "seed": 17,
+    "methods": [
+      "discriminative",
+      "predictive",
+      "predictive_ranking"
+    ],
+    "history1_motion_velocity": "zero because a single observation contains no measured velocity",
+    "scope": "source and frozen development ablation; independent online teacher reliability remains history4"
   }
 }

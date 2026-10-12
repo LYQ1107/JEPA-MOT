@@ -15,6 +15,7 @@ class CausalHistoryTracker(BYTETracker):
         self.learner=learner
         self._queries={};self._packed={};self._observations={};self._query_frames={}
         self._native_evidence={};self._accepted={}
+        self._prepared_frame=-1
         self.causal_stats=dict(frames=0,empty_detection_frames=0,history_queries=0,
                                current_history_violations=0)
 
@@ -93,21 +94,24 @@ class CausalHistoryTracker(BYTETracker):
         # Reliability is measured with the original matcher, independently of
         # the learned query. Both row and column ambiguity are retained.
         cost=np.asarray(base_cost)
+        if not cost.size:return super()._fuse_jepa(base_cost,tracks,detections,branch)
+        rows=np.sort(cost,axis=1);columns=np.sort(cost,axis=0)
+        row_margins=rows[:,1]-rows[:,0] if cost.shape[1]>1 else np.ones(cost.shape[0])
+        column_margins=columns[1]-columns[0] if cost.shape[0]>1 else np.ones(cost.shape[1])
+        row_best=np.argmin(cost,axis=1);column_best=np.argmin(cost,axis=0)
         for i,track in enumerate(tracks):
             for j,det in enumerate(detections):
-                row=np.sort(cost[i]);column=np.sort(cost[:,j])
-                row_margin=float(row[1]-row[0]) if len(row)>1 else 1.
-                col_margin=float(column[1]-column[0]) if len(column)>1 else 1.
                 self._native_evidence[(int(track.track_id),id(det))]=dict(
-                    cost=float(cost[i,j]),row_top1=int(np.argmin(cost[i]))==j,
-                    column_top1=int(np.argmin(cost[:,j]))==i,
-                    row_margin=row_margin,column_margin=col_margin,branch=branch)
+                    cost=float(cost[i,j]),row_top1=int(row_best[i])==j,
+                    column_top1=int(column_best[j])==i,
+                    row_margin=float(row_margins[i]),column_margin=float(column_margins[j]),branch=branch)
         return super()._fuse_jepa(base_cost,tracks,detections,branch)
 
-    def update(self,output_results,img_info,img_size,imgs,jepa_maps=None):
+    def prepare_queries(self,width,height):
+        """Freeze queries before a caller performs current-frame perception."""
         current=self.frame_id+1
-        self._queries={};self._packed={};self._native_evidence={};self._accepted={};self._query_frames={}
-        width,height=float(img_info[1]),float(img_info[0])
+        if self._prepared_frame==current:return
+        self._queries={};self._packed={};self._query_frames={}
         existing=list(self.tracked_stracks)+list(self.lost_stracks)
         for track in existing:
             track_id=int(track.track_id);rows=self._observations.get(track_id)
@@ -126,6 +130,12 @@ class CausalHistoryTracker(BYTETracker):
                 queries=self.learner.predict(*packed)
             self._queries={i:q.copy() for i,q in zip(ids,queries)}
             self.causal_stats['history_queries']+=len(ids)
+        self._prepared_frame=current
+
+    def update(self,output_results,img_info,img_size,imgs,jepa_maps=None):
+        current=self.frame_id+1
+        self.prepare_queries(float(img_info[1]),float(img_info[0]))
+        self._native_evidence={};self._accepted={}
         values=output_results.detach().cpu().numpy() if torch.is_tensor(output_results) else output_results
         self._current_candidates=np.asarray(values[:,6:6+self.feature_dim],np.float32)
         self._current_boxes=np.asarray(values[:,:4],np.float32)

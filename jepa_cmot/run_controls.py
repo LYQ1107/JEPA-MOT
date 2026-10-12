@@ -73,7 +73,8 @@ def main():
                 '--prepared-dir',entry['prepared'],'--output-dir',str(args.out/key/name),
                 '--restore_ckpt',str(ROOT/'GeneralTrack-main/checkpoints/generaltrack_bdd.pth'),
                 '--jepa-mode','none' if spec['method']=='native' else 'all',
-                '--jepa-feature-dim',str(dimension),'--jepa-lambda','0.15','--jepa-history','4'])
+                '--jepa-feature-dim',str(dimension),'--jepa-lambda','0.15','--jepa-history',
+                str(4 if learner is None else learner.model.config.history)])
             native.roialign_size=tuple(native.roialign_size);native.geometry_duplicates=spec.get('geometry_duplicates',True)
             native.jepa_duplicate_iou=.2
             native.history_control=spec.get('history_control','full')
@@ -119,7 +120,7 @@ def main():
         for spec in specs:
             key=spec['name'];directory=args.out/key/name;directory.mkdir(parents=True,exist_ok=True)
             path=directory/'tracks.txt';path.write_text(''.join(lines[key]))
-            if learners[key]:learners[key].save(directory/'learner.pt')
+            if learners[key]:learners[key].save(directory/'learner.pt',video_complete=True)
             report=dict(video=name,frames=len(images),causal_stats=trackers[key].causal_stats,
                 tracker_stats=trackers[key].jepa_stats,updates=0 if learners[key] is None else learners[key].updates,
                 output_sha256=hashlib.sha256(path.read_bytes()).hexdigest(),GT_read=False)

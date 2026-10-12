@@ -25,7 +25,8 @@ def main():
     if not metadata['gt_read'] or metadata['target_domains_read']:raise ValueError('Calibration is source-only')
     reference=json.loads((args.reference_metrics or args.models/'discriminative/metrics.json').read_text())
     width,height=(960,540) if args.dataset=='ua_detrac' else (1280,720)
-    data=SourcePairs(args.cache,4,reference['validation_videos'],width,height,prediction_gaps=[1,2,4,8])
+    data=SourcePairs(args.cache,reference['config']['history'],reference['validation_videos'],width,height,
+                     prediction_gaps=reference['prediction_gaps'])
     args.out.mkdir(parents=True,exist_ok=True)
     for method in args.methods:
         model=None;checkpoint=args.models/method/'final.pt'

@@ -1,11 +1,11 @@
 # 连续域学习矩阵
 
-状态：尚未执行正式连续适应；无新算法矩阵。
+状态：ACTIVE。BDD forward seed17 的六组训练已完成 source→overcast→rainy→night 和44个适应视频，四个参数快照保存；stage×domain 冻结评测正在执行，完整矩阵尚未生成。UA forward 继续 cloudy；同教师 H2 五组在两个数据集持续运行。未评测 sealed。
 
-计划顺序：UA `sunny → cloudy → rainy → night`；BDD `clear → overcast → rainy → night`。第二 BDD 顺序 `clear → night → rainy → overcast` 使用相同视频和更新预算。
+路径：runs/JEPA_CMOT/continual_v1/{dataset}_forward_seed17；同教师比较为continual_h2_v1。所有 snapshot 评测关闭更新，不反馈到训练；物理 track/pending 在视频边界重置，参数、optimizer、replay/recent和RNG持续。
 
-每个 stage 保存独立 snapshot，并以冻结 snapshot 评测所有域；评测不更新模型。所有独立视频重置轨迹。
+顺序：UA sunny→cloudy→rainy→night；BDD clear→overcast→rainy→night。反向顺序仍待执行，保持相同视频、更新预算和评测集合。
 
-将报告 HOTA、AssA、IDF1、DetA、MOTA、IDSW、final seen-domain average。Average Forgetting 使用各已学域历史最佳值减当前值；同时报告相对该域刚学完阶段的 BWT。FWT 的参考模型和未见域阶段固定在配置中。
+每个 stage 评测所有四个 development 域，报告 HOTA/AssA/IDF1/DetA/MOTA/IDSW。最终平均对四域等权，不按视频数量调权。Average Forgetting 使用旧域在学会后到最终阶段之前的最佳值减最终值，主表截断为非负，同时报告未截断值和相对学完当时的BWT；FWT使用该方法实际stage0未适应目标域分数为参考。continual_analysis.py强制完整矩阵后才生成最终汇总。
 
-没有填入历史单域值，因为它们不能作为本次 stage×domain 结果。
+冻结预测器参考来自实际完整stage0评测，同一静态权重、校准和测试输入在每stage重复该结果；不借用旧历史抽帧实验值。配对统计从各视频 raw TrackEval 计数重新聚合。

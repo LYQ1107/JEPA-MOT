@@ -53,3 +53,15 @@ Observation：BDD clear 开发视频 frozen-shuffle HOTA 51.91，接近预测 51
 ## source 预测的时间支持与逐帧推理不同
 
 Observation：UA uniform source 验证样例 native delta-t 最小为 6、中位 19，没有 delta-t=1 样例；BDD 12.42% 为 delta-t=1。Hypothesis：history learner 在短时间步上外推，source 排序与在线关联变化的一部分可能由时间支持失配造成。Discriminating experiment：相同每视频图片预算下的连续 clips，保留 native frame 编号，clip 间重置 history，三种同容量目标和相同 source-only 校准。这个数据协议修正本身不是 JEPA 创新。
+
+## 单视频 +1.00 不代表 source 全域 +1.00
+
+Observation：首个 BDD 视频预测比 CE 高1.00；全部5个 clear 开发视频汇总差值0.553、配对区间跨0，相对最强geometry仅0.163。Hypothesis：收益存在视频/事件依赖，当前证据不足以排除几何与分数尺度。Discriminating experiment：保留全部 target 开发域、三 seeds 与实际持续回测，分析事件而不选择有利视频。
+
+## 连续源时间支持改善不等于 JEPA 改善
+
+Observation：clips 内 CE88.54%、预测88.62%、联合89.80%，两种普通/预测模型都能较好排序。源验证图片与uniform不同，不能直接比较绝对分数。Hypothesis：源间隔失配可能影响部署，但其修正也可能被普通历史学习解释。Discriminating experiment：相同固定 native 开发输入上比较新三个目标，并加入训练过的不同历史长度/相近容量模型。
+
+## 缓存数值与真实链路存在微小差异
+
+Observation：实际 detector 数值相同、短序列轨迹一致；FP16 latent最大差约1.4e-3，3次更新后参数最大差2.8e-4。不能把位级 checkpoint 可复现扩展到两种 GPU 执行环境的数学近似。Discriminating experiment：完成长视频真实链路，保留精度和硬件竞争说明；正式受控主表仍共用同一固定 feature cache。没有用 reference cache 替代 live inference。

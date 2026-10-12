@@ -1,0 +1,140 @@
+{
+  "dataset": "bdd100k",
+  "domain": "clear",
+  "video": "b202cae2-672e61c5",
+  "frames": 24,
+  "native_frames_available": 203,
+  "native_full_frames": false,
+  "engineering_smoke_only": true,
+  "protocol": {
+    "method": "online",
+    "stream_sha256": "4c244ef7cc310efe054d0962312ffc8d0c79cdb8970eb513a698c5eea846bac9",
+    "detector_checkpoint_sha256": "f7fb8d711edfa3f16854f1a963224b379828868b6e91fd9ec830469c639af4f0",
+    "encoder_checkpoint_sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+    "source_checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0",
+    "calibration": {
+      "method": "predictive_ranking",
+      "slope": 11.86988353729248,
+      "intercept": 0.6852314472198486,
+      "loss": 0.8764163255691528,
+      "steps": 200,
+      "trainable_parameters": 2,
+      "fit_scope": "source-validation-only",
+      "videos": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+      "checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0",
+      "target_gt_used": false,
+      "score": "sigmoid(slope*(cosine-intercept))",
+      "source_feature_readout": "dense_current",
+      "identity_predictor_parameters": 662400
+    },
+    "online_config": {
+      "method": "predictive_ranking",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "confidence",
+      "retention": "none",
+      "seed": 17,
+      "need_threshold": 0.05,
+      "retention_weight": 1.0
+    },
+    "native_class_mapping": "coco6-to-bdd8",
+    "geometry_duplicates": true,
+    "current_reader": "dense_current, two identical current images, final 1024-D",
+    "cached_input_used": false,
+    "GT_read": false,
+    "engineering_smoke_only": true,
+    "timing_scope": "wall time including image reads, detector IPC, perception, association and actual updates",
+    "startup_and_weight_loading_excluded": true,
+    "warmup_frames": 10,
+    "shared_image_pair_optimization": "same frozen matcher caching available to every method"
+  },
+  "adapter_parameters": 662400,
+  "actual_updates": 3,
+  "fps_all_native_processed": 1.1671747083658581,
+  "fps_after_warmup": 1.453773374879063,
+  "latency_ms": {
+    "end_to_end_ms": {
+      "count": 14,
+      "mean": 687.8651220883642,
+      "p50": 664.1914770007133,
+      "p95": 845.8176545798777
+    },
+    "query_preparation_ms": {
+      "count": 14,
+      "mean": 7.496274475540433,
+      "p50": 6.669271737337112,
+      "p95": 10.274170711636543
+    },
+    "detector_rpc_ms": {
+      "count": 14,
+      "mean": 178.18930479032653,
+      "p50": 175.33116787672043,
+      "p95": 201.58708691596985
+    },
+    "detector_inference_ms": {
+      "count": 14,
+      "mean": 176.72291131956237,
+      "p50": 173.85270074009895,
+      "p95": 200.2652693539858
+    },
+    "image_decode_resize_ms": {
+      "count": 14,
+      "mean": 198.99635389447212,
+      "p50": 173.42306673526764,
+      "p95": 308.9128740131854
+    },
+    "current_encoder_ms": {
+      "count": 14,
+      "mean": 185.25476647274834,
+      "p50": 180.49651384353638,
+      "p95": 229.70439456403255
+    },
+    "tracking_including_learning_ms": {
+      "count": 14,
+      "mean": 117.53831271614347,
+      "p50": 114.80838432908058,
+      "p95": 153.37362252175808
+    }
+  },
+  "predictor_query_call_ms": {
+    "count": 23,
+    "mean": 2.3121717183486274,
+    "p50": 1.8679872155189514,
+    "p95": 4.129078984260559
+  },
+  "online_update_call_ms": {
+    "count": 3,
+    "mean": 17.29108641544978,
+    "p50": 15.194900333881378,
+    "p95": 21.286264061927795
+  },
+  "online_update_timing_includes": "pseudo-pair processing, batch/replay, gradients and optimizer step",
+  "parent_peak_allocated_bytes": 2998571520,
+  "detector_peak_allocated_bytes": 497643008,
+  "combined_peak_reserved_bytes": 4313841664,
+  "memory_scope": "torch process allocations/reservations; CUDA driver context and unrelated processes excluded",
+  "causal_stats": {
+    "frames": 24,
+    "empty_detection_frames": 0,
+    "history_queries": 533,
+    "current_history_violations": 0
+  },
+  "detector_max_reference_error": 0.0,
+  "feature_max_reference_error": 0.0014407336711883545,
+  "reference_arrays_never_used_as_inputs": true,
+  "shared_image_pair_forwards": 23,
+  "GT_read": false,
+  "cached_vs_live_tracks_byte_identical": true,
+  "cached_vs_live_final_parameter_max_error": 0.0002837628126144409,
+  "scope": "engineering partial video only; 24 of 203 frames; shared GPU contention"
+}

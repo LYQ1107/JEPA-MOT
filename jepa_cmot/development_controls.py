@@ -16,6 +16,7 @@ def main():
     parser.add_argument('--controls', type=Path, required=True)
     parser.add_argument('--feature-producer-pid', type=int, nargs='+', required=True)
     parser.add_argument('--out', type=Path, required=True)
+    parser.add_argument('--feature-name', default='features_dense_current.npz')
     args = parser.parse_args()
     specs = json.loads(args.controls.read_text())
     if any(s['method'] == 'online' or s.get('online_config', {}).get('enabled') for s in specs):
@@ -27,6 +28,7 @@ def main():
     protocol = dict(dataset=args.dataset, split='development', controls=specs,
                     checkpoint_sha256=weights, sealed_test_used=False,
                     evaluation_GT_scope='offline metrics only', updates_enabled=False)
+    if args.feature_name!='features_dense_current.npz':protocol['feature_name']=args.feature_name
     path = args.out / 'protocol.json'
     if path.exists() and json.loads(path.read_text()) != protocol:
         raise ValueError('Existing development protocol differs')
@@ -36,7 +38,7 @@ def main():
         progress = False
         for video in list(pending):
             root = args.detections / video['domain'] / 'development' / video['name']
-            features = root / 'features_dense_current.npz'
+            features = root / args.feature_name
             if not features.with_suffix('.npz.json').exists():
                 continue
             entry = dict(dataset=args.dataset, domain=video['domain'], video=video['name'],

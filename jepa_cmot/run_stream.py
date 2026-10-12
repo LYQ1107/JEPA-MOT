@@ -119,7 +119,7 @@ def main():
                     lines.append(f"{image['frame_id']},{track.track_id},{x:.4f},{y:.4f},{w:.4f},{h:.4f},{track.score:.6f},{NATIVE8_TO_COCO6[int(track.cls)]},-1,-1\n")
                 if (index+1)%100==0:print('TRACK_PROGRESS',name,index+1,len(images),flush=True)
         (directory/'tracks.txt').write_text(''.join(lines))
-        if learner is not None:learner.save(directory/'learner.pt')
+        if learner is not None:learner.save(directory/'learner.pt',video_complete=True)
         report=dict(video=name,frames=len(images),seconds=time.perf_counter()-start,
                     tracker_stats=tracker.jepa_stats,causal_stats=tracker.causal_stats,
                     output_sha256=hashlib.sha256((directory/'tracks.txt').read_bytes()).hexdigest(),

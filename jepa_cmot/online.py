@@ -155,12 +155,13 @@ class ContinualLearner:
         self.stats['losses'].append(dict(update=self.updates,frame=self.frames,loss=float(loss.detach()),
             prediction=float(parts['prediction']),ranking=float(parts['ranking']),retention=float(retention.detach())))
 
-    def save(self,path):
+    def save(self,path,*,video_complete=False):
         Path(path).parent.mkdir(parents=True,exist_ok=True)
         torch.save(dict(state_dict=self.model.state_dict(),config=asdict(self.model.config),
             online_config=asdict(self.config),optimizer=self.optimizer.state_dict(),memory=self.memory,
             sampler_state=self.rng.getstate(),seen=self.seen,frames=self.frames,updates=self.updates,
-            stats=self.stats,pending=self.pending,recent=self.recent,
+            stats=self.stats,pending={} if video_complete else self.pending,recent=self.recent,
+            physical_video_complete=video_complete,
             source_feature_metadata=self.source_feature_metadata),path)
 
     def resume(self,path):

@@ -1,9 +1,11 @@
 # 下一步
 
-收集正在运行的全部 development frozen 控制和 forward seed17 六组持续学习结果，逐域核实完整视频覆盖、实际更新数和参数/optimizer/replay 跨视频保留。完成矩阵后，用相同视频重采样汇总 HOTA、AssA、IDF1 差值及不确定性。评测继续保持独立、关闭更新，sealed 不参与选择。
+完成正在运行的全 development frozen 对照与 forward 连续矩阵；优先汇总已经完整的域，严格标注 source/target、seed和评测覆盖。主表始终使用相同 detector/native frame/caches，逐域报告负结果。
 
-信息控制已提示 shuffle 和分数尺度也能改变结果；收集常数 affinity 对照，检查 candidate ordering、融合导致的纠错/反改错与伪对质量，不能把固定 backbone 或几何收益归因于 JEPA。
+UA clips三目标已经完成源训练与校准，正在部署全部开发视频；BDD clips继续生成。目标object-crop的 source校准和完整开发视频特征/匹配对照已启动。历史1/2/4/8使用相近容量、相同图像与2,000×64预算源训练，然后做匹配长度的冻结推理。
 
-新 source clips 使用同样图片预算，修正 UA uniform source 的时间间隔与逐帧在线 history 不一致；跑同容量 CE / 预测 / 联合，做相同 source-only 校准，比较完整开发域。保留之前 uniform 结果。
+收集 H2 固定教师五组的相同实际更新预算结果，以及 H3 replay/feature/row-relation distillation 的独立增量。row-KL仍按普通输出蒸馏解释；完成这一波结果后，决定是否需要MOT动态候选竞争的结构性保持。
 
-随后补齐 prediction-need 与 confidence/hard-example 的相同实际更新预算对照、候选关系保持与普通蒸馏的区别、反向域顺序和 seed23/42。只有在方法与超参数冻结后执行 sealed，最终报告真实端到端效率与负结果。
+继续反向域顺序和seed23/42的真正在线跟踪验证，保持目标GT不参与训练/伪对门控。开发选择冻结后才执行sealed。
+
+live_stream已经跑通真实图像/两环境detector IPC/encoder/query/关联/更新；完整适应视频计时等待GPU5的source clips队列释放。独立benchmark checkpoint不能用于研究训练；共享GPU数字明确标记，最终再核实实际fps、p50/p95和显存。

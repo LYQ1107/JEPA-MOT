@@ -1,0 +1,320 @@
+{
+  "scope": "complete source-domain development split, not target domains or final evidence",
+  "dataset": "bdd100k",
+  "domain": "clear",
+  "videos": [
+    "b202cae2-672e61c5",
+    "b1df722f-57d21f3f",
+    "b1f0efd9-e900c6e5",
+    "b2208b0f-2796a692",
+    "b2169b74-fa197951"
+  ],
+  "frames": 1013,
+  "methods": {
+    "predictive_ranking": {
+      "HOTA": 37.33256258709762,
+      "AssA": 40.34063358949222,
+      "DetA": 36.26107276164426,
+      "IDF1": 44.46848264332776,
+      "MOTA": 17.270760962181296,
+      "IDSW": 631
+    },
+    "projection": {
+      "HOTA": 36.95437704664702,
+      "AssA": 39.55380282316442,
+      "DetA": 36.208518900972166,
+      "IDF1": 44.225416680310424,
+      "MOTA": 17.2642065936947,
+      "IDSW": 648
+    },
+    "predictive_last_only": {
+      "HOTA": 37.51337772354979,
+      "AssA": 40.60486252750715,
+      "DetA": 36.267328328106956,
+      "IDF1": 44.68775610555647,
+      "MOTA": 17.2642065936947,
+      "IDSW": 660
+    },
+    "discriminative": {
+      "HOTA": 37.537638448582925,
+      "AssA": 40.81452454137289,
+      "DetA": 36.231627887931126,
+      "IDF1": 44.62310898172153,
+      "MOTA": 17.54604443861834,
+      "IDSW": 603
+    },
+    "predictive": {
+      "HOTA": 38.090312942989655,
+      "AssA": 41.8502168019096,
+      "DetA": 36.23949996623742,
+      "IDF1": 45.549875475160576,
+      "MOTA": 17.355967752507045,
+      "IDSW": 619
+    },
+    "geometry_null": {
+      "HOTA": 37.92693970781214,
+      "AssA": 41.3799377540429,
+      "DetA": 36.33635577580363,
+      "IDF1": 45.25825293692984,
+      "MOTA": 17.755784230189423,
+      "IDSW": 614
+    },
+    "native": {
+      "HOTA": 37.87058776467318,
+      "AssA": 41.40920405418712,
+      "DetA": 36.17111347959259,
+      "IDF1": 44.81933858468604,
+      "MOTA": 14.694894146948942,
+      "IDSW": 688
+    },
+    "frozen_random": {
+      "HOTA": 37.67421263363267,
+      "AssA": 40.917803386711654,
+      "DetA": 36.28596500606729,
+      "IDF1": 44.77239931785386,
+      "MOTA": 16.949596906338073,
+      "IDSW": 703
+    },
+    "frozen_last": {
+      "HOTA": 37.57621759201382,
+      "AssA": 40.675384697166685,
+      "DetA": 36.328256373617656,
+      "IDF1": 44.955090801809476,
+      "MOTA": 17.77544733564921,
+      "IDSW": 569
+    },
+    "frozen_shuffle": {
+      "HOTA": 37.05239014120089,
+      "AssA": 39.802175458608886,
+      "DetA": 36.19626678255681,
+      "IDF1": 44.09670964143949,
+      "MOTA": 16.47768237530314,
+      "IDSW": 824
+    }
+  },
+  "predictive_vs_controls_paired_video_bootstrap": {
+    "geometry_null": {
+      "videos": [
+        "b1df722f-57d21f3f",
+        "b1f0efd9-e900c6e5",
+        "b202cae2-672e61c5",
+        "b2169b74-fa197951",
+        "b2208b0f-2796a692"
+      ],
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired video resampling; recompute aggregate TrackEval from raw counts",
+      "difference": "candidate minus reference",
+      "metrics": {
+        "HOTA": {
+          "delta": 0.16337323517751656,
+          "percentile_95": [
+            -0.8269273754206665,
+            0.7644228582340915
+          ]
+        },
+        "AssA": {
+          "delta": 0.47027904786670405,
+          "percentile_95": [
+            -2.0764997847620665,
+            1.8932366263167637
+          ]
+        },
+        "IDF1": {
+          "delta": 0.29162253823073314,
+          "percentile_95": [
+            -1.5062804870011064,
+            1.2457690403746184
+          ]
+        }
+      },
+      "scope": "between-video uncertainty for this fixed seed; not cross-seed uncertainty"
+    },
+    "frozen_last": {
+      "videos": [
+        "b1df722f-57d21f3f",
+        "b1f0efd9-e900c6e5",
+        "b202cae2-672e61c5",
+        "b2169b74-fa197951",
+        "b2208b0f-2796a692"
+      ],
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired video resampling; recompute aggregate TrackEval from raw counts",
+      "difference": "candidate minus reference",
+      "metrics": {
+        "HOTA": {
+          "delta": 0.5140953509758361,
+          "percentile_95": [
+            0.23124622339335588,
+            0.7754334478016389
+          ]
+        },
+        "AssA": {
+          "delta": 1.1748321047429187,
+          "percentile_95": [
+            0.41473360641817436,
+            1.7879179694891008
+          ]
+        },
+        "IDF1": {
+          "delta": 0.5947846733511,
+          "percentile_95": [
+            0.36488375325094324,
+            1.037753066185573
+          ]
+        }
+      },
+      "scope": "between-video uncertainty for this fixed seed; not cross-seed uncertainty"
+    },
+    "discriminative": {
+      "videos": [
+        "b1df722f-57d21f3f",
+        "b1f0efd9-e900c6e5",
+        "b202cae2-672e61c5",
+        "b2169b74-fa197951",
+        "b2208b0f-2796a692"
+      ],
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired video resampling; recompute aggregate TrackEval from raw counts",
+      "difference": "candidate minus reference",
+      "metrics": {
+        "HOTA": {
+          "delta": 0.5526744944067303,
+          "percentile_95": [
+            -0.16574017330304258,
+            1.063260273288684
+          ]
+        },
+        "AssA": {
+          "delta": 1.0356922605367131,
+          "percentile_95": [
+            -0.40600999855215036,
+            2.118160084021625
+          ]
+        },
+        "IDF1": {
+          "delta": 0.9267664934390467,
+          "percentile_95": [
+            0.23791728137577195,
+            1.3996711747690256
+          ]
+        }
+      },
+      "scope": "between-video uncertainty for this fixed seed; not cross-seed uncertainty"
+    },
+    "predictive_last_only": {
+      "videos": [
+        "b1df722f-57d21f3f",
+        "b1f0efd9-e900c6e5",
+        "b202cae2-672e61c5",
+        "b2169b74-fa197951",
+        "b2208b0f-2796a692"
+      ],
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired video resampling; recompute aggregate TrackEval from raw counts",
+      "difference": "candidate minus reference",
+      "metrics": {
+        "HOTA": {
+          "delta": 0.5769352194398678,
+          "percentile_95": [
+            -0.3156987480597948,
+            1.4267280473833353
+          ]
+        },
+        "AssA": {
+          "delta": 1.2453542744024517,
+          "percentile_95": [
+            -0.6098584694211979,
+            2.7996344726950397
+          ]
+        },
+        "IDF1": {
+          "delta": 0.862119369604109,
+          "percentile_95": [
+            -0.4799565417402363,
+            2.2516298178773866
+          ]
+        }
+      },
+      "scope": "between-video uncertainty for this fixed seed; not cross-seed uncertainty"
+    },
+    "frozen_shuffle": {
+      "videos": [
+        "b1df722f-57d21f3f",
+        "b1f0efd9-e900c6e5",
+        "b202cae2-672e61c5",
+        "b2169b74-fa197951",
+        "b2208b0f-2796a692"
+      ],
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired video resampling; recompute aggregate TrackEval from raw counts",
+      "difference": "candidate minus reference",
+      "metrics": {
+        "HOTA": {
+          "delta": 1.037922801788767,
+          "percentile_95": [
+            0.23279297220997108,
+            1.705865996717577
+          ]
+        },
+        "AssA": {
+          "delta": 2.048041343300717,
+          "percentile_95": [
+            0.5178450867911392,
+            3.3122136209574435
+          ]
+        },
+        "IDF1": {
+          "delta": 1.453165833721087,
+          "percentile_95": [
+            -0.17171047223195046,
+            2.6735307191314988
+          ]
+        }
+      },
+      "scope": "between-video uncertainty for this fixed seed; not cross-seed uncertainty"
+    },
+    "frozen_random": {
+      "videos": [
+        "b1df722f-57d21f3f",
+        "b1f0efd9-e900c6e5",
+        "b202cae2-672e61c5",
+        "b2169b74-fa197951",
+        "b2208b0f-2796a692"
+      ],
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired video resampling; recompute aggregate TrackEval from raw counts",
+      "difference": "candidate minus reference",
+      "metrics": {
+        "HOTA": {
+          "delta": 0.4161003093569846,
+          "percentile_95": [
+            -0.13853002967447736,
+            0.7195829254347501
+          ]
+        },
+        "AssA": {
+          "delta": 0.9324134151979493,
+          "percentile_95": [
+            -0.15959809619328524,
+            1.5632786458184
+          ]
+        },
+        "IDF1": {
+          "delta": 0.7774761573067153,
+          "percentile_95": [
+            0.21592056875913102,
+            1.2090909871894837
+          ]
+        }
+      },
+      "scope": "between-video uncertainty for this fixed seed; not cross-seed uncertainty"
+    }
+  },
+  "sealed_used": false
+}

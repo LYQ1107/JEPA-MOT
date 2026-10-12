@@ -122,7 +122,7 @@ def main():
         (directory/'tracks.txt').write_text(''.join(lines));saved={}
         for key,learner in learners.items():
             directory=args.out/key/name;directory.mkdir(parents=True,exist_ok=True)
-            learner.save(directory/'learner.pt')
+            learner.save(directory/'learner.pt',video_complete=True)
             report=dict(video=name,frames=len(images),updates=learner.updates,GT_read=False,
                         teacher_causal_stats=teacher.causal_stats,learner_stats=learner.stats,
                         update_budget_matched_each_frame=True,adaptation_tracks_are_teacher=True)

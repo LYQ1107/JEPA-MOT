@@ -95,3 +95,27 @@ source uniform-dense 的 seed23/42 训练与校准已经启动，BDD seed23 完�
 BDD uniform-dense 的 seed23、42 已完成同预算三个目标和校准：source rank-1 约为 CE 51.91% / 51.89%，预测 47.43% / 47.29%，联合 51.81% / 51.59%。与 seed17 相同，pure prediction 在该 source 排序检查中低于 CE；这仍不等于目标域 MOT 或持续学习结论。UA 多种子正在运行，完整记录见 SOURCE_MULTI_SEED_PARTIAL_RESULTS.json。
 
 BDD 全部 63 个 adaptation/development native 特征视频已准备完毕；完整开发对照和多域学习继续。H2 五组同教师完整序列已在两个数据集启动。当前 BDD forward 第一波已完成两个域、37 个适应视频，UA 9 个；这只是运行进展，未形成终态矩阵。BDD 已完成域的中间 state 保留参数后释放约 2.20 GB 重复 optimizer/replay，source 和域边界完整状态均保留。
+
+## 首个完整 source 域开发集合与统计区间
+
+BDD clear development 的 5 个原生完整视频、1,013 帧：native / geometry-null / frozen-last / CE / 预测 / 联合 HOTA 分别为 37.87 / 37.93 / 37.58 / 37.54 / 38.09 / 37.33；projection 36.95、预测 last-only 37.51、shuffle 37.05、random 37.67。所有视频均来自冻结 split，未选有利片段。
+
+预测相对 geometry-null 差值 +0.163，2,000 次视频级配对 bootstrap 95% 区间 [-0.827, +0.764]；相对 CE 为 +0.553，区间 [-0.166, +1.063]。相对 frozen-last 为 +0.514，区间 [+0.231, +0.775]。这是 source 域、单 seed 的结果，不能证明跨域 H1 或整体目标达成。见 BDD_CLEAR_FULL_DEVELOPMENT_RESULTS.json 与 figures/bdd_clear_development_paired_hota.svg。
+
+BDD 第一波六组 forward 无标签训练已完成全部 overcast/rainy/night、44 个适应视频，保存了 4 个 stage 快照；完整冻结回测仍在运行。H2 同教师五组也已完成 overcast 并进入 rainy。没有填造终态矩阵或遗忘值。
+
+## 连续 clips 的首个源比较
+
+UA 同 source 视频、每视频 128 图片预算、8×16 clips：42507 拟合 / 10111 验证样例，三个模型均 662,400 参数、seed17、2,000×64。CE / 预测 / 联合 rank-1 为 88.54% / 88.62% / 89.80%；误差为 0.48431 / 0.02398 / 0.11792。该验证帧/样例与 uniform 不同，不能把它们的绝对分数变化写成方法增益；可以比较同一 clips 内的三个目标。原生预测间隔最小1、中位2、p90 8，delta-t=1 占31.08%。新的 source-only 校准和全 development 对照已启动；BDD clips 继续生成。
+
+历史长度1/2/4/8 的相近容量控制已登记并开始源训练，参数分别660864/660685/662400/661821；不同目标在同一长度内结构相同。K1 不含观测速度，K4/K8 能包含过去运动；冻结推理将用对应训练长度，不能把只在推理时遮掉历史当作完整 no-history 训练控制。
+
+## 真实在线计算链路
+
+新的 live_stream 从 label-free 图片路径运行 source detector、官方当前图像 encoder、query、原生关联与真实在线更新。MMDetection 与 GeneralTrack 使用已有不同 Python/torch 环境，IPC、图片读取、decode/resize 和更新均计入墙钟；不以特征缓存喂入推理。
+
+BDD 24/203 帧的工程检查：detector 与已有 source-only 检测逐数值一致，缓存与真实推理输出轨迹逐字节相同，实际执行3次更新，query 因果违例0。FP16特征最大数值差约0.00144，更新后的参数最大差约0.000284，因此不声称 latent/checkpoint 位级等同。
+
+单次 decode 的 RGB IPC 检查保持检测与轨迹结果：共享 GPU 条件下 warmup 后约1.74 FPS，相比重复读取约1.45 FPS。这只是24帧工程测量，不能作为最终效率数字。完整适应视频的 geometry / frozen-feature / CE /预测联合 / online 计时已排队；benchmark 学习器独立，禁止恢复进正式研究训练。记录 p50/p95、实际更新耗时及两个进程的 torch memory，明确硬件竞争。
+
+Native 可靠性计算从每个 pair 重复 sort 改为每行/列一次 sort；空矩阵、单行/列和 ties 检查证明所有 evidence 字段逐值相同。完成视频的 pending 不会跨独立视频确认，保存完整域状态时移除该无效 pending，保留参数、optimizer、replay/recent、RNG和计数。
