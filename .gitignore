@@ -32,3 +32,5 @@ venv/
 # Platform-specific compiled artifacts and the upstream embedded-video demo.
 *.so
 /JEPA/GOT-main/pytracking/ltr/cotracker2/co_tracker/notebooks/demo.ipynb
+
+/.github-upload/

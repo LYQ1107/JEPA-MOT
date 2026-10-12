@@ -1,0 +1,57 @@
+{
+  "all_pass": true,
+  "records": [
+    {
+      "dataset": "ua_detrac",
+      "domain": "cloudy",
+      "prepared": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared_thr02/ua_detrac/cloudy",
+      "original_image": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/images/cloudy/MVI_39501/img00001.jpg",
+      "resolved_image": "/data1/liuyeqiang/nas/A100/testdata/vranlee/.MOTSynth.partial/UA-DETRAC/Insight-MVT_Annotation_Test/MVI_39501/img00001.jpg",
+      "readable": true,
+      "shape": [
+        540,
+        960,
+        3
+      ]
+    },
+    {
+      "dataset": "bdd100k",
+      "domain": "night",
+      "prepared": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared_thr02/bdd100k/night",
+      "original_image": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/BDD100K_night/b1db7e22-cfa74dc3/b1db7e22-cfa74dc3-0000001.jpg",
+      "resolved_image": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/BDD100K_night/b1db7e22-cfa74dc3/b1db7e22-cfa74dc3-0000001.jpg",
+      "readable": true,
+      "shape": [
+        720,
+        1280,
+        3
+      ]
+    },
+    {
+      "dataset": "vkitti2",
+      "domain": "fog",
+      "prepared": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared_thr02/vkitti2/fog",
+      "original_image": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/images/Scene01_fog_Camera_0/rgb_00000.jpg",
+      "resolved_image": "/data1/liuyeqiang/nas/A100/testdata/vranlee/.MOTSynth.partial/VKITTI2/vkitti_2.0.3_rgb/Scene01/fog/frames/rgb/Camera_0/rgb_00000.jpg",
+      "readable": true,
+      "shape": [
+        375,
+        1242,
+        3
+      ]
+    },
+    {
+      "dataset": "motsynth",
+      "domain": "dark",
+      "prepared": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared_mapped/source_detector_thr02/motsynth/dark",
+      "original_image": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/images/dark/050/0000.jpg",
+      "resolved_image": "/data1/liuyeqiang/nas/A100/testdata/vranlee/.MOTSynth.partial/MOTSynth/train/050/img1/0000.jpg",
+      "readable": true,
+      "shape": [
+        1080,
+        1920,
+        3
+      ]
+    }
+  ]
+}

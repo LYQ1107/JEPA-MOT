@@ -1,0 +1,56 @@
+{
+  "nas_root": "/data1/liuyeqiang/nas/A100",
+  "workspace": "/data1/liuyeqiang/JEPA_MOT_resume_20261012",
+  "datasets": "NAS only; use archive_paths.resolve_archive_path for old symlinks",
+  "checkpoints": [
+    {
+      "source": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/JEPA/checkpoints/vjepa2_1/vjepa2_1_vitl_dist_vitG_384.pt",
+      "local": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/JEPA/checkpoints/vjepa2_1/vjepa2_1_vitl_dist_vitG_384.pt",
+      "bytes": 5151198524,
+      "sha256": "7ea9b7cb4a75d10644a8a8d42cff9e177b10dca8f02173f0eaf2b0bed82838c6",
+      "local_hash_verified": true,
+      "verification_source": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/JEPA/outputs/official_vjepa21_cache_mapped_source_detector_thr02_score0/motsynth_dark_vjepa21_l384_w16_causalbox_predictor.npz.json"
+    },
+    {
+      "source": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/checkpoints/generaltrack_bdd.pth",
+      "local": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/GeneralTrack-main/checkpoints/generaltrack_bdd.pth",
+      "bytes": 9227483,
+      "sha256": "4a0243876a69c7eaccede582817cfb0701b49962d1abe03087a77fef27d384dd",
+      "local_hash_verified": true
+    },
+    {
+      "source": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/JEPA/outputs/official_vjepa21_adapter/temporal_source_vjepa21_predictor/temporal_adapter.pt",
+      "local": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/JEPA/checkpoints/source_temporal_vjepa21/temporal_adapter.pt",
+      "bytes": 17072799,
+      "sha256": "2e5afdb4127b02dda32589bbee97eade8e85a5129151828298d3bd301a09ec04",
+      "local_hash_verified": true
+    }
+  ],
+  "complete": true,
+  "links": {
+    "datasets_archive": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT",
+    "GeneralTrack-main/datasets/generaltrack_prepared_mapped": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared_mapped",
+    "GeneralTrack-main/datasets/generaltrack_prepared_thr02": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared_thr02",
+    "GeneralTrack-main/datasets/generaltrack_prepared": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/datasets/generaltrack_prepared",
+    "JEPA/outputs/jepa_motsynth_mapped_splits": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/JEPA/outputs/jepa_motsynth_mapped_splits",
+    "JEPA/outputs/official_vjepa21_cache_mapped_source_detector_thr02_score0": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/JEPA/outputs/official_vjepa21_cache_mapped_source_detector_thr02_score0",
+    "GeneralTrack-main/outputs/reference_archive": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/GeneralTrack-main/outputs",
+    "DA-MOT/darth-main/data": "/data1/liuyeqiang/nas/A100/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data"
+  },
+  "code_directories": [
+    "JEPA",
+    "GeneralTrack-main",
+    "DA-MOT/darth-main"
+  ],
+  "validation": {
+    "tracker_cli_import": true,
+    "vjepa_cache_cli_import": true,
+    "nas_sample_read_all_four_datasets": true,
+    "latest_motsynth_metric_reproduction": {
+      "evaluations": 40,
+      "all_pass": true
+    }
+  },
+  "new_training_started": false,
+  "local_dependency_requirements": "runtime/requirements-local.txt"
+}

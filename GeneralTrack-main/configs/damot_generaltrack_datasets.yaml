@@ -1,0 +1,122 @@
+{
+  "datasets": {
+    "bdd100k": {
+      "source": "clear",
+      "targets": ["overcast", "rainy", "dawn_dusk", "night"],
+      "annotation_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/bdd_da/annotations/box_track_20",
+      "source_ann": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/bdd_da/annotations/box_track_20/box_track_clear_all_cocofmt.json",
+      "target_ann_patterns": {
+        "overcast": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/bdd_da/annotations/box_track_20/box_track_overcast_all_cocofmt.json",
+        "rainy": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/bdd_da/annotations/box_track_20/box_track_rainy_all_cocofmt.json",
+        "dawn_dusk": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/bdd_da/annotations/box_track_20/box_track_dawn_dusk_all_cocofmt.json",
+        "night": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/bdd_da/annotations/box_track_20/box_track_night_all_cocofmt.json"
+      },
+      "image_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/BDD100K_{domain}",
+      "detection_roots": {
+        "source_detector": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector/bdd_da",
+        "source_detector_thr02": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector_thr02/bdd_da",
+        "external_GHOST": "datasets/detections_GHOST/bdd100k",
+        "oracle_gt": "outputs/oracle_gt/bdd100k"
+      },
+      "detection_patterns": [
+        "{domain}/detections_coco.json",
+        "{domain}_detections.json",
+        "{domain}.json",
+        "{domain}/detections.json",
+        "{domain}/detections.jsonl",
+        "{domain}/det.txt",
+        "{domain}/dets.txt",
+        "{domain}/det/yolox_dets.txt"
+      ]
+    },
+    "motsynth": {
+      "source": "normal",
+      "targets": ["cloudy", "dark", "fog", "indoor", "rain", "snow"],
+      "annotation_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old",
+      "source_ann": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_normal_cocofmt.json",
+      "target_ann_patterns": {
+        "cloudy": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_cloudy_cocofmt.json",
+        "dark": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_dark_cocofmt.json",
+        "fog": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_fog_cocofmt.json",
+        "indoor": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_indoor_cocofmt.json",
+        "rain": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_rain_cocofmt.json",
+        "snow": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/annotations/old/motsynth_snow_cocofmt.json"
+      },
+      "image_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/motsynth/images",
+      "detection_roots": {
+        "source_detector": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector/motsynth",
+        "source_detector_thr02": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector_thr02/motsynth",
+        "external_GHOST": "outputs/external_detections/motsynth",
+        "oracle_gt": "outputs/oracle_gt/motsynth"
+      },
+      "detection_patterns": [
+        "{domain}/detections_coco.json",
+        "{domain}_detections.json",
+        "{domain}.json",
+        "{domain}/detections.json",
+        "{domain}/detections.jsonl",
+        "{domain}/det.txt",
+        "{domain}/dets.txt",
+        "{domain}/det/yolox_dets.txt"
+      ]
+    },
+    "ua_detrac": {
+      "source": "sunny",
+      "targets": ["cloudy", "night", "rainy"],
+      "annotation_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/annotations",
+      "source_ann": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/annotations/box_track_sunny_all_cocofmt.json",
+      "target_ann_patterns": {
+        "cloudy": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/annotations/box_track_cloudy_all_cocofmt.json",
+        "night": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/annotations/box_track_night_all_cocofmt.json",
+        "rainy": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/annotations/box_track_rainy_all_cocofmt.json"
+      },
+      "image_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/images/{domain}",
+      "detection_roots": {
+        "source_detector": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector/ua_detrac",
+        "source_detector_thr02": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector_thr02/ua_detrac",
+        "external_GHOST": "outputs/external_detections/ua_detrac",
+        "oracle_gt": "outputs/oracle_gt/ua_detrac"
+      },
+      "detection_patterns": [
+        "{domain}/detections_coco.json",
+        "{domain}_detections.json",
+        "{domain}.json",
+        "{domain}/detections.json",
+        "{domain}/detections.jsonl",
+        "{domain}/det.txt",
+        "{domain}/dets.txt",
+        "{domain}/det/yolox_dets.txt"
+      ]
+    },
+    "vkitti2": {
+      "source": "clone",
+      "targets": ["fog", "morning", "overcast", "rain", "sunset"],
+      "annotation_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations",
+      "source_ann": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations/vkitti2_clone_cocofmt.json",
+      "target_ann_patterns": {
+        "fog": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations/vkitti2_fog_cocofmt.json",
+        "morning": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations/vkitti2_morning_cocofmt.json",
+        "overcast": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations/vkitti2_overcast_cocofmt.json",
+        "rain": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations/vkitti2_rain_cocofmt.json",
+        "sunset": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/annotations/vkitti2_sunset_cocofmt.json"
+      },
+      "image_root": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/vkitti2/images",
+      "detection_roots": {
+        "source_detector": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector/vkitti2",
+        "source_detector_thr02": "/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/outputs/source_detector_thr02/vkitti2",
+        "external_GHOST": "outputs/external_detections/vkitti2",
+        "oracle_gt": "outputs/oracle_gt/vkitti2"
+      },
+      "detection_patterns": [
+        "{domain}/detections_coco.json",
+        "{domain}_detections.json",
+        "{domain}.json",
+        "{domain}/detections.json",
+        "{domain}/detections.jsonl",
+        "{domain}/det.txt",
+        "{domain}/dets.txt",
+        "{domain}/det/yolox_dets.txt"
+      ]
+    }
+  }
+}

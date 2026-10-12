@@ -1,0 +1,26 @@
+{
+  "original_sessions": {
+    "initial": "01a0537f-313a-7f33-af56-3de76a70ca91",
+    "latest": "01a056f1-71a7-7470-a73c-0621251b0061"
+  },
+  "latest_experiment_date": "2026-09-09",
+  "latest_discussion_date": "2026-09-15",
+  "current_direction": "track-level JEPA continual learning using official V-JEPA 2.1 representations",
+  "migration_request": "local code and main checkpoints; NAS datasets",
+  "new_training_started": false,
+  "metric_reproduction": {
+    "evaluations": 40,
+    "all_pass": true
+  },
+  "official_vjepa2_source_commit": "204698b45b3712590f06245fbfba32d3be539812",
+  "validation": {
+    "tracker_entry_import": true,
+    "vjepa_cache_entry_import": true,
+    "nas_datasets_readable": [
+      "ua_detrac",
+      "bdd100k",
+      "vkitti2",
+      "motsynth"
+    ]
+  }
+}
