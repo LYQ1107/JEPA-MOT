@@ -1,0 +1,163 @@
+{
+  "status": "ENGINEERING_ONLY_NOT_RESEARCH_RESULT",
+  "source_training": {
+    "discriminative": {
+      "status": "complete",
+      "engineering_smoke_only": true,
+      "method": "discriminative",
+      "config": {
+        "feature_dim": 1664,
+        "history": 4,
+        "metadata_dim": 10,
+        "hidden_dim": 128,
+        "residual_scale": 0.25
+      },
+      "seed": 17,
+      "steps": 200,
+      "batch_size": 32,
+      "parameters": 1072640,
+      "fit_videos": [
+        1
+      ],
+      "validation_videos": [
+        2
+      ],
+      "fit_samples": 98,
+      "validation_samples": 46,
+      "source_validation_rank1": 0.8913043478260869,
+      "source_validation_prediction_error": 0.7554508292156717,
+      "loss_first": {
+        "step": 1,
+        "prediction": 0.022180698812007904,
+        "ranking": 1.3191689252853394,
+        "gradient_norm": 1.3486690521240234
+      },
+      "loss_last": {
+        "step": 200,
+        "prediction": 0.6361020803451538,
+        "ranking": 0.21884043514728546,
+        "gradient_norm": 0.18718867003917694
+      },
+      "checkpoint_sha256": "d7f516255b374e3c395b54e73b08d730b3e6df386ff9e966a2e5daff7567f623",
+      "cache_sha256": "f4825aabac13accd24b55477d9f28dbd1586862f75292a1937fba90d882e4f4c",
+      "experiment_fingerprint": "68b1b354d9319e2e45dbc5306e2a003540e682f2cd99ff0866ead08265d0f1d3",
+      "seconds": 5.066331908106804,
+      "target_gt_used": false,
+      "candidate_input_to_history_predictor": false
+    },
+    "predictive": {
+      "status": "complete",
+      "engineering_smoke_only": true,
+      "method": "predictive",
+      "config": {
+        "feature_dim": 1664,
+        "history": 4,
+        "metadata_dim": 10,
+        "hidden_dim": 128,
+        "residual_scale": 0.25
+      },
+      "seed": 17,
+      "steps": 200,
+      "batch_size": 32,
+      "parameters": 1072640,
+      "fit_videos": [
+        1
+      ],
+      "validation_videos": [
+        2
+      ],
+      "fit_samples": 98,
+      "validation_samples": 46,
+      "source_validation_rank1": 1.0,
+      "source_validation_prediction_error": 0.020346211350482445,
+      "loss_first": {
+        "step": 1,
+        "prediction": 0.022180698812007904,
+        "ranking": 1.3191689252853394,
+        "gradient_norm": 0.12425559014081955
+      },
+      "loss_last": {
+        "step": 200,
+        "prediction": 0.004887314513325691,
+        "ranking": 1.1815296411514282,
+        "gradient_norm": 0.027541205286979675
+      },
+      "checkpoint_sha256": "2509632823d5daf0e2b529db4e7de26768b0c0a5d4e15ab16d25ba5b1ed9722d",
+      "cache_sha256": "f4825aabac13accd24b55477d9f28dbd1586862f75292a1937fba90d882e4f4c",
+      "experiment_fingerprint": "8b945830aea3c26ecdd348d0e10d91293ae716f5127afc1c45bf18809009862c",
+      "seconds": 4.263340428471565,
+      "target_gt_used": false,
+      "candidate_input_to_history_predictor": false
+    },
+    "predictive_ranking": {
+      "status": "complete",
+      "engineering_smoke_only": true,
+      "method": "predictive_ranking",
+      "config": {
+        "feature_dim": 1664,
+        "history": 4,
+        "metadata_dim": 10,
+        "hidden_dim": 128,
+        "residual_scale": 0.25
+      },
+      "seed": 17,
+      "steps": 200,
+      "batch_size": 32,
+      "parameters": 1072640,
+      "fit_videos": [
+        1
+      ],
+      "validation_videos": [
+        2
+      ],
+      "fit_samples": 98,
+      "validation_samples": 46,
+      "source_validation_rank1": 0.9782608695652174,
+      "source_validation_prediction_error": 0.19795123390529468,
+      "loss_first": {
+        "step": 1,
+        "prediction": 0.022180698812007904,
+        "ranking": 1.3191689252853394,
+        "gradient_norm": 1.3705627918243408
+      },
+      "loss_last": {
+        "step": 200,
+        "prediction": 0.17750535905361176,
+        "ranking": 0.3411497175693512,
+        "gradient_norm": 0.23451794683933258
+      },
+      "checkpoint_sha256": "9a24e4bb7fdb6cdef69df5e6bef2ab75a741ff59396988f098289b2f3514b28f",
+      "cache_sha256": "f4825aabac13accd24b55477d9f28dbd1586862f75292a1937fba90d882e4f4c",
+      "experiment_fingerprint": "3e3203b97391d3687b4e1501fb3a38ad629de8a3df70325f15cc2efcabe679a8",
+      "seconds": 4.390436850488186,
+      "target_gt_used": false,
+      "candidate_input_to_history_predictor": false
+    }
+  },
+  "last_observation_baseline": {
+    "source_validation_rank1": 0.9782608695652174,
+    "source_validation_prediction_error": 0.015325743219126825
+  },
+  "resume_verification": {
+    "resume_at_step": 100,
+    "final_step": 200,
+    "parameters_bit_identical": true,
+    "completed_rerun_skipped": true
+  },
+  "smokes": {
+    "ua_detrac": {
+      "status": "pass",
+      "frames": 6,
+      "gt_in_inference": false,
+      "feature_score_min_smoke_only": 0.85,
+      "gpu": "5"
+    },
+    "bdd100k": {
+      "status": "pass",
+      "frames": 6,
+      "gt_in_inference": false,
+      "feature_score_min_smoke_only": 0.85,
+      "gpu": "6"
+    }
+  }
+}

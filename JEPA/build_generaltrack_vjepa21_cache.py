@@ -1252,7 +1252,8 @@ def main() -> None:
         "rgb_input": True,
         "letterbox_padding": "imagenet_mean_pixel",
         "device": str(device),
-        "autocast": None if args.no_autocast else "bfloat16",
+        "autocast": None if args.no_autocast else (
+            "bfloat16" if torch.cuda.is_bf16_supported() else "float16"),
         "elapsed_seconds": float(time.perf_counter() - start_time),
         "command": " ".join([os.environ.get("_", "python"), *sys.argv]),
     }

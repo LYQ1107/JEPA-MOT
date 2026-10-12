@@ -34,3 +34,7 @@ venv/
 /JEPA/GOT-main/pytracking/ltr/cotracker2/co_tracker/notebooks/demo.ipynb
 
 /.github-upload/
+
+/runs/
+
+/runtime/darth_env/

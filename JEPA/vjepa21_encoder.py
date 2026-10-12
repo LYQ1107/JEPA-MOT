@@ -258,6 +258,8 @@ def forward_predictor_tokens(
     if video.ndim != 5:
         raise ValueError(f"Expected [B,C,T,H,W], got {tuple(video.shape)}")
     device_type = video.device.type
+    if device_type == "cuda" and autocast_dtype == torch.bfloat16 and not torch.cuda.is_bf16_supported():
+        autocast_dtype = torch.float16
     use_autocast = device_type == "cuda" and autocast_dtype is not None
     with torch.inference_mode():
         if use_autocast:
@@ -323,6 +325,8 @@ def forward_tokens(
         raise ValueError(f"Expected [B,C,T,H,W], got {tuple(video.shape)}")
     device_type = video.device.type
     use_autocast = device_type == "cuda" and autocast_dtype is not None
+    if device_type == "cuda" and autocast_dtype == torch.bfloat16 and not torch.cuda.is_bf16_supported():
+        autocast_dtype = torch.float16
     previous_hierarchical = bool(getattr(encoder, "return_hierarchical", False))
     if hierarchical:
         encoder.return_hierarchical = True

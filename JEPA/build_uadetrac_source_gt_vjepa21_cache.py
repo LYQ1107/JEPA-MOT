@@ -20,6 +20,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 import torch
+from archive_paths import resolve_archive_path
 
 HERE = Path(__file__).resolve().parent
 if str(HERE) not in sys.path:
@@ -51,6 +52,8 @@ def parse_args() -> argparse.Namespace:
     ap.add_argument("--annotation", default="/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/annotations/box_track_sunny_all_cocofmt.json")
     ap.add_argument("--image-root", default="/data1/LWR/vranlee/SERVER_ONLY/avis/DA-MOT/darth-main/data/ua_detrac/images/sunny")
     ap.add_argument("--out", required=True)
+    ap.add_argument("--source-domain", default="sunny")
+    ap.add_argument("--dataset", default="ua_detrac")
     ap.add_argument("--checkpoint", required=True)
     ap.add_argument("--model-name", default=DEFAULT_MODEL)
     ap.add_argument("--device", default="cuda")
@@ -173,7 +176,7 @@ def main() -> int:
         frame_count_in_video += 1
         if args.max_frames_per_video is not None and frame_count_in_video > int(args.max_frames_per_video):
             continue
-        image_path = image_root / str(image["file_name"])
+        image_path = resolve_archive_path(str(image_root / str(image["file_name"])))
         bgr = cv2.imread(str(image_path), cv2.IMREAD_COLOR)
         if bgr is None:
             raise FileNotFoundError(image_path)
@@ -289,7 +292,8 @@ def main() -> int:
         "causal": True,
         "future_frames_read": False,
         "gt_read": True,
-        "source_domain": "sunny",
+        "source_domain": args.source_domain,
+        "dataset": args.dataset,
         "target_domains_read": [],
         "feature_source": ("official_vjepa21_encoder_causal_box_crop_predictor_final"
                            if args.roi_mode == "causal_box_crop_predictor"
