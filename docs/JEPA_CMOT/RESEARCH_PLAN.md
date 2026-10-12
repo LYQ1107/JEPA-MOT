@@ -46,3 +46,7 @@ BDD 的文件名 `train` / `val` 不能作为划分证据：初步数量完全�
 ## 连续状态与回测执行
 
 continual_sequence 按冻结的视频顺序逐域消费 adaptation，跨域恢复 learner/optimizer/replay/recent/counters；物理轨迹与 pending 在独立视频重置。先保存全部域后快照，再用新建且禁用更新的 evaluator 对每个 stage 的 source+三个目标域 development 完整视频回测，避免评测污染未来训练。平均遗忘以域学完后的历史最佳 HOTA 相对最后阶段计算；sealed 留待方法/超参数冻结。
+
+## 多控制执行成本
+
+共享被冻结的 GeneralTrack image-pair feature/correlation/compression，所有方法保留独立 ROI、关联头决策、轨迹、历史和 learner。六帧真实 GPU 原生跟踪输出与未共享版本数值相同（1e-7），image-pair 前向 5 次对应 9 次关联调用。run_controls 在同帧比较多个模型，复用共同冻结计算；这用于实验效率，不将共享执行时间作为某个模型的端到端在线 FPS。

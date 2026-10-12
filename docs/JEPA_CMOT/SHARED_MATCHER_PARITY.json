@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "frames": 6,
+  "identical_tracks": true,
+  "image_pair_forwards": 5,
+  "association_forwards": 9,
+  "GT_read": false
+}

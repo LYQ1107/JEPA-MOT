@@ -37,3 +37,7 @@ BDD：train/val 文件数量一致，必须审计视频集合；源 detector 配
 ## 六类到原生八类的语义接口
 
 恢复工具把 COCO 六类直接映射为 0..5，但 GeneralTrack 原始 sig 将 0/1 视为 person/rider，2..5 为车辆，6/7 为两轮车。修正映射为 [0,2,3,4,6,7] 并把输出转换回六类。另发现 legacy JEPA positive residual 能让原生类别 mask=0 的边重新达到匹配阈值；新 scorer 对跨原生类别组的相似度置零。旧 full-video v1 原始记录保留并标记失效，v2 使用相同检测行和缓存重跑全部控制。这些是共同接口修正，不能归因于 JEPA。
+
+## 第一条完整视频：预测排序与 MOT 分数并不一致
+
+BDD source rank-1 中预测弱于 CE，但一个完整 clear 开发视频的 HOTA 51.99 高于 CE 50.99；frozen-last 51.71 仍接近预测。Observation：source ranking 不能代替因果在线分配指标。Hypothesis：绝对分数校准、geometry/matcher 与当前候选竞争、frame gap 分布影响最终输出。Discriminating experiment：在同一 native8 和 geometry 条件下完整跑各域，并记录纠错/反改错；结合 crop/dense 的读数能力上限。没有基于单视频判定支持或 NO-GO。

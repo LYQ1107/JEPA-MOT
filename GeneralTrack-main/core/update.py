@@ -54,6 +54,9 @@ class Hierarchical_Relation_Aggregation(nn.Module):
 
     def forward(self, detection1_, corr, detection1, detection2):
         relation_features = self.encoder_similarity(corr)
+        return self.from_relation_features(detection1_, relation_features, detection1, detection2)
+
+    def from_relation_features(self, detection1_, relation_features, detection1, detection2):
 
         # adjust coordinates format
         t1 = time.time()

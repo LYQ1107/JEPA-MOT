@@ -102,5 +102,24 @@
     "JEPA_cross_group_edges_allowed": false,
     "geometry_cross_group_duplicate_allowed": false,
     "all_methods_rerun": true
+  },
+  "continual_initial_wave": {
+    "seed": 17,
+    "controls": [
+      "CE-no-replay",
+      "prediction-ranking-no-replay",
+      "CE-replay128",
+      "prediction-ranking-replay128",
+      "prediction-ranking-feature-distillation",
+      "prediction-ranking-relation-retention"
+    ],
+    "same_frame_stream": true,
+    "batch": 8,
+    "interval": 8,
+    "learning_rate": 0.0001,
+    "reliability": "native-row-and-column-margin-plus-delay1",
+    "feature_matcher_shared_and_frozen": true,
+    "physical_tracks_independent": true,
+    "evaluation_snapshots_no_updates": true
   }
 }

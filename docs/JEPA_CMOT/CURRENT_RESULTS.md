@@ -57,3 +57,9 @@ object-crop source 读数已完成：同容量 CE / 预测 / 预测+ranking rank
 已开始第一条实际无标签在线学习：BDD overcast adaptation 的完整 202 帧，预测+ranking / 无 replay / 延迟确认。只有 images、detections 和因果缓存进入训练；该步骤尚未完成域顺序和遗忘回测。
 
 第一条真实无标签在线训练已完成：BDD overcast adaptation / b22f385b-5d7e5202 全 202 帧，25 次更新、904 个延迟确认伪对、458 个可靠性拒绝，6 个参数 tensor 发生变化，replay=0。原始指标和首末 loss 见 FIRST_ACTUAL_ONLINE_TRAINING.json；这证明在线更新实际运行，不证明多域遗忘改善。
+
+## 第一个完整 BDD 受控比较
+
+同一 203 帧开发视频、native8 类别接口、相同 geometry 和 source-only 二参数校准：geometry-null HOTA 51.08，frozen-last 51.71，CE 50.99，预测 51.99，预测+ranking 51.81。预测比 CE 高 1.00，但仅比更强的 frozen-last 高 0.28。不能把一个 source 域开发视频的结果当作目标达成。共享执行的 geometry-null 和 CE 轨迹与独立运行逐字节相同。
+
+BDD 的 63 个 adaptation/development 视频已全部生成统一 detector stream，特征队列继续生成无 GT 缓存。UA 的完整 detector 与特征队列仍运行，使用每视频互斥锁并保持进行中的 extractor。六个相同更新间隔和 batch 的顺序学习对照已在两个数据集启动等待/消费流水线；评测将在全部训练后从保存的快照独立运行，不反馈到未来训练。
