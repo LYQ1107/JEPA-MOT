@@ -49,3 +49,7 @@ DOI、CVF 部分页面存在访问限制，使用作者 arXiv 和 CVF 已索引�
 ## Candidate-column保持的待验证区别
 
 新增C2显式记录同一已观测frame中，被多个过去轨迹query评分的同一个detector candidate，保持其跨query归一化的column竞争分布；普通row输出蒸馏在同memory和budget下作为对照。区别在动态物理track与检测一对一竞争，既不同于固定class-centroid拓扑，也不能仅靠row KL命名。teacher仍为旧forecast query，训练没有目标GT。首个完整适应视频证明loss路径/记忆/更新量运行，尚未证明独立收益或足够论文新颖性。需完整矩阵、对普通KD的增量、额外计算成本与错误归因。
+
+## 关系保持的额外边界
+
+[RKD，CVPR 2019 原文](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_Relational_Knowledge_Distillation_CVPR_2019_paper.html) 已用样例间距离和角度蒸馏结构关系；[Comparative Knowledge Distillation，WACV 2025 原文](https://openaccess.thecvf.com/content/WACV2025/papers/Xu_Comparative_Knowledge_Distillation_WACV_2025_paper.pdf) 同样研究样例组关系与教师推理预算。因此不能以增加一个column归一化或跨query KL本身宣称新的蒸馏范式。C2的可检验定位限于：候选出现前的identity forecast，在动态同帧一对一竞争中保留旧关系，同时用无GT教师跨天气持续更新。完整旧域保持、相对普通KD/通用关系KD的增量和额外开销仍是必要证据；当前只有实际路径验证。

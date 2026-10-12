@@ -1,0 +1,46 @@
+[
+  {
+    "name": "predictive_residual_audit",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive.json",
+    "association_audit": true
+  },
+  {
+    "name": "predictive_rank_reward",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive.json",
+    "affinity_control": "rank_reward",
+    "association_audit": true
+  },
+  {
+    "name": "discriminative_rank_reward",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/discriminative.json",
+    "affinity_control": "rank_reward",
+    "association_audit": true
+  },
+  {
+    "name": "frozen_last_rank_reward",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/frozen_last.json",
+    "affinity_control": "rank_reward",
+    "association_audit": true
+  },
+  {
+    "name": "random_rank_reward",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/frozen_last.json",
+    "feature_control": "random",
+    "seed": 17,
+    "affinity_control": "rank_reward",
+    "association_audit": true
+  }
+]

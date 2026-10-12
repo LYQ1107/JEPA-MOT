@@ -73,3 +73,7 @@ Observation：predictive39.829、geometry39.902、random39.871；预测超过CE�
 ## 更新间隔相同仍可能更新数不同
 
 Observation：第一波FT1073/1074、replay1096、KD1097，真实state与optimizer step相同但不同policy间更新量略异。Discriminating experiment：H2/H3共享冻结teacher并逐帧断言更新数相等，负例与记忆字段一致；避免将伪对供给造成的更新量解释为预测或保持机制。
+
+## 时间支持修正没有自动产生MOT增益
+
+Observation：clips源验证的pure prediction排序接近CE，但同一三视频sunny native开发集合，clips预测HOTA56.292，uniform预测56.913，geometry56.907。Hypothesis：短间隔源排序、detector历史噪声与latent目标的可判别性可能不是同一问题；不能仅由源loss选方法。Discriminating experiment：继续匹配容量的真实历史长度部署、crop读数、事件mixed-history审计和多域持续回测，保留整个失败路径。未基于这三个source视频改变目标域split或在线GT门控。

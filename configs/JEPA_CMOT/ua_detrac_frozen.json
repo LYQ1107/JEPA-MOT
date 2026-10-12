@@ -1,0 +1,34 @@
+[
+  {
+    "name": "geometry_null",
+    "method": "native",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "frozen_last",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json"
+  },
+  {
+    "name": "discriminative",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/discriminative.json"
+  },
+  {
+    "name": "predictive",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/predictive.json"
+  },
+  {
+    "name": "predictive_ranking",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/predictive_ranking.json"
+  }
+]

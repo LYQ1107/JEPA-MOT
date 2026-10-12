@@ -147,3 +147,15 @@ BDD第一波44适应视频、8811原生帧已核查完整model/optimizer/replay�
 source初始化的benchmark权重独立，禁止恢复到研究训练；P_*路径实际为prediction+ranking，未称pure prediction。完整表见BDD_FULL_LIVE_EFFICIENCY_RESULTS.json，UA全视频计时继续。
 
 seed23/42的BDD六组CL已排队，共享的仅为frozen image-pair计算，学习器/优化器/记忆与物理轨迹分别独立；随后反顺序使用相同44视频和development集合。检测器始终seed17共同输入，source heads与online sampler种子不同。
+
+## UA 完整 sunny 开发集合与源时间支持诊断
+
+三个完整sunny开发视频的uniform-dense HOTA：native56.722、geometry56.907、frozen-last56.444、CE56.354、预测56.913、联合56.724、projection57.007、预测last-only57.123、random57.025。预测相对geometry仅约0.006，不能以该域source结果宣称预测优势。
+
+相同开发图片与检测输入，连续clips源模型：frozen-last56.430、CE56.299、预测56.292、联合56.792。source clips排序改善未转化为该完整source域上的pure prediction提升；该负结果保留，目标域仍需完成。见UA_SUNNY_FULL_DEVELOPMENT_TIME_SUPPORT_RESULTS.json。Crop读数已有两个完整source视频，不作为完整三视频汇总。
+
+1/2/8历史的18个source目标全部训练完毕，matching capacity原生部署正在进行。UA源排序不同长度接近；BDD一观测CE约56.75%，8历史CE55.66%，pure预测约52.51%/52.99%。不能仅靠更多历史或source排序证明机制，完整方法见HISTORY_LENGTH_SOURCE_COMPLETE_RESULTS.json。
+
+UA完整cloudy适应视频MVI_40152的geometry实时链路已完成1750帧：warmup后3.016 FPS，起止GPU未发现其他job，其他live方法继续。该测量是孤立效率benchmark，不改变研究checkpoint，也不是持续学习分数。
+
+已导出15个实际启动的控制配置到configs/JEPA_CMOT，替换的只有机器特定repo前缀；原始相对路径指向本地权重/校准。当前BDD仍仅stage0完整回测，后续阶段运行中，不提前填造forgetting。完成域的intermediate checkpoint压缩累计释放约4.10GB，域边界完整state及所有中间weights保留。

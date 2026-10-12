@@ -1,0 +1,127 @@
+{
+  "dataset": "ua_detrac",
+  "domain": "cloudy",
+  "video": "MVI_40152",
+  "frames": 1750,
+  "native_frames_available": 1750,
+  "native_full_frames": true,
+  "engineering_smoke_only": false,
+  "protocol": {
+    "method": "native",
+    "stream_sha256": "a383f4928068b8663022ca6ed82a3a0ab1bc284f461df51e6be15fd96896ea8e",
+    "detector_checkpoint_sha256": "f1404f69a8bfd43fb32983ba114b547b7a01a88b0a25a265666560469f2a3a3a",
+    "encoder_checkpoint_sha256": null,
+    "source_checkpoint_sha256": null,
+    "calibration": null,
+    "online_config": null,
+    "native_class_mapping": "coco6-to-bdd8",
+    "geometry_duplicates": true,
+    "current_reader": "dense_current, two identical current images, final 1024-D",
+    "cached_input_used": false,
+    "GT_read": false,
+    "engineering_smoke_only": false,
+    "timing_scope": "wall time including image reads, detector IPC, perception, association and actual updates",
+    "startup_and_weight_loading_excluded": true,
+    "warmup_frames": 10,
+    "pixel_transport": "rgb",
+    "shared_image_pair_optimization": "same frozen matcher caching available to every method"
+  },
+  "adapter_parameters": 0,
+  "actual_updates": 0,
+  "fps_all_native_processed": 2.9908824058783754,
+  "fps_after_warmup": 3.015548448091988,
+  "latency_ms": {
+    "end_to_end_ms": {
+      "count": 1740,
+      "mean": 331.61463568351047,
+      "p50": 326.96621492505074,
+      "p95": 381.73022381961346
+    },
+    "query_preparation_ms": {
+      "count": 1740,
+      "mean": 0.016458075622032428,
+      "p50": 0.013787299394607544,
+      "p95": 0.03463812172412872
+    },
+    "detector_rpc_ms": {
+      "count": 1740,
+      "mean": 245.69687412131105,
+      "p50": 242.0949935913086,
+      "p95": 290.9159116446972
+    },
+    "detector_inference_ms": {
+      "count": 1740,
+      "mean": 206.75553914973105,
+      "p50": 203.25848832726479,
+      "p95": 250.34215413033962
+    },
+    "image_decode_resize_ms": {
+      "count": 1740,
+      "mean": 19.69380079843532,
+      "p50": 17.087183892726898,
+      "p95": 36.0995665192604
+    },
+    "current_encoder_ms": {
+      "count": 1740,
+      "mean": 0.016052203103043568,
+      "p50": 0.014998018741607666,
+      "p95": 0.0254996120929718
+    },
+    "tracking_including_learning_ms": {
+      "count": 1740,
+      "mean": 65.92452678101502,
+      "p50": 64.8062713444233,
+      "p95": 81.61959946155548
+    }
+  },
+  "predictor_query_call_ms": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null
+  },
+  "online_update_call_ms": {
+    "count": 0,
+    "mean": null,
+    "p50": null,
+    "p95": null
+  },
+  "online_update_timing_includes": "pseudo-pair processing, batch/replay, gradients and optimizer step",
+  "parent_peak_allocated_bytes": 1760728576,
+  "detector_peak_allocated_bytes": 350504448,
+  "combined_peak_reserved_bytes": 3026190336,
+  "memory_scope": "torch process allocations/reservations; CUDA driver context and unrelated processes excluded",
+  "causal_stats": {
+    "frames": 1750,
+    "empty_detection_frames": 0,
+    "history_queries": 0,
+    "current_history_violations": 0
+  },
+  "detector_max_reference_error": 0.0,
+  "feature_max_reference_error": 0.0,
+  "reference_arrays_never_used_as_inputs": true,
+  "shared_image_pair_forwards": 1749,
+  "GT_read": false,
+  "gpu_processes_before": [
+    {
+      "pid": 38268,
+      "used_memory_mib": 859
+    },
+    {
+      "pid": 38529,
+      "used_memory_mib": 979
+    }
+  ],
+  "gpu_processes_after": [
+    {
+      "pid": 38268,
+      "used_memory_mib": 3603
+    }
+  ],
+  "other_gpu_jobs_present": false,
+  "timing_hardware": {
+    "name": "Tesla V100-DGXS-32GB",
+    "visible_devices": "5",
+    "torch": "2.0.0+cu118"
+  }
+}

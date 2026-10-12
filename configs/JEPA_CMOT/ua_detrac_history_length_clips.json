@@ -1,0 +1,86 @@
+[
+  {
+    "name": "discriminative_history1",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history1/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history1/seed17/discriminative.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_history1",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history1/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history1/seed17/predictive.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_ranking_history1",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history1/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history1/seed17/predictive_ranking.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "discriminative_history2",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history2/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history2/seed17/discriminative.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_history2",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history2/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history2/seed17/predictive.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_ranking_history2",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history2/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history2/seed17/predictive_ranking.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "discriminative_history4",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/source_history_clips_v1/ua_dense_current/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history4/seed17/discriminative.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_history4",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/source_history_clips_v1/ua_dense_current/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history4/seed17/predictive.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_ranking_history4",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/source_history_clips_v1/ua_dense_current/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history4/seed17/predictive_ranking.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "discriminative_history8",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history8/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history8/seed17/discriminative.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_history8",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history8/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history8/seed17/predictive.json",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "predictive_ranking_history8",
+    "method": "trained",
+    "checkpoint": "runs/JEPA_CMOT/history_length_clips_v1/ua_dense_current/history8/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/history_length_calibration_v1/ua_dense_current/history8/seed17/predictive_ranking.json",
+    "geometry_duplicates": true
+  }
+]

@@ -1,0 +1,29 @@
+[
+  {
+    "name": "frozen_last",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_clips_v1/ua_dense_current/seed17/frozen_last.json"
+  },
+  {
+    "name": "discriminative",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_clips_v1/ua_dense_current/seed17/discriminative.json",
+    "checkpoint": "runs/JEPA_CMOT/source_history_clips_v1/ua_dense_current/seed17/discriminative/final.pt"
+  },
+  {
+    "name": "predictive",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_clips_v1/ua_dense_current/seed17/predictive.json",
+    "checkpoint": "runs/JEPA_CMOT/source_history_clips_v1/ua_dense_current/seed17/predictive/final.pt"
+  },
+  {
+    "name": "predictive_ranking",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_clips_v1/ua_dense_current/seed17/predictive_ranking.json",
+    "checkpoint": "runs/JEPA_CMOT/source_history_clips_v1/ua_dense_current/seed17/predictive_ranking/final.pt"
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "name": "predictive_ranking_confidence",
+    "method": "online",
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive_ranking.json",
+    "geometry_duplicates": true,
+    "online_config": {
+      "method": "predictive_ranking",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "confidence",
+      "retention": "none",
+      "seed": 17
+    }
+  },
+  {
+    "name": "predictive_ranking_prediction_priority",
+    "method": "online",
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive_ranking.json",
+    "geometry_duplicates": true,
+    "online_config": {
+      "method": "predictive_ranking",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "prediction_priority",
+      "retention": "none",
+      "seed": 17
+    }
+  },
+  {
+    "name": "predictive_ranking_appearance_hard_priority",
+    "method": "online",
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive_ranking.json",
+    "geometry_duplicates": true,
+    "online_config": {
+      "method": "predictive_ranking",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "appearance_hard_priority",
+      "retention": "none",
+      "seed": 17
+    }
+  },
+  {
+    "name": "discriminative_confidence",
+    "method": "online",
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/discriminative.json",
+    "geometry_duplicates": true,
+    "online_config": {
+      "method": "discriminative",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "confidence",
+      "retention": "none",
+      "seed": 17
+    }
+  },
+  {
+    "name": "discriminative_prediction_priority",
+    "method": "online",
+    "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/discriminative.json",
+    "geometry_duplicates": true,
+    "online_config": {
+      "method": "discriminative",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "prediction_priority",
+      "retention": "none",
+      "seed": 17
+    }
+  }
+]
