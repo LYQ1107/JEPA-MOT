@@ -1,0 +1,76 @@
+{
+  "dataset": "ua_detrac",
+  "source_domain": "sunny",
+  "frames": 2048,
+  "objects": 17680,
+  "video_counts": {
+    "MVI_20052": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20011": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_39031": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_41073": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_39051": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20012": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_39361": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_39371": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20035": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_41063": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20061": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20051": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_39401": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20065": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_39271": {
+      "frames": 128,
+      "segments": 8
+    },
+    "MVI_20063": {
+      "frames": 128,
+      "segments": 8
+    }
+  },
+  "selection_uses_target_GT": false,
+  "source_video_ids_match_reference": true,
+  "temporal_history_crosses_clip_boundary": false,
+  "source_image_budget_per_video": 128
+}

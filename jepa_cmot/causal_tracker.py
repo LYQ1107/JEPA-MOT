@@ -79,6 +79,14 @@ class CausalHistoryTracker(BYTETracker):
                                 getattr(det,'jepa_feature',None) is not None)
             logits=np.clip(calibration['slope']*(similarity-calibration['intercept']),-60,60)
             similarity=np.where(valid,1/(1+np.exp(-logits)),0.)
+        constant=getattr(self.args,'semantic_constant',None)
+        if constant is not None:
+            # Isolate score-scale effects with the same missing-feature and
+            # category eligibility as the real affinity. No identity signal.
+            valid=np.asarray([[groups[i,j] and self._track_query(track) is not None and
+                getattr(det,'jepa_feature',None) is not None for j,det in enumerate(detections)]
+                for i,track in enumerate(tracks)],dtype=bool).reshape(similarity.shape)
+            similarity=np.where(valid,float(constant),0.).astype(np.float32)
         return similarity
 
     def _fuse_jepa(self,base_cost,tracks,detections,branch):

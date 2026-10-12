@@ -77,6 +77,7 @@ def main():
             native.roialign_size=tuple(native.roialign_size);native.geometry_duplicates=spec.get('geometry_duplicates',True)
             native.jepa_duplicate_iou=.2
             native.history_control=spec.get('history_control','full')
+            native.semantic_constant=spec.get('semantic_constant')
             if spec.get('calibration'):
                 native.source_calibration=json.loads(Path(spec['calibration']).read_text())
                 if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')

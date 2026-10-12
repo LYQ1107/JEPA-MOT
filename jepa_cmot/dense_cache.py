@@ -46,7 +46,7 @@ def main():
     args.out.parent.mkdir(parents=True,exist_ok=True)
     encoder=load_official_vjepa21_encoder(args.checkpoint,model_name=DEFAULT_MODEL,
         img_size=384,num_frames=2,patch_size=16,tubelet_size=2,device=torch.device('cuda'))
-    features=[];offsets=[0];image_ids=[];frames=[];videos=[];tracks=[];boxes=[]
+    features=[];offsets=[0];image_ids=[];frames=[];videos=[];tracks=[];boxes=[];segments=[]
     start=time.perf_counter()
     for index,image in enumerate(images):
         rgb=cv2.cvtColor(cv2.imread(image['file_name']),cv2.COLOR_BGR2RGB)
@@ -70,12 +70,15 @@ def main():
         if args.source_gt:
             image_ids.extend([image['id']]*len(rows));frames.extend([image['frame_id']]*len(rows))
             videos.extend([image['video_id']]*len(rows));tracks.extend([a['instance_id'] for a in rows])
+            segments.extend([image.get('segment_id',0)]*len(rows))
             boxes.extend(detections[:,:4].tolist())
         else:image_ids.append(image['id'])
         if (index+1)%128==0:print('DENSE_PROGRESS',index+1,len(images),offsets[-1],flush=True)
     arrays=dict(features=np.concatenate(features),offsets=np.asarray(offsets),image_ids=np.asarray(image_ids))
     if args.source_gt:arrays.update(frame_ids=np.asarray(frames),video_ids=np.asarray(videos),
                                    track_ids=np.asarray(tracks),boxes=np.asarray(boxes,np.float32))
+    if args.source_gt and any('segment_id' in i for i in images):
+        arrays['segment_ids']=np.asarray(segments)
     np.savez_compressed(args.out,**arrays)
     metadata=dict(status='complete',roi_mode='dense_current',roi_context=1.,
         feature_shape=list(arrays['features'].shape),checkpoint_sha256=sha256_file(args.checkpoint),
@@ -84,6 +87,9 @@ def main():
         causal=True,future_frames_read=False,physical_input='two-identical-current-images',
         seconds=time.perf_counter()-start,frames=len(images),engineering_smoke_only=False)
     metadata['feature_score_min']=args.feature_score_min
+    if data.get('frame_sampling'):
+        metadata['frame_sampling']=data['frame_sampling']
+        metadata['history_may_cross_segments']=False
     args.out.with_suffix(args.out.suffix+'.json').write_text(json.dumps(metadata,indent=2))
     print('DENSE_CACHE_COMPLETE',json.dumps(metadata),flush=True)
 

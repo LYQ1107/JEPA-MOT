@@ -25,6 +25,7 @@ class SourcePairs(Dataset):
             self.frames = np.asarray(data['frame_ids'], np.int64)
             self.videos = np.asarray(data['video_ids'], np.int64)
             self.tracks = np.asarray(data['track_ids'], np.int64)
+            self.segments = np.asarray(data['segment_ids'], np.int64) if 'segment_ids' in data else np.zeros_like(self.frames)
         self.features /= np.maximum(np.linalg.norm(self.features, axis=1, keepdims=True), 1e-8)
         self.history = history
         self.scale = np.array([width, height, width, height], np.float32)
@@ -33,13 +34,13 @@ class SourcePairs(Dataset):
         for i, (video, frame, track) in enumerate(zip(self.videos, self.frames, self.tracks)):
             if int(video) not in videos:
                 continue
-            groups.setdefault((int(video), int(track)), []).append(i)
+            groups.setdefault((int(video), int(track), int(self.segments[i])), []).append(i)
             by_frame.setdefault((int(video), int(frame)), []).append(i)
         self.samples = []
         self.birth_frames = {}
         for indices in groups.values():
             indices.sort(key=lambda i: int(self.frames[i]))
-            self.birth_frames[(int(self.videos[indices[0]]), int(self.tracks[indices[0]]))] = int(self.frames[indices[0]])
+            self.birth_frames.setdefault((int(self.videos[indices[0]]), int(self.tracks[indices[0]])), int(self.frames[indices[0]]))
             for position,gap in [(p,g) for p in range(1,len(indices)) for g in prediction_gaps if p>=g]:
                 target = indices[position]
                 end = position-gap+1

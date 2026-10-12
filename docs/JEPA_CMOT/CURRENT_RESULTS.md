@@ -1,6 +1,6 @@
 # 当前结果
 
-状态：ACTIVE，工程验证通过，正式源训练正在运行。没有本次完整视频或持续学习结果，尚不能支持 H1/H2/H3。
+状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成，完整多域开发对照与六组持续学习正在运行。没有最终持续学习矩阵、多种子或 sealed 结果，尚不能支持 H1/H2/H3。
 
 ## 有效工程证据
 
@@ -69,3 +69,17 @@ BDD 的 63 个 adaptation/development 视频已全部生成统一 detector strea
 MVI_39311 全 1,505 帧同预算、同校准、同 geometry：HOTA geometry-null 48.83、frozen-last 48.22、CE 47.67、预测 48.67、预测+ranking 48.55。预测比 CE 高约 0.99，但低于更强 geometry-null。geometry-null 与 CE 的共享计算输出再次与独立运行逐字节一致。该结果不支持 JEPA 达到目标；还需全域、顺序学习和多种子。
 
 相近容量单观测 projection 已训练：660,864 参数，历史模型 662,400 参数；UA source rank-1 72.22%，与历史 CE 72.17% 接近。projection 只读最后一次 appearance 与运动 metadata；此结果提示多次 appearance 历史本身未必提供明显增量。它尚待完整 MOT 与 continual 对照。
+
+## 信息控制、时间尺度诊断与完整开发集扩展
+
+首个 BDD clear 视频的相近容量 projection HOTA 49.74，预测模型仅保留最后观测为 51.65；冻结特征 shuffle 为 51.91，random 为 51.35。真正的历史预测 51.99 与 shuffle 的差距很小，单视频不足以证明正确身份信息是收益原因。见 FIRST_BDD_DIAGNOSTIC_CONTROL_RESULTS.json。
+
+同一 eligibility 的常数 affinity（不使用身份信息）1e-6 / 0.5 / 1.0 的 HOTA 为 51.23 / 50.57 / 43.87。它们与 geometry-null 51.08 的差异说明融合分数尺度会改变完整分配；极高常数会明显伤害结果。不能将该现象归因于 JEPA。见 FIRST_BDD_CONSTANT_AFFINITY_RESULTS.json。
+
+source box-crop 的 frozen-last：UA rank-1 73.81%，BDD 62.46%。BDD 同容量 CE / 预测 / 联合为 66.62% / 63.79% / 68.81%，因此 crop 也没有两数据集一致的纯预测优势。UA crop 的 source 当前 GT latent 排序上限 100%，dense-current 为 93.15%，说明 ROI 网格别名会限制读数。
+
+uniform source 的实际预测帧间隔：UA 最小 6、中位 19、p90 75，delta-t=1 的比例为 0；BDD 中位 3、p90 13，delta-t=1 占 12.42%。这些统计是 source 内部验证样例的观测间隔，不是跟踪评测抽帧。以相同 source 视频及相同每视频 128 图片预算准备 8×16 连续 clips，源历史在 clip 边界重置；保持检测器、encoder、参数量、2,000×64 训练预算和现有开发集不变，比较 CE / 预测 / 联合。新 source clips 训练已排队，不能预先断言收益。
+
+完整 frozen 开发集队列已启动：BDD 10 个控制、UA 12 个控制（含两种 relation objective），覆盖全部 source 和三个目标域的 development 视频；适应和 sealed 不进入这些 frozen 对照。逐视频完成后汇总 TrackEval，新增 paired video bootstrap 会从原始计数重新聚合，以相同视频重采样而非平均每视频 HOTA。
+
+六组持续学习的 BDD forward seed17 已完成 overcast、rainy 两阶段并进入 night；UA cloudy 已持续跨多个完整视频更新。未完成全域矩阵，不报告遗忘结论。

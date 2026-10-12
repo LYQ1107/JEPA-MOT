@@ -133,5 +133,28 @@
     "history-last-only",
     "within-frame-feature-shuffle",
     "normalized-random-features"
-  ]
+  ],
+  "source_clip_diagnostic": {
+    "status": "registered-before-new-clip-results",
+    "source_videos": "same source_train video IDs and internal heldout videos",
+    "frames_per_video": 128,
+    "clips": 8,
+    "clip_length": 16,
+    "history_crosses_clips": false,
+    "known_annotation_frames_only": true,
+    "source_train_frames": {
+      "ua_detrac": 2048,
+      "bdd100k": 3174
+    },
+    "same_detector_and_target_inputs": true,
+    "object_counts_may_differ": true,
+    "steps": 2000,
+    "batch": 64,
+    "methods": [
+      "discriminative",
+      "predictive",
+      "predictive_ranking"
+    ],
+    "purpose": "time-support mismatch diagnostic; not a JEPA novelty claim"
+  }
 }

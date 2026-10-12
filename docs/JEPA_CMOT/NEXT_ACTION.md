@@ -1,11 +1,9 @@
 # 下一步
 
-完成修正 native 类别接口后的 B0/B1、frozen-history、CE、预测、预测+ranking 和关系目标的完整开发视频对照。检测与特征队列继续准备 UA/BDD 的所有 adaptation/development 视频，sealed 不参与本阶段。
+收集正在运行的全部 development frozen 控制和 forward seed17 六组持续学习结果，逐域核实完整视频覆盖、实际更新数和参数/optimizer/replay 跨视频保留。完成矩阵后，用相同视频重采样汇总 HOTA、AssA、IDF1 差值及不确定性。评测继续保持独立、关闭更新，sealed 不参与选择。
 
-核查第一条实际在线训练的更新次数、可靠伪对、loss 与参数变化；跨域恢复必须同时载入 optimizer/replay/recent/counters，独立评测只加载权重并关闭更新。
+信息控制已提示 shuffle 和分数尺度也能改变结果；收集常数 affinity 对照，检查 candidate ordering、融合导致的纠错/反改错与伪对质量，不能把固定 backbone 或几何收益归因于 JEPA。
 
-随后建立完整顺序学习矩阵，比较无 replay、同容量 replay、普通 feature distillation 和候选关系保持。保持目标 GT 不进入训练、参数和 replay 跨视频持续、物理轨迹状态重置。
+新 source clips 使用同样图片预算，修正 UA uniform source 的时间间隔与逐帧在线 history 不一致；跑同容量 CE / 预测 / 联合，做相同 source-only 校准，比较完整开发域。保留之前 uniform 结果。
 
-source 排序和一个完整开发视频仍不能支持最终结论；继续 no-history/projection/shuffle、两个域顺序、多种子和效率验证。
-
-补充 source-only 相近容量单观测 projection：hidden 320 与历史网络 hidden 128 的参数量相近，不以训练模型对未训练 last 的优势证明 JEPA。两个数据集的 projection 训练已启动；同时准备 last-only history、feature shuffle/random 的独立诊断控制。
+随后补齐 prediction-need 与 confidence/hard-example 的相同实际更新预算对照、候选关系保持与普通蒸馏的区别、反向域顺序和 seed23/42。只有在方法与超参数冻结后执行 sealed，最终报告真实端到端效率与负结果。

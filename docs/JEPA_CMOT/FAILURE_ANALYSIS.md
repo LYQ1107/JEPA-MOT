@@ -45,3 +45,11 @@ BDD source rank-1 中预测弱于 CE，但一个完整 clear 开发视频的 HOT
 ## 离线连续性事件诊断
 
 首个 UA 视频相对 geometry-null，预测有 65 个连续性修复和 73 个反改错；prediction+ranking 69 / 72，CE 65 / 71，frozen-last 48 / 39。BDD 同类计数预测 21 / 21、联合 21 / 19、CE 27 / 20、last 14 / 11。定义为同一 GT 上次 IoU05 匹配到的 track ID 是否延续，仅比较共同可评测事件，不能直接等同官方 IDSW、AssA 或净 HOTA。说明需要具体诊断 harmful corrections，而非只按 source ranking 选模型。该离线 GT 诊断没有反馈到在线参数或伪标签门控。
+
+## 打乱身份特征仍有单视频收益
+
+Observation：BDD clear 开发视频 frozen-shuffle HOTA 51.91，接近预测 51.99；constant_low 51.23、constant_half 50.57、constant_high 43.87，而 geometry-null 51.08。Hypothesis：部分分数变化来自 residual fusion 对 native affinity 的衰减/提升，而不是正确身份信息。Discriminating experiment：全域信息控制与常数控制，配合共同可评测关联事件诊断；不能用该单视频推断 shuffle 整体更优或否定 JEPA。
+
+## source 预测的时间支持与逐帧推理不同
+
+Observation：UA uniform source 验证样例 native delta-t 最小为 6、中位 19，没有 delta-t=1 样例；BDD 12.42% 为 delta-t=1。Hypothesis：history learner 在短时间步上外推，source 排序与在线关联变化的一部分可能由时间支持失配造成。Discriminating experiment：相同每视频图片预算下的连续 clips，保留 native frame 编号，clip 间重置 history，三种同容量目标和相同 source-only 校准。这个数据协议修正本身不是 JEPA 创新。

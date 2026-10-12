@@ -1,0 +1,49 @@
+{
+  "cache_sha256": "a3d487bd3bc95da0ffaec6a07880d889de82eaedb8b6d9e6b29fa61e0a3ae98a",
+  "dataset": "ua_detrac",
+  "roi_mode": "box_crop",
+  "validation_videos": [
+    14,
+    15,
+    16
+  ],
+  "samples": 11831,
+  "prediction_gaps_in_observation_indices": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "native_frame_prediction_gap": {
+    "minimum": 6,
+    "median": 19.0,
+    "p90": 75.0,
+    "maximum": 99,
+    "fraction_delta_t_1": 0.0
+  },
+  "methods": {
+    "last": {
+      "rank1": 0.7381455498267264,
+      "prediction_error": 0.02419582733528802,
+      "tied_examples": 0
+    },
+    "mean": {
+      "rank1": 0.6477474431578057,
+      "prediction_error": 0.026697882759773604,
+      "tied_examples": 2
+    },
+    "recent_weighted": {
+      "rank1": 0.6826557349336488,
+      "prediction_error": 0.024922759905136323,
+      "tied_examples": 1
+    },
+    "current_GT_latent_oracle": {
+      "rank1": 1.0,
+      "prediction_error": -6.204807751278091e-08,
+      "tied_examples": 0
+    }
+  },
+  "tie_rule": "fractional-credit-within-1e-6",
+  "target_GT_used": false,
+  "oracle_scope": "source diagnostic only; current identity GT never available to tracker"
+}

@@ -1,0 +1,33 @@
+{
+  "scope": "one-source-domain-development-video",
+  "frames": 203,
+  "video": "b202cae2-672e61c5",
+  "methods": {
+    "constant_low": {
+      "HOTA": 51.22929316648802,
+      "AssA": 54.09396007846251,
+      "DetA": 51.036205639579826,
+      "IDF1": 60.00390396252197,
+      "MOTA": 43.715632364493324,
+      "IDSW": 92
+    },
+    "constant_half": {
+      "HOTA": 50.5674681014395,
+      "AssA": 53.262166614117604,
+      "DetA": 50.7049765129384,
+      "IDF1": 59.067961165048544,
+      "MOTA": 43.12647289866457,
+      "IDSW": 96
+    },
+    "constant_high": {
+      "HOTA": 43.86911913570565,
+      "AssA": 43.830213943948486,
+      "DetA": 47.56619531588065,
+      "IDF1": 50.369506028782574,
+      "MOTA": 38.68813825608798,
+      "IDSW": 79
+    }
+  },
+  "identity_information_used": false,
+  "final_evidence": false
+}

@@ -1,0 +1,112 @@
+{
+  "dataset": "bdd100k",
+  "source_domain": "clear",
+  "frames": 3174,
+  "objects": 38466,
+  "video_counts": {
+    "b1dce572-c6a8cb5e": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1df722f-5bcc3db7": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b205eb4d-f84aaa1a": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1f4491b-97465266": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-64b9cdb8": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b231a630-c4522992": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20ff95c-b9444127": {
+      "frames": 102,
+      "segments": 1
+    },
+    "b250fb0c-01a1b8d3": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-ca16c907": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b202cae2-f46c74a6": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1d7b3ac-36f2d3b7": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1dac7f7-6b2e0382": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-e31380a7": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1e3e9f5-92377424": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-bd242bf0": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b251064f-8d92db81": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b2331b83-a28e6b57": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1d10d08-c35503b8": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-7767e6b6": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1d7b3ac-995f9d8a": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-6e2b9e73": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1ff4656-94ee8536": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b1cebfb7-284f5117": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b20b69d2-ffc1d6af": {
+      "frames": 128,
+      "segments": 8
+    },
+    "b24f7455-e8c55d6a": {
+      "frames": 128,
+      "segments": 8
+    }
+  },
+  "selection_uses_target_GT": false,
+  "source_video_ids_match_reference": true,
+  "temporal_history_crosses_clip_boundary": false,
+  "source_image_budget_per_video": 128
+}
