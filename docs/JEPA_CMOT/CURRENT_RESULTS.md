@@ -91,3 +91,7 @@ uniform source 的实际预测帧间隔：UA 最小 6、中位 19、p90 75，del
 该控制保持预测查询在当前 detection/feature 行选择前冻结，下一帧独立确认后才训练。优先级仅重新排列同一 fresh buffer，不硬拒绝低预测误差样例，从而避免 gate 降低训练次数的混淆。完整序列会在学习结束后，用各学习器快照单独部署评测；教师的 adaptation 轨迹不能冒充已学习模型的跟踪输出。见 MATCHED_TEACHER_H2_FIRST_ACTUAL_RESULTS.json 和 MATCHED_PRIORITY_PROTOCOL_VERIFICATION.json。
 
 source uniform-dense 的 seed23/42 训练与校准已经启动，BDD seed23 完成；多种子 MOT 矩阵仍未完成。存储按域边界保留完整 model/optimizer/replay 状态，中间视频保留参数、loss 和更新记录；仅在已完成域且 domain snapshot 保留后压缩重复状态，失败记录和原始权重保留。
+
+BDD uniform-dense 的 seed23、42 已完成同预算三个目标和校准：source rank-1 约为 CE 51.91% / 51.89%，预测 47.43% / 47.29%，联合 51.81% / 51.59%。与 seed17 相同，pure prediction 在该 source 排序检查中低于 CE；这仍不等于目标域 MOT 或持续学习结论。UA 多种子正在运行，完整记录见 SOURCE_MULTI_SEED_PARTIAL_RESULTS.json。
+
+BDD 全部 63 个 adaptation/development native 特征视频已准备完毕；完整开发对照和多域学习继续。H2 五组同教师完整序列已在两个数据集启动。当前 BDD forward 第一波已完成两个域、37 个适应视频，UA 9 个；这只是运行进展，未形成终态矩阵。BDD 已完成域的中间 state 保留参数后释放约 2.20 GB 重复 optimizer/replay，source 和域边界完整状态均保留。
