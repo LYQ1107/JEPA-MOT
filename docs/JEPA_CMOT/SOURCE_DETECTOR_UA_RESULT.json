@@ -1,0 +1,45 @@
+{
+  "status": "SOURCE_TRAINING_COMPLETE",
+  "dataset": "ua_detrac",
+  "completed_steps": 3000,
+  "mmcv_checkpoint_iteration_index": 2999,
+  "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_detector_v1/ua_detrac/iter_3000.pth",
+  "checkpoint_sha256": "f1404f69a8bfd43fb32983ba114b547b7a01a88b0a25a265666560469f2a3a3a",
+  "provenance": {
+    "dataset": "ua_detrac",
+    "source_video_names": [
+      "MVI_20052",
+      "MVI_20011",
+      "MVI_39031",
+      "MVI_41073",
+      "MVI_39051",
+      "MVI_20012",
+      "MVI_39361",
+      "MVI_39371",
+      "MVI_20035",
+      "MVI_41063",
+      "MVI_20061",
+      "MVI_20051",
+      "MVI_39401",
+      "MVI_20065",
+      "MVI_39271",
+      "MVI_20063"
+    ],
+    "source_frames": 2048,
+    "steps": 3000,
+    "seed": 17,
+    "initialization": "public-COCO-2x-only",
+    "target_gt_used": false,
+    "engineering_smoke_only": false,
+    "classes": [
+      "pedestrian",
+      "car",
+      "truck",
+      "bus",
+      "motorcycle",
+      "bicycle"
+    ],
+    "annotation_sha256": "0282b451a006fd26587794cd1773dabb65ba06c47cfec16e2a053e77ab6bf5ef"
+  },
+  "target_gt_used": false
+}

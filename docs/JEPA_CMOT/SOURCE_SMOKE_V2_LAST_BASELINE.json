@@ -1,0 +1,7 @@
+{
+  "status": "ENGINEERING_ONLY",
+  "rank1": 0.9782608695652174,
+  "prediction_error": 0.020182249338730522,
+  "samples": 46,
+  "source_cache": "v2-correct-video-reset"
+}

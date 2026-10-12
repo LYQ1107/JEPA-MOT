@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import random
+import subprocess
 import time
 from dataclasses import asdict
 from pathlib import Path
@@ -82,7 +83,8 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--cache', type=Path, required=True)
     parser.add_argument('--out', type=Path, required=True)
-    parser.add_argument('--method', choices=['discriminative', 'predictive', 'predictive_ranking'], required=True)
+    parser.add_argument('--method', choices=['discriminative','predictive','predictive_ranking',
+                                           'relation_predictive','relation_ranking'], required=True)
     parser.add_argument('--source-domain', required=True)
     parser.add_argument('--seed', type=int, default=17)
     parser.add_argument('--history', type=int, default=4)
@@ -129,6 +131,8 @@ def main():
                       prediction_gaps=args.prediction_gaps,
                       engineering_smoke_only=args.engineering_smoke,
                       sampler='uniform-with-replacement-v1', geometry='shared-causal-history-v2')
+    code_paths=[Path(__file__),Path(__file__).with_name('models.py'),Path(__file__).with_name('history.py')]
+    experiment['code_sha256']={p.name:sha256(p) for p in code_paths}
     fingerprint = hashlib.sha256(json.dumps(experiment, sort_keys=True).encode()).hexdigest()
     report_path = args.out / 'metrics.json'
     if final.exists() and report_path.exists():
@@ -164,7 +168,8 @@ def main():
         if not torch.isfinite(norm):raise FloatingPointError('Non-finite source gradient')
         optimizer.step()
         losses.append({'step': step + 1, 'prediction': float(components['prediction']),
-                       'ranking': float(components['ranking']), 'gradient_norm': float(norm)})
+                       'ranking': float(components['ranking']), 'relation':float(components['relation']),
+                       'gradient_norm': float(norm)})
         if (step + 1) % 100 == 0 or step + 1 == args.steps:
             print(args.method, step + 1, losses[-1], flush=True)
             torch.save({'state_dict': model.state_dict(), 'optimizer': optimizer.state_dict(),
@@ -185,6 +190,7 @@ def main():
     payload = {'state_dict': model.state_dict(), 'config': asdict(config), 'method': args.method,
                'step': args.steps, 'seed': args.seed, 'source_domain': args.source_domain,
                'source_feature_metadata': metadata,
+               'training_code_sha256': experiment['code_sha256'],
                'experiment_fingerprint': fingerprint}
     torch.save(payload, final)
     report = {'status': 'complete', 'engineering_smoke_only': args.engineering_smoke,
@@ -199,6 +205,8 @@ def main():
               'loss_first': losses[0], 'loss_last': losses[-1],
               'checkpoint_sha256': sha256(final),
               'cache_sha256': experiment['cache_sha256'], 'experiment_fingerprint': fingerprint,
+              'training_code_sha256': experiment['code_sha256'],
+              'git_commit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=Path(__file__).parents[1]).decode().strip(),
               'seconds': previous_seconds + time.perf_counter() - start,
               'target_gt_used': False, 'candidate_input_to_history_predictor': False}
     (args.out / 'metrics.json').write_text(json.dumps(report, indent=2))

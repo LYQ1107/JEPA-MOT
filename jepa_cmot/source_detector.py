@@ -84,6 +84,13 @@ def main():
     parser.add_argument('--engineering-smoke',action='store_true')
     args = parser.parse_args()
     args.out.mkdir(parents=True,exist_ok=True)
+    complete = args.out/'complete.json'
+    if complete.exists():
+        saved = json.loads(complete.read_text())
+        if saved['dataset']!=args.dataset or saved['completed_steps']!=args.steps:
+            raise ValueError('Completed source detector has a different configuration')
+        print('SOURCE_DETECTOR_ALREADY_COMPLETE',complete,flush=True)
+        return
     manifest = json.loads(args.manifest.read_text())
     annotation = args.out/'source_annotation.json'
     videos,count = source_annotation(manifest,args.dataset,annotation,args.frames_per_video)
@@ -110,6 +117,8 @@ def main():
     (args.out/'provenance.json').write_text(json.dumps(provenance,indent=2))
     train_detector(model,[dataset],cfg,distributed=False,validate=False,
                    meta=dict(CLASSES=CLASSES,cmot_provenance=provenance))
+    complete.write_text(json.dumps(dict(dataset=args.dataset,completed_steps=args.steps,
+        status='complete',provenance=provenance),indent=2))
     print('SOURCE_DETECTOR_COMPLETE',args.dataset,args.steps,flush=True)
 
 

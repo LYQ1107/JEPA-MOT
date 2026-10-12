@@ -57,12 +57,23 @@ def objective(query, candidates, positive_index, method, *, candidate_mask=None,
     if candidate_mask is not None:
         logits = logits.masked_fill(~candidate_mask, -1e4)
     ranking = F.cross_entropy(logits, positive_index)
+    # Candidate B forecasts the response distribution of the future positive
+    # latent to this frame's competitor set. Candidates are still absent from
+    # P(H<t); they appear only in the scorer and stopped-gradient loss target.
+    teacher_logits = association_scores(F.normalize(target,dim=-1),candidates,temperature)
+    if candidate_mask is not None:teacher_logits=teacher_logits.masked_fill(~candidate_mask,-1e4)
+    relation = F.kl_div(F.log_softmax(logits,dim=-1),F.softmax(teacher_logits.detach(),dim=-1),
+                        reduction='batchmean')
     if method == 'discriminative':
         loss = ranking
     elif method == 'predictive':
         loss = prediction
     elif method == 'predictive_ranking':
         loss = prediction + ranking
+    elif method == 'relation_predictive':
+        loss = relation
+    elif method == 'relation_ranking':
+        loss = relation + ranking
     else:
         raise ValueError(method)
-    return loss, {'prediction': prediction.detach(), 'ranking': ranking.detach()}
+    return loss, {'prediction': prediction.detach(), 'ranking': ranking.detach(),'relation':relation.detach()}

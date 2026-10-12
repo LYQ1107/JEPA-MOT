@@ -23,3 +23,7 @@ UA 100 视频、140,131 图片帧，其中 XML 列出 138,252 帧；BDD 111 视�
 GeneralTrack 权重与作者公开文件 SHA256 完全一致。它是所有方法共享的 BDD 预训练关联先验，不能声称完整系统只有当前 source-weather GT 预训练。该限制见 FROZEN_PROTOCOL.json。
 
 原始工程记录与失效原因见 ENGINEERING_EVIDENCE.json、FAILURE_ANALYSIS.md、EXPERIMENT_REGISTRY.csv。权重、缓存和日志保存在本地 runs/JEPA_CMOT；数据从只读 NAS 读取。
+
+修正缓存后的 frozen-last 源验证 rank-1 为 97.83%，高于三种训练目标；这进一步说明工程小样本不能提供 H1 支持。UA detector 的 3,000 步已完成并登记 SHA256，完整 1,505 帧的 MVI_39311 与 800 帧的 MVI_20064 检测正在生成。
+
+两个正式 detector 均完成 3,000 步，SHA256 已登记于 SOURCE_DETECTOR_UA_RESULT.json 和 SOURCE_DETECTOR_BDD_RESULT.json。正式 source history 队列等待各自完成的 source-only cache，然后按固定 2,000 步、seed 17、gaps 1/2/4/8 执行三个同容量目标。
