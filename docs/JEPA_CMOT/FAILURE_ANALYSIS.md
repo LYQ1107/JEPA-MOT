@@ -41,3 +41,7 @@ BDD：train/val 文件数量一致，必须审计视频集合；源 detector 配
 ## 第一条完整视频：预测排序与 MOT 分数并不一致
 
 BDD source rank-1 中预测弱于 CE，但一个完整 clear 开发视频的 HOTA 51.99 高于 CE 50.99；frozen-last 51.71 仍接近预测。Observation：source ranking 不能代替因果在线分配指标。Hypothesis：绝对分数校准、geometry/matcher 与当前候选竞争、frame gap 分布影响最终输出。Discriminating experiment：在同一 native8 和 geometry 条件下完整跑各域，并记录纠错/反改错；结合 crop/dense 的读数能力上限。没有基于单视频判定支持或 NO-GO。
+
+## 离线连续性事件诊断
+
+首个 UA 视频相对 geometry-null，预测有 65 个连续性修复和 73 个反改错；prediction+ranking 69 / 72，CE 65 / 71，frozen-last 48 / 39。BDD 同类计数预测 21 / 21、联合 21 / 19、CE 27 / 20、last 14 / 11。定义为同一 GT 上次 IoU05 匹配到的 track ID 是否延续，仅比较共同可评测事件，不能直接等同官方 IDSW、AssA 或净 HOTA。说明需要具体诊断 harmful corrections，而非只按 source ranking 选模型。该离线 GT 诊断没有反馈到在线参数或伪标签门控。

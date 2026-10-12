@@ -7,3 +7,5 @@
 随后建立完整顺序学习矩阵，比较无 replay、同容量 replay、普通 feature distillation 和候选关系保持。保持目标 GT 不进入训练、参数和 replay 跨视频持续、物理轨迹状态重置。
 
 source 排序和一个完整开发视频仍不能支持最终结论；继续 no-history/projection/shuffle、两个域顺序、多种子和效率验证。
+
+补充 source-only 相近容量单观测 projection：hidden 320 与历史网络 hidden 128 的参数量相近，不以训练模型对未训练 last 的优势证明 JEPA。两个数据集的 projection 训练已启动；同时准备 last-only history、feature shuffle/random 的独立诊断控制。

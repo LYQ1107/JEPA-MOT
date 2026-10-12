@@ -13,6 +13,7 @@ class PredictorConfig:
     metadata_dim: int = 10
     hidden_dim: int = 128
     residual_scale: float = 0.25
+    architecture: str = 'history'
 
 
 class HistoryPredictor(nn.Module):
@@ -26,6 +27,8 @@ class HistoryPredictor(nn.Module):
         super().__init__()
         self.config = config
         input_dim = config.history * (config.feature_dim + config.metadata_dim + 1)
+        if config.architecture=='projection':
+            input_dim=config.feature_dim+config.metadata_dim+1
         self.context = nn.Sequential(nn.Linear(input_dim, config.hidden_dim),
                                      nn.LayerNorm(config.hidden_dim), nn.GELU())
         self.delta = nn.Linear(config.hidden_dim, config.feature_dim)
@@ -36,10 +39,13 @@ class HistoryPredictor(nn.Module):
         mask = history_mask.unsqueeze(-1)
         features = history_features * mask
         metadata = history_metadata * mask
-        packed = torch.cat((features, metadata, mask), dim=-1).flatten(1)
-        hidden = self.context(packed)
         positions = torch.arange(self.config.history, device=history_mask.device)
         last_index = (positions.unsqueeze(0) * history_mask).long().max(dim=1).values
+        packed = torch.cat((features, metadata, mask), dim=-1)
+        if self.config.architecture=='projection':
+            packed=packed[torch.arange(len(features),device=features.device),last_index]
+        else:packed=packed.flatten(1)
+        hidden = self.context(packed)
         last = features[torch.arange(len(features), device=features.device), last_index]
         query = last + self.config.residual_scale * torch.tanh(self.delta(hidden))
         return F.normalize(query, dim=-1)

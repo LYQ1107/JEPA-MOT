@@ -105,7 +105,9 @@ class CausalHistoryTracker(BYTETracker):
             track_id=int(track.track_id);rows=self._observations.get(track_id)
             if not rows:continue
             self._query_frames[track_id]=int(rows[-1]['frame'])
-            self._packed[track_id]=pack_history(rows,current,self.jepa_history,
+            selected_rows=list(rows)
+            if getattr(self.args,'history_control','full')=='last_only':selected_rows=selected_rows[-1:]
+            self._packed[track_id]=pack_history(selected_rows,current,self.jepa_history,
                                                self.feature_dim,width,height)
         if self._packed:
             ids=list(self._packed)

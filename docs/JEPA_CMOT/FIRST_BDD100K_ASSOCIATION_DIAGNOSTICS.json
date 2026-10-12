@@ -1,0 +1,839 @@
+{
+  "scope": "offline-GT-diagnostic-not-training-input",
+  "baseline": "geometry_null",
+  "video": "b202cae2-672e61c5",
+  "definition": "continuity relative to last IoU05-matched observation of same GT identity",
+  "baseline_counts": {
+    "matches": 1894,
+    "continuations": 1682,
+    "breaks": 93
+  },
+  "methods": {
+    "predictive_ranking": {
+      "counts": {
+        "matches": 1889,
+        "continuations": 1676,
+        "breaks": 95
+      },
+      "common_evaluable_transitions": 1743,
+      "corrected_continuity": 21,
+      "harmful_continuity": 19,
+      "corrected_events": [
+        {
+          "frame": 31,
+          "GT_id": 1442,
+          "gap": 1
+        },
+        {
+          "frame": 40,
+          "GT_id": 1455,
+          "gap": 6
+        },
+        {
+          "frame": 46,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 48,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 49,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 71,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 77,
+          "GT_id": 1476,
+          "gap": 1
+        },
+        {
+          "frame": 78,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 94,
+          "GT_id": 1433,
+          "gap": 4
+        },
+        {
+          "frame": 97,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 98,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 102,
+          "GT_id": 1494,
+          "gap": 4
+        },
+        {
+          "frame": 107,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 138,
+          "GT_id": 1488,
+          "gap": 1
+        },
+        {
+          "frame": 148,
+          "GT_id": 1516,
+          "gap": 1
+        },
+        {
+          "frame": 153,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 156,
+          "GT_id": 1515,
+          "gap": 1
+        },
+        {
+          "frame": 172,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 173,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 174,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 176,
+          "GT_id": 1527,
+          "gap": 1
+        }
+      ],
+      "harmful_events": [
+        {
+          "frame": 7,
+          "GT_id": 1423,
+          "gap": 1
+        },
+        {
+          "frame": 7,
+          "GT_id": 1424,
+          "gap": 1
+        },
+        {
+          "frame": 12,
+          "GT_id": 1425,
+          "gap": 4
+        },
+        {
+          "frame": 44,
+          "GT_id": 1462,
+          "gap": 3
+        },
+        {
+          "frame": 50,
+          "GT_id": 1462,
+          "gap": 2
+        },
+        {
+          "frame": 56,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 61,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 62,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 69,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 76,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 95,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 100,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 148,
+          "GT_id": 1515,
+          "gap": 2
+        },
+        {
+          "frame": 154,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 155,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 166,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 170,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 171,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 199,
+          "GT_id": 1535,
+          "gap": 1
+        }
+      ]
+    },
+    "discriminative": {
+      "counts": {
+        "matches": 1898,
+        "continuations": 1693,
+        "breaks": 87
+      },
+      "common_evaluable_transitions": 1724,
+      "corrected_continuity": 27,
+      "harmful_continuity": 20,
+      "corrected_events": [
+        {
+          "frame": 20,
+          "GT_id": 1434,
+          "gap": 3
+        },
+        {
+          "frame": 31,
+          "GT_id": 1442,
+          "gap": 1
+        },
+        {
+          "frame": 43,
+          "GT_id": 1455,
+          "gap": 9
+        },
+        {
+          "frame": 45,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 46,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 48,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 49,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 71,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 77,
+          "GT_id": 1476,
+          "gap": 1
+        },
+        {
+          "frame": 77,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 78,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 82,
+          "GT_id": 1481,
+          "gap": 1
+        },
+        {
+          "frame": 93,
+          "GT_id": 1480,
+          "gap": 1
+        },
+        {
+          "frame": 97,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 98,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 107,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 119,
+          "GT_id": 1499,
+          "gap": 1
+        },
+        {
+          "frame": 138,
+          "GT_id": 1488,
+          "gap": 1
+        },
+        {
+          "frame": 153,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 156,
+          "GT_id": 1515,
+          "gap": 1
+        },
+        {
+          "frame": 170,
+          "GT_id": 1505,
+          "gap": 3
+        },
+        {
+          "frame": 171,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 172,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 173,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 174,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 176,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 192,
+          "GT_id": 1484,
+          "gap": 1
+        }
+      ],
+      "harmful_events": [
+        {
+          "frame": 5,
+          "GT_id": 1424,
+          "gap": 1
+        },
+        {
+          "frame": 12,
+          "GT_id": 1425,
+          "gap": 4
+        },
+        {
+          "frame": 18,
+          "GT_id": 1439,
+          "gap": 7
+        },
+        {
+          "frame": 44,
+          "GT_id": 1462,
+          "gap": 3
+        },
+        {
+          "frame": 50,
+          "GT_id": 1462,
+          "gap": 2
+        },
+        {
+          "frame": 61,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 62,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 66,
+          "GT_id": 1467,
+          "gap": 5
+        },
+        {
+          "frame": 69,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 76,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 90,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 95,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 100,
+          "GT_id": 1489,
+          "gap": 4
+        },
+        {
+          "frame": 102,
+          "GT_id": 1495,
+          "gap": 1
+        },
+        {
+          "frame": 136,
+          "GT_id": 1433,
+          "gap": 2
+        },
+        {
+          "frame": 154,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 155,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 166,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 171,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 172,
+          "GT_id": 1527,
+          "gap": 1
+        }
+      ]
+    },
+    "predictive": {
+      "counts": {
+        "matches": 1894,
+        "continuations": 1681,
+        "breaks": 94
+      },
+      "common_evaluable_transitions": 1749,
+      "corrected_continuity": 21,
+      "harmful_continuity": 21,
+      "corrected_events": [
+        {
+          "frame": 31,
+          "GT_id": 1442,
+          "gap": 1
+        },
+        {
+          "frame": 40,
+          "GT_id": 1455,
+          "gap": 6
+        },
+        {
+          "frame": 46,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 48,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 49,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 71,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 77,
+          "GT_id": 1476,
+          "gap": 1
+        },
+        {
+          "frame": 78,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 93,
+          "GT_id": 1480,
+          "gap": 1
+        },
+        {
+          "frame": 94,
+          "GT_id": 1433,
+          "gap": 4
+        },
+        {
+          "frame": 98,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 107,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 138,
+          "GT_id": 1488,
+          "gap": 1
+        },
+        {
+          "frame": 156,
+          "GT_id": 1515,
+          "gap": 1
+        },
+        {
+          "frame": 170,
+          "GT_id": 1505,
+          "gap": 3
+        },
+        {
+          "frame": 171,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 172,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 173,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 174,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 174,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 176,
+          "GT_id": 1527,
+          "gap": 1
+        }
+      ],
+      "harmful_events": [
+        {
+          "frame": 18,
+          "GT_id": 1439,
+          "gap": 1
+        },
+        {
+          "frame": 33,
+          "GT_id": 1453,
+          "gap": 1
+        },
+        {
+          "frame": 41,
+          "GT_id": 1458,
+          "gap": 4
+        },
+        {
+          "frame": 50,
+          "GT_id": 1462,
+          "gap": 1
+        },
+        {
+          "frame": 61,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 64,
+          "GT_id": 1471,
+          "gap": 2
+        },
+        {
+          "frame": 65,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 67,
+          "GT_id": 1467,
+          "gap": 6
+        },
+        {
+          "frame": 72,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 76,
+          "GT_id": 1477,
+          "gap": 1
+        },
+        {
+          "frame": 100,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 100,
+          "GT_id": 1489,
+          "gap": 4
+        },
+        {
+          "frame": 102,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 102,
+          "GT_id": 1495,
+          "gap": 1
+        },
+        {
+          "frame": 103,
+          "GT_id": 1495,
+          "gap": 1
+        },
+        {
+          "frame": 104,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 140,
+          "GT_id": 1512,
+          "gap": 4
+        },
+        {
+          "frame": 144,
+          "GT_id": 1511,
+          "gap": 9
+        },
+        {
+          "frame": 155,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 177,
+          "GT_id": 1527,
+          "gap": 1
+        },
+        {
+          "frame": 180,
+          "GT_id": 1444,
+          "gap": 8
+        }
+      ]
+    },
+    "frozen_last": {
+      "counts": {
+        "matches": 1895,
+        "continuations": 1686,
+        "breaks": 90
+      },
+      "common_evaluable_transitions": 1757,
+      "corrected_continuity": 14,
+      "harmful_continuity": 11,
+      "corrected_events": [
+        {
+          "frame": 46,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 47,
+          "GT_id": 1463,
+          "gap": 1
+        },
+        {
+          "frame": 49,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 71,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 93,
+          "GT_id": 1480,
+          "gap": 1
+        },
+        {
+          "frame": 94,
+          "GT_id": 1433,
+          "gap": 4
+        },
+        {
+          "frame": 98,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 138,
+          "GT_id": 1488,
+          "gap": 1
+        },
+        {
+          "frame": 148,
+          "GT_id": 1516,
+          "gap": 1
+        },
+        {
+          "frame": 170,
+          "GT_id": 1505,
+          "gap": 3
+        },
+        {
+          "frame": 171,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 172,
+          "GT_id": 1505,
+          "gap": 1
+        },
+        {
+          "frame": 174,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 174,
+          "GT_id": 1527,
+          "gap": 1
+        }
+      ],
+      "harmful_events": [
+        {
+          "frame": 41,
+          "GT_id": 1458,
+          "gap": 4
+        },
+        {
+          "frame": 61,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 67,
+          "GT_id": 1467,
+          "gap": 7
+        },
+        {
+          "frame": 72,
+          "GT_id": 1471,
+          "gap": 1
+        },
+        {
+          "frame": 100,
+          "GT_id": 1489,
+          "gap": 4
+        },
+        {
+          "frame": 102,
+          "GT_id": 1433,
+          "gap": 1
+        },
+        {
+          "frame": 102,
+          "GT_id": 1495,
+          "gap": 1
+        },
+        {
+          "frame": 103,
+          "GT_id": 1495,
+          "gap": 1
+        },
+        {
+          "frame": 144,
+          "GT_id": 1511,
+          "gap": 7
+        },
+        {
+          "frame": 155,
+          "GT_id": 1522,
+          "gap": 1
+        },
+        {
+          "frame": 180,
+          "GT_id": 1444,
+          "gap": 8
+        }
+      ]
+    }
+  }
+}

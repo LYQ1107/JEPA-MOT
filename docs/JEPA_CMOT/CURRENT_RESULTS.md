@@ -63,3 +63,9 @@ object-crop source 读数已完成：同容量 CE / 预测 / 预测+ranking rank
 同一 203 帧开发视频、native8 类别接口、相同 geometry 和 source-only 二参数校准：geometry-null HOTA 51.08，frozen-last 51.71，CE 50.99，预测 51.99，预测+ranking 51.81。预测比 CE 高 1.00，但仅比更强的 frozen-last 高 0.28。不能把一个 source 域开发视频的结果当作目标达成。共享执行的 geometry-null 和 CE 轨迹与独立运行逐字节相同。
 
 BDD 的 63 个 adaptation/development 视频已全部生成统一 detector stream，特征队列继续生成无 GT 缓存。UA 的完整 detector 与特征队列仍运行，使用每视频互斥锁并保持进行中的 extractor。六个相同更新间隔和 batch 的顺序学习对照已在两个数据集启动等待/消费流水线；评测将在全部训练后从保存的快照独立运行，不反馈到未来训练。
+
+## 首个完整 UA 受控比较
+
+MVI_39311 全 1,505 帧同预算、同校准、同 geometry：HOTA geometry-null 48.83、frozen-last 48.22、CE 47.67、预测 48.67、预测+ranking 48.55。预测比 CE 高约 0.99，但低于更强 geometry-null。geometry-null 与 CE 的共享计算输出再次与独立运行逐字节一致。该结果不支持 JEPA 达到目标；还需全域、顺序学习和多种子。
+
+相近容量单观测 projection 已训练：660,864 参数，历史模型 662,400 参数；UA source rank-1 72.22%，与历史 CE 72.17% 接近。projection 只读最后一次 appearance 与运动 metadata；此结果提示多次 appearance 历史本身未必提供明显增量。它尚待完整 MOT 与 continual 对照。

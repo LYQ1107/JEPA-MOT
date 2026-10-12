@@ -88,7 +88,8 @@ def main():
     parser.add_argument('--source-domain', required=True)
     parser.add_argument('--seed', type=int, default=17)
     parser.add_argument('--history', type=int, default=4)
-    parser.add_argument('--hidden', type=int, default=128)
+    parser.add_argument('--hidden',type=int,default=None)
+    parser.add_argument('--architecture',choices=['history','projection'],default='history')
     parser.add_argument('--prediction-gaps', type=int, nargs='+', default=[1])
     parser.add_argument('--steps', type=int, default=1000)
     parser.add_argument('--batch', type=int, default=64)
@@ -97,6 +98,7 @@ def main():
     parser.add_argument('--device', default='cuda')
     parser.add_argument('--engineering-smoke', action='store_true')
     args = parser.parse_args()
+    if args.hidden is None:args.hidden=320 if args.architecture=='projection' else 128
     if min(args.prediction_gaps)<1:raise ValueError('Prediction gaps must be positive')
     torch.set_num_threads(4)
     metadata = json.loads(args.cache.with_suffix(args.cache.suffix + '.json').read_text())
@@ -120,7 +122,8 @@ def main():
     valid = SourcePairs(args.cache,args.history,heldout,args.width,args.height,prediction_gaps=args.prediction_gaps)
     if not len(train) or not len(valid):
         raise ValueError('No temporal source examples in one of the video-disjoint splits')
-    config = PredictorConfig(feature_dim=dimension, history=args.history, hidden_dim=args.hidden)
+    config = PredictorConfig(feature_dim=dimension,history=args.history,hidden_dim=args.hidden,
+                             architecture=args.architecture)
     model = HistoryPredictor(config).to(args.device)
     optimizer = torch.optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)
     args.out.mkdir(parents=True, exist_ok=True)

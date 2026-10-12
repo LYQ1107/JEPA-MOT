@@ -121,5 +121,17 @@
     "feature_matcher_shared_and_frozen": true,
     "physical_tracks_independent": true,
     "evaluation_snapshots_no_updates": true
-  }
+  },
+  "projection_control": {
+    "architecture": "single-observation-residual-MLP-with-motion-metadata",
+    "hidden": 320,
+    "parameters": 660864,
+    "history_parameters": 662400,
+    "same_source_data_steps_and_losses": true
+  },
+  "planned_information_controls": [
+    "history-last-only",
+    "within-frame-feature-shuffle",
+    "normalized-random-features"
+  ]
 }

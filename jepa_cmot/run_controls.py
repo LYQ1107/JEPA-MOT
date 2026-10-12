@@ -76,6 +76,7 @@ def main():
                 '--jepa-feature-dim',str(dimension),'--jepa-lambda','0.15','--jepa-history','4'])
             native.roialign_size=tuple(native.roialign_size);native.geometry_duplicates=spec.get('geometry_duplicates',True)
             native.jepa_duplicate_iou=.2
+            native.history_control=spec.get('history_control','full')
             if spec.get('calibration'):
                 native.source_calibration=json.loads(Path(spec['calibration']).read_text())
                 if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')
@@ -91,10 +92,20 @@ def main():
                 detections[:,5]=COCO6_TO_NATIVE8[detections[:,5].astype(int)]
                 j=lookup[int(image['id'])];f=np.asarray(features[offsets[j]:offsets[j+1]],np.float32)
                 if len(f)!=len(detections):raise ValueError('Feature/detection offsets changed')
-                augmented=torch.from_numpy(np.concatenate([detections,f],axis=1));plain=torch.from_numpy(detections)
+                plain=torch.from_numpy(detections)
                 shared.begin_frame()
                 for spec in specs:
                     key=spec['name'];tracker=trackers[key];BaseTrack._count=counters[key]
+                    control_features=f
+                    if spec.get('feature_control')=='shuffle':
+                        seed=int(spec.get('seed',17))+int(image['id'])
+                        control_features=f[np.random.RandomState(seed).permutation(len(f))]
+                    elif spec.get('feature_control')=='random':
+                        seed=int(spec.get('seed',17))+int(image['id'])
+                        control_features=np.random.RandomState(seed).normal(size=f.shape).astype(np.float32)
+                        control_features/=np.maximum(np.linalg.norm(control_features,axis=1,keepdims=True),1e-8)
+                        control_features[np.linalg.norm(f,axis=1)<=1e-8]=0
+                    augmented=torch.from_numpy(np.concatenate([detections,control_features],axis=1))
                     tracks=tracker.update(plain if spec['method']=='native' else augmented,
                         [image['height'],image['width']],[image['height'],image['width']],tensor)
                     counters[key]=BaseTrack._count
