@@ -287,3 +287,15 @@ BDD H2 stage2全部19视频/四域已实际回测，五组均4560适应帧、570
 19视频、3844 native帧、source calibration matched：geometry39.90215、last39.38565、mean4 39.59214、lifetime EMA39.65004。EMA比last+.26440 CI[-.21251,.64579]，比mean4+.05790 CI[-.23867,.35040]，比geometry-.25211 CI[-.81295,.21041]；都为fixed-seed开发视频uncertainty，不外推跨seed。新增运行的geometry/last全部19轨迹与之前独立完整frozen结果逐字节一致；普通聚合目前没有可靠越过强geometry。全域指标和SHA见BDD_FULL_FROZEN_PROTOTYPE_RESULTS.json，UA完整对照继续。
 
 普通pair scorer已实际完成三个native BDD开发视频，GT_read=false、updates0、current history violations0，历史state122维/候选feature1024维的独立评分接口已跑通。源UA rank较高不能作为开发/持续收益证据；全部开发deployment继续。
+
+## BDD C2完整同预算保持矩阵完成
+
+四组全部44适应视频/8811 native帧、四stage×四domain真实回测完成；实际更新均1094、确认/seen均41176、memory128。final HOTA / AvgForgetting：replay39.30093/.25557、feature KD39.23575/.34985、row KD39.30327/.25077、row+column39.32630/.22007。column比row +.02302 CI[0,.05350]，比replay +.02537 CI[-.20013,.29735]，比feature +.09054 CI[-.12480,.35599]。量级很小、固定seed开发探索、没有方法选择校正，不能称MOT-specific relation机制获得可靠优势；所有组仍低于强静态geometry39.90215。
+
+完整6指标/4×4/AF/BWT/FWT与actual budget见BDD_COMPETITION_FULL_CONTINUAL_RESULTS.json，逐视频raw-count bootstrap见BDD_COMPETITION_FINAL_BUDGET_AND_COMPARISONS.json。与H2不同的native-group负例过滤改变确认对供给，机制增量只能在同C2 family内解释。通用RKD-D序列已实际开始，当前已完成8个完整适应视频，仍待后续域及全部回测；不以待完成结果宣称创新。
+
+## 完整开发关联事件的间隔/观测运动分组
+
+BDD完整19开发视频recorded one-step changes重新离线匹配GT，分组阈值仅由source_GT bbox native速度的25/75分位定义（image-diagonal/frame .00139888/.01337447）。原残差在gap1的identity corrected/harmful=293/203，gap2-4=51/85，gap5-8=8/11，gap>8=2/1。保守rank_reward只出现1次修复（gap2-4）与1次反改错（gap1）。
+
+间隔指最后一次已提交feature的frame gap，不是真实遮挡标注；bbox speed混合camera/object motion/关联错误。统计仅条件于改变的局部分配，不是全部机会率或独立baseline后续轨迹；长gap也可能因其它row改动而间接改变Hungarian结果，不能把2/1当作长遮挡forecast证据。没有基于这些target GT分组改变门控。见BDD_COMPLETE_LOCAL_EVENT_GAP_MOTION_STRATA.json。

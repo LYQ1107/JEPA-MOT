@@ -101,3 +101,11 @@ Observation：完整first-wave final所有六组低于强geometry；联合FT优�
 ## 相等实际预算之后仍缺乏需求优先的可靠增量
 
 Observation：H2全流程五组1096步/41563确认，final预测priority比appearance-hard仅+.0653、比CE+priority +.2065，CI均跨0；阶段1/2的相对hard差均负。Hypothesis：有限单seed的阶段波动与原模型差异可以解释小宏正号，不足以说明JEPA discrepancy稳定识别有价值更新。Next decision：保留全部矩阵和既有多seed/order控制，不缩小任务到最终一个有利阶段；Mean/EMA和Transformer强普通基线继续，不能称新增结构本身是JEPA创新。
+
+## 同帧候选column保持的最终增量很小
+
+Observation：C2完整同预算final row+column39.32630、row39.30327、replay39.30093，column比row仅.02302；AF降低.03070，但仍低于geometry。Hypothesis：共享候选竞争的旧forecast query本身缺乏足够身份区分，保持其关系不自动产生更多有效身份信息。Next decision：等待通用RKD、SourceMask readout与强普通baseline的完整证据，不因有nonzero loss、较低AF或CI边界为0就声明创新/稳定优势。
+
+## 局部事件目前不支持向reappearance收缩
+
+Observation：原残差gap2-4的修复51/损害85，gap5-8为8/11；gap1为293/203。Hypothesis：较长观测间隔下的历史/读数错位可能更难，也可能涉及Hungarian全局互动；当前不是摄像机或遮挡根因的证据。Next decision：保留分组诊断，不据此向long-gap分支添加阈值搜索或宣称遮挡恢复创新；source分位定义的观测速度不能代替真实camera-motion/occlusion实验。

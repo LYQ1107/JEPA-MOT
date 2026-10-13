@@ -1,0 +1,175 @@
+{
+  "scope": "all recorded one-step assignment changes in complete BDD frozen development",
+  "source_motion_quantiles": [
+    0.0013988804599400653,
+    0.013374469244725717
+  ],
+  "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+  "counts": {
+    "predictive_residual_audit": {
+      "observation_gap": {
+        "2-4": {
+          "neither_correct": 88,
+          "harmful_local_identity": 85,
+          "both_correct": 60,
+          "corrected_local_identity": 51
+        },
+        ">8": {
+          "neither_correct": 11,
+          "corrected_local_identity": 2,
+          "harmful_local_identity": 1,
+          "both_correct": 1
+        },
+        "1": {
+          "both_correct": 422,
+          "corrected_local_identity": 293,
+          "harmful_local_identity": 203,
+          "neither_correct": 119
+        },
+        "5-8": {
+          "neither_correct": 37,
+          "harmful_local_identity": 11,
+          "both_correct": 2,
+          "corrected_local_identity": 8
+        }
+      },
+      "observed_box_speed": {
+        "high": {
+          "neither_correct": 78,
+          "both_correct": 57,
+          "corrected_local_identity": 65,
+          "harmful_local_identity": 45
+        },
+        "unavailable": {
+          "harmful_local_identity": 22,
+          "neither_correct": 13,
+          "both_correct": 38,
+          "corrected_local_identity": 18
+        },
+        "middle": {
+          "neither_correct": 134,
+          "harmful_local_identity": 156,
+          "corrected_local_identity": 181,
+          "both_correct": 277
+        },
+        "low": {
+          "neither_correct": 30,
+          "corrected_local_identity": 90,
+          "harmful_local_identity": 77,
+          "both_correct": 113
+        }
+      }
+    },
+    "predictive_rank_reward": {
+      "observation_gap": {
+        "1": {
+          "both_correct": 8,
+          "neither_correct": 4,
+          "harmful_local_identity": 1
+        },
+        "2-4": {
+          "corrected_local_identity": 1,
+          "both_correct": 1,
+          "neither_correct": 1
+        }
+      },
+      "observed_box_speed": {
+        "high": {
+          "both_correct": 4,
+          "neither_correct": 3,
+          "corrected_local_identity": 1
+        },
+        "middle": {
+          "harmful_local_identity": 1,
+          "neither_correct": 1,
+          "both_correct": 5
+        },
+        "low": {
+          "neither_correct": 1
+        }
+      }
+    },
+    "discriminative_rank_reward": {
+      "observation_gap": {
+        "2-4": {
+          "corrected_local_identity": 1,
+          "neither_correct": 1,
+          "both_correct": 1
+        },
+        "1": {
+          "harmful_local_identity": 1,
+          "both_correct": 5,
+          "neither_correct": 1
+        }
+      },
+      "observed_box_speed": {
+        "high": {
+          "corrected_local_identity": 1,
+          "both_correct": 2,
+          "neither_correct": 1
+        },
+        "middle": {
+          "harmful_local_identity": 1,
+          "both_correct": 4
+        },
+        "low": {
+          "neither_correct": 1
+        }
+      }
+    },
+    "frozen_last_rank_reward": {
+      "observation_gap": {
+        "1": {
+          "both_correct": 7,
+          "neither_correct": 4
+        },
+        "2-4": {
+          "neither_correct": 1
+        }
+      },
+      "observed_box_speed": {
+        "high": {
+          "both_correct": 4,
+          "neither_correct": 3
+        },
+        "middle": {
+          "neither_correct": 1,
+          "both_correct": 3
+        },
+        "low": {
+          "neither_correct": 1
+        }
+      }
+    },
+    "random_rank_reward": {
+      "observation_gap": {},
+      "observed_box_speed": {}
+    }
+  },
+  "excluded_mixed_or_unscored": {
+    "predictive_residual_audit": {
+      "mixed_identity_history": 90,
+      "unscored_history_or_current": 248
+    },
+    "predictive_rank_reward": {
+      "mixed_identity_history": 4,
+      "unscored_history_or_current": 3
+    },
+    "discriminative_rank_reward": {
+      "mixed_identity_history": 3,
+      "unscored_history_or_current": 0
+    },
+    "frozen_last_rank_reward": {
+      "mixed_identity_history": 2,
+      "unscored_history_or_current": 3
+    },
+    "random_rank_reward": {
+      "mixed_identity_history": 0,
+      "unscored_history_or_current": 0
+    }
+  },
+  "target_GT_used_only_for_offline_diagnosis": true,
+  "definition": "past box-center displacement per native frame / image diagonal; source25/75 quantile bins",
+  "limitation": "conditioned on changed decisions, not all opportunities or independent propagated baseline; gaps are observed-feature gaps, not measured occlusion; box speed mixes camera and object motion; no target-GT gate tuning",
+  "sealed_used": false
+}
