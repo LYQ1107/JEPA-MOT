@@ -37,7 +37,9 @@ Required artifact per cell:
 3. frozen same-initialization snapshot;
 4. stage0--3 full-domain matrix;
 5. online gain, forgetting, BWT/FWT, IDSW, and update magnitude;
-6. leakage audit showing target GT was not used for training or gating.
+6. `jepa_cmot.continual_analysis` update-magnitude summary with matched
+   per-video counts across all controls;
+7. leakage audit showing target GT was not used for training or gating.
 
 ## Wave-B fixed-teacher diagnostic (seed17)
 
