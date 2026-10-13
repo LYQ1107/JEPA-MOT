@@ -1,7 +1,8 @@
 # Factorial continual-learning results
 
-**Status:** Wave-B fixed-teacher diagnostic complete; registered full-video
-Wave-A factorial remains frozen and unexecuted on this branch.
+**Status:** Wave-B fixed-teacher and Wave-D mechanism diagnostics complete;
+registered full-video Wave-A factorial remains frozen and unexecuted on this
+branch.
 
 The old seed17 continual reports remain under `docs/JEPA_CMOT/`. They show
 real development matrices and update counts, but they mix source objectives
@@ -43,6 +44,33 @@ from Source-P; the predictive gradient norm was 0.818 and 0.082 of the
 discriminative norm, respectively. This supports the next falsifiable
 mechanism test: prediction-only updates can be too weak or misaligned with
 candidate ranking, especially after a predictive source initialization.
+
+## Wave-D predictive-plus-ranking mechanism probe (seed17)
+
+The bounded follow-up kept the Wave-B teacher bank, source checkpoints,
+128-step schedule, batch size, CPU device, and source validation subset fixed.
+It changed only the online objective to the existing equal-weight
+`predictive_ranking` loss and ran the two source-initialization cells. The
+machine-readable record is `H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`.
+
+| source | online objective | fixed-bank Top-1 delta | MRR delta | prediction-error delta | source validation Top-1 before -> after |
+|---|---|---:|---:|---:|---:|
+| D | predictive + ranking | +7.84 pp | +0.0462 | -0.3527 | 67.77% -> 65.43% |
+| P | predictive + ranking | +1.96 pp | +0.0175 | +0.0488 | 59.18% -> 60.94% |
+
+Relative to Wave-B, adding ranking raised the D-cell fixed-bank gain above
+both D-to-P (+4.58 pp) and D-to-D (+7.19 pp). It also raised the P-cell gain
+above P-to-P (+0.65 pp), but it stayed below P-to-D (+3.27 pp). On the first
+16 shared batches, the hybrid gradient had cosine 0.841 with D and 0.719 with
+P from Source-D; from Source-P it had cosine 0.998 with D and 0.679 with P.
+The last number shows that the P-cell hybrid update is effectively dominated
+by the discriminative component. This is mechanism evidence that ranking can
+repair part of the prediction/ranking mismatch, not evidence for a uniquely
+predictive online advantage.
+
+The probe used no target GT for training or gating and produced no full-video
+HOTA, IDF1, IDSW, forgetting, BWT, FWT, or closed-loop result. It therefore
+does not replace the registered 2x2 Wave-A factorial.
 
 The study is retained as an independent H2 test. It may start with one seed
 and one forward order when a usable GPU or an explicitly bounded CPU window is
