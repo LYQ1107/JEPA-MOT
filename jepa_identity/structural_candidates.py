@@ -166,7 +166,10 @@ class CandidateRelativePredictor(nn.Module):
         self.relation_query = nn.Linear(config.hidden_dim, config.relation_dim)
         self.candidate_encoder = nn.Sequential(
             nn.Linear(config.feature_dim, config.relation_dim),
-            nn.LayerNorm(config.relation_dim),
+            # Candidate features are normalized before this projection.  Keep
+            # the encoder affine-only here: LayerNorm on a near-constant hard
+            # negative batch can produce NaN backward values even when the
+            # forward score is finite.
             nn.GELU(),
         )
 
@@ -187,8 +190,12 @@ class CandidateRelativePredictor(nn.Module):
         """Score candidates after the past-only query has been constructed."""
         if relation_query.ndim != 2:
             raise ValueError("relation_query must have shape [batch, relation]")
-        encoded = F.normalize(self.encode_candidates(candidates), dim=-1)
-        query = F.normalize(relation_query.float(), dim=-1)
+        # Relation queries can briefly approach zero while the source-only
+        # objective is being optimized.  Use a materially larger epsilon than
+        # torch's default so the normalizer cannot create exploding or NaN
+        # gradients in a matched control run.
+        encoded = F.normalize(self.encode_candidates(candidates), dim=-1, eps=1e-6)
+        query = F.normalize(relation_query.float(), dim=-1, eps=1e-2)
         if query.shape[-1] != encoded.shape[-1]:
             raise ValueError("relation query and candidate relation dimensions disagree")
         scores = torch.einsum("bd,bnd->bn", query, encoded) / self.config.temperature
@@ -243,8 +250,11 @@ def candidate_relative_objective(model: CandidateRelativePredictor, relation_que
                                  temperature=None) -> Tuple[torch.Tensor, Dict[str, torch.Tensor]]:
     """Train a relation query against the same-frame hard-negative set."""
     temperature = model.config.temperature if temperature is None else temperature
-    encoded = F.normalize(model.encode_candidates(candidates), dim=-1)
-    query = F.normalize(relation_query, dim=-1)
+    encoded = F.normalize(model.encode_candidates(candidates), dim=-1, eps=1e-6)
+    # The raw relation head can transiently produce a near-zero vector during
+    # source optimization.  A 1e-2 floor bounds the normalization derivative
+    # while leaving ordinary relation vectors unchanged.
+    query = F.normalize(relation_query, dim=-1, eps=1e-2)
     logits = torch.einsum("bd,bnd->bn", query, encoded) / temperature
     if candidate_mask is not None:
         logits = logits.masked_fill(~candidate_mask.bool(), -1e4)
