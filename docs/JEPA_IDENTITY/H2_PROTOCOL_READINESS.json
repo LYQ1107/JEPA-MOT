@@ -12,7 +12,7 @@
       "NAS_FUSE_ENDPOINT_DISCONNECTED",
       "NVIDIA_DRIVER_UNAVAILABLE"
     ],
-    "verified": "19 BDD development streams, 3,844 declared frames, native_full_frames=true, gt_read=false, zero GT annotations, and 1024-D float32 dense caches with consistent offsets"
+    "verified": "63 BDD Wave-A streams (44 adaptation plus 19 development), 12,655 declared frames, native_full_frames=true, gt_read=false, zero GT annotations, and 1024-D float32 dense caches with consistent offsets"
   },
   "h1_precondition": {
     "summary": "docs/JEPA_IDENTITY/STRUCTURAL_FORMAL_SEED17.json",
