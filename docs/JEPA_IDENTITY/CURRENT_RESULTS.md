@@ -48,8 +48,12 @@ provenance, and numerical-stability diagnostics are in
 `STRUCTURAL_FORMAL_SEED17.json`.
 
 These results are real and reproducible, but they are not a common-state
-all-opportunity benchmark and do not prove H1. H2 remains unexecuted in this
-branch; its four-cell same-initialization readiness and gating state are in
-`H2_PROTOCOL_READINESS.json`. See the JSON reports beside this file and the
-final report for the decision and next gate.
+all-opportunity benchmark and do not prove H1. H2 is an independent hypothesis
+rather than an H1-gated follow-up. Its bounded BDD seed17 fixed-teacher
+diagnostic is complete: the four cells shared 153 recorded pseudo-pairs and a
+128-step schedule, with fixed-bank Top-1 gains of +7.19/+4.58 points for
+D-to-D/D-to-P and +3.27/+0.65 for P-to-D/P-to-P. This objective-level result
+has no full-video HOTA or closed-loop evidence. The registered full-video
+factorial remains pending; readiness and the diagnostic report are in
+`H2_PROTOCOL_READINESS.json` and `H2_WAVE_B_FIXED_TEACHER_SEED17.json`.
 
