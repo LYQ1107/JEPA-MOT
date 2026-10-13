@@ -43,6 +43,10 @@ summaries, and reproducibility metadata are versioned.
 
 ## Phase status
 
+The requirement-by-requirement current-state map is
+`RESEARCH_REQUIREMENT_AUDIT_SEED17.json`; it keeps completed H1 evidence,
+registered H2 readiness, and runtime-pending items separate.
+
 | Phase | State | Evidence |
 |---|---|---|
 | Phase 0: protocol and environment inheritance | complete with runtime blockers | old JEPA-CMOT reports, protocol/manifest hashes, no active process; NVIDIA driver unavailable and NAS SSHFS endpoint disconnected |
