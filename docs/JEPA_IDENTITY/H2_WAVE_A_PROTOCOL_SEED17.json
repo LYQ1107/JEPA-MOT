@@ -93,6 +93,7 @@
     "frozen_stage0_and_stagewise_evaluation": true,
     "evaluation_feedback_enters_training": false,
     "update_magnitude_source": "per-video learner_stats.update_magnitude records",
+    "update_magnitude_aggregate": "jepa_cmot.continual_analysis update_magnitude field with matched-control audit",
     "post_run_matrix_analysis": "jepa_cmot.continual_analysis"
   },
   "required_evidence": [
