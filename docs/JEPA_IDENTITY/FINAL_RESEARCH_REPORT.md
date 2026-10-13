@@ -32,6 +32,11 @@ Top-1 or correction advantage and remained below Transformer CE and ranking in
 pairwise AUC. These are one-seed, rollout-conditioned uncertainty diagnostics,
 not multi-seed confirmatory evidence. The machine-readable result is
 `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`.
+The domain-stratified follow-up keeps the MLP predictive disadvantage against
+CE and ranking in all four BDD domains; Transformer Top-1 and correction vary,
+while its pairwise AUC has no consistent positive domain. See
+`H1_DOMAIN_STRATIFIED_PAIRED_SEED17.json`; its smaller strata remain
+diagnostic only.
 
 The registered structural follow-up was completed with one seed (17), 1,000
 source-only updates, batch 64, and a video-disjoint source split. The host had
