@@ -1,0 +1,134 @@
+{
+  "status": "VERIFIED_ACTUAL_SOURCE_POOLS_NOT_TARGET_MOT_RESULT",
+  "dataset": "bdd100k",
+  "source_GT_read": true,
+  "target_GT_read": false,
+  "history": 4,
+  "prediction_gaps": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "equal_physical_fields": [
+    "boxes",
+    "frame_ids",
+    "video_ids",
+    "track_ids",
+    "segment_ids",
+    "image_ids",
+    "offsets"
+  ],
+  "splits": [
+    {
+      "split": "fit",
+      "videos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "samples": 83146,
+      "physical_examples_sha256": "ae838fa6929e959b03d626fc5e0041c0053dc4dbaabdfabb03589d3558e3cb0f",
+      "history_positive_and_ordered_negatives_equal": true
+    },
+    {
+      "split": "validation",
+      "videos": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "samples": 20175,
+      "physical_examples_sha256": "60c19a46731675c5b240b23cc2baf970142b50750d08c78339deeecca838ca64",
+      "history_positive_and_ordered_negatives_equal": true
+    }
+  ],
+  "source_training": {
+    "encoder": {
+      "discriminative": {
+        "parameters": 662400,
+        "source_validation_rank1": 0.5554936035090072,
+        "source_validation_prediction_error": 0.620081104529096,
+        "checkpoint_sha256": "ba95a29b603ce9d6f33169613c5006f49e41ee8453b1a224d7450a4d3f76b182",
+        "cache_sha256": "01cf9f1b6cb6a950c402de44ec025658d96b26cfe84b112995b39e62ca6fb5af",
+        "experiment_fingerprint": "4069f13c1d14c691b5794342655bec75d36774aec1625032c1c2be5a0703a20e"
+      },
+      "predictive": {
+        "parameters": 662400,
+        "source_validation_rank1": 0.49736225246349086,
+        "source_validation_prediction_error": 0.11626513340511582,
+        "checkpoint_sha256": "0fcd3e15f9899a13525d6fd21a95d6bb0344c65fa34bd3869c65c3b3287a6df8",
+        "cache_sha256": "01cf9f1b6cb6a950c402de44ec025658d96b26cfe84b112995b39e62ca6fb5af",
+        "experiment_fingerprint": "f51649ca220022bcc6d250e980c6decca9eb1734d639f161b56226341738b614"
+      },
+      "predictive_ranking": {
+        "parameters": 662400,
+        "source_validation_rank1": 0.5476621291717189,
+        "source_validation_prediction_error": 0.23124611201044057,
+        "checkpoint_sha256": "f3cd0f43668395d87722225980efbfdbeb0e660cb965cabbbacdf3903cef424f",
+        "cache_sha256": "01cf9f1b6cb6a950c402de44ec025658d96b26cfe84b112995b39e62ca6fb5af",
+        "experiment_fingerprint": "173786abaddc338b839dcc315af1d26a3eef9c2122aa624914a67de48e52b4f5"
+      }
+    },
+    "predictor": {
+      "discriminative": {
+        "parameters": 662657,
+        "source_validation_rank1": 0.47374804301923684,
+        "source_validation_prediction_error": 0.6765729924500948,
+        "checkpoint_sha256": "1e3e9f05a2945aa7fba8f7106aa9a3a7a304e9575c012a19b3efe2b2b129ab8a",
+        "cache_sha256": "d2bf25fd92140abfdb7e44b74754962ac801f6f71231e9dd4d9622e0267c4507",
+        "experiment_fingerprint": "af339a6110e0b212076e78ec0fd8da530b3f2d29c78d0d162b306d178adda3b8"
+      },
+      "predictive": {
+        "parameters": 662657,
+        "source_validation_rank1": 0.4760776580103859,
+        "source_validation_prediction_error": 0.039298735007625235,
+        "checkpoint_sha256": "5b26f234a115aa230859412e6234c26ed06fe422f63a33ee1a89118736d936d3",
+        "cache_sha256": "d2bf25fd92140abfdb7e44b74754962ac801f6f71231e9dd4d9622e0267c4507",
+        "experiment_fingerprint": "9794edac3c96e98d905f5cf74ef2f59fe5479fdcd5fda32a33d3aef837bff4e6"
+      },
+      "predictive_ranking": {
+        "parameters": 662657,
+        "source_validation_rank1": 0.4818179075573161,
+        "source_validation_prediction_error": 0.1440914970407403,
+        "checkpoint_sha256": "cbefcdaf2e33a40d2662b0a6829dc5358fd689e32835b36848f75944b3699a27",
+        "cache_sha256": "d2bf25fd92140abfdb7e44b74754962ac801f6f71231e9dd4d9622e0267c4507",
+        "experiment_fingerprint": "e706e1930f9d1533824dda2c9cc27eacfa223fd3bf50e5b41ce006e32511e275"
+      }
+    }
+  },
+  "reconstructed_seed17_sampler_indices_sha256": "53ce13c7b09a2e2107136d1eb9a5f66635385859662037b2e88935176b5fce5c",
+  "sampler_scope": "Reconstructed uniform-with-replacement indices from seed and actual sample list; not a saved per-update training trace.",
+  "limitation": "Predictor readout masks current pixels and has 1664 dimensions; encoder observes them and has 1024. Frozen parameters, information and compute are different. Prediction-error scales across readouts do not measure identity benefit.",
+  "invocation": [
+    "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+    "-m",
+    "jepa_cmot.audit_paired_source_pools",
+    "--root",
+    "runs/JEPA_CMOT/paired_readout_v1",
+    "--dataset",
+    "bdd100k",
+    "--out",
+    "docs/JEPA_CMOT/BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json"
+  ],
+  "audit_code_sha256": "7b7d18cd15c6fc6c6d62410b5592faee8db82187559a7b3a184c8fdbfaccb657"
+}

@@ -329,3 +329,11 @@ RKD-D已完成全部44适应视频/8811 native帧。对实际保存的stage1/2/3
 三个边界的reservoir与remaining recent具有相同顺序，字段0/1/2/3/4/7/8（历史latent、geometry、mask、候选、valid与物理候选/轨迹key）逐tensor完全一致；replay RNG状态一致，pending为空，全部optimizer step等于记录updates。旧teacher response和query字段5/6由各learner不同θ产生，不要求相等。column-specific competition_columns是额外机制计数，不等同伪对供给差异。
 
 这些是实际边界样本/预算证据，没有逐步记录跨独立run的每个batch，不能把边界一致扩大为每帧或每批完全一致的证明。RKD-D完整4×4 frozen evaluation仍在运行，不提前宣称HOTA/AF或候选竞争创新。可复现审计模块`jepa_cmot.audit_matched_replay_buffers`与命令、checkpoint SHA、各阶段计数详见BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY.json；不读取target GT，不修改θ。
+
+## 官方配对读数的真实源样本池与训练完成
+
+BDD paired w4 source来自25个clear source_train视频的原3174帧/38466 GT实例，实际features1024-D encoder与1664-D masked predictor均完成三目标2,000×64训练及source-only校准。head参数662400/662657（差0.039%），保持history4/gaps1,2,4,8。实际source NPZ的box/frame/video/track/segment/image/offset全部相同，predictor存储的negative-ranking proxy与encoder feature逐元素相同；直接构造原SourcePairs后，83146 fit与20175 validation样本的完整history/positive/ordered negative物理row索引全部一致，并记录各pool SHA。这补充了此前仅合成样例的负例池检查。
+
+真实源held-out rank1：encoder CE .555494 /pure .497362 /joint .547662；masked predictor CE .473748 /pure .476078 /joint .481818。pure source prediction error为encoder .116265、predictor .039299；1664-D predictor较低的cosine error不能直接解释为更强身份关联，不同读数的latent空间/信息不同。源rank不用于选择目标域视频或调整门控。
+
+两者分享合法4帧window和ROI，但encoder能看到当前像素，official predictor当前两帧像素在patch projection前归零且tokens masked；其额外22973056个frozen predictor参数与计算另计。这里匹配物理样本、源图像/可训练预算和近似head容量，不声称可用信息、frozen参数或算力相同。完整开发MOT部署仍在运行，UA对应pipeline尚未完成，不把源训练/池一致性当成HOTA结果。详见BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json，含六个真实checkpoint SHA、source-cache SHA、原采样定义下重建的seed17 index SHA和复现命令；重建sampler不声称保存了每步训练trace。
