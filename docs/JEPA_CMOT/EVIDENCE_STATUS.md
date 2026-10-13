@@ -18,6 +18,9 @@
 | 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；BDD23/42 forward已按用户要求暂停，后续多seed reverse撤下 | 未完成；Transformer三目标seed23/42队列已按用户要求撤下，不能用源seed或video CI替代 |
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；seed17反向/UA仍运行；批量多seed延后 |
 | BDD seed17 reverse已完成阶段 | BDD_REVERSE_SEED17_COMPLETED_STAGE_ANALYSIS.json；stage1/2四域native complete markers、实际snapshot/optimizer核对 | stage1/2已验证；stage3未完成，不能计算最终AF/BWT/FWT或替代完整逆序矩阵 |
+| UA seed17 H2/C2已完成阶段 | UA_H2_COMPLETED_STAGES_ANALYSIS.json、UA_C2_COMPLETED_STAGES_ANALYSIS.json；stage1/2四域native complete markers、实际snapshot/optimizer核对 | 两组stage1/2已验证；stage3及完整最终矩阵未完成，不能提前报告最终遗忘结论 |
+| UA seed17主线已完成阶段 | UA_MAIN_COMPLETED_STAGE1_ANALYSIS.json；stage1四域native complete marker、实际snapshot/optimizer核对 | stage1已验证；stage2/3及完整最终矩阵未完成 |
+| UA official paired readout | paired_readout_v1 UA encoder development complete marker与pipeline_queue.log | UA encoder全17视频已完成；predictor及两读数合并分析仍待完成，不能用encoder单独替代paired全pipeline |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |
 | 实际图像到轨迹FPS/latency/显存/更新成本 | FULL_NATIVE_LIVE_EFFICIENCY_RESULTS、RETENTION_ACTUAL_UPDATE_COSTS | 12个整视频live案例+真实update-call成本；非全场景/新增FP32读数live速度 |
 | Pseudo确认偏差与改变匹配事件 | BDD/UA_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT、BDD_FULL_RANK_REWARD_RESULTS、event strata | 离线局部/终态memory诊断；非所有训练对或传播的counterfactual因果结论 |
