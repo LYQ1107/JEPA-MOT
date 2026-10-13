@@ -67,10 +67,16 @@ steps. D-to-D/D-to-P gained 7.19/4.58 fixed-bank Top-1 points from Source-D;
 P-to-D/P-to-P gained 3.27/0.65 points from Source-P. Predictive updates
 reduced prediction error more, but did not yield the larger ranking gain. This
 diagnostic has no full-video HOTA or closed-loop evidence and does not support
-an H2 claim; the registered Wave-A factorial remains pending.
+an H2 claim. A bounded Wave-D mechanism probe then added the equal-weight
+ranking term to the predictive update on the same bank: fixed-bank Top-1 gains
+were +7.84 points from Source-D and +1.96 from Source-P, versus +4.58/+0.65
+for pure predictive updates. The P-cell hybrid gradient had cosine 0.998 with
+the discriminative gradient, so this is partial ranking-objective rescue, not
+evidence of a uniquely predictive online advantage; the registered Wave-A
+factorial remains pending.
 On the first 16 shared batches, predictive/discriminative gradient cosine
 averaged 0.255 from Source-D and 0.637 from Source-P, while predictive
-gradient norms were 0.818 and 0.082 of the discriminative norms. This makes
-prediction/ranking gradient misalignment the next falsifiable mechanism to
-test.
+gradient norms were 0.818 and 0.082 of the discriminative norms. The Wave-D
+result makes the ranking component a plausible repair for the prediction/
+ranking mismatch, while leaving the causal full-video H2 question open.
 
