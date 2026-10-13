@@ -263,3 +263,15 @@ BDD H2 stage2全部19视频/四域已实际回测，五组均4560适应帧、570
 实际final self-teacher步数CE/联合FT1073/1074、两replay1096/1096、两KD1097/1097；样本供给仍可不同，不等价于固定teacher完全同样本。后续H2/C2/RKD、多seed/order、pure预测、crop/official读数与UA仍须完成，sealed未用。图bdd_first_wave_complete_continual_hota.svg；final paired report BDD_FIRST_WAVE_FINAL_PAIRED_COMPARISONS.json。完成矩阵后原BDDseed23/42队列已经满足首个依赖，继续实际完整数据流。
 
 完整4stage源验证error与source开发AssA/HOTA的逐方法配对也已记录：BDD_SOURCE_PREDICTION_ERROR_ASSOCIATION_EXPLORATION.json。每方法只有4个相关的时序点，源descriptor验证与source-MOT开发来自不同视频集合；仅描述Pearson系数，不给p值/因果结论、不跨CE与联合模型loss尺度池化。
+
+## 同容量Transformer历史关联/预测对照
+
+新增两层history-only Transformer（hidden128、4 heads、FF512、learned temporal positions、dropout0），从严格过去feature/motion/quality预测状态，然后与当前候选评分。source三目标CE/pred/联合分别同init/sample seed17、同原cache/SourcePairs/history4/gaps1/2/4/8、同2,000×64预算。参数662016 vs MLP662400，零residual初始化同last，训练/推理padding值扰动都不改变valid query，梯度有限。旧history/projection结构与state_dict字段不改，只新增显式architecture分支。
+
+两数据集实际CE源训练完成：BDD源rank1 .513198、error .693113；UA .714606/.646686（原MLP CE .524940/.671088、.721734/.614629）。三目标源训练均已完成：BDD pure .479112/.101517、联合 .509405/.252874；UA pure .675866/.062879、联合 .713662/.206808。不用source排序代替MOT结论。每数据集三源模型/source-only校准后部署全部development；新源中间state按已有规则压缩保留weights与主要state。详细MATCHED_TRANSFORMER_CONTROL_REGISTRATION.json。
+
+## BDD H2完整固定教师矩阵完成
+
+五组全部44适应视频/8811帧和4×4真实开发矩阵完成，均1096实际optimizer步、41563确认/seen、memory128，预算相等已从完整checkpoint核验。final等域HOTA / AvgForgetting：联合confidence39.24177/.26008、prediction priority39.46844/.23199、appearance-hard39.40309/.43569、CE confidence39.07277/.23244、CE prediction priority39.26195/.12968。
+
+最终prediction priority相对appearance-hard +.06535 CI[-.08315,.23180]，相对相同priority CE +.20649 CI[-.32410,.67217]；联合confidence相对CE confidence +.16901 CI[-.26274,.53218]。这些固定seed开发CI跨0；最强H2 final仍低于静态geometry39.9022。prediction priority在stage1/2低于ordinary appearance-hard，不能仅用final的小正号称学习需求机制稳定有效；其forgetting也不是所有对照最小。完整6指标/4stage表、BWT/FWT、实际预算和不确定性见BDD_FIXED_TEACHER_FULL_CONTINUAL_RESULTS.json及BDD_FIXED_TEACHER_FINAL_BUDGET_AND_COMPARISONS.json。

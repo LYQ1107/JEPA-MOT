@@ -17,3 +17,5 @@ BDD first-wave stage0/1/2已完成，H2与C2 stage0/1已完成；明确存于部
 H2 stage2同预算回测已完成，见BDD_FIXED_TEACHER_STAGE2_RESULTS.json。prediction-need priority并未超过ordinary appearance-hard priority。新增frozen mean/EMA源校准与完整部署进行中；冻结prototype属于物理历史基线，并非参数持续学习，不把其每帧prototype更新计为optimizer更新。
 
 第一波BDD完整六组final矩阵见BDD_FIRST_WAVE_FULL_CONTINUAL_RESULTS.json；原始6指标与完整4×4表全部包含。强静态geometry HOTA39.9022高于所有六组final（最佳feature KD39.4747），没有达到JEPA优于强同协议对照的目标。完整性仅限第一波seed17 forward，不推广到UA、多seed、reverse或最终sealed。
+
+BDD H2完整五组4×4矩阵已完成，所有组1096步/8811帧/41563确认，详见BDD_FIXED_TEACHER_FULL_CONTINUAL_RESULTS.json。prediction-priority final39.4684，高于普通hard39.4031的区间跨0，且阶段趋势不一致；不支持稳定独立优势。完整性仍限seed17 forward development。

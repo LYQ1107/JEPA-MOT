@@ -1,0 +1,23 @@
+[
+  {
+    "name": "discriminative",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/transformer_v1/models/ua_detrac/seed17/discriminative/final.pt",
+    "calibration": "runs/JEPA_CMOT/transformer_v1/calibration/ua_detrac/seed17/discriminative.json"
+  },
+  {
+    "name": "predictive",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/transformer_v1/models/ua_detrac/seed17/predictive/final.pt",
+    "calibration": "runs/JEPA_CMOT/transformer_v1/calibration/ua_detrac/seed17/predictive.json"
+  },
+  {
+    "name": "predictive_ranking",
+    "method": "trained",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/transformer_v1/models/ua_detrac/seed17/predictive_ranking/final.pt",
+    "calibration": "runs/JEPA_CMOT/transformer_v1/calibration/ua_detrac/seed17/predictive_ranking.json"
+  }
+]

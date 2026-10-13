@@ -97,3 +97,7 @@ Observation：H2相同328步和15756确认对，prediction priority四域HOTA低
 ## 最终第一波矩阵没有证明JEPA持续价值
 
 Observation：完整first-wave final所有六组低于强geometry；联合FT优于CE FT .4096，但同replay联合低于CE .0823且遗忘更高（.1802 vs0）。Feature KD比geometry -.4275的固定seed视频CI全负。Hypothesis：普通latent贴近与source分数变化不足以建立更强身份关系，保护弱函数只能恢复部分稳定性；不能由FT弱对照产生的正号推导整体优势。Discriminating experiment：等待已运行的fixed-teacher、RKD、pure预测、多seed/order及crop/official/mean-EMA完整同协议结果。Next decision：保持预注册输入和预算，不通过扩大memory或目标GT阈值调参寻求成功。
+
+## 相等实际预算之后仍缺乏需求优先的可靠增量
+
+Observation：H2全流程五组1096步/41563确认，final预测priority比appearance-hard仅+.0653、比CE+priority +.2065，CI均跨0；阶段1/2的相对hard差均负。Hypothesis：有限单seed的阶段波动与原模型差异可以解释小宏正号，不足以说明JEPA discrepancy稳定识别有价值更新。Next decision：保留全部矩阵和既有多seed/order控制，不缩小任务到最终一个有利阶段；Mean/EMA和Transformer强普通基线继续，不能称新增结构本身是JEPA创新。

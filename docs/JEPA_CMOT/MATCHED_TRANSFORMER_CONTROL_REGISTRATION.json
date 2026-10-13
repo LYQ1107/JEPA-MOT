@@ -1,0 +1,527 @@
+{
+  "status": "ALL_SIX_SOURCE_HEADS_COMPLETE_CALIBRATION_AND_FULL_DEVELOPMENT_RUNNING",
+  "architecture": "two history-only transformer layers, hidden128, heads4, FF512, learned temporal positions, last-valid state plus common residual output",
+  "parameters": {
+    "transformer": 662016,
+    "history_MLP": 662400
+  },
+  "source_budget": {
+    "steps": 2000,
+    "batch": 64,
+    "seed": 17,
+    "history": 4,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "cache": "same original source identity caches as MLP, identical source videos/physical candidates/sample RNG"
+  },
+  "invariants": {
+    "current_candidates_enter_history_encoder": false,
+    "zero_residual_initialization_matches_frozen_last": true,
+    "masked_history_values_do_not_affect_query_train_or_eval": true,
+    "finite_gradients_verified": true
+  },
+  "jobs": [
+    {
+      "dataset": "bdd100k",
+      "gpu": "2",
+      "pid": 27953,
+      "status": "LAUNCHED_NOT_RESULTS"
+    },
+    {
+      "dataset": "ua_detrac",
+      "gpu": "3",
+      "pid": 27954,
+      "status": "LAUNCHED_NOT_RESULTS"
+    }
+  ],
+  "completed_source_models": {
+    "bdd100k": {
+      "discriminative": {
+        "status": "complete",
+        "engineering_smoke_only": false,
+        "method": "discriminative",
+        "config": {
+          "feature_dim": 1024,
+          "history": 4,
+          "metadata_dim": 10,
+          "hidden_dim": 128,
+          "residual_scale": 0.25,
+          "architecture": "transformer"
+        },
+        "seed": 17,
+        "steps": 2000,
+        "batch_size": 64,
+        "prediction_gaps": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "parameters": 662016,
+        "fit_videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "validation_videos": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "fit_samples": 97827,
+        "validation_samples": 23623,
+        "source_validation_rank1": 0.5131983011576201,
+        "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+        "source_validation_tied_examples": 7762,
+        "source_validation_prediction_error": 0.6931128816984502,
+        "loss_first": {
+          "step": 1,
+          "prediction": 0.11798597872257233,
+          "ranking": 1.442925214767456,
+          "relation": 0.5584030151367188,
+          "gradient_norm": 2.6220245361328125
+        },
+        "loss_last": {
+          "step": 2000,
+          "prediction": 0.6729606986045837,
+          "ranking": 1.0590258836746216,
+          "relation": 0.321780264377594,
+          "gradient_norm": 1.3541978597640991
+        },
+        "checkpoint_sha256": "29573f2f12caa8b7616afbc2cf8390be0c061053e9485ed574f0521d7681472f",
+        "cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "experiment_fingerprint": "dd631af2d098a0e4f32b8a266eb0b468b0790737720463f73148e21ab066d3e8",
+        "training_code_sha256": {
+          "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+          "models.py": "61cdf819779dec14350dbeb2ae30a8cc392118dbf0a1f960fee8bcec1d5c8cbc",
+          "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+        },
+        "git_commit": "a01fea2e58fe070990bb09477365aea79a5b9499",
+        "seconds": 85.40725563466549,
+        "target_gt_used": false,
+        "candidate_input_to_history_predictor": false
+      },
+      "predictive": {
+        "status": "complete",
+        "engineering_smoke_only": false,
+        "method": "predictive",
+        "config": {
+          "feature_dim": 1024,
+          "history": 4,
+          "metadata_dim": 10,
+          "hidden_dim": 128,
+          "residual_scale": 0.25,
+          "architecture": "transformer"
+        },
+        "seed": 17,
+        "steps": 2000,
+        "batch_size": 64,
+        "prediction_gaps": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "parameters": 662016,
+        "fit_videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "validation_videos": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "fit_samples": 97827,
+        "validation_samples": 23623,
+        "source_validation_rank1": 0.47911216865187195,
+        "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+        "source_validation_tied_examples": 7709,
+        "source_validation_prediction_error": 0.10151738150681033,
+        "loss_first": {
+          "step": 1,
+          "prediction": 0.11798597872257233,
+          "ranking": 1.442925214767456,
+          "relation": 0.5584030151367188,
+          "gradient_norm": 0.38528698682785034
+        },
+        "loss_last": {
+          "step": 2000,
+          "prediction": 0.08562804758548737,
+          "ranking": 1.53840172290802,
+          "relation": 0.4902292490005493,
+          "gradient_norm": 0.15526340901851654
+        },
+        "checkpoint_sha256": "2c5fe22f7ad76a379a77ff6bd2a66101b4c493f2501d7f7283f4b7433c9ae902",
+        "cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "experiment_fingerprint": "f2a5ea84a2969f19d3b135d1664e15be5130610027c57d7e80a98fc085acd4d0",
+        "training_code_sha256": {
+          "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+          "models.py": "61cdf819779dec14350dbeb2ae30a8cc392118dbf0a1f960fee8bcec1d5c8cbc",
+          "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+        },
+        "git_commit": "a01fea2e58fe070990bb09477365aea79a5b9499",
+        "seconds": 85.07277009636164,
+        "target_gt_used": false,
+        "candidate_input_to_history_predictor": false
+      },
+      "predictive_ranking": {
+        "status": "complete",
+        "engineering_smoke_only": false,
+        "method": "predictive_ranking",
+        "config": {
+          "feature_dim": 1024,
+          "history": 4,
+          "metadata_dim": 10,
+          "hidden_dim": 128,
+          "residual_scale": 0.25,
+          "architecture": "transformer"
+        },
+        "seed": 17,
+        "steps": 2000,
+        "batch_size": 64,
+        "prediction_gaps": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "parameters": 662016,
+        "fit_videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "validation_videos": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "fit_samples": 97827,
+        "validation_samples": 23623,
+        "source_validation_rank1": 0.5094046813943205,
+        "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+        "source_validation_tied_examples": 7375,
+        "source_validation_prediction_error": 0.2528737205274774,
+        "loss_first": {
+          "step": 1,
+          "prediction": 0.11798597872257233,
+          "ranking": 1.442925214767456,
+          "relation": 0.5584030151367188,
+          "gradient_norm": 2.8155734539031982
+        },
+        "loss_last": {
+          "step": 2000,
+          "prediction": 0.23255155980587006,
+          "ranking": 1.1527436971664429,
+          "relation": 0.327349454164505,
+          "gradient_norm": 2.52830171585083
+        },
+        "checkpoint_sha256": "90f3728745874ab2d2ff607cf4302022f106528a780577e5d6df51850be89489",
+        "cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "experiment_fingerprint": "4a72f68f52f3db6b4781122cc0029002659a6330fc59292c9b4bf6d4cb77c430",
+        "training_code_sha256": {
+          "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+          "models.py": "61cdf819779dec14350dbeb2ae30a8cc392118dbf0a1f960fee8bcec1d5c8cbc",
+          "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+        },
+        "git_commit": "a01fea2e58fe070990bb09477365aea79a5b9499",
+        "seconds": 84.16230508685112,
+        "target_gt_used": false,
+        "candidate_input_to_history_predictor": false
+      }
+    },
+    "ua_detrac": {
+      "discriminative": {
+        "status": "complete",
+        "engineering_smoke_only": false,
+        "method": "discriminative",
+        "config": {
+          "feature_dim": 1024,
+          "history": 4,
+          "metadata_dim": 10,
+          "hidden_dim": 128,
+          "residual_scale": 0.25,
+          "architecture": "transformer"
+        },
+        "seed": 17,
+        "steps": 2000,
+        "batch_size": 64,
+        "prediction_gaps": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "parameters": 662016,
+        "fit_videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "validation_videos": [
+          14,
+          15,
+          16
+        ],
+        "fit_samples": 43921,
+        "validation_samples": 11831,
+        "source_validation_rank1": 0.7146056991550064,
+        "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+        "source_validation_tied_examples": 1174,
+        "source_validation_prediction_error": 0.64668582364578,
+        "loss_first": {
+          "step": 1,
+          "prediction": 0.10384409129619598,
+          "ranking": 1.5681729316711426,
+          "relation": 0.6047050952911377,
+          "gradient_norm": 2.6107168197631836
+        },
+        "loss_last": {
+          "step": 2000,
+          "prediction": 0.6581287384033203,
+          "ranking": 0.5474613904953003,
+          "relation": 0.3813173770904541,
+          "gradient_norm": 1.1994844675064087
+        },
+        "checkpoint_sha256": "e0e1bf656b2e64d68d0b3bcd310d769003f396b185a60f3a59a3ce26f9c2bd31",
+        "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+        "experiment_fingerprint": "a1e2f29f4b5a9c78ba73e1384b9845a9c93678683e66edaa16088a14b94ed099",
+        "training_code_sha256": {
+          "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+          "models.py": "61cdf819779dec14350dbeb2ae30a8cc392118dbf0a1f960fee8bcec1d5c8cbc",
+          "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+        },
+        "git_commit": "a01fea2e58fe070990bb09477365aea79a5b9499",
+        "seconds": 79.88431566208601,
+        "target_gt_used": false,
+        "candidate_input_to_history_predictor": false
+      },
+      "predictive": {
+        "status": "complete",
+        "engineering_smoke_only": false,
+        "method": "predictive",
+        "config": {
+          "feature_dim": 1024,
+          "history": 4,
+          "metadata_dim": 10,
+          "hidden_dim": 128,
+          "residual_scale": 0.25,
+          "architecture": "transformer"
+        },
+        "seed": 17,
+        "steps": 2000,
+        "batch_size": 64,
+        "prediction_gaps": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "parameters": 662016,
+        "fit_videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "validation_videos": [
+          14,
+          15,
+          16
+        ],
+        "fit_samples": 43921,
+        "validation_samples": 11831,
+        "source_validation_rank1": 0.6758656661777078,
+        "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+        "source_validation_tied_examples": 1345,
+        "source_validation_prediction_error": 0.06287923850973685,
+        "loss_first": {
+          "step": 1,
+          "prediction": 0.10384409129619598,
+          "ranking": 1.5681729316711426,
+          "relation": 0.6047050952911377,
+          "gradient_norm": 0.2928932011127472
+        },
+        "loss_last": {
+          "step": 2000,
+          "prediction": 0.06002829223871231,
+          "ranking": 1.3320609331130981,
+          "relation": 0.35792452096939087,
+          "gradient_norm": 0.10938391834497452
+        },
+        "checkpoint_sha256": "104feca2df20d5a48d0c73248d061580862e43f7a0a18bfebbdf8b88d774b3dd",
+        "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+        "experiment_fingerprint": "f35a1612b7413f1c95e2541911f9add573b6a9e194b30be1bc84aac1edd293d4",
+        "training_code_sha256": {
+          "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+          "models.py": "61cdf819779dec14350dbeb2ae30a8cc392118dbf0a1f960fee8bcec1d5c8cbc",
+          "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+        },
+        "git_commit": "a01fea2e58fe070990bb09477365aea79a5b9499",
+        "seconds": 82.22921449691057,
+        "target_gt_used": false,
+        "candidate_input_to_history_predictor": false
+      },
+      "predictive_ranking": {
+        "status": "complete",
+        "engineering_smoke_only": false,
+        "method": "predictive_ranking",
+        "config": {
+          "feature_dim": 1024,
+          "history": 4,
+          "metadata_dim": 10,
+          "hidden_dim": 128,
+          "residual_scale": 0.25,
+          "architecture": "transformer"
+        },
+        "seed": 17,
+        "steps": 2000,
+        "batch_size": 64,
+        "prediction_gaps": [
+          1,
+          2,
+          4,
+          8
+        ],
+        "parameters": 662016,
+        "fit_videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ],
+        "validation_videos": [
+          14,
+          15,
+          16
+        ],
+        "fit_samples": 43921,
+        "validation_samples": 11831,
+        "source_validation_rank1": 0.7136618517708894,
+        "source_validation_rank1_tie_rule": "fractional-credit-within-1e-6",
+        "source_validation_tied_examples": 1126,
+        "source_validation_prediction_error": 0.2068080426914917,
+        "loss_first": {
+          "step": 1,
+          "prediction": 0.10384409129619598,
+          "ranking": 1.5681729316711426,
+          "relation": 0.6047050952911377,
+          "gradient_norm": 2.601827383041382
+        },
+        "loss_last": {
+          "step": 2000,
+          "prediction": 0.22231078147888184,
+          "ranking": 0.7130517363548279,
+          "relation": 0.31845787167549133,
+          "gradient_norm": 1.6515742540359497
+        },
+        "checkpoint_sha256": "d72c6b561caf34f0acdf145d6911d23b1242428ea9f6bbb6c1c550f18e101c56",
+        "cache_sha256": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb",
+        "experiment_fingerprint": "265295528c9eb66577e21ed788a7e70da88782e165aabc0d5cb61095c441bd5b",
+        "training_code_sha256": {
+          "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+          "models.py": "61cdf819779dec14350dbeb2ae30a8cc392118dbf0a1f960fee8bcec1d5c8cbc",
+          "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+        },
+        "git_commit": "a01fea2e58fe070990bb09477365aea79a5b9499",
+        "seconds": 80.12250219285488,
+        "target_gt_used": false,
+        "candidate_input_to_history_predictor": false
+      }
+    }
+  },
+  "target_GT_used": false,
+  "sealed_used": false,
+  "scope": "same-capacity transformer association/predictive heads; source rank is not full MOT or continual evidence"
+}

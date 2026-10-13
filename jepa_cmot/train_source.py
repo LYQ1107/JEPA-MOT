@@ -97,7 +97,7 @@ def main():
     parser.add_argument('--seed', type=int, default=17)
     parser.add_argument('--history', type=int, default=4)
     parser.add_argument('--hidden',type=int,default=None)
-    parser.add_argument('--architecture',choices=['history','projection'],default='history')
+    parser.add_argument('--architecture',choices=['history','projection','transformer'],default='history')
     parser.add_argument('--prediction-gaps', type=int, nargs='+', default=[1])
     parser.add_argument('--steps', type=int, default=1000)
     parser.add_argument('--batch', type=int, default=64)

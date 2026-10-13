@@ -27,11 +27,16 @@ class HistoryPredictor(nn.Module):
         super().__init__()
         self.config = config
         input_dim = config.history * (config.feature_dim + config.metadata_dim + 1)
-        if config.architecture=='projection':
+        if config.architecture in ['projection','transformer']:
             input_dim=config.feature_dim+config.metadata_dim+1
         self.context = nn.Sequential(nn.Linear(input_dim, config.hidden_dim),
                                      nn.LayerNorm(config.hidden_dim), nn.GELU())
         self.delta = nn.Linear(config.hidden_dim, config.feature_dim)
+        if config.architecture=='transformer':
+            layer=nn.TransformerEncoderLayer(config.hidden_dim,4,4*config.hidden_dim,
+                dropout=0.,activation='gelu',batch_first=True,norm_first=True)
+            self.temporal=nn.TransformerEncoder(layer,2,enable_nested_tensor=False)
+            self.positions=nn.Parameter(torch.zeros(config.history,config.hidden_dim))
         nn.init.zeros_(self.delta.weight)
         nn.init.zeros_(self.delta.bias)
 
@@ -42,10 +47,15 @@ class HistoryPredictor(nn.Module):
         positions = torch.arange(self.config.history, device=history_mask.device)
         last_index = (positions.unsqueeze(0) * history_mask).long().max(dim=1).values
         packed = torch.cat((features, metadata, mask), dim=-1)
-        if self.config.architecture=='projection':
+        if self.config.architecture=='transformer':
+            tokens=self.context(packed)+self.positions.unsqueeze(0)
+            tokens=self.temporal(tokens,src_key_padding_mask=~history_mask.bool())
+            hidden=tokens[torch.arange(len(features),device=features.device),last_index]
+        elif self.config.architecture=='projection':
             packed=packed[torch.arange(len(features),device=features.device),last_index]
-        else:packed=packed.flatten(1)
-        hidden = self.context(packed)
+            hidden=self.context(packed)
+        else:
+            hidden=self.context(packed.flatten(1))
         last = features[torch.arange(len(features), device=features.device), last_index]
         query = last + self.config.residual_scale * torch.tanh(self.delta(hidden))
         return F.normalize(query, dim=-1)
