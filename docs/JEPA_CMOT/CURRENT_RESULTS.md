@@ -1,12 +1,14 @@
 # 当前结果
 
-状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2 四组完整0–3矩阵、H2 stage1/2、主线stage1和通用RKD source冻结stage0/1也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线/H2/RKD后续阶段、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
+状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2/H2 两组完整0–3矩阵、主线stage1和通用RKD source冻结stage0/1也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线/RKD后续阶段、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
 
 ## 最新已封口的 UA 证据
 
 UA C2 的四个结构保持控制已完成全部四阶段、65,430 native frames 和 8,101 updates。最终四域等权 HOTA/AF/BWT/FWT 为：none 62.61165/.59870/-.56967/.16868，feature 62.83441/.30282/-.26502/.16249，relation 62.65220/.33442/-.33442/.08989，competition 62.65687/.33051/-.33051/.09083。结果来自 [UA C2 完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json)，不能外推到其它 UA family、sealed 或多 seed。
 
 UA official paired frozen development 也已完成 17 个视频/25,460 native frames：masked predictor 的 predictive HOTA 63.22523、predictive+ranking 63.31112；encoder 对应为 62.66640、62.71962。两种读数的信息量和 frozen 计算不同，结果只作正式读数对照。
+
+UA H2 五组也已完成 4×4 回测、65,430 native frames 和 8,101 updates。最终 HOTA/AF/BWT/FWT 为：prediction-priority 62.95704/.09769/-.02180/.07876，appearance-hard 62.85191/.08327/-.08327/.24031，CE-confidence 62.92082/0/.69487/-.02483，CE-prediction-priority 62.73757/.00401/.54839/-.02021；confidence-FIFO 为 62.61165/.59870/-.56967/.16868。该结果是固定 seed17 development，不替代其它路线、sealed 或跨 seed。
 
 ## 有效工程证据
 

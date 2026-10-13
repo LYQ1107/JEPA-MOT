@@ -1,0 +1,1031 @@
+{
+  "dataset": "ua_detrac",
+  "order": [
+    "sunny",
+    "cloudy",
+    "rainy",
+    "night"
+  ],
+  "metrics": {
+    "predictive_ranking_confidence": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.794903172228814,
+          "cloudy": 71.89049744058606,
+          "rainy": 49.20367058903361,
+          "night": 72.55753509750365
+        },
+        "final_equal_domain_average": 62.611651574838035,
+        "average_forgetting": 0.5987038740365733,
+        "forgetting_by_domain": {
+          "sunny": 0.016602625187616127,
+          "cloudy": 0.04698371415895508,
+          "rainy": 1.7325252827631488
+        },
+        "signed_average_forgetting": 0.5987038740365733,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.016602625187616127,
+          "cloudy": 0.04698371415895508,
+          "rainy": 1.7325252827631488
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.07049560143543943,
+          "cloudy": -0.04698371415895508,
+          "rainy": -1.7325252827631488
+        },
+        "backward_transfer": -0.5696711318288882,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.8774853935640792,
+          "night": 1.383537899239684
+        },
+        "forward_transfer": 0.16868416855853496
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.783984182882335,
+          "cloudy": 77.4353299365909,
+          "rainy": 50.05943724385248,
+          "night": 76.1669875992638
+        },
+        "final_equal_domain_average": 65.86143474064738,
+        "average_forgetting": 1.2518966169486159,
+        "forgetting_by_domain": {
+          "sunny": 0.04470319502291886,
+          "cloudy": 0.13909794814037468,
+          "rainy": 3.571888707682554
+        },
+        "signed_average_forgetting": 1.2518966169486159,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.04470319502291886,
+          "cloudy": 0.13909794814037468,
+          "rainy": 3.571888707682554
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.10276790988950069,
+          "cloudy": -0.13909794814037468,
+          "rainy": -3.571888707682554
+        },
+        "backward_transfer": -1.2027395819778093,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.8310364900403613,
+          "night": 2.9073179250333396
+        },
+        "forward_transfer": 0.3587604783309928
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.59602835679956,
+          "cloudy": 86.56800693331932,
+          "rainy": 58.59189814142939,
+          "night": 85.4570455162508
+        },
+        "final_equal_domain_average": 75.30324473694976,
+        "average_forgetting": 0.8756394542008294,
+        "forgetting_by_domain": {
+          "sunny": 0.03199232828829679,
+          "cloudy": 0.10522529043485918,
+          "rainy": 2.4897007438793324
+        },
+        "signed_average_forgetting": 0.8756394542008294,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.03199232828829679,
+          "cloudy": 0.10522529043485918,
+          "rainy": 2.4897007438793324
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.19674970707711736,
+          "cloudy": -0.08351438616433882,
+          "rainy": -2.4897007438793324
+        },
+        "backward_transfer": -0.7921551409888513,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.43896102572716,
+          "night": 2.29607776478268
+        },
+        "forward_transfer": 0.28570557968517346
+      }
+    },
+    "predictive_ranking_prediction_priority": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.84894208335418,
+          "cloudy": 71.89993685904686,
+          "rainy": 50.31034344600545,
+          "night": 72.76892958139145
+        },
+        "final_equal_domain_average": 62.957037992449486,
+        "average_forgetting": 0.09768894527344447,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.18054947317004633,
+          "rainy": 0.11251736265028711
+        },
+        "signed_average_forgetting": 0.05617744108650887,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.12453451256080683,
+          "cloudy": 0.18054947317004633,
+          "rainy": 0.11251736265028711
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.12453451256080683,
+          "cloudy": -0.07740653221998173,
+          "rainy": -0.11251736265028711
+        },
+        "backward_transfer": -0.02179646076982067,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.9194605170268488,
+          "night": 1.1557480355301237
+        },
+        "forward_transfer": 0.0787625061677583
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.87035431703954,
+          "cloudy": 77.43413284586761,
+          "rainy": 52.336829530386865,
+          "night": 76.5909834550703
+        },
+        "final_equal_domain_average": 66.55807503709107,
+        "average_forgetting": 0.1704741859403119,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.41344891232317593,
+          "rainy": 0.09797364549775978
+        },
+        "signed_average_forgetting": 0.10742817125807609,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.18913804404670742,
+          "cloudy": 0.41344891232317593,
+          "rainy": 0.09797364549775978
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.18913804404670742,
+          "cloudy": -0.22351647132842345,
+          "rainy": -0.09797364549775978
+        },
+        "backward_transfer": -0.0441173575931586,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.9567953880105833,
+          "night": 2.438557897347067
+        },
+        "forward_transfer": 0.1605875031121613
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.76233563062873,
+          "cloudy": 86.53145374680736,
+          "rainy": 60.07179973486352,
+          "night": 85.6737489271514
+        },
+        "final_equal_domain_average": 75.75983450986276,
+        "average_forgetting": 0.19272604638974875,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.30014621117142326,
+          "rainy": 0.27803192799782295
+        },
+        "signed_average_forgetting": 0.07170705275432236,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.36305698090627914,
+          "cloudy": 0.30014621117142326,
+          "rainy": 0.27803192799782295
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.36305698090627914,
+          "cloudy": -0.15188910639623998,
+          "rainy": -0.27803192799782295
+        },
+        "backward_transfer": -0.022288017829261264,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.722602129193838,
+          "night": 1.9587867232254297
+        },
+        "forward_transfer": 0.07872819801053055
+      }
+    },
+    "predictive_ranking_appearance_hard_priority": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.72378876454134,
+          "cloudy": 71.84026428101161,
+          "rainy": 49.975741701996654,
+          "night": 72.86782481775109
+        },
+        "final_equal_domain_average": 62.85190489132517,
+        "average_forgetting": 0.08326566082243876,
+        "forgetting_by_domain": {
+          "sunny": 0.0006188062520351423,
+          "cloudy": 0.19603807477062674,
+          "rainy": 0.05314010144465442
+        },
+        "signed_average_forgetting": 0.08326566082243876,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0006188062520351423,
+          "cloudy": 0.19603807477062674,
+          "rainy": 0.05314010144465442
+        },
+        "backward_transfer_by_domain": {
+          "sunny": -0.0006188062520351423,
+          "cloudy": -0.19603807477062674,
+          "rainy": -0.05314010144465442
+        },
+        "backward_transfer": -0.08326566082243876,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.6778738575649115,
+          "night": 1.398809042932342
+        },
+        "forward_transfer": 0.2403117284558102
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.573267073539085,
+          "cloudy": 77.30808317731966,
+          "rainy": 51.64171134097623,
+          "night": 76.82357166932844
+        },
+        "final_equal_domain_average": 66.33665831529086,
+        "average_forgetting": 0.1823073494739044,
+        "forgetting_by_domain": {
+          "sunny": 0.10794919945374915,
+          "cloudy": 0.43897284896796407,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.07913952312586048,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.10794919945374915,
+          "cloudy": 0.43897284896796407,
+          "rainy": -0.3095034790441318
+        },
+        "backward_transfer_by_domain": {
+          "sunny": -0.10794919945374915,
+          "cloudy": -0.43897284896796407,
+          "rainy": 0.3095034790441318
+        },
+        "backward_transfer": -0.07913952312586048,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.5436577440904884,
+          "night": 2.93129446702315
+        },
+        "forward_transfer": 0.4625455743108873
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.49540663923801,
+          "cloudy": 86.4602211540987,
+          "rainy": 59.51166639246692,
+          "night": 85.86763328167547
+        },
+        "final_equal_domain_average": 75.58373186686977,
+        "average_forgetting": 0.18264076785804187,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.3480883240639656,
+          "rainy": 0.19983397951016002
+        },
+        "signed_average_forgetting": 0.1505981046861867,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.09612798951556556,
+          "cloudy": 0.3480883240639656,
+          "rainy": 0.19983397951016002
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.09612798951556556,
+          "cloudy": -0.3480883240639656,
+          "rainy": -0.19983397951016002
+        },
+        "backward_transfer": -0.1505981046861867,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.398930504766767,
+          "night": 2.237027373185171
+        },
+        "forward_transfer": 0.2793656228061347
+      }
+    },
+    "discriminative_confidence": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.91296354113491,
+          "cloudy": 71.96186295046336,
+          "rainy": 50.07395365076805,
+          "night": 72.73450111733725
+        },
+        "final_equal_domain_average": 62.92082031492589,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": -0.5440120249358268,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.15720830128575614,
+          "cloudy": -0.033472193063659006,
+          "rainy": -1.4413555804580653
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.5586842679083475,
+          "cloudy": 0.0845799476484359,
+          "rainy": 1.4413555804580653
+        },
+        "backward_transfer": 0.6948732653382829,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.7300145594546734,
+          "night": 0.6555330431312711
+        },
+        "forward_transfer": -0.02482717210780076
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.91153734013873,
+          "cloudy": 77.62093386966067,
+          "rainy": 51.428540043902935,
+          "night": 76.46977594833263
+        },
+        "final_equal_domain_average": 66.35769680050873,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": -1.1254442432543097,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.23743394298674048,
+          "cloudy": -0.12044033688506772,
+          "rainy": -3.0184584498911207
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 1.0640638193042378,
+          "cloudy": 0.15732843046087908,
+          "rainy": 3.0184584498911207
+        },
+        "backward_transfer": 1.413283566552079,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.8323437581754831,
+          "night": 1.1995161863718664
+        },
+        "forward_transfer": -0.2109425239345389
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.59553000197289,
+          "cloudy": 86.6459647717649,
+          "rainy": 59.622758134458806,
+          "night": 85.74257425742574
+        },
+        "final_equal_domain_average": 75.65170679140559,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": -0.6027293395835803,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.1303776536514789,
+          "cloudy": -0.03091253349798251,
+          "rainy": -1.6468978316012794
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.6801981619548485,
+          "cloudy": 0.12433699154280475,
+          "rainy": 1.6468978316012794
+        },
+        "backward_transfer": 0.8171443283663109,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.8969556483036385,
+          "night": 1.1726223451732665
+        },
+        "forward_transfer": 0.09188889895654266
+      }
+    },
+    "discriminative_prediction_priority": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.848782350550344,
+          "cloudy": 71.96263481337228,
+          "rainy": 49.31197499773751,
+          "night": 72.82688242356528
+        },
+        "final_equal_domain_average": 62.73756864630635,
+        "average_forgetting": 0.00400539355334691,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.012016180660040732,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": -0.3960873242142379,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.14995553196116873,
+          "cloudy": 0.012016180660040732,
+          "rainy": -1.0503226213415857
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.4945030773237846,
+          "cloudy": 0.10033059402492484,
+          "rainy": 1.0503226213415857
+        },
+        "backward_transfer": 0.5483854308967651,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.6925322560313063,
+          "night": 0.6319058197412204
+        },
+        "forward_transfer": -0.0202088120966953
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.897283351732575,
+          "cloudy": 77.57020972134502,
+          "rainy": 49.93939000535633,
+          "night": 76.68006496542225
+        },
+        "final_equal_domain_average": 66.02173701096405,
+        "average_forgetting": 0.016095049977010945,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.048285149931032834,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": -0.7775493047973256,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.3016523505359743,
+          "cloudy": 0.048285149931032834,
+          "rainy": -2.0792807137870355
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 1.0498098308980843,
+          "cloudy": 0.22087736024971605,
+          "rainy": 2.0792807137870355
+        },
+        "backward_transfer": 1.116655968311612,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -1.736882048989223,
+          "night": 1.1487482328706875
+        },
+        "forward_transfer": -0.19604460537284515
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.59237966407395,
+          "cloudy": 86.65042966775424,
+          "rainy": 58.76195074843071,
+          "night": 85.84690839026099
+        },
+        "final_equal_domain_average": 75.46291711762997,
+        "average_forgetting": 0.013771981690491467,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0413159450714744,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": -0.6264625583922788,
+        "signed_forgetting_by_domain": {
+          "sunny": -0.23479886659970362,
+          "cloudy": 0.0413159450714744,
+          "rainy": -1.6859047536486074
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.6770478240559044,
+          "cloudy": 0.20922867239617915,
+          "rainy": 1.6859047536486074
+        },
+        "backward_transfer": 0.8573937500335637,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": -0.9245301418913314,
+          "night": 1.1305797770730521
+        },
+        "forward_transfer": 0.06868321172724023
+      }
+    }
+  },
+  "frozen_source_checkpoint_references": {
+    "predictive_ranking_confidence": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.724407570793375,
+          "cloudy": 72.06250904778418,
+          "rainy": 50.65797315669531,
+          "night": 71.34229197156978
+        },
+        "final_equal_domain_average": 62.69679543671066,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.681216272992835,
+          "cloudy": 77.83702707836642,
+          "rainy": 53.13657537071642,
+          "night": 73.59589436673278
+        },
+        "final_equal_domain_average": 66.0626782722021,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.39927864972245,
+          "cloudy": 86.78303911978836,
+          "rainy": 60.63281824871228,
+          "night": 83.35640077786927
+        },
+        "final_equal_domain_average": 75.29288419902309,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      }
+    },
+    "predictive_ranking_prediction_priority": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.724407570793375,
+          "cloudy": 72.06250904778418,
+          "rainy": 50.65797315669531,
+          "night": 71.34229197156978
+        },
+        "final_equal_domain_average": 62.69679543671066,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.681216272992835,
+          "cloudy": 77.83702707836642,
+          "rainy": 53.13657537071642,
+          "night": 73.59589436673278
+        },
+        "final_equal_domain_average": 66.0626782722021,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.39927864972245,
+          "cloudy": 86.78303911978836,
+          "rainy": 60.63281824871228,
+          "night": 83.35640077786927
+        },
+        "final_equal_domain_average": 75.29288419902309,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      }
+    },
+    "predictive_ranking_appearance_hard_priority": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.724407570793375,
+          "cloudy": 72.06250904778418,
+          "rainy": 50.65797315669531,
+          "night": 71.34229197156978
+        },
+        "final_equal_domain_average": 62.69679543671066,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 59.681216272992835,
+          "cloudy": 77.83702707836642,
+          "rainy": 53.13657537071642,
+          "night": 73.59589436673278
+        },
+        "final_equal_domain_average": 66.0626782722021,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 70.39927864972245,
+          "cloudy": 86.78303911978836,
+          "rainy": 60.63281824871228,
+          "night": 83.35640077786927
+        },
+        "final_equal_domain_average": 75.29288419902309,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      }
+    },
+    "discriminative_confidence": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.35427927322656,
+          "cloudy": 71.91356085251857,
+          "rainy": 48.99267936714061,
+          "night": 70.69543662255967
+        },
+        "final_equal_domain_average": 61.988989028861354,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 58.84747352083449,
+          "cloudy": 77.48611134391689,
+          "rainy": 49.73753190642217,
+          "night": 72.40580096797166
+        },
+        "final_equal_domain_average": 64.61922943478629,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 69.91533184001804,
+          "cloudy": 86.51548178690548,
+          "rainy": 58.28533816027645,
+          "night": 82.27486823904326
+        },
+        "final_equal_domain_average": 74.24775500656081,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      }
+    },
+    "discriminative_prediction_priority": {
+      "HOTA": {
+        "final_by_domain": {
+          "sunny": 56.35427927322656,
+          "cloudy": 71.91356085251857,
+          "rainy": 48.99267936714061,
+          "night": 70.69543662255967
+        },
+        "final_equal_domain_average": 61.988989028861354,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "AssA": {
+        "final_by_domain": {
+          "sunny": 58.84747352083449,
+          "cloudy": 77.48611134391689,
+          "rainy": 49.73753190642217,
+          "night": 72.40580096797166
+        },
+        "final_equal_domain_average": 64.61922943478629,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      },
+      "IDF1": {
+        "final_by_domain": {
+          "sunny": 69.91533184001804,
+          "cloudy": 86.51548178690548,
+          "rainy": 58.28533816027645,
+          "night": 82.27486823904326
+        },
+        "final_equal_domain_average": 74.24775500656081,
+        "average_forgetting": 0.0,
+        "forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "signed_average_forgetting": 0.0,
+        "signed_forgetting_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer_by_domain": {
+          "sunny": 0.0,
+          "cloudy": 0.0,
+          "rainy": 0.0
+        },
+        "backward_transfer": 0.0,
+        "forward_transfer_by_domain": {
+          "cloudy": 0.0,
+          "rainy": 0.0,
+          "night": 0.0
+        },
+        "forward_transfer": 0.0
+      }
+    }
+  },
+  "frozen_reference_scope": "actual stage0 weights/inputs; repeat the same immutable evaluation at each stage",
+  "definitions": {
+    "final_average": "equal weight per registered domain; no reweighting by video count",
+    "forgetting": "max(0, best learned-domain score before final stage minus final score)",
+    "signed_forgetting": "best learned-domain score before final minus final, may be negative",
+    "backward_transfer": "final minus score immediately after that domain was learned; exclude final new domain",
+    "forward_transfer": "score before learning each target domain minus its actual stage0 score"
+  }
+}

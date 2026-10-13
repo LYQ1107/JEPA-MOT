@@ -1,6 +1,6 @@
 # 下一步
 
-2026-10-13 12:05 UTC 的实际核查仍显示当前容器 `/dev/nvidia*` 不存在、CUDA 不可用；但外部运行节点继续更新既有日志。BDD reverse 四阶段矩阵、UA C2 四阶段完整矩阵、UA RKD stage0/1、UA official paired encoder/predictor 已通过完整 native marker、快照/optimizer或source parity核验；不重启或新增多种子任务，等待UA主线/H2/RKD后续阶段自然收尾。
+2026-10-13 12:05 UTC 的实际核查仍显示当前容器 `/dev/nvidia*` 不存在、CUDA 不可用；但外部运行节点继续更新既有日志。BDD reverse 四阶段矩阵、UA C2/H2 四阶段完整矩阵、UA RKD stage0/1、UA official paired encoder/predictor 已通过完整 native marker、快照/optimizer或source parity核验；不重启或新增多种子任务，等待UA主线/RKD后续阶段自然收尾。
 
 完成正在运行的全 development frozen 对照与 forward 连续矩阵；优先汇总已经完整的域，严格标注 source/target、seed和评测覆盖。主表始终使用相同 detector/native frame/caches，逐域报告负结果。
 
