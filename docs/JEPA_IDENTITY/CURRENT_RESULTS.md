@@ -58,6 +58,12 @@ factorial remains pending; readiness and the diagnostic report are in
 `H2_PROTOCOL_READINESS.json` and `H2_WAVE_B_FIXED_TEACHER_SEED17.json`.
 The first 16 shared batches had predictive/discriminative gradient cosine
 0.255 from Source-D and 0.637 from Source-P, with predictive gradient norms
-0.818 and 0.082 of the discriminative norms. The next mechanism test targets
-this prediction/ranking mismatch.
+0.818 and 0.082 of the discriminative norms. The Wave-D follow-up added the
+equal-weight ranking term to the predictive update while keeping the bank and
+schedule fixed. Its fixed-bank Top-1 gains were +7.84 points from Source-D
+and +1.96 from Source-P, versus +4.58/+0.65 for pure predictive updates. The
+P-cell hybrid gradient had cosine 0.998 with the discriminative gradient, so
+this is a partial ranking-objective rescue rather than evidence of a uniquely
+predictive H2 advantage. The full-video Wave-A factorial remains pending; the
+mechanism record is `H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`.
 
