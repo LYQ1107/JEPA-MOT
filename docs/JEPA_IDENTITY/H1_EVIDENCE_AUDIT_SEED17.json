@@ -1,0 +1,461 @@
+{
+  "status": "COMPLETE_STATIC_H1_EVIDENCE_AUDIT_WITH_RUNTIME_LIMITS",
+  "scope": "seed17 BDD common-state and structural evidence plus supplementary UA legacy-track replay",
+  "static_checks_pass": true,
+  "checks": [
+    {
+      "name": "common_state_status",
+      "pass": true,
+      "observed": "COMPLETE_COMMON_STATE_CPU_IDENTITY_AUDIT",
+      "expected": "COMPLETE_COMMON_STATE_CPU_IDENTITY_AUDIT"
+    },
+    {
+      "name": "common_state_case_count",
+      "pass": true,
+      "observed": [
+        1394,
+        1394
+      ],
+      "expected": [
+        1394,
+        1394
+      ]
+    },
+    {
+      "name": "required_common_controls",
+      "pass": true,
+      "observed": [
+        "constant_affine",
+        "feature_random",
+        "feature_shuffle",
+        "geometry_iou",
+        "history_ema",
+        "history_last",
+        "history_mean4",
+        "mlp_ce",
+        "mlp_jepa_predictive",
+        "mlp_jepa_ranking",
+        "native_recorded",
+        "transformer_ce",
+        "transformer_jepa_predictive",
+        "transformer_jepa_ranking"
+      ],
+      "expected": [
+        "geometry_iou",
+        "history_last",
+        "history_mean4",
+        "history_ema",
+        "native_recorded",
+        "mlp_ce",
+        "mlp_jepa_predictive",
+        "mlp_jepa_ranking",
+        "transformer_ce",
+        "transformer_jepa_predictive",
+        "transformer_jepa_ranking",
+        "feature_shuffle",
+        "feature_random",
+        "constant_affine"
+      ]
+    },
+    {
+      "name": "shared_candidate_coverage",
+      "pass": true,
+      "observed": {
+        "geometry_iou": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "history_last": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "history_mean4": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "history_ema": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "native_recorded": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "mlp_ce": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "mlp_jepa_predictive": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "mlp_jepa_ranking": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "transformer_ce": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "transformer_jepa_predictive": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "transformer_jepa_ranking": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "feature_shuffle": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "feature_random": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        },
+        "constant_affine": {
+          "present": 1177,
+          "absent": 217,
+          "rate": 0.8443328550932568
+        }
+      },
+      "expected": {
+        "present": 1177,
+        "absent": 217,
+        "rate": 0.8443328550932568
+      }
+    },
+    {
+      "name": "ranking_and_correction_metrics",
+      "pass": true,
+      "observed": {
+        "geometry_iou": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "history_last": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "history_mean4": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "history_ema": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "native_recorded": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "mlp_ce": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "mlp_jepa_predictive": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "mlp_jepa_ranking": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "transformer_ce": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "transformer_jepa_predictive": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "transformer_jepa_ranking": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "feature_shuffle": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "feature_random": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ],
+        "constant_affine": [
+          "local_net_correction_candidate_present",
+          "mrr_conditional",
+          "pairwise_auc",
+          "top1_identity_accuracy_conditional"
+        ]
+      },
+      "expected": [
+        "top1_identity_accuracy_conditional",
+        "mrr_conditional",
+        "pairwise_auc",
+        "local_net_correction_candidate_present"
+      ]
+    },
+    {
+      "name": "common_state_no_training_gt",
+      "pass": true,
+      "observed": [
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "paired_status",
+      "pass": true,
+      "observed": "COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17",
+      "expected": "COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17"
+    },
+    {
+      "name": "paired_counts",
+      "pass": true,
+      "observed": [
+        1394,
+        1177,
+        217
+      ],
+      "expected": [
+        1394,
+        1177,
+        217
+      ]
+    },
+    {
+      "name": "paired_controls",
+      "pass": true,
+      "observed": [
+        "history_last",
+        "mlp_ce",
+        "mlp_jepa_predictive",
+        "mlp_jepa_ranking",
+        "transformer_ce",
+        "transformer_jepa_predictive",
+        "transformer_jepa_ranking"
+      ],
+      "expected": [
+        "history_last",
+        "mlp_ce",
+        "mlp_jepa_predictive",
+        "mlp_jepa_ranking",
+        "transformer_ce",
+        "transformer_jepa_predictive",
+        "transformer_jepa_ranking"
+      ]
+    },
+    {
+      "name": "paired_comparison_count",
+      "pass": true,
+      "observed": 6,
+      "expected": 6
+    },
+    {
+      "name": "paired_no_training_gt",
+      "pass": true,
+      "observed": [
+        false,
+        false
+      ],
+      "expected": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "structural_status",
+      "pass": true,
+      "observed": "COMPLETE_SEED17_CPU_STRUCTURAL_COMMON_STATE_COMPARISON",
+      "expected": "COMPLETE_SEED17_CPU_STRUCTURAL_COMMON_STATE_COMPARISON"
+    },
+    {
+      "name": "structural_budget",
+      "pass": true,
+      "observed": [
+        17,
+        1000,
+        false,
+        "cpu"
+      ],
+      "expected": [
+        17,
+        1000,
+        false,
+        "cpu"
+      ]
+    },
+    {
+      "name": "structural_candidates_and_controls",
+      "pass": true,
+      "observed": [
+        "candidate_relative_predictive",
+        "candidate_relative_ranking_only",
+        "identity_residual_predictive",
+        "identity_residual_ranking_only"
+      ],
+      "expected": [
+        "candidate_relative_predictive",
+        "candidate_relative_ranking_only",
+        "identity_residual_predictive",
+        "identity_residual_ranking_only"
+      ]
+    },
+    {
+      "name": "structural_fixed_state",
+      "pass": true,
+      "observed": [
+        1394,
+        1177
+      ],
+      "expected": [
+        1394,
+        1177
+      ]
+    },
+    {
+      "name": "structural_no_gt_or_claim",
+      "pass": true,
+      "observed": {
+        "identity_evidence_claim": false,
+        "target_gt_used_for_training_or_gate": false,
+        "per_run": {
+          "identity_residual_predictive": [
+            false,
+            false,
+            "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+          ],
+          "identity_residual_ranking_only": [
+            false,
+            false,
+            "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+          ],
+          "candidate_relative_predictive": [
+            false,
+            false,
+            "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+          ],
+          "candidate_relative_ranking_only": [
+            false,
+            false,
+            "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+          ]
+        }
+      },
+      "expected": "false / false / no candidate in history encoder / all preflights pass"
+    },
+    {
+      "name": "ua_supplement_status",
+      "pass": true,
+      "observed": [
+        "COMPLETE_UA_LEGACY_TRACK_CPU_COMMON_STATE_REPLAY_SEED17",
+        17,
+        4199
+      ],
+      "expected": [
+        "COMPLETE_UA_LEGACY_TRACK_CPU_COMMON_STATE_REPLAY_SEED17",
+        17,
+        4199
+      ]
+    },
+    {
+      "name": "ua_no_training_or_candidate_gt",
+      "pass": true,
+      "observed": [
+        false,
+        true,
+        false
+      ],
+      "expected": [
+        false,
+        true,
+        false
+      ]
+    },
+    {
+      "name": "event_taxonomy_status_present",
+      "pass": true,
+      "observed": "COMPLETE_OFFLINE_H1_EVENT_AUDIT",
+      "expected": "COMPLETE_*"
+    },
+    {
+      "name": "headroom_status_present",
+      "pass": true,
+      "observed": "COMPLETE_OBSERVED_LOCAL_HEADROOM_NOT_GLOBAL_UPPER_BOUND",
+      "expected": "COMPLETE_*"
+    },
+    {
+      "name": "ranking_status_present",
+      "pass": true,
+      "observed": "COMPLETE_OFFLINE_IDENTITY_RANKING_METRICS",
+      "expected": "COMPLETE_*"
+    },
+    {
+      "name": "all_registered_offline_audits_no_training_gt",
+      "pass": true,
+      "observed": {
+        "taxonomy": [
+          false,
+          false
+        ],
+        "headroom": [
+          false,
+          false
+        ]
+      },
+      "expected": "false / false"
+    }
+  ],
+  "scientific_claim": "H1_GENERAL_CLAIM_NOT_ESTABLISHED",
+  "remaining_runtime_or_scope_limits": [
+    "UA registered fresh event tracer remains unexecuted because the current run requires restored NAS/GPU runtime",
+    "the BDD common state is a recorded predictive-residual state and top candidate subset, not an all-opportunity independent rollout",
+    "the structural comparison is one development seed; no multi-seed confidence claim is made",
+    "sealed evaluation remains frozen",
+    "registered full-video H2 Wave-A remains unexecuted"
+  ],
+  "next_allowed_action": "Restore the NAS SSHFS endpoint and NVIDIA driver, rerun the registered UA event preflight, then run only the already registered one-seed forward-order H2 Wave-A factorial; do not add seeds or threshold sweeps."
+}
