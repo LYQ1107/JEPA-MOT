@@ -49,6 +49,7 @@ provenance, and numerical-stability diagnostics are in
 
 These results are real and reproducible, but they are not a common-state
 all-opportunity benchmark and do not prove H1. H2 remains unexecuted in this
-branch. See the JSON reports beside this file and the final report for the
-decision and next gate.
+branch; its four-cell same-initialization readiness and gating state are in
+`H2_PROTOCOL_READINESS.json`. See the JSON reports beside this file and the
+final report for the decision and next gate.
 
