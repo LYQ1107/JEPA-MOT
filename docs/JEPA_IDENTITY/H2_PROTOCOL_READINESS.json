@@ -1,0 +1,72 @@
+{
+  "status": "FROZEN_H2_PROTOCOL_NOT_EXECUTED",
+  "scope": "same-initialization one-seed causal factorial readiness audit; no H2 training or target update was run",
+  "h1_precondition": {
+    "summary": "docs/JEPA_IDENTITY/STRUCTURAL_FORMAL_SEED17.json",
+    "status": "COMPLETE_SEED17_CPU_STRUCTURAL_COMMON_STATE_COMPARISON",
+    "h1_gate_passed": false,
+    "decision": {
+      "identity_residual": "FAIL_H1_GATE_PREDICTIVE_BELOW_MATCHED_RANKING_AND_HISTORY_CE",
+      "candidate_relative": "FAIL_H1_GATE_BOTH_METHODS_BELOW_HISTORY_CE_AND_NET_CORRECTION_NEGATIVE"
+    },
+    "reason": "Both registered structural H1 candidates failed their held-out common-state gate; H2 is not opened by the current decision rule."
+  },
+  "cells": [
+    {
+      "id": "D_to_D",
+      "source_initialization": "discriminative",
+      "online_update": "discriminative"
+    },
+    {
+      "id": "D_to_P",
+      "source_initialization": "discriminative",
+      "online_update": "predictive"
+    },
+    {
+      "id": "P_to_D",
+      "source_initialization": "predictive",
+      "online_update": "discriminative"
+    },
+    {
+      "id": "P_to_P",
+      "source_initialization": "predictive",
+      "online_update": "predictive"
+    }
+  ],
+  "shared_requirements": {
+    "seed": 17,
+    "same_source_checkpoint_per_initialization": true,
+    "same_teacher_per_initialization": true,
+    "same_pseudo_pair_protocol": true,
+    "same_domain_order": true,
+    "same_update_budget": true,
+    "same_replay_budget": true,
+    "same_optimizer_schedule": true,
+    "frozen_checkpoint_controls_required": true,
+    "stagewise_all_domain_evaluation_required": true,
+    "target_gt_used_for_training_or_gate": false,
+    "sealed_data_used": false,
+    "reverse_order_or_extra_seeds": "reserved_after_positive_H1_replication"
+  },
+  "execution_state": {
+    "started": false,
+    "completed_cells": [],
+    "partial_outputs": [],
+    "legacy_reports_are_causal_evidence": false,
+    "blockers": [
+      "H1_GATE_NOT_PASSED",
+      "NVIDIA_DRIVER_UNAVAILABLE"
+    ]
+  },
+  "required_outputs_per_cell": [
+    "source_checkpoint_sha256_and_teacher_sha256",
+    "exact_pseudo_pair_and_update_step_counts",
+    "frozen_same_initialization_snapshot",
+    "stage0_to_stage3_full_domain_matrix",
+    "online_gain_forgetting_BWT_FWT_IDSW_and_update_magnitude",
+    "target_GT_leakage_audit"
+  ],
+  "legacy_evidence_limit": "Existing docs/JEPA_CMOT continual matrices mix source objectives or initializations and cannot identify the online objective effect.",
+  "next_allowed_action": "Only after a separately approved mechanism produces a held-out H1 identity-ranking gain may one seed and one domain order be executed; do not infer H2 from legacy matrices.",
+  "identity_evidence_claim": false
+}
