@@ -45,15 +45,14 @@ does not rule out score-scale, history-state, or selection explanations.
 
 ## Current H1 judgement
 
-**H1 is unresolved.** The data justify retaining predictive residual as a
-candidate for the completed common-state test, while rejecting any statement
-that the current Wave-A result proves JEPA-specific identity information. The
-common-state audit has now frozen one pre-decision state and exposed A0--A10
-scores on one candidate set, including EMA/last/mean, native
-appearance/geometry, temporal MLP, temporal Transformer, JEPA predictive,
-ranking, random/shuffled, and constant/affine controls. The next experiment is
-the registered identity-residual structural candidate; candidate-relative
-prediction remains conditional on that result.
+**H1 is unresolved.** The data reject any statement that the current Wave-A
+result proves JEPA-specific identity information. The common-state audit froze
+one pre-decision state and exposed A0--A10 scores on one candidate set,
+including EMA/last/mean, native appearance/geometry, temporal MLP, temporal
+Transformer, JEPA predictive, ranking, random/shuffled, and constant/affine
+controls. The registered identity-residual and conditional candidate-relative
+structural candidates were both tested once with matched controls; neither
+passed the H1 gate. No additional seed or threshold sweep is justified.
 
 Detailed machine-readable outputs are in
 `IDENTITY_ERROR_TAXONOMY.json`, `ASSOCIATION_HEADROOM.json`, and
@@ -97,4 +96,26 @@ The full report, including confidence intervals, calibration diagnostics,
 domain/gap breakdowns, checkpoint hashes, and causal limitations, is
 `COMMON_STATE_IDENTITY_METRICS.json` with its companion
 `COMMON_STATE_IDENTITY_METRICS.md`.
+
+## Structural seed17 follow-up
+
+The pre-registered structural candidates were trained once on the source-only
+cache with seed17, 1,000 updates, batch 64, and the same video-disjoint split.
+The host had no usable NVIDIA driver, so these runs used CPU. The evaluator
+scored the same 1,394 common-state events for every method, with 84.43%
+candidate coverage:
+
+| candidate / method | Top-1 | MRR | pairwise AUC | net correction |
+|---|---:|---:|---:|---:|
+| identity-residual predictive | 74.17% | 0.8453 | 0.8954 | +88 |
+| identity-residual ranking-only | 74.51% | 0.8555 | 0.9148 | +92 |
+| candidate-relative predictive | 42.31% | 0.6355 | 0.7227 | -287 |
+| candidate-relative ranking-only | 43.84% | 0.6495 | 0.7416 | -269 |
+
+Residual predictive does not beat its matched control, history-last, or MLP CE;
+candidate-relative is substantially worse. Both candidates therefore fail the
+registered H1 gate. `STRUCTURAL_FORMAL_SEED17.json` records all checkpoint
+hashes, provenance checks, training code hashes, and the discarded numerical
+stability attempts. H1 remains unresolved as a general JEPA question, but
+these two structural mechanisms are negative on this development audit.
 
