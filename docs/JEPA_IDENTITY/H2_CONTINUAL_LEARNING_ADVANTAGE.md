@@ -22,6 +22,12 @@ gain relative to the frozen checkpoint with the same initialization, along
 with HOTA, AssA, IDF1, IDSW, average/signed forgetting, BWT, FWT, update
 count, and update magnitude.
 
+The formal post-run analysis aggregates the actual per-optimizer-step
+`learner_stats.update_magnitude` records into `update_magnitude`, including
+L2, relative, parameter-norm, and matched-control-count summaries. Legacy
+reports without that field are returned as explicitly unavailable rather than
+being reconstructed from gradient norms or update counts.
+
 H2 remains independently unresolved. The current host has no usable NVIDIA
 driver, and the NAS SSHFS endpoint is currently disconnected. The registered
 full-video Wave-A run has not been allocated in the present resource window.
