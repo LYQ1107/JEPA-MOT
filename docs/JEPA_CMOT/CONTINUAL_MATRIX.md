@@ -1,6 +1,6 @@
 # 连续域学习矩阵
 
-状态：ACTIVE。BDD forward seed17 的六组训练已完成 source→overcast→rainy→night 和44个适应视频，四个参数快照保存；第一波六组完整stage×domain矩阵已生成，固定教师及后续对照仍在执行。UA forward 继续 cloudy；同教师 H2 五组在两个数据集持续运行。未评测 sealed。
+状态：ACTIVE。BDD forward seed17 的六组训练已完成 source→overcast→rainy→night 和44个适应视频，四个参数快照保存；第一波六组完整stage×domain矩阵已生成。UA主线六组已完成45个适应视频并保存stage0–3边界快照，stage0–2冻结回测和指标已核验；stage3冻结回测在首个视频中断，固定教师及后续对照另有完整矩阵。未评测 sealed。
 
 路径：runs/JEPA_CMOT/continual_v1/{dataset}_forward_seed17；同教师比较为continual_h2_v1。所有 snapshot 评测关闭更新，不反馈到训练；物理 track/pending 在视频边界重置，参数、optimizer、replay/recent和RNG持续。
 
@@ -10,7 +10,7 @@
 
 冻结预测器参考来自实际完整stage0评测，同一静态权重、校准和测试输入在每stage重复该结果；不借用旧历史抽帧实验值。配对统计从各视频 raw TrackEval 计数重新聚合。
 
-BDD六组stage1已完成19视频/四域回测，详细记录BDD_CONTINUAL_STAGE1_PARTIAL_RESULTS.json；stage2/3仍待MOT回测。source内部完整23,623对上的24快照descriptor诊断已独立完成，见BDD_COMPLETE_SOURCE_VALIDATION_SNAPSHOT_AUDIT.json，不能填充缺失MOT矩阵。新增reverse17、UA23/42及pure-prediction在线任务已登记队列，状态仍QUEUED而非结果。
+BDD六组stage1已完成19视频/四域回测，详细记录BDD_CONTINUAL_STAGE1_PARTIAL_RESULTS.json；stage2/3仍待MOT回测。UA主线stage0–2已由实际四域指标重建并通过source parity/optimizer核验，见UA_MAIN_COMPLETED_STAGES_1_2_ANALYSIS.json；stage3只保留适应边界快照，不能填充缺失MOT矩阵。source内部完整23,623对上的24快照descriptor诊断已独立完成，见BDD_COMPLETE_SOURCE_VALIDATION_SNAPSHOT_AUDIT.json，不能填充缺失MOT矩阵。新增reverse17、UA23/42及pure-prediction在线任务已登记队列，状态仍QUEUED而非结果。
 
 BDD first-wave stage0/1/2已完成，H2与C2 stage0/1已完成；明确存于部分阶段报告，不填未完成stage3。固定教师预算已用真实checkpoint的optimizer step/frames/confirmed/seen核对。当前H2 prediction priority不优于普通appearance-hard，C2 column相对row无实质增量；完整final矩阵仍需实际回测。
 

@@ -19,7 +19,7 @@
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；seed17反向/UA仍运行；批量多seed延后 |
 | BDD seed17 reverse完整矩阵 | BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json；stage0–3四域native complete markers、实际snapshot/optimizer核对 | 四阶段已验证；固定seed开发结果，不替代UA逆序、跨seed或sealed证据 |
 | UA seed17 H2/C2已完成阶段 | UA_H2_FULL_CONTINUAL_ANALYSIS.json、UA_H2_COMPLETED_STAGES_1_2_3_ANALYSIS.json、UA_C2_FULL_CONTINUAL_ANALYSIS.json；native complete markers、实际snapshot/optimizer核对 | H2与C2四阶段及AF/BWT/FWT均已验证；主线/RKD后续阶段未完成 |
-| UA seed17主线已完成阶段 | UA_MAIN_COMPLETED_STAGE1_ANALYSIS.json；stage1四域native complete marker、实际snapshot/optimizer核对 | stage1已验证；stage2/3及完整最终矩阵未完成 |
+| UA seed17主线已完成阶段 | UA_MAIN_COMPLETED_STAGE1_ANALYSIS.json、UA_MAIN_COMPLETED_STAGES_1_2_ANALYSIS.json；stage0/1/2四域native complete marker、实际snapshot/optimizer核对，stage2矩阵由现有完整指标重建 | stage0–2已验证；stage3适应快照已存在但冻结回测在首个视频中断，最终矩阵/AF/BWT/FWT未完成 |
 | UA seed17通用RKD已完成阶段 | UA_RKD_COMPLETED_STAGES_0_1_ANALYSIS.json；stage0/1四域native complete marker、source checkpoint parity与optimizer step核对 | stage0冻结源与stage1已验证；stage1为27440 frames/3395 updates/229359 confirmed-seen、HOTA等域平均62.77113（相对source +0.07434）；stage2–3及最终遗忘仍未完成 |
 | UA official paired readout | UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json；encoder/predictor各17视频、25,460 native frames、相同prepared inputs与source audit | 两种official读数的完整frozen development已验证；masked predictor predictive HOTA 63.22523、predictive+ranking 63.31112，仍不是持续学习、sealed或跨seed证据 |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |

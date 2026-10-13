@@ -1,6 +1,6 @@
 # 当前结果
 
-状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2/H2 两组完整0–3矩阵、主线stage1和通用RKD source冻结stage0/1也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线/RKD后续阶段、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
+状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2/H2 两组完整0–3矩阵、UA主线stage0–2和通用RKD source冻结stage0/1也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线stage3冻结回测、RKD后续阶段、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，不重复启动新的多种子任务。
 
 ## 最新已封口的 UA 证据
 
@@ -9,6 +9,19 @@ UA C2 的四个结构保持控制已完成全部四阶段、65,430 native frames
 UA official paired frozen development 也已完成 17 个视频/25,460 native frames：masked predictor 的 predictive HOTA 63.22523、predictive+ranking 63.31112；encoder 对应为 62.66640、62.71962。两种读数的信息量和 frozen 计算不同，结果只作正式读数对照。
 
 UA H2 五组也已完成 4×4 回测、65,430 native frames 和 8,101 updates。最终 HOTA/AF/BWT/FWT 为：prediction-priority 62.95704/.09769/-.02180/.07876，appearance-hard 62.85191/.08327/-.08327/.24031，CE-confidence 62.92082/0/.69487/-.02483，CE-prediction-priority 62.73757/.00401/.54839/-.02021；confidence-FIFO 为 62.61165/.59870/-.56967/.16868。该结果是固定 seed17 development，不替代其它路线、sealed 或跨 seed。
+
+UA 主线六控制的 stage0–2 冻结回测已经封口。stage1/2 分别覆盖 27,440/42,140 adaptation frames；replay128 组分别为 3,395/5,232 optimizer updates，replay0 组为 3,376/5,210 updates。四域等权 HOTA 如下，完整逐域六指标、实际边界状态和 2,000 次配对重采样见 [UA 主线阶段1–2分析](UA_MAIN_COMPLETED_STAGES_1_2_ANALYSIS.json)：
+
+| 方法 | stage1 | stage2 |
+|---|---:|---:|
+| discriminative_replay0_none | 61.74276 | 61.95770 |
+| predictive_ranking_replay0_none | 62.53577 | 62.44208 |
+| discriminative_replay128_none | 62.40251 | 62.26401 |
+| predictive_ranking_replay128_none | 62.68423 | 62.71526 |
+| predictive_ranking_replay128_features | 62.69769 | 62.74725 |
+| predictive_ranking_replay128_relations | 62.25090 | 62.84529 |
+
+stage2 的 replay128 relation 相对同一 predictive replay128 baseline 为 +0.13003 HOTA（固定 seed17 development 配对区间 -0.02666–0.23155），feature 为 +0.03200（-0.19097–0.14791）；区间跨零，不能称独立增益。stage3 的适应边界快照已保留，但冻结评测日志只运行到 MVI_39311 的 100/1505 帧，尚未生成 stage3 指标或最终 complete.json，因此没有计算主线 AF/BWT/FWT。
 
 ## 有效工程证据
 
