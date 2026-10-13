@@ -1,0 +1,342 @@
+{
+  "status": "COMPLETE_SEED17_CPU_STRUCTURAL_COMMON_STATE_COMPARISON",
+  "scope": "BDD100K development seed17; source-only clear cache; fixed predictive-residual common state",
+  "source_cache": "runs/JEPA_CMOT/source_identity_cache_v1/bdd100k/features_dense_current.npz",
+  "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+  "protocol_code_commit": "b1d9dec758e1712c1e0462e0a5672f266758fc49",
+  "common_state_events": 1394,
+  "candidate_present_events": 1177,
+  "candidate_coverage_rate": 0.8443328550932568,
+  "training_budget": {
+    "seed": 17,
+    "steps": 1000,
+    "batch_size": 64,
+    "hidden_dim": 128,
+    "relation_dim": 128,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "device": "cpu",
+    "multi_seed": false
+  },
+  "reference_controls": {
+    "history_last": {
+      "top1_identity_accuracy_conditional": 0.7536108751062022,
+      "mrr_conditional": 0.8525205324270763,
+      "pairwise_auc": 0.9012223670238428,
+      "local_net_correction_candidate_present": 102
+    },
+    "mlp_ce": {
+      "top1_identity_accuracy_conditional": 0.7612574341546304,
+      "mrr_conditional": 0.8638204474653086,
+      "pairwise_auc": 0.9190945071918118,
+      "local_net_correction_candidate_present": 111
+    },
+    "feature_shuffle": {
+      "top1_identity_accuracy_conditional": 0.1937128292268479,
+      "mrr_conditional": 0.4409940526762935,
+      "pairwise_auc": 0.4966442224152914,
+      "local_net_correction_candidate_present": -557
+    },
+    "feature_random": {
+      "top1_identity_accuracy_conditional": 0.25573491928632114,
+      "mrr_conditional": 0.49861229113565525,
+      "pairwise_auc": 0.4892460662226081,
+      "local_net_correction_candidate_present": -484
+    }
+  },
+  "runs": {
+    "identity_residual_predictive": {
+      "checkpoint": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/identity_residual_predictive_cpu/final.pt",
+      "checkpoint_sha256": "639709eb4d143f593aed2d25a3be07becc906a482d6c3ca5558aff7c237241f6",
+      "metrics": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/identity_residual_predictive_cpu/metrics.json",
+      "preflight": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/identity_residual_predictive_cpu/evaluation/preflight.json",
+      "candidate": "identity_residual",
+      "method": "predictive",
+      "seed": 17,
+      "steps": 1000,
+      "batch_size": 64,
+      "parameters": 678912,
+      "fit_videos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "validation_videos": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "source_validation_rank1": 0.4641810986594817,
+      "training_seconds": 32.691094145178795,
+      "training_code_sha256": {
+        "train_structural_candidate.py": "ed8729e6c07ac46a2957919b98dffb0cd85ca200a8348b44dfa36b17ae2178c2",
+        "structural_candidates.py": "c595ce4a0b07bfefd066aa7c7628b1060400e4d64e02534e0212c47fe890c55e",
+        "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+        "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+      },
+      "common_state": {
+        "evaluable_common_state_events": 1394,
+        "candidate_coverage_rate": 0.8443328550932568,
+        "top1_identity_accuracy_conditional": 0.7417162276975361,
+        "mrr_conditional": 0.8452563013310693,
+        "pairwise_auc": 0.895415821990538,
+        "average_precision": 0.8471089398659516,
+        "candidate_nll_uncalibrated": 1.3334272591525451,
+        "candidate_brier_uncalibrated": 0.5260296686623501,
+        "positive_vs_best_negative_margin": 0.05316411470144754,
+        "local_corrected_candidate_present": 287,
+        "local_harmful_candidate_present": 199,
+        "local_net_correction_candidate_present": 88
+      },
+      "target_gt_used_for_training_or_gate": false,
+      "candidate_input_to_history_encoder": false,
+      "preflight_status": "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+    },
+    "identity_residual_ranking_only": {
+      "checkpoint": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/identity_residual_ranking_cpu/final.pt",
+      "checkpoint_sha256": "0eee3f62b0aa64373ae6e3238b081aba3366765737396b82fadde3c535cce51d",
+      "metrics": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/identity_residual_ranking_cpu/metrics.json",
+      "preflight": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/identity_residual_ranking_cpu/evaluation/preflight.json",
+      "candidate": "identity_residual",
+      "method": "discriminative",
+      "seed": 17,
+      "steps": 1000,
+      "batch_size": 64,
+      "parameters": 678912,
+      "fit_videos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "validation_videos": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "source_validation_rank1": 0.5166504440514315,
+      "training_seconds": 34.01041525602341,
+      "training_code_sha256": {
+        "train_structural_candidate.py": "ed8729e6c07ac46a2957919b98dffb0cd85ca200a8348b44dfa36b17ae2178c2",
+        "structural_candidates.py": "c595ce4a0b07bfefd066aa7c7628b1060400e4d64e02534e0212c47fe890c55e",
+        "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+        "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+      },
+      "common_state": {
+        "evaluable_common_state_events": 1394,
+        "candidate_coverage_rate": 0.8443328550932568,
+        "top1_identity_accuracy_conditional": 0.7451146983857264,
+        "mrr_conditional": 0.855522514868311,
+        "pairwise_auc": 0.9147721787817338,
+        "average_precision": 0.8580595676390095,
+        "candidate_nll_uncalibrated": 1.2856359311326386,
+        "candidate_brier_uncalibrated": 0.5077597698351076,
+        "positive_vs_best_negative_margin": 0.1031398508571522,
+        "local_corrected_candidate_present": 287,
+        "local_harmful_candidate_present": 195,
+        "local_net_correction_candidate_present": 92
+      },
+      "target_gt_used_for_training_or_gate": false,
+      "candidate_input_to_history_encoder": false,
+      "preflight_status": "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+    },
+    "candidate_relative_predictive": {
+      "checkpoint": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/candidate_relative_predictive_stable3_cpu/final.pt",
+      "checkpoint_sha256": "f6f688ae7e2195ac9305d752013a14bf37e576548e6d50e7e6d8e5840f32f662",
+      "metrics": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/candidate_relative_predictive_stable3_cpu/metrics.json",
+      "preflight": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/candidate_relative_predictive_stable3_cpu/evaluation/preflight.json",
+      "candidate": "candidate_relative",
+      "method": "predictive",
+      "seed": 17,
+      "steps": 1000,
+      "batch_size": 64,
+      "parameters": 678016,
+      "fit_videos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "validation_videos": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "source_validation_rank1": 0.18673750238273648,
+      "training_seconds": 42.868142172694206,
+      "training_code_sha256": {
+        "train_structural_candidate.py": "298f7f3ce6672fafa1d3767fd8ac028379a1bf7c7e4f539c92da22ecf153d6f4",
+        "structural_candidates.py": "8e0006a22516bd6cb4b4a3a283f3e8778664e0d4f65ecc092e0ee22577a16f84",
+        "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+        "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+      },
+      "common_state": {
+        "evaluable_common_state_events": 1394,
+        "candidate_coverage_rate": 0.8443328550932568,
+        "top1_identity_accuracy_conditional": 0.42310960067969416,
+        "mrr_conditional": 0.6354856981025211,
+        "pairwise_auc": 0.7227314412588083,
+        "average_precision": 0.648576890399321,
+        "candidate_nll_uncalibrated": 1.4221329863940655,
+        "candidate_brier_uncalibrated": 0.5584988520796961,
+        "positive_vs_best_negative_margin": 0.0006115644730038481,
+        "local_corrected_candidate_present": 152,
+        "local_harmful_candidate_present": 439,
+        "local_net_correction_candidate_present": -287
+      },
+      "target_gt_used_for_training_or_gate": false,
+      "candidate_input_to_history_encoder": false,
+      "preflight_status": "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+    },
+    "candidate_relative_ranking_only": {
+      "checkpoint": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/candidate_relative_ranking_stable3_cpu/final.pt",
+      "checkpoint_sha256": "18aef6f2929f864ea777c9b3044f602e016498091a14a37c4dd287172685e5d3",
+      "metrics": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/candidate_relative_ranking_stable3_cpu/metrics.json",
+      "preflight": "runs/JEPA_IDENTITY/h1_structural_formal_seed17/candidate_relative_ranking_stable3_cpu/evaluation/preflight.json",
+      "candidate": "candidate_relative",
+      "method": "discriminative",
+      "seed": 17,
+      "steps": 1000,
+      "batch_size": 64,
+      "parameters": 678016,
+      "fit_videos": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ],
+      "validation_videos": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ],
+      "source_validation_rank1": 0.21349179600774093,
+      "training_seconds": 45.51650495827198,
+      "training_code_sha256": {
+        "train_structural_candidate.py": "298f7f3ce6672fafa1d3767fd8ac028379a1bf7c7e4f539c92da22ecf153d6f4",
+        "structural_candidates.py": "8e0006a22516bd6cb4b4a3a283f3e8778664e0d4f65ecc092e0ee22577a16f84",
+        "train_source.py": "89aab3f926fa13607a0e2b3f8b16c5b866a07c5c153c54d2df1905a95a43403e",
+        "history.py": "3831d28d09560c58a9f734f62a91e7a69c409852a0bce276ed37bfd6cadc553d"
+      },
+      "common_state": {
+        "evaluable_common_state_events": 1394,
+        "candidate_coverage_rate": 0.8443328550932568,
+        "top1_identity_accuracy_conditional": 0.43840271877655057,
+        "mrr_conditional": 0.6494619088077048,
+        "pairwise_auc": 0.7415942658557766,
+        "average_precision": 0.6617318040215255,
+        "candidate_nll_uncalibrated": 1.2699778298351,
+        "candidate_brier_uncalibrated": 0.49823310489244027,
+        "positive_vs_best_negative_margin": 0.018668176098307957,
+        "local_corrected_candidate_present": 152,
+        "local_harmful_candidate_present": 421,
+        "local_net_correction_candidate_present": -269
+      },
+      "target_gt_used_for_training_or_gate": false,
+      "candidate_input_to_history_encoder": false,
+      "preflight_status": "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT"
+    }
+  },
+  "matched_decisions": {
+    "identity_residual": "FAIL_H1_GATE_PREDICTIVE_BELOW_MATCHED_RANKING_AND_HISTORY_CE",
+    "candidate_relative": "FAIL_H1_GATE_BOTH_METHODS_BELOW_HISTORY_CE_AND_NET_CORRECTION_NEGATIVE"
+  },
+  "engineering_diagnostics": {
+    "discarded_candidate_relative_runs": [
+      "candidate_relative_predictive_cpu (pre-stability patch)",
+      "candidate_relative_predictive_stable_cpu (pre-stability patch)",
+      "candidate_relative_ranking_cpu (pre-stability patch)",
+      "candidate_relative_ranking_stable2_cpu (pre-stability patch)"
+    ],
+    "reason": "candidate encoder LayerNorm and float32 gradient norm could produce non-finite gradients; final candidate-relative comparison removes that LayerNorm and uses float64 gradient-norm accumulation with finite-gradient rejection.",
+    "final_runs_are_the_only_candidate_relative_identity_evidence": true
+  },
+  "identity_evidence_claim": false,
+  "target_gt_used_for_training_or_gate": false,
+  "offline_gt_used_for_diagnosis": true,
+  "sealed_used": false,
+  "limitations": [
+    "one development seed and one source split; no multi-seed confidence claim",
+    "common state is the recorded predictive-residual event state and fixed detector candidate subset",
+    "candidate coverage bounds recoverable errors at 84.43%",
+    "NLL/Brier/ECE are uncalibrated softmax diagnostics",
+    "CPU device does not change the registered seed/budget but is recorded explicitly"
+  ]
+}
