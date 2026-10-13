@@ -1,6 +1,6 @@
 # JEPA-MOT identity and continual-learning research
 
-**Status:** `ACTIVE / H1_DIAGNOSIS`  
+**Status:** `ACTIVE / H2_READINESS_RUNTIME_BLOCKED`
 **Branch:** `research/jepa-identity-evidence-20261014`  
 **Repository:** `LYQ1107/JEPA-MOT`
 
@@ -20,9 +20,12 @@ The two claims are treated as independent hypotheses:
   controls.
 
 The current H1-Wave-A result is an offline audit of existing BDD development
-events. It is evidence for where the existing intervention can act, not a
-proof of either hypothesis. H2 has only bounded fixed-teacher diagnostics in
-this branch; the registered full-video factorial has not been re-run.
+events. Its static evidence bundle and structural candidate comparison are
+complete, but they remain negative one-seed evidence rather than proof of
+either hypothesis. H2 has only bounded fixed-teacher diagnostics in this
+branch; the registered full-video factorial has not been re-run because the
+NAS endpoint and NVIDIA runtime are unavailable. The exact runtime controls
+are protocol-audited and ready for the first permitted run.
 
 ## Evidence policy
 
