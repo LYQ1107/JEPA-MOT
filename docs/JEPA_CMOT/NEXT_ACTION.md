@@ -53,3 +53,7 @@ BDD paired w4 source来自25个clear source_train视频的原3174帧/38466 GT实
 pure全域HOTA为sunny56.77390/cloudy72.03579/rainy50.36298/night72.35145；逐域六指标和HOTA/AssA/IDF1配对raw-count bootstrap见UA_FULL_OBJECT_CROP_DEVELOPMENT_RESULTS.json。图figures/ua_complete_object_crop_hota.svg。actual source checkpoint hashes unchanged；sealed未使用。
 
 与此前连续source clips的17个prepared detection/native clock逐条相同。复用实际完整crop geometry作同输入基线后，clips pure相对geometry +.40247 CI[-.23687,.79159]；crop pure相对clips pure +.19958 CI[-.14183,.35637]。cross-readout同时改变source时间支持及source/target读数，不解释为单因素因果增量；两者都未显著超过strong geometry。crop native/geometry与目前已完成的原dense各12视频轨迹字节完全相同，不能将该12视频验证称作原dense17视频重新运行完成。crop提高对象分辨率并增加frozen encoder调用，不声称frozen算力相等。所有结果是fixed-seed开发/frozen阶段，不替代持续或held-out证据。
+
+## UA固定教师五组完整适应预算
+
+五组完成45个目标适应视频/65430 native帧，域顺序sunny→cloudy→rainy→night；实际final checkpoint均为8101 optimizer updates、442278 delayed-confirmed/seen、memory128、45 video resets、pending为空。三个完整域边界均核对frames与原manifest、optimizer step与learner count、五组确认/供给数量一致。当前已经进入stage0冻结回测，仍未完成4×4指标与AF/BWT/FWT。priority选择fresh样本不同，不将数量一致解释为所有batch完全相同，更不能解释为预测需求优先级有效。checkpoint路径/SHA/三边界计数/原protocol见UA_FIXED_TEACHER_COMPLETED_ADAPTATION_BUDGET.json；targetGT训练=false，sealed未用。

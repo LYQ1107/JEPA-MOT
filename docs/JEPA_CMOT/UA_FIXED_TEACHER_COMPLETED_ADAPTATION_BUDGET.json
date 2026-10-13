@@ -1,0 +1,363 @@
+{
+  "status": "COMPLETE_ADAPTATION_BUDGET_NOT_FROZEN_MATRIX_OR_MOT_RESULT",
+  "dataset": "ua_detrac",
+  "order": [
+    "sunny",
+    "cloudy",
+    "rainy",
+    "night"
+  ],
+  "actual_boundary_states": {
+    "1": {
+      "native_videos": 18,
+      "controls": {
+        "predictive_ranking_confidence": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_confidence/MVI_40191/learner.pt",
+          "checkpoint_sha256": "1ef345f9e0e7d8a9701dfc868cecdb9d79db50da7973d7150e0c99b87fe277ce",
+          "native_frames": 27440,
+          "updates": 3395,
+          "optimizer_steps": [
+            3395
+          ],
+          "confirmed": 229359,
+          "seen": 229359,
+          "memory": 128,
+          "recent": 28,
+          "video_resets": 18,
+          "pending_empty": true
+        },
+        "predictive_ranking_prediction_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_prediction_priority/MVI_40191/learner.pt",
+          "checkpoint_sha256": "87b297107bd340ea6fa8cf493f0cf2e3abb33318178612b3aadad05d03125c88",
+          "native_frames": 27440,
+          "updates": 3395,
+          "optimizer_steps": [
+            3395
+          ],
+          "confirmed": 229359,
+          "seen": 229359,
+          "memory": 128,
+          "recent": 28,
+          "video_resets": 18,
+          "pending_empty": true
+        },
+        "predictive_ranking_appearance_hard_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_appearance_hard_priority/MVI_40191/learner.pt",
+          "checkpoint_sha256": "78b3f14d5ba0c30ba24fb3bc93b768ccde841749726c7faf5fffd3626334659b",
+          "native_frames": 27440,
+          "updates": 3395,
+          "optimizer_steps": [
+            3395
+          ],
+          "confirmed": 229359,
+          "seen": 229359,
+          "memory": 128,
+          "recent": 28,
+          "video_resets": 18,
+          "pending_empty": true
+        },
+        "discriminative_confidence": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/discriminative_confidence/MVI_40191/learner.pt",
+          "checkpoint_sha256": "b55545099547a3a9b5b21b810a8118ada0c6b0bbb44584fb7ead4e6efc9d4b0d",
+          "native_frames": 27440,
+          "updates": 3395,
+          "optimizer_steps": [
+            3395
+          ],
+          "confirmed": 229359,
+          "seen": 229359,
+          "memory": 128,
+          "recent": 28,
+          "video_resets": 18,
+          "pending_empty": true
+        },
+        "discriminative_prediction_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/discriminative_prediction_priority/MVI_40191/learner.pt",
+          "checkpoint_sha256": "87f5ae14e11d31d0556f4a897ce38453b699d41bee1b78542af1777b1741d106",
+          "native_frames": 27440,
+          "updates": 3395,
+          "optimizer_steps": [
+            3395
+          ],
+          "confirmed": 229359,
+          "seen": 229359,
+          "memory": 128,
+          "recent": 28,
+          "video_resets": 18,
+          "pending_empty": true
+        }
+      }
+    },
+    "2": {
+      "native_videos": 29,
+      "controls": {
+        "predictive_ranking_confidence": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_confidence/MVI_40891/learner.pt",
+          "checkpoint_sha256": "ca8d3e1e87fea17df56492de4c5fa23875ef23a99e65e3dda52a5cd90913690c",
+          "native_frames": 42140,
+          "updates": 5232,
+          "optimizer_steps": [
+            5232
+          ],
+          "confirmed": 337223,
+          "seen": 337223,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 29,
+          "pending_empty": true
+        },
+        "predictive_ranking_prediction_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_prediction_priority/MVI_40891/learner.pt",
+          "checkpoint_sha256": "200f132df2b0762e8755ba8c76d8dfdcfd39e7bd96fe499488fb5b21fe0421b1",
+          "native_frames": 42140,
+          "updates": 5232,
+          "optimizer_steps": [
+            5232
+          ],
+          "confirmed": 337223,
+          "seen": 337223,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 29,
+          "pending_empty": true
+        },
+        "predictive_ranking_appearance_hard_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_appearance_hard_priority/MVI_40891/learner.pt",
+          "checkpoint_sha256": "992a5538a070bde413d85700c1f85f64e7af11e88f471ab7860f9e543acf8423",
+          "native_frames": 42140,
+          "updates": 5232,
+          "optimizer_steps": [
+            5232
+          ],
+          "confirmed": 337223,
+          "seen": 337223,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 29,
+          "pending_empty": true
+        },
+        "discriminative_confidence": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/discriminative_confidence/MVI_40891/learner.pt",
+          "checkpoint_sha256": "7f14b73065c7406cf08885b494555324f8fef1e3c316599943f931c16df0ad38",
+          "native_frames": 42140,
+          "updates": 5232,
+          "optimizer_steps": [
+            5232
+          ],
+          "confirmed": 337223,
+          "seen": 337223,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 29,
+          "pending_empty": true
+        },
+        "discriminative_prediction_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/discriminative_prediction_priority/MVI_40891/learner.pt",
+          "checkpoint_sha256": "c3a7e9869cef9dd7680711b760aacbfab4ea0ed05e2f2603c0d23ef90443c53a",
+          "native_frames": 42140,
+          "updates": 5232,
+          "optimizer_steps": [
+            5232
+          ],
+          "confirmed": 337223,
+          "seen": 337223,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 29,
+          "pending_empty": true
+        }
+      }
+    },
+    "3": {
+      "native_videos": 45,
+      "controls": {
+        "predictive_ranking_confidence": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_confidence/MVI_40793/learner.pt",
+          "checkpoint_sha256": "13223b6fb03d9017625847e09acee508ff157294cc8a233a0b470795eb716453",
+          "native_frames": 65430,
+          "updates": 8101,
+          "optimizer_steps": [
+            8101
+          ],
+          "confirmed": 442278,
+          "seen": 442278,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 45,
+          "pending_empty": true
+        },
+        "predictive_ranking_prediction_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_prediction_priority/MVI_40793/learner.pt",
+          "checkpoint_sha256": "ad9cd8f312cd3a9f9698ed4897822ee5ac8a24072bbe53cdff687bc04941e1a8",
+          "native_frames": 65430,
+          "updates": 8101,
+          "optimizer_steps": [
+            8101
+          ],
+          "confirmed": 442278,
+          "seen": 442278,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 45,
+          "pending_empty": true
+        },
+        "predictive_ranking_appearance_hard_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_appearance_hard_priority/MVI_40793/learner.pt",
+          "checkpoint_sha256": "f8ff278ca7d719942c30bdc3bbf4e1f2acfb0bcc58c8570d3847bb916f929c66",
+          "native_frames": 65430,
+          "updates": 8101,
+          "optimizer_steps": [
+            8101
+          ],
+          "confirmed": 442278,
+          "seen": 442278,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 45,
+          "pending_empty": true
+        },
+        "discriminative_confidence": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/discriminative_confidence/MVI_40793/learner.pt",
+          "checkpoint_sha256": "80ac1108f3a6e2038b539ead3f7fdc30fe34dcf2217c2aec27cbdb2f60a418d5",
+          "native_frames": 65430,
+          "updates": 8101,
+          "optimizer_steps": [
+            8101
+          ],
+          "confirmed": 442278,
+          "seen": 442278,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 45,
+          "pending_empty": true
+        },
+        "discriminative_prediction_priority": {
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/discriminative_prediction_priority/MVI_40793/learner.pt",
+          "checkpoint_sha256": "d22303c08bb7c2502bbb1dd1ecff268e5be4147127d47d2177766b6088a58451",
+          "native_frames": 65430,
+          "updates": 8101,
+          "optimizer_steps": [
+            8101
+          ],
+          "confirmed": 442278,
+          "seen": 442278,
+          "memory": 128,
+          "recent": 32,
+          "video_resets": 45,
+          "pending_empty": true
+        }
+      }
+    }
+  },
+  "actual_protocol": {
+    "dataset": "ua_detrac",
+    "order": [
+      "sunny",
+      "cloudy",
+      "rainy",
+      "night"
+    ],
+    "controls": [
+      {
+        "name": "predictive_ranking_confidence",
+        "method": "online",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/predictive_ranking/final.pt",
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/predictive_ranking.json",
+        "geometry_duplicates": true,
+        "online_config": {
+          "method": "predictive_ranking",
+          "enabled": true,
+          "replay": 128,
+          "batch": 8,
+          "interval": 8,
+          "learning_rate": 0.0001,
+          "reliability": "confidence",
+          "retention": "none",
+          "seed": 17
+        }
+      },
+      {
+        "name": "predictive_ranking_prediction_priority",
+        "method": "online",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/predictive_ranking/final.pt",
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/predictive_ranking.json",
+        "geometry_duplicates": true,
+        "online_config": {
+          "method": "predictive_ranking",
+          "enabled": true,
+          "replay": 128,
+          "batch": 8,
+          "interval": 8,
+          "learning_rate": 0.0001,
+          "reliability": "prediction_priority",
+          "retention": "none",
+          "seed": 17
+        }
+      },
+      {
+        "name": "predictive_ranking_appearance_hard_priority",
+        "method": "online",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/predictive_ranking/final.pt",
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/predictive_ranking.json",
+        "geometry_duplicates": true,
+        "online_config": {
+          "method": "predictive_ranking",
+          "enabled": true,
+          "replay": 128,
+          "batch": 8,
+          "interval": 8,
+          "learning_rate": 0.0001,
+          "reliability": "appearance_hard_priority",
+          "retention": "none",
+          "seed": 17
+        }
+      },
+      {
+        "name": "discriminative_confidence",
+        "method": "online",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/discriminative/final.pt",
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/discriminative.json",
+        "geometry_duplicates": true,
+        "online_config": {
+          "method": "discriminative",
+          "enabled": true,
+          "replay": 128,
+          "batch": 8,
+          "interval": 8,
+          "learning_rate": 0.0001,
+          "reliability": "confidence",
+          "retention": "none",
+          "seed": 17
+        }
+      },
+      {
+        "name": "discriminative_prediction_priority",
+        "method": "online",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/discriminative/final.pt",
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/discriminative.json",
+        "geometry_duplicates": true,
+        "online_config": {
+          "method": "discriminative",
+          "enabled": true,
+          "replay": 128,
+          "batch": 8,
+          "interval": 8,
+          "learning_rate": 0.0001,
+          "reliability": "prediction_priority",
+          "retention": "none",
+          "seed": 17
+        }
+      }
+    ],
+    "target_GT_in_training": false,
+    "sealed_test_used": false,
+    "evaluation": "all saved stages, isolated frozen weights after training; no evaluation feedback",
+    "fixed_teacher_calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json",
+    "actual_update_counts_matched_each_frame": true
+  },
+  "protocol_sha256": "66aa2cc113f0e1b218f901dafc56fbc8a62ef37e6d446af78ebe3493ccc0176e",
+  "manifest_sha256": "9e31375e8ea4c09cb0df511d6f9aa80ad19b001be3856239c9fccd39160ee8ff",
+  "target_GT_in_training": false,
+  "sealed_used": false,
+  "limitation": "Same native frames, optimizer step counts and delayed-confirmed/seen counts. Priority controls may select different fresh examples, and model-dependent stored queries differ. Does not prove identical every-batch samples or adaptation gain; all-stage frozen evaluation still running."
+}
