@@ -87,6 +87,7 @@
     "frozen_same_initialization_snapshot",
     "stage0_to_stage3_full_domain_matrix",
     "online_gain_forgetting_BWT_FWT_IDSW_and_update_magnitude",
+    "analysis_update_magnitude_summary_and_matched_control_audit",
     "target_GT_leakage_audit"
   ],
   "wave_b_fixed_teacher_diagnostic": {
