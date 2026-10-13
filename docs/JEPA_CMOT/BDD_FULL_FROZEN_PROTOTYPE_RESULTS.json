@@ -1,0 +1,341 @@
+{
+  "dataset": "bdd100k",
+  "scope": "complete frozen development split",
+  "domains": [
+    "clear",
+    "overcast",
+    "rainy",
+    "night"
+  ],
+  "methods": {
+    "geometry_null": {
+      "clear": {
+        "HOTA": 37.92693970781214,
+        "AssA": 41.3799377540429,
+        "DetA": 36.33635577580363,
+        "IDF1": 45.25825293692984,
+        "MOTA": 17.755784230189423,
+        "IDSW": 614
+      },
+      "overcast": {
+        "HOTA": 41.875008186714744,
+        "AssA": 49.47224316463766,
+        "DetA": 37.28293360861823,
+        "IDF1": 47.12994864460768,
+        "MOTA": 14.10691003911343,
+        "IDSW": 271
+      },
+      "rainy": {
+        "HOTA": 46.057684007493755,
+        "AssA": 53.219086979677336,
+        "DetA": 41.384681763601634,
+        "IDF1": 54.6971466711163,
+        "MOTA": 28.136816775524238,
+        "IDSW": 201
+      },
+      "night": {
+        "HOTA": 33.74898193496485,
+        "AssA": 40.18451674129743,
+        "DetA": 29.088873746588344,
+        "IDF1": 40.28597823030887,
+        "MOTA": 17.529719927463226,
+        "IDSW": 324
+      }
+    },
+    "frozen_last": {
+      "clear": {
+        "HOTA": 37.57621759201382,
+        "AssA": 40.675384697166685,
+        "DetA": 36.328256373617656,
+        "IDF1": 44.955090801809476,
+        "MOTA": 17.77544733564921,
+        "IDSW": 569
+      },
+      "overcast": {
+        "HOTA": 40.57839752811792,
+        "AssA": 47.638356419460116,
+        "DetA": 36.4819257507433,
+        "IDF1": 46.00572469424928,
+        "MOTA": 11.825293350717079,
+        "IDSW": 279
+      },
+      "rainy": {
+        "HOTA": 45.789309282396886,
+        "AssA": 53.01141703915177,
+        "DetA": 41.11670276499811,
+        "IDF1": 54.25168651619888,
+        "MOTA": 27.67273977311791,
+        "IDSW": 187
+      },
+      "night": {
+        "HOTA": 33.59866015238998,
+        "AssA": 39.74959130125334,
+        "DetA": 29.12859236851924,
+        "IDF1": 39.841021317596045,
+        "MOTA": 17.355094364967425,
+        "IDSW": 322
+      }
+    },
+    "frozen_mean4": {
+      "clear": {
+        "HOTA": 37.25051256657453,
+        "AssA": 40.386887351190644,
+        "DetA": 36.08421134662097,
+        "IDF1": 44.73908204020166,
+        "MOTA": 17.04791243363702,
+        "IDSW": 600
+      },
+      "overcast": {
+        "HOTA": 40.647916490139316,
+        "AssA": 47.5866017123111,
+        "DetA": 36.640284156002785,
+        "IDF1": 45.57867360208062,
+        "MOTA": 12.112125162972621,
+        "IDSW": 283
+      },
+      "rainy": {
+        "HOTA": 46.593327071584696,
+        "AssA": 54.81475679031942,
+        "DetA": 41.12366850681464,
+        "IDF1": 55.40203096387548,
+        "MOTA": 27.41491921622551,
+        "IDSW": 191
+      },
+      "night": {
+        "HOTA": 33.87681054150004,
+        "AssA": 40.206926232176876,
+        "DetA": 29.228134472109467,
+        "IDF1": 40.36586833553978,
+        "MOTA": 17.294647054872726,
+        "IDSW": 339
+      }
+    },
+    "frozen_ema": {
+      "clear": {
+        "HOTA": 37.40335691690315,
+        "AssA": 40.51448929270716,
+        "DetA": 36.16626618635927,
+        "IDF1": 44.80549199084668,
+        "MOTA": 16.943042537851476,
+        "IDSW": 610
+      },
+      "overcast": {
+        "HOTA": 40.97034214323912,
+        "AssA": 48.23750073540774,
+        "DetA": 36.67122279766883,
+        "IDF1": 45.21047830053434,
+        "MOTA": 12.203389830508476,
+        "IDSW": 276
+      },
+      "rainy": {
+        "HOTA": 46.409849511164516,
+        "AssA": 54.370249884613095,
+        "DetA": 41.11402824241352,
+        "IDF1": 55.12991339107261,
+        "MOTA": 27.31179099346854,
+        "IDSW": 193
+      },
+      "night": {
+        "HOTA": 33.81662085211669,
+        "AssA": 40.25638606988403,
+        "DetA": 29.115509826314863,
+        "IDF1": 40.33209000120323,
+        "MOTA": 17.01927597555242,
+        "IDSW": 330
+      }
+    }
+  },
+  "equal_domain_average": {
+    "geometry_null": {
+      "HOTA": 39.90215345924637,
+      "AssA": 46.063946159913826,
+      "IDF1": 46.842831620740675
+    },
+    "frozen_last": {
+      "HOTA": 39.385646138729655,
+      "AssA": 45.26868736425798,
+      "IDF1": 46.26338083246342
+    },
+    "frozen_mean4": {
+      "HOTA": 39.592141667449646,
+      "AssA": 45.74879302149951,
+      "IDF1": 46.52141373542438
+    },
+    "frozen_ema": {
+      "HOTA": 39.650042355855874,
+      "AssA": 45.844656495653005,
+      "IDF1": 46.36949342091422
+    }
+  },
+  "videos_by_domain": {
+    "clear": [
+      "b202cae2-672e61c5",
+      "b1df722f-57d21f3f",
+      "b1f0efd9-e900c6e5",
+      "b2208b0f-2796a692",
+      "b2169b74-fa197951"
+    ],
+    "overcast": [
+      "b1ff4656-ebcfeb35",
+      "b23b2649-8349d2a1",
+      "b1ff4656-0435391e",
+      "b23b2649-6af03cd5"
+    ],
+    "rainy": [
+      "0081da60-27997c07",
+      "00810e80-37641274",
+      "b1e1a7b8-65ec7612"
+    ],
+    "night": [
+      "b1ebfc3c-740ec84a",
+      "b214d1e1-f248c616",
+      "b21547c1-73e457f8",
+      "b21d5efb-5e2cd743",
+      "b23f7012-fab06dac",
+      "b2505382-272e7823",
+      "b20eae11-6817ba7a"
+    ]
+  },
+  "frames_by_domain": {
+    "clear": 1013,
+    "overcast": 810,
+    "rainy": 607,
+    "night": 1414
+  },
+  "candidate": "frozen_ema",
+  "paired_comparisons": {
+    "geometry_null": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.2521111033905008,
+          "percentile_95": [
+            -0.8129529659809375,
+            0.21041447580201345
+          ]
+        },
+        "AssA": {
+          "delta": -0.21928966426082397,
+          "percentile_95": [
+            -1.4187297929590232,
+            0.7912545086376258
+          ]
+        },
+        "IDF1": {
+          "delta": -0.47333819982645764,
+          "percentile_95": [
+            -1.4508512291624038,
+            0.47004726203655617
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "frozen_last": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.26439621712621886,
+          "percentile_95": [
+            -0.21251393306094163,
+            0.6457933459139251
+          ]
+        },
+        "AssA": {
+          "delta": 0.5759691313950288,
+          "percentile_95": [
+            -0.46395704516764863,
+            1.4403842488182224
+          ]
+        },
+        "IDF1": {
+          "delta": 0.10611258845079519,
+          "percentile_95": [
+            -0.5727206271195651,
+            0.6309604345962241
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "frozen_mean4": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.057900688406222756,
+          "percentile_95": [
+            -0.23866955637130727,
+            0.35040142718495493
+          ]
+        },
+        "AssA": {
+          "delta": 0.0958634741535036,
+          "percentile_95": [
+            -0.6011416961599025,
+            0.8094393287294493
+          ]
+        },
+        "IDF1": {
+          "delta": -0.15192031451016952,
+          "percentile_95": [
+            -0.6955723069846864,
+            0.46145078761840036
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "source_checkpoint_hashes_unchanged": true,
+  "sealed_used": false,
+  "original_geometry_and_last_actual_track_byte_parity": {
+    "geometry_null": {
+      "0081da60-27997c07": "766a8bf5bfd64154750bbb248570bfb5c88994a0da6b1251c5ed6caee95e3287",
+      "b1e1a7b8-65ec7612": "32c70882b415aae3c4329d129b816f166db63dd70fb723d9b3106348f54ae3d6",
+      "b1ff4656-ebcfeb35": "4935a7f685551c0ed3bf013a2711607e249cff8e853627ddc306e157568dc34e",
+      "b2169b74-fa197951": "932dea3a39d4bf3524764b9f91eb7054c3fb3824926594c0f3604bb0a0f8ceac",
+      "b214d1e1-f248c616": "c643381ca960e1c9dc7e38136cc1d1b030a54ba2a1598c17633163d2ceeeb455",
+      "b21547c1-73e457f8": "503098670b387197e710e434833327c68cc79aeff1e7cea74692f2af40578095",
+      "b1ff4656-0435391e": "d1cb4a69219bf5e25bb3cadb45d476a0ee329a198c66a3aebe30dea8adf8625b",
+      "b1ebfc3c-740ec84a": "5bf6294d18bd3ca79f5ce0cd18473afbc15054b322086ad263a668327d0443c8",
+      "b23b2649-6af03cd5": "d208301d0b9ec66fc449f7e9ca0b041c0876dff2cf5f937cd19a3fb7c09e6319",
+      "b2505382-272e7823": "d14f9165eea2c2729668f7ef4eb53fedb0a6c7457932cea89fa4228a738e6d6c",
+      "b1df722f-57d21f3f": "3b9e99e4809dad8b2cbb6e77b0997461d712e18367cdf4095ddc689ee2ba39b0",
+      "b23b2649-8349d2a1": "569723f83b9bdd60ed634d574dd18226ead2f49dff8e4c51cd657ff1ae501192",
+      "b23f7012-fab06dac": "08d05555facc7f50543bff6bf7a4e318cb80d08ecb4531f7941033f165109f0e",
+      "b202cae2-672e61c5": "94c8b82cb8e3f1f2458aca1499a38bf49f9c1e035e45f0d2c19b7dc38a34f1df",
+      "b20eae11-6817ba7a": "98e62cbe2ee49ac485d952f5c2168dc6ba56e9418aff26dbe51ddc2b1f73357b",
+      "b2208b0f-2796a692": "ac0b9955f11fb958d7318203d542e49995c62f267efe29234d209318bdda9eb0",
+      "b1f0efd9-e900c6e5": "e7d912579cd323e3e2fd4c3daaef158d04d3e6d18e20562c6e2927426d44aaeb",
+      "00810e80-37641274": "784b12e4a09a87b7230ee6702a0cfa056043655320887bcac2efcb640169b0a3",
+      "b21d5efb-5e2cd743": "08fd54c5f4a063c6eb4b361cda22ce10c778e68bb8f89bd59ae35cb681bcda94"
+    },
+    "frozen_last": {
+      "0081da60-27997c07": "f96bd2a3778842da8ede82ee980e3f6ff1bdf3fb3360265136baa7439cc429ef",
+      "b1e1a7b8-65ec7612": "5dc641183eb7cbf5f311f066201fbe57cd34aa3c28cde14a8772d3a139d50895",
+      "b1ff4656-ebcfeb35": "2cab1318851241c25f00d87b84d066c6951495d1651d25be51d4982df989374a",
+      "b2169b74-fa197951": "73aede01445d72e4a9a74455b5da60b0482664dc5e64a39ff11e4146402ae85c",
+      "b214d1e1-f248c616": "bc9479647d8baa9180db89d04c12e227596a444a3387b9ae56a47b71296f877f",
+      "b21547c1-73e457f8": "eb1b4e6791cf4e50f9c82a563882a3477c28cb9a73c19cc4395ecdf4375c96f1",
+      "b1ff4656-0435391e": "398c8af69e6b89741c634b2f5d9ea5870e0e210dadd6092a1cc4048158ad4661",
+      "b1ebfc3c-740ec84a": "03c0f65e29fc733b4922aa25e95277c1118c01bc8c2a2b8e258c8f81a5a2b616",
+      "b23b2649-6af03cd5": "cbfb573e318baec5013ebf37921d8205c65574fc45e65b86d42de1186f1f774b",
+      "b2505382-272e7823": "411b76a42728bd0b7c0af1cae8580c97946414be72274739310436b6593e6750",
+      "b1df722f-57d21f3f": "ad8dc58ed272378a5efba1fd7c7f059f43ac93a5d7148b4db8d249be4a7d827c",
+      "b23b2649-8349d2a1": "97f635387b9b131bd50eeb35e1872d14f9885003c08c7ac920011f1e402ee7b8",
+      "b23f7012-fab06dac": "bac6d1bd42354e3926e7783cd608c84be2bd7106853a0f299585605e75c5789f",
+      "b202cae2-672e61c5": "aa02c2ebf3b20343ee180df063e29777f421c8cd912d90339af56041a80dba10",
+      "b20eae11-6817ba7a": "13f737f9a23b05737732c4fa8554a5f5024d5c551242d2c16804c8d5195d2a02",
+      "b2208b0f-2796a692": "c2554149192d1fea8321fd7b8999e77549754c27bdb9090a804e81b9baaa0f36",
+      "b1f0efd9-e900c6e5": "4b13f9a3e5e645f9312d6e0176ae9df6cc6c3653fb292b83e0eee9c247556824",
+      "00810e80-37641274": "59dddd657bdb606f190f5f6e8032509a7af5465392f3458fe109b06000a4cbb5",
+      "b21d5efb-5e2cd743": "c559082de775b574bc2631ff51c435d33ae7e50f76b0c12b34e6f2f29a6dde67"
+    }
+  }
+}

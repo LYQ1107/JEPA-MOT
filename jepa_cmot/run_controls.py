@@ -17,6 +17,7 @@ from .causal_tracker import CausalHistoryTracker
 from .online import ContinualLearner,OnlineConfig
 from .shared_matcher import SharedMatcher
 from .prototypes import PrototypeHistoryTracker
+from .pair_scorer import FrozenPairReader,PairHistoryTracker
 from .run_stream import ROOT,COCO6_TO_NATIVE8,NATIVE8_TO_COCO6
 
 
@@ -39,6 +40,7 @@ def main():
     learners={};reports={s['name']:[] for s in specs};shared=None
     for spec in specs:
         learner=None
+        if spec['method']=='pair_scorer':learner=FrozenPairReader(spec['checkpoint'])
         if spec['method'] in ['trained','online']:
             config=OnlineConfig(**spec.get('online_config',{}))
             if spec['method']=='trained' and config.enabled:raise ValueError('Frozen evaluation cannot update')
@@ -90,7 +92,8 @@ def main():
                 native.source_calibration=json.loads(Path(spec['calibration']).read_text())
                 if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')
             native.query_aggregation=spec.get('query_aggregation')
-            tracker_class=PrototypeHistoryTracker if native.query_aggregation else CausalHistoryTracker
+            tracker_class=(PairHistoryTracker if spec['method']=='pair_scorer' else
+                           PrototypeHistoryTracker if native.query_aggregation else CausalHistoryTracker)
             tracker=tracker_class(native,learner)
             if shared is None:shared=SharedMatcher(tracker.model).eval()
             tracker.model=shared;trackers[key]=tracker

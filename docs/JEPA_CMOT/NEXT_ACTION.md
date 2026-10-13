@@ -23,3 +23,5 @@ BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测�
 普通mean4与真实lifetime EMA（beta .25）已补齐source-only matched两参数校准并启动全部native development；这比源GT聚合诊断更直接地检查简单历史是否解释身份收益。完整后与同inputs实际geometry/last/predictive/CE对照，以source stage0按video配对聚合，不能从单video挑最强。
 
 同容量Transformer三目标源训练+source校准+完整两数据集development已启动；history-only输入不接触当前候选，SourcePairs预算/源负例与原MLP一致。源CE已完成，原始源cache没有paired readout的额外ranking字段时保留既有采样。后续仍需明确普通pair-MLP scalar scorer的独立对照，不能把dot-product history CE等价描述为所有pair scorer都已经测过。
+
+同容量普通pair-MLP源模型/校准已完成并部署全部development；历史状态先冻结，candidate只进入final scalar scorer。与MLP/Transformer同源物理候选及2,000×64预算，不用其较高UA源rank直接决定目标域方法。完整后联合普通mean/EMA/Transformer判断源latent预测是否仍有独立意义。

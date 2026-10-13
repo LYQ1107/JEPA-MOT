@@ -275,3 +275,15 @@ BDD H2 stage2全部19视频/四域已实际回测，五组均4560适应帧、570
 五组全部44适应视频/8811帧和4×4真实开发矩阵完成，均1096实际optimizer步、41563确认/seen、memory128，预算相等已从完整checkpoint核验。final等域HOTA / AvgForgetting：联合confidence39.24177/.26008、prediction priority39.46844/.23199、appearance-hard39.40309/.43569、CE confidence39.07277/.23244、CE prediction priority39.26195/.12968。
 
 最终prediction priority相对appearance-hard +.06535 CI[-.08315,.23180]，相对相同priority CE +.20649 CI[-.32410,.67217]；联合confidence相对CE confidence +.16901 CI[-.26274,.53218]。这些固定seed开发CI跨0；最强H2 final仍低于静态geometry39.9022。prediction priority在stage1/2低于ordinary appearance-hard，不能仅用final的小正号称学习需求机制稳定有效；其forgetting也不是所有对照最小。完整6指标/4stage表、BWT/FWT、实际预算和不确定性见BDD_FIXED_TEACHER_FULL_CONTINUAL_RESULTS.json及BDD_FIXED_TEACHER_FINAL_BUDGET_AND_COMPARISONS.json。
+
+## 普通MLP pair scorer同容量控制
+
+独立PairAssociationModel先编码严格过去history/metadata为122-D状态，再以candidate projection与concat MLP输出scalar logit；当前候选仅进入评分器、不进入历史encoder。这是普通association classifier，不称latent JEPA，prediction error明确None。参数662229 vs history MLP662400，相差0.026%；源原cache/fit-val videos/SourcePairs candidates/gaps/seed17/2,000×64预算相同，raw logits的source-only两参数BCE校准200步。
+
+两数据集真实源训练完成：UA source rank1 .764714、BDD .504800（MLP CE .721734/.524940）；源排名不能替代MOT。历史状态对改变当前candidate保持不变，score随candidate变化；padding/有限梯度检查通过。FrozenPairReader仅推理不更新，PairHistoryTracker独立覆盖评分，默认CausalHistoryTracker路径不变。全部native development已排队启动，细节MATCHED_PAIR_MLP_CONTROL_REGISTRATION.json。
+
+## BDD普通prototype完整开发对照完成
+
+19视频、3844 native帧、source calibration matched：geometry39.90215、last39.38565、mean4 39.59214、lifetime EMA39.65004。EMA比last+.26440 CI[-.21251,.64579]，比mean4+.05790 CI[-.23867,.35040]，比geometry-.25211 CI[-.81295,.21041]；都为fixed-seed开发视频uncertainty，不外推跨seed。新增运行的geometry/last全部19轨迹与之前独立完整frozen结果逐字节一致；普通聚合目前没有可靠越过强geometry。全域指标和SHA见BDD_FULL_FROZEN_PROTOTYPE_RESULTS.json，UA完整对照继续。
+
+普通pair scorer已实际完成三个native BDD开发视频，GT_read=false、updates0、current history violations0，历史state122维/候选feature1024维的独立评分接口已跑通。源UA rank较高不能作为开发/持续收益证据；全部开发deployment继续。

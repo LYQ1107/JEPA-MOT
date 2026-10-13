@@ -1,0 +1,9 @@
+[
+  {
+    "name": "pair_MLP",
+    "method": "pair_scorer",
+    "geometry_duplicates": true,
+    "checkpoint": "runs/JEPA_CMOT/pair_scorer_v1/models/ua_detrac/seed17/final.pt",
+    "calibration": "runs/JEPA_CMOT/pair_scorer_v1/models/ua_detrac/seed17/calibration.json"
+  }
+]
