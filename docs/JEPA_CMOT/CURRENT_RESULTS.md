@@ -321,3 +321,11 @@ BDD当前对象crop（context1.5、同source head2,000×64/source-only校准）�
 UA连续source clips修正时间支持后，全部17开发视频/25460 native帧完成：last62.63948、CE62.34729、pure62.68145、联合62.66136。pure比CE +.33416 CI[.13150,.43021]，比last +.04196 CI[-.15120,.16867]，比联合 +.02009 CI[-.23316,.24214]；无法由CE弱对照的正差宣称JEPA稳定独立价值。全域HOTA分别sunny56.2917/cloudy71.9158/rainy50.0597/night72.4586；AssA/IDF1/DetA/MOTA/IDSW见UA_FULL_CONTIGUOUS_SOURCE_DEVELOPMENT_RESULTS.json。UA同协议强geometry与全部持续对照仍需完整汇总。
 
 已维护EVIDENCE_STATUS逐项注明task scope，不以BDD局部完成替代两数据集、多seed/order、pure/RKD/official readout和最终sealed要求。FINAL_RESEARCH_REPORT更新为当前证据草稿，明确未冻结最终方法、未最终验收；不再保留过时“仅工程smoke”的占位描述。
+
+## BDD通用RKD-D与四种关系保持的真实训练边界对齐
+
+RKD-D已完成全部44适应视频/8811 native帧。对实际保存的stage1/2/3完整checkpoint逐tensor核对：五组（Replay、feature、row、row+column、RKD-D）的累计optimizer steps均为328/570/1094，confirmed/seen为15667/26973/41176，video resets为13/23/44；源checkpoint/校准/固定教师SHA一致，除retention之外OnlineConfig完全相同。
+
+三个边界的reservoir与remaining recent具有相同顺序，字段0/1/2/3/4/7/8（历史latent、geometry、mask、候选、valid与物理候选/轨迹key）逐tensor完全一致；replay RNG状态一致，pending为空，全部optimizer step等于记录updates。旧teacher response和query字段5/6由各learner不同θ产生，不要求相等。column-specific competition_columns是额外机制计数，不等同伪对供给差异。
+
+这些是实际边界样本/预算证据，没有逐步记录跨独立run的每个batch，不能把边界一致扩大为每帧或每批完全一致的证明。RKD-D完整4×4 frozen evaluation仍在运行，不提前宣称HOTA/AF或候选竞争创新。可复现审计模块`jepa_cmot.audit_matched_replay_buffers`与命令、checkpoint SHA、各阶段计数详见BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY.json；不读取target GT，不修改θ。

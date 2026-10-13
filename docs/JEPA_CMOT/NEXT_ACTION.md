@@ -29,3 +29,11 @@ BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测�
 ## 纯预测在线对照提前启动
 
 GPU6启动时已用约7.3 GiB/32 GiB；仅调整注册实验的调度顺序，未更改checkpoint、校准、目标视频、域顺序或超参数。第一个overcast适应视频已经实际运行到100/202 native帧，两组共同输入、目标GT训练=false、sealed未使用。输出为`runs/JEPA_CMOT/continual_completion_v1/bdd100k_forward_pure_predictive_seed17`；完整44适应视频及全部4×4冻结回测完成后再报告HOTA/AF和实际更新预算。源checkpoint仍是pure predictive，不用联合目标代替其独立贡献。启动/依赖记录见PURE_PREDICTIVE_FORWARD_LAUNCH.json；当前不构成科学结果。
+
+## BDD通用RKD-D与四种关系保持的真实训练边界对齐
+
+RKD-D已完成全部44适应视频/8811 native帧。对实际保存的stage1/2/3完整checkpoint逐tensor核对：五组（Replay、feature、row、row+column、RKD-D）的累计optimizer steps均为328/570/1094，confirmed/seen为15667/26973/41176，video resets为13/23/44；源checkpoint/校准/固定教师SHA一致，除retention之外OnlineConfig完全相同。
+
+三个边界的reservoir与remaining recent具有相同顺序，字段0/1/2/3/4/7/8（历史latent、geometry、mask、候选、valid与物理候选/轨迹key）逐tensor完全一致；replay RNG状态一致，pending为空，全部optimizer step等于记录updates。旧teacher response和query字段5/6由各learner不同θ产生，不要求相等。column-specific competition_columns是额外机制计数，不等同伪对供给差异。
+
+这些是实际边界样本/预算证据，没有逐步记录跨独立run的每个batch，不能把边界一致扩大为每帧或每批完全一致的证明。RKD-D完整4×4 frozen evaluation仍在运行，不提前宣称HOTA/AF或候选竞争创新。可复现审计模块`jepa_cmot.audit_matched_replay_buffers`与命令、checkpoint SHA、各阶段计数详见BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY.json；不读取target GT，不修改θ。

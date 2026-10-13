@@ -1,0 +1,453 @@
+{
+  "status": "VERIFIED_ACTUAL_DOMAIN_BOUNDARY_PARITY_NOT_MOT_RESULT",
+  "scope": {
+    "dataset": "bdd100k",
+    "order": [
+      "clear",
+      "overcast",
+      "rainy",
+      "night"
+    ],
+    "teacher_calibration_sha256": "e44f69c66968ebbf29fba86751dcc5505e51cd1cd4ae3145ffa186cd67bf631a"
+  },
+  "common_control_except_retention": {
+    "method": "online",
+    "online_config": {
+      "method": "predictive_ranking",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "confidence",
+      "seed": 17,
+      "need_threshold": 0.05,
+      "retention_weight": 1.0
+    },
+    "geometry_duplicates": true,
+    "checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0",
+    "calibration_sha256": "faa100273e2380bdbae22363bcadb1533d6441b277e387508c349499715fa234"
+  },
+  "compared_sample_fields": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    8
+  ],
+  "compared_supply_stats": [
+    "proposed",
+    "delayed_confirmed",
+    "reliability_rejected",
+    "need_rejected",
+    "video_resets",
+    "updates"
+  ],
+  "excluded_sample_fields": {
+    "5": "learner-dependent old candidate response",
+    "6": "learner-dependent old predicted query"
+  },
+  "limitation": "Compares stored boundary counters, optimizer steps, RNG, ordered reservoir and remaining recent samples. Does not log every update batch or prove per-frame parity between separate runs.",
+  "target_GT_read": false,
+  "stages": [
+    {
+      "stage": 1,
+      "controls": [
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_none_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/predictive_ranking_none_graph/b251064f-5f6b663e/learner.pt",
+          "checkpoint_sha256": "b38172430d885af1d2771bcead1ab440edeb5d7f089bf9ebc83eccf02d852dc4",
+          "frames": 2630,
+          "updates": 328,
+          "seen": 15667,
+          "optimizer_steps": [
+            328
+          ],
+          "stats": {
+            "proposed": 33569,
+            "delayed_confirmed": 15667,
+            "reliability_rejected": 15139,
+            "need_rejected": 0,
+            "video_resets": 13,
+            "updates": 328
+          },
+          "memory": 128,
+          "recent": 25,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_features_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/predictive_ranking_features_graph/b251064f-5f6b663e/learner.pt",
+          "checkpoint_sha256": "3331edf297984d2749a8b44f15ad07f607894cc31e347f0af5fb84c69b3df25b",
+          "frames": 2630,
+          "updates": 328,
+          "seen": 15667,
+          "optimizer_steps": [
+            328
+          ],
+          "stats": {
+            "proposed": 33569,
+            "delayed_confirmed": 15667,
+            "reliability_rejected": 15139,
+            "need_rejected": 0,
+            "video_resets": 13,
+            "updates": 328
+          },
+          "memory": 128,
+          "recent": 25,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_relations_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/predictive_ranking_relations_graph/b251064f-5f6b663e/learner.pt",
+          "checkpoint_sha256": "7ecdf634950f07535d65b731d7bfd2453361a48a938bccd6f71ce83d03bf3f18",
+          "frames": 2630,
+          "updates": 328,
+          "seen": 15667,
+          "optimizer_steps": [
+            328
+          ],
+          "stats": {
+            "proposed": 33569,
+            "delayed_confirmed": 15667,
+            "reliability_rejected": 15139,
+            "need_rejected": 0,
+            "video_resets": 13,
+            "updates": 328
+          },
+          "memory": 128,
+          "recent": 25,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_competition_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/predictive_ranking_competition_graph/b251064f-5f6b663e/learner.pt",
+          "checkpoint_sha256": "f8a1c3336520f9d4a6ce3c66f5bf9ff7cb88d50b7d4ef502d3ac75490e37e048",
+          "frames": 2630,
+          "updates": 328,
+          "seen": 15667,
+          "optimizer_steps": [
+            328
+          ],
+          "stats": {
+            "proposed": 33569,
+            "delayed_confirmed": 15667,
+            "reliability_rejected": 15139,
+            "need_rejected": 0,
+            "video_resets": 13,
+            "updates": 328,
+            "competition_columns": 4360
+          },
+          "memory": 128,
+          "recent": 25,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_distance_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/predictive_ranking_distance_graph/b251064f-5f6b663e/learner.pt",
+          "checkpoint_sha256": "1a33f4d9aad0cb32ad933c00dd4eb60071d0b7feab79cdf41e1e8771a4b040b4",
+          "frames": 2630,
+          "updates": 328,
+          "seen": 15667,
+          "optimizer_steps": [
+            328
+          ],
+          "stats": {
+            "proposed": 33569,
+            "delayed_confirmed": 15667,
+            "reliability_rejected": 15139,
+            "need_rejected": 0,
+            "video_resets": 13,
+            "updates": 328
+          },
+          "memory": 128,
+          "recent": 25,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "controls": [
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_none_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage2_rainy/0081da60-5fa22cc6/predictive_ranking_none_graph/0081da60-5fa22cc6/learner.pt",
+          "checkpoint_sha256": "68ba0db96fdf0afc6e13653cddeb342470bab047f7d152c3c3cd5c0fc2efc642",
+          "frames": 4560,
+          "updates": 570,
+          "seen": 26973,
+          "optimizer_steps": [
+            570
+          ],
+          "stats": {
+            "proposed": 59680,
+            "delayed_confirmed": 26973,
+            "reliability_rejected": 27699,
+            "need_rejected": 0,
+            "video_resets": 23,
+            "updates": 570
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_features_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage2_rainy/0081da60-5fa22cc6/predictive_ranking_features_graph/0081da60-5fa22cc6/learner.pt",
+          "checkpoint_sha256": "0aad51ce88c3102b9fee4e79c43488ad6c22b42677aa50bb474ed4d2353c54cc",
+          "frames": 4560,
+          "updates": 570,
+          "seen": 26973,
+          "optimizer_steps": [
+            570
+          ],
+          "stats": {
+            "proposed": 59680,
+            "delayed_confirmed": 26973,
+            "reliability_rejected": 27699,
+            "need_rejected": 0,
+            "video_resets": 23,
+            "updates": 570
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_relations_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage2_rainy/0081da60-5fa22cc6/predictive_ranking_relations_graph/0081da60-5fa22cc6/learner.pt",
+          "checkpoint_sha256": "b9273ed91068395c6bfe75a556fdc6c9a2b70131fda1622df566b3601d9ef751",
+          "frames": 4560,
+          "updates": 570,
+          "seen": 26973,
+          "optimizer_steps": [
+            570
+          ],
+          "stats": {
+            "proposed": 59680,
+            "delayed_confirmed": 26973,
+            "reliability_rejected": 27699,
+            "need_rejected": 0,
+            "video_resets": 23,
+            "updates": 570
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_competition_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage2_rainy/0081da60-5fa22cc6/predictive_ranking_competition_graph/0081da60-5fa22cc6/learner.pt",
+          "checkpoint_sha256": "365db33eaad80b1e01e7a34929b41a486deb322a9effc4edeb187bce579dfeec",
+          "frames": 4560,
+          "updates": 570,
+          "seen": 26973,
+          "optimizer_steps": [
+            570
+          ],
+          "stats": {
+            "proposed": 59680,
+            "delayed_confirmed": 26973,
+            "reliability_rejected": 27699,
+            "need_rejected": 0,
+            "video_resets": 23,
+            "updates": 570,
+            "competition_columns": 7764
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_distance_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17/adaptation/stage2_rainy/0081da60-5fa22cc6/predictive_ranking_distance_graph/0081da60-5fa22cc6/learner.pt",
+          "checkpoint_sha256": "f364add49a3514616cb72737524b120069953168de0c9dc328db1c3e3a8838e5",
+          "frames": 4560,
+          "updates": 570,
+          "seen": 26973,
+          "optimizer_steps": [
+            570
+          ],
+          "stats": {
+            "proposed": 59680,
+            "delayed_confirmed": 26973,
+            "reliability_rejected": 27699,
+            "need_rejected": 0,
+            "video_resets": 23,
+            "updates": 570
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "controls": [
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_none_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage3_night/b1f6c103-8b75ea3e/predictive_ranking_none_graph/b1f6c103-8b75ea3e/learner.pt",
+          "checkpoint_sha256": "e8b342b782a939e61c04d2ba942c6d019596d0fe8884ac27fecfeb1eaad3cbfe",
+          "frames": 8811,
+          "updates": 1094,
+          "seen": 41176,
+          "optimizer_steps": [
+            1094
+          ],
+          "stats": {
+            "proposed": 91145,
+            "delayed_confirmed": 41176,
+            "reliability_rejected": 41747,
+            "need_rejected": 0,
+            "video_resets": 44,
+            "updates": 1094
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_features_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage3_night/b1f6c103-8b75ea3e/predictive_ranking_features_graph/b1f6c103-8b75ea3e/learner.pt",
+          "checkpoint_sha256": "48a31175190ddac6324bb995241f712545dc930c4caf7a1be075e80c4b4461db",
+          "frames": 8811,
+          "updates": 1094,
+          "seen": 41176,
+          "optimizer_steps": [
+            1094
+          ],
+          "stats": {
+            "proposed": 91145,
+            "delayed_confirmed": 41176,
+            "reliability_rejected": 41747,
+            "need_rejected": 0,
+            "video_resets": 44,
+            "updates": 1094
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_relations_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage3_night/b1f6c103-8b75ea3e/predictive_ranking_relations_graph/b1f6c103-8b75ea3e/learner.pt",
+          "checkpoint_sha256": "7c2588d0a04a1ee61df85c223a6f879b4905018bd6b1258156697e52fb646ebd",
+          "frames": 8811,
+          "updates": 1094,
+          "seen": 41176,
+          "optimizer_steps": [
+            1094
+          ],
+          "stats": {
+            "proposed": 91145,
+            "delayed_confirmed": 41176,
+            "reliability_rejected": 41747,
+            "need_rejected": 0,
+            "video_resets": 44,
+            "updates": 1094
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_competition_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/adaptation/stage3_night/b1f6c103-8b75ea3e/predictive_ranking_competition_graph/b1f6c103-8b75ea3e/learner.pt",
+          "checkpoint_sha256": "01efb384bc1daa81461b92af2c7403c461626cdfa1e799eccbc0077b69cf8971",
+          "frames": 8811,
+          "updates": 1094,
+          "seen": 41176,
+          "optimizer_steps": [
+            1094
+          ],
+          "stats": {
+            "proposed": 91145,
+            "delayed_confirmed": 41176,
+            "reliability_rejected": 41747,
+            "need_rejected": 0,
+            "video_resets": 44,
+            "updates": 1094,
+            "competition_columns": 13856
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17",
+          "control": "predictive_ranking_distance_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17/adaptation/stage3_night/b1f6c103-8b75ea3e/predictive_ranking_distance_graph/b1f6c103-8b75ea3e/learner.pt",
+          "checkpoint_sha256": "96d829e8965785c6254477760407b631e8c6222348a5fa0815b507ba381ec494",
+          "frames": 8811,
+          "updates": 1094,
+          "seen": 41176,
+          "optimizer_steps": [
+            1094
+          ],
+          "stats": {
+            "proposed": 91145,
+            "delayed_confirmed": 41176,
+            "reliability_rejected": 41747,
+            "need_rejected": 0,
+            "video_resets": 44,
+            "updates": 1094
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        }
+      ]
+    }
+  ],
+  "invocation": [
+    "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+    "-m",
+    "jepa_cmot.audit_matched_replay_buffers",
+    "--sequences",
+    "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17",
+    "runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17",
+    "--stages",
+    "1",
+    "2",
+    "3",
+    "--out",
+    "docs/JEPA_CMOT/BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY.json"
+  ],
+  "protocols": {
+    "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17": "63a09a3cc68641a662990c170541271baf8a7cbbd8c1f10bdc2ea1e499258648",
+    "runs/JEPA_CMOT/continual_generic_rkd_v1/bdd100k_forward_seed17": "9b56895c1e6dd1f017a509c8740d7ca3cca21ffd27c213cf8d433d5b03814276"
+  },
+  "audit_code_sha256": "1d85b26f30e94029a642e46d3fbb8340a64db6ca87a6e806650046d542823d4d"
+}
