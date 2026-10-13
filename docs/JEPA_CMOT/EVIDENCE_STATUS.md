@@ -23,6 +23,6 @@
 | Future/targetGT严格限制 | 查询history严格past、source-only校准、target stream labels空、实际GT_read=false；官方masked readout扰动验证 | 已落实已运行路径；最终仍应审计所有新配置/代码版本 |
 | 文献/真正新颖性 | NOVELTY_AND_REVIEWER_AUDIT | 原文审计已完成；未因机制命名宣称首次/论文成立 |
 | 方法冻结后的独立held-out测试 | sealed split仍未消费 | 待开发选择与超参数冻结后执行 |
-| 最终中文17问、主表、完整矩阵、最优模型/命令/SHA/索引 | CURRENT_RESULTS、完整JSON/SVG、EXPERIMENT_REGISTRY、FINAL_RESEARCH_REPORT草稿 | 最终交付未完成；不应标记goal complete |
+| 最终中文17问、主表、完整矩阵、最优模型/命令/SHA/索引 | CURRENT_RESULTS、完整JSON/SVG、EXPERIMENT_REGISTRY、FINAL_RESEARCH_REPORT草稿 | 已整理17问证据草稿、实际主表/逐域/BDD八组矩阵；方法冻结、完整测试与最终附录仍未完成，不应标记goal complete |
 
 不能由已完成的BDD三个family缩小成功定义为“所有要求完成”。必要的UA/seed/order/pure/RKD/readout/held-out工作仍在追踪；现阶段负结果也不等于在这些工作完成前结束研究。
