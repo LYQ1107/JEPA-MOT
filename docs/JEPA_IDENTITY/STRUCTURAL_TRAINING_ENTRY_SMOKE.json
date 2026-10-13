@@ -1,0 +1,37 @@
+{
+  "status": "COMPLETE_SOURCE_ONLY_ENGINEERING_SMOKE",
+  "cache": "runs/JEPA_CMOT/source_identity_cache_v1/bdd100k/features_dense_current.npz",
+  "cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+  "source_domain": "clear",
+  "seed": 17,
+  "steps": 1,
+  "batch_size": 2,
+  "prediction_gaps": [1, 2, 4, 8],
+  "source_split": "video_disjoint_last_20_percent_v1",
+  "fit_samples": 97827,
+  "validation_samples": 23623,
+  "target_gt_used_for_training_or_gate": false,
+  "candidates": {
+    "identity_residual": {
+      "method": "predictive_ranking",
+      "hidden_dim": 8,
+      "parameters": 42432,
+      "source_validation_rank1": 0.4602167387608271,
+      "loss": 1.402687430381775,
+      "gradient_norm_before_clipping": 0.5407529473304749,
+      "checkpoint_sha256": "ae58c87275a5fdd9d4a3731e1aefd4e75d9066f363e63f7917e27574d99db444"
+    },
+    "candidate_relative": {
+      "method": "predictive_ranking",
+      "hidden_dim": 8,
+      "relation_dim": 8,
+      "parameters": 41432,
+      "source_validation_rank1": 0.09506766018183514,
+      "loss": 10.090034484863281,
+      "gradient_norm_before_clipping": 705.1849975585938,
+      "checkpoint_sha256": "56fc4d2c1ec27a19f66699da2d0d515c97c836a85d60823bee8f19ab9cd505af"
+    }
+  },
+  "identity_evidence_claim": false,
+  "limitation": "one-step engineering smoke with reduced hidden dimensions; no structural research checkpoint or held-out identity result"
+}

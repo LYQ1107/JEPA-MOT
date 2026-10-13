@@ -45,7 +45,7 @@ summaries, and reproducibility metadata are versioned.
 | H1-Wave A: event taxonomy and candidate headroom | complete for BDD development seed17 | `IDENTITY_ERROR_TAXONOMY.json`, `ASSOCIATION_HEADROOM.json` |
 | H1-Wave A: candidate identity metrics | complete on recorded changed events | `IDENTITY_INFORMATION_METRICS.json` |
 | H1 common-state evaluator | complete for BDD development seed17 residual states | `COMMON_STATE_IDENTITY_METRICS.json`; 1,394/1,394 cases mapped |
-| H1 structural candidate selection | protocol and real-cache CPU smoke complete, not trained | `STRUCTURAL_CANDIDATE_PROTOCOL.md`, `STRUCTURAL_CANDIDATE_SMOKE.json`; residual and candidate-relative hypotheses in `EXPERIMENT_REGISTRY.csv` |
+| H1 structural candidate selection | protocol, real-cache CPU smoke, and source-only training-entry smoke complete; formal candidate not trained | `STRUCTURAL_CANDIDATE_PROTOCOL.md`, `STRUCTURAL_CANDIDATE_SMOKE.json`, `STRUCTURAL_TRAINING_ENTRY_SMOKE.json`; residual and candidate-relative hypotheses in `EXPERIMENT_REGISTRY.csv` |
 | H2 same-initialization factorial | pending | do not infer from different-source continual results |
 | Final validation | pending | sealed and multi-seed remain frozen |
 

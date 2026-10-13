@@ -119,6 +119,14 @@ offline loss checks, history match IoU 1.0, and candidate match IoU above
 H1 claim; it only verifies integration and the GT boundary on real cached
 inputs.
 
+The source-only training entry point was then exercised for one CPU step per
+candidate with reduced hidden dimensions. Both jobs used the same existing
+BDD source cache, seed17, the video-disjoint split, and no target-domain
+labels; their compact summaries are in
+`STRUCTURAL_TRAINING_ENTRY_SMOKE.json`. The residual smoke reached source
+rank-1 0.4602 and the relation smoke 0.0951 after one uninformative step. These
+numbers are harness diagnostics, not a comparison or an H1 result.
+
 ## Current status
 
 The protocol and CPU module are complete. GPU training is pending because the
