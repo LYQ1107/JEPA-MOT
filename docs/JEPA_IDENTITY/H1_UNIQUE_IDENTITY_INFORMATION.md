@@ -167,3 +167,10 @@ claim. Full provenance is in
 `UA_LEGACY_TRACK_REPLAY_SEED17.json` and the readable summary is in
 `UA_LEGACY_TRACK_REPLAY_SEED17.md`.
 
+The paired UA report (`UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`) keeps
+the same event and candidate list for every control. On 4,159 candidate-present
+cases, MLP predictive is 2.12 Top-1 points and 0.0507 AUC below MLP CE, while
+it is above history-last; Transformer predictive is 3.73 Top-1 points and
+0.0608 AUC below Transformer CE. The result is consistent with BDD but keeps
+the legacy-track reconstruction limits.
+
