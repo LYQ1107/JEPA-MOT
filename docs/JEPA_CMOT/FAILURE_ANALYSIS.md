@@ -109,3 +109,7 @@ Observation：C2完整同预算final row+column39.32630、row39.30327、replay39
 ## 局部事件目前不支持向reappearance收缩
 
 Observation：原残差gap2-4的修复51/损害85，gap5-8为8/11；gap1为293/203。Hypothesis：较长观测间隔下的历史/读数错位可能更难，也可能涉及Hungarian全局互动；当前不是摄像机或遮挡根因的证据。Next decision：保留分组诊断，不据此向long-gap分支添加阈值搜索或宣称遮挡恢复创新；source分位定义的观测速度不能代替真实camera-motion/occlusion实验。
+
+## 更强head没有建立相对简单几何的优势
+
+Observation：Transformer pure预测39.9719高于自身CE .5317，但比geometry仅+.0698且CI跨0；普通pair源UA rank更高，却BDD部署39.2459低于geometry且CI全负。Hypothesis：源candidate ranking、loss尺度与实际native affinity不是同一任务；更多交互/attention并未自动增加可靠身份信息。Next decision：保留这些同容量强控制的负结果，继续已有pure online/多seed/order/official读数，不将Transformer结构变化本身归为JEPA价值，待UA全域判断域依赖性。

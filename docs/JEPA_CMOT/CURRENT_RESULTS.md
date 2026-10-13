@@ -299,3 +299,11 @@ BDD H2 stage2全部19视频/四域已实际回测，五组均4560适应帧、570
 BDD完整19开发视频recorded one-step changes重新离线匹配GT，分组阈值仅由source_GT bbox native速度的25/75分位定义（image-diagonal/frame .00139888/.01337447）。原残差在gap1的identity corrected/harmful=293/203，gap2-4=51/85，gap5-8=8/11，gap>8=2/1。保守rank_reward只出现1次修复（gap2-4）与1次反改错（gap1）。
 
 间隔指最后一次已提交feature的frame gap，不是真实遮挡标注；bbox speed混合camera/object motion/关联错误。统计仅条件于改变的局部分配，不是全部机会率或独立baseline后续轨迹；长gap也可能因其它row改动而间接改变Hungarian结果，不能把2/1当作长遮挡forecast证据。没有基于这些target GT分组改变门控。见BDD_COMPLETE_LOCAL_EVENT_GAP_MOTION_STRATA.json。
+
+## BDD强普通head完整开发对照完成
+
+Transformer三目标与ordinary pair MLP均完成19开发视频/3844 native帧。相同原source cache/SourcePairs/2,000×64、近似capacity（MLP662400、Transformer662016、pair662229）、同source-only score calibration、same detector/native clock/geometry。final frozen平均HOTA：Transformer CE39.44024、pure预测39.97191、联合39.47068；pair MLP39.24595。源UA pair rank .764714未自动转化为BDD部署优势；UA全开发仍继续。
+
+Transformer纯预测比同Transformer CE +.53167 CI[.10729,.99374]，但比强geometry39.90215仅+.06976 CI[-.37109,.49923]，比MLP预测39.82910 +.14281 CI[-.09065,.44687]。pair MLP比MLP CE -.14527 CI[-.67304,.28914]、比geometry -.65621 CI[-1.19582,-.24943]。MLP pure预测比pair +.58316 CI[.17442,1.01228]，比EMA +.17906 CI[-.23841,.69538]。不能以弱对照的正差、多个候选中的best点估计或未选择校正的开发区间声称稳定JEPA优势。
+
+这些是frozen阶段，不能替代持续学习结果；图bdd_complete_strong_heads_hota.svg、所有域六指标/actual protocol/raw-count paired bootstrap见BDD_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json。paired official w4全源BDDcache已真实生成，后续训练/development继续；RKD已完成15个真实适应视频，多seed forward已9视频，仍不提前汇报final。
