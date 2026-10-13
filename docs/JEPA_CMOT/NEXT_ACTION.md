@@ -1,5 +1,7 @@
 # 下一步
 
+2026-10-13 11:26 UTC 的实际核查显示 `/dev/nvidia*` 不存在、CUDA 不可用，先前六个 seed17 控制器均无活跃进程；因此暂不重启或新增多种子任务。BDD reverse 的 stage1/2 已通过完整 native marker、快照 optimizer-step 和逐域矩阵核验，见 `BDD_REVERSE_SEED17_COMPLETED_STAGE_ANALYSIS.json`；GPU 恢复后只从已有协议续跑未完成 stage3/UA 阶段，并在完整矩阵前保持 ACTIVE。
+
 完成正在运行的全 development frozen 对照与 forward 连续矩阵；优先汇总已经完整的域，严格标注 source/target、seed和评测覆盖。主表始终使用相同 detector/native frame/caches，逐域报告负结果。
 
 UA clips三目标已经完成源训练与校准，正在部署全部开发视频；BDD clips继续生成。目标object-crop的 source校准和完整开发视频特征/匹配对照已启动。历史1/2/4/8使用相近容量、相同图像与2,000×64预算源训练，然后做匹配长度的冻结推理。

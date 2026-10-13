@@ -17,6 +17,7 @@
 | 普通关系蒸馏RKD控制 | GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION、BDD/UA_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY | BDD full4×4完成，三边界五组样本/1094更新对齐；RKD-D/column增量无可靠证据；UA三边界五组物理样本/RNG/8101更新对齐通过，UA完整回测仍待完成 |
 | 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；BDD23/42 forward已按用户要求暂停，后续多seed reverse撤下 | 未完成；Transformer三目标seed23/42队列已按用户要求撤下，不能用源seed或video CI替代 |
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；seed17反向/UA仍运行；批量多seed延后 |
+| BDD seed17 reverse已完成阶段 | BDD_REVERSE_SEED17_COMPLETED_STAGE_ANALYSIS.json；stage1/2四域native complete markers、实际snapshot/optimizer核对 | stage1/2已验证；stage3未完成，不能计算最终AF/BWT/FWT或替代完整逆序矩阵 |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |
 | 实际图像到轨迹FPS/latency/显存/更新成本 | FULL_NATIVE_LIVE_EFFICIENCY_RESULTS、RETENTION_ACTUAL_UPDATE_COSTS | 12个整视频live案例+真实update-call成本；非全场景/新增FP32读数live速度 |
 | Pseudo确认偏差与改变匹配事件 | BDD/UA_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT、BDD_FULL_RANK_REWARD_RESULTS、event strata | 离线局部/终态memory诊断；非所有训练对或传播的counterfactual因果结论 |
