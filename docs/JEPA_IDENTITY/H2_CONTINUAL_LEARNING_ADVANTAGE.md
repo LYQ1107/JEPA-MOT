@@ -22,9 +22,22 @@ gain relative to the frozen checkpoint with the same initialization, along
 with HOTA, AssA, IDF1, IDSW, average/signed forgetting, BWT, FWT, update
 count, and update magnitude.
 
-H2 is frozen in this phase for two independent reasons: the current host has
-no usable NVIDIA driver, and the registered H1 structural candidates did not
-produce a held-out identity-ranking gain that would open the H2 gate. The
-protocol-readiness audit is recorded in `H2_PROTOCOL_READINESS.json`; it lists
-the four cells and shared invariants without creating a result.
+H2 remains independently unresolved. The current host has no usable NVIDIA
+driver, and the registered full-video Wave-A run has not been allocated in the
+present resource window. The negative H1 structural result does not close H2
+or act as a prerequisite: a model can have limited frozen identity evidence
+yet still have a useful predictive online update, and that possibility must be
+tested directly. The protocol-readiness audit is recorded in
+`H2_PROTOCOL_READINESS.json`; it lists the four cells and shared invariants
+without creating a result.
+
+As a bounded Wave-B diagnostic, one BDD seed17 fixed-teacher comparison has
+now been executed. All four cells used the same 153 recorded pseudo-pairs and
+the same 128 update indices. From Source-D, D-to-D gained 7.19 percentage
+points of fixed-bank Top-1 while D-to-P gained 4.58 points; from Source-P,
+P-to-D gained 3.27 points while P-to-P gained 0.65 points. The predictive
+updates lowered cosine prediction error more strongly in the D initialization,
+but their candidate ranking gain was smaller. The run is recorded in
+`H2_WAVE_B_FIXED_TEACHER_SEED17.json` and is a diagnostic only: it has no
+full-video HOTA/IDF1/IDSW or closed-loop evidence.
 
