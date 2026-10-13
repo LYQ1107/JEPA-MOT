@@ -66,6 +66,8 @@ def audit(root: Path) -> dict[str, Any]:
     common = _read(root, "COMMON_STATE_IDENTITY_METRICS.json")
     paired = _read(root, "PAIRED_COMMON_STATE_COMPARISONS_SEED17.json")
     ua_paired = _read(root, "UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.json")
+    bdd_cluster = _read(root, "BDD_VIDEO_CLUSTER_PAIRED_SEED17.json")
+    ua_cluster = _read(root, "UA_VIDEO_CLUSTER_PAIRED_SEED17.json")
     stratified = _read(root, "H1_DOMAIN_STRATIFIED_PAIRED_SEED17.json")
     structural = _read(root, "STRUCTURAL_FORMAL_SEED17.json")
     ua = _read(root, "UA_LEGACY_TRACK_REPLAY_SEED17.json")
@@ -129,6 +131,25 @@ def audit(root: Path) -> dict[str, Any]:
             "target_GT_used_for_training_or_gate": ua_paired.get("target_GT_used_for_training_or_gate"),
             "sealed_used": ua_paired.get("sealed_used")},
            "required controls / false / false")
+    _check(checks, "bdd_cluster_status_and_counts", bdd_cluster.get("status") == "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17"
+           and bdd_cluster.get("dataset") == "bdd100k"
+           and [bdd_cluster.get("source_case_count"), bdd_cluster.get("candidate_present_case_count"), bdd_cluster.get("candidate_absent_case_count"), bdd_cluster.get("video_count")] == [1394, 1177, 217, 19],
+           [bdd_cluster.get("status"), bdd_cluster.get("dataset"), bdd_cluster.get("source_case_count"),
+            bdd_cluster.get("candidate_present_case_count"), bdd_cluster.get("candidate_absent_case_count"), bdd_cluster.get("video_count")],
+           ["COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17", "bdd100k", 1394, 1177, 217, 19])
+    _check(checks, "ua_cluster_status_and_counts", ua_cluster.get("status") == "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17"
+           and ua_cluster.get("dataset") == "ua_detrac_legacy_replay"
+           and [ua_cluster.get("source_case_count"), ua_cluster.get("candidate_present_case_count"), ua_cluster.get("candidate_absent_case_count"), ua_cluster.get("video_count")] == [4199, 4159, 40, 17],
+           [ua_cluster.get("status"), ua_cluster.get("dataset"), ua_cluster.get("source_case_count"),
+            ua_cluster.get("candidate_present_case_count"), ua_cluster.get("candidate_absent_case_count"), ua_cluster.get("video_count")],
+           ["COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17", "ua_detrac_legacy_replay", 4199, 4159, 40, 17])
+    _check(checks, "cluster_audits_no_training_gt", all(
+        report.get("target_GT_used_for_training_or_gate") is False and report.get("sealed_used") is False
+        and set(PAIR_CONTROLS).issubset(set(report.get("controls", [])))
+        for report in (bdd_cluster, ua_cluster)),
+        {"bdd": [bdd_cluster.get("target_GT_used_for_training_or_gate"), bdd_cluster.get("sealed_used")],
+         "ua": [ua_cluster.get("target_GT_used_for_training_or_gate"), ua_cluster.get("sealed_used")]},
+        "required controls / false / false")
     _check(checks, "domain_stratified_status_and_count", stratified.get("status") == "COMPLETE_BDD_DOMAIN_STRATIFIED_PAIRED_COMPARISON_SEED17"
            and stratified.get("source_case_count") == 1394
            and set(stratified.get("domains", {})) == {"clear", "night", "overcast", "rainy"},
