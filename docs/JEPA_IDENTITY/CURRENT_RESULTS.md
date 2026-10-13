@@ -56,4 +56,8 @@ D-to-D/D-to-P and +3.27/+0.65 for P-to-D/P-to-P. This objective-level result
 has no full-video HOTA or closed-loop evidence. The registered full-video
 factorial remains pending; readiness and the diagnostic report are in
 `H2_PROTOCOL_READINESS.json` and `H2_WAVE_B_FIXED_TEACHER_SEED17.json`.
+The first 16 shared batches had predictive/discriminative gradient cosine
+0.255 from Source-D and 0.637 from Source-P, with predictive gradient norms
+0.818 and 0.082 of the discriminative norms. The next mechanism test targets
+this prediction/ranking mismatch.
 
