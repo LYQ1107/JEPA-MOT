@@ -2,7 +2,7 @@
 
 The machine-readable gate
 `H1_EVIDENCE_AUDIT_SEED17.json` checks the compact H1 evidence bundle without
-rerunning training or reading raw labels. All 22 static checks pass.
+rerunning training or reading raw labels. All 24 static checks pass.
 
 It verifies:
 
@@ -20,6 +20,8 @@ It verifies:
   excluded from candidate selection and used only for post-score evaluability;
 - the event taxonomy, headroom, and ranking reports are all complete and do
   not use target GT for training or gating.
+- the domain-stratified paired report covers clear, night, overcast, and rainy
+  and sums back to the same 1,394 common-state events.
 
 The audit status is `COMPLETE_STATIC_H1_EVIDENCE_AUDIT_WITH_RUNTIME_LIMITS`.
 That status means the registered seed17 evidence is internally consistent; it
