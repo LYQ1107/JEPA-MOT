@@ -1,0 +1,21 @@
+{
+  "early_pid": 30207,
+  "remaining_pid": 30208,
+  "replaced_pending_pid": 16108,
+  "gpu": 6,
+  "experiment": {
+    "dataset": "bdd100k",
+    "controls": "configs/JEPA_CMOT/bdd100k_pure_predictive_continual.json",
+    "out": "runs/JEPA_CMOT/continual_completion_v1/bdd100k_forward_pure_predictive_seed17",
+    "reverse": false
+  },
+  "protocol_change": false,
+  "reason": "Start already registered pure-predictive forward control while source inputs ready and GPU has capacity; dependent queue waits for same output completion.",
+  "git_commit": "b756b18b096a1160f4229371c68b0f1fd7c8a1e2",
+  "status": "ACTUALLY_RUNNING_NOT_RESULT",
+  "verified_first_video": "b251064f-30002542",
+  "verified_native_progress": 100,
+  "first_video_frames": 202,
+  "target_GT_in_training": false,
+  "sealed_test_used": false
+}

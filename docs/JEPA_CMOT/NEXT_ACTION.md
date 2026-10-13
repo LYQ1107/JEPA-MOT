@@ -14,7 +14,7 @@ C2还需与通用RKD-D距离保持比较，相同教师/负例/九字段memory/�
 
 BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测迁移只在当前完整视频终态之后，GPU5先完成现有真实链路benchmark。
 
-纯预测目标的在线贡献不能由prediction+ranking替代。已补排seed17纯预测FT/replay的两数据集forward与reverse；reverse17的CE/联合六组同时保留。UA source seeds23/42已真实训练和source-only校准完成，forward12组及reverse17/23/42共18组已补排（各附pure17两组），相同detector/caches/splits。队列等待现有完整矩阵/开发组终态之后占用GPU；排队状态不能作为已运行的科学结果。BDD原seed23/42两顺序队列继续，新增任务等待该队列两次complete，GPU0队列等待六个已有完整实验。
+纯预测目标的在线贡献不能由prediction+ranking替代。已补排seed17纯预测FT/replay的两数据集forward与reverse；reverse17的CE/联合六组同时保留。UA source seeds23/42已真实训练和source-only校准完成，forward12组及reverse17/23/42共18组已补排（各附pure17两组），相同detector/caches/splits。队列等待现有完整矩阵/开发组终态之后占用GPU；排队状态不能作为已运行的科学结果。BDD原seed23/42两顺序队列继续；seed17纯预测forward已提前在GPU6实际启动（无Replay/Replay128），保持原注册输出。剩余reverse17队列同时等待多seed两顺序与pure forward完整终态，避免重复启动。GPU0队列等待六个已有完整实验。
 
 完整source-validation诊断已经覆盖24快照，需与后续source AssA/HOTA逐方法对应；避免混合CE与预测模型不同loss尺度。官方1664-D predictor先前小规模工程cache不能代替正式读数对照；补充需要相同合法时序输入、明确encoder与masked predictor的信息差别、匹配head参数/源预算和全视频部署，作为仍未完成的要求保留。
 
@@ -25,3 +25,7 @@ BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测�
 同容量Transformer三目标源训练+source校准+完整两数据集development已启动；history-only输入不接触当前候选，SourcePairs预算/源负例与原MLP一致。源CE已完成，原始源cache没有paired readout的额外ranking字段时保留既有采样。后续仍需明确普通pair-MLP scalar scorer的独立对照，不能把dot-product history CE等价描述为所有pair scorer都已经测过。
 
 同容量普通pair-MLP源模型/校准已完成并部署全部development；历史状态先冻结，candidate只进入final scalar scorer。与MLP/Transformer同源物理候选及2,000×64预算，不用其较高UA源rank直接决定目标域方法。完整后联合普通mean/EMA/Transformer判断源latent预测是否仍有独立意义。
+
+## 纯预测在线对照提前启动
+
+GPU6启动时已用约7.3 GiB/32 GiB；仅调整注册实验的调度顺序，未更改checkpoint、校准、目标视频、域顺序或超参数。第一个overcast适应视频已经实际运行到100/202 native帧，两组共同输入、目标GT训练=false、sealed未使用。输出为`runs/JEPA_CMOT/continual_completion_v1/bdd100k_forward_pure_predictive_seed17`；完整44适应视频及全部4×4冻结回测完成后再报告HOTA/AF和实际更新预算。源checkpoint仍是pure predictive，不用联合目标代替其独立贡献。启动/依赖记录见PURE_PREDICTIVE_FORWARD_LAUNCH.json；当前不构成科学结果。
