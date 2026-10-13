@@ -147,7 +147,53 @@ def _parameter_distance(model, initial):
     return float(total.sqrt())
 
 
-def _run_cell(source_path, update_method, examples, schedule, device, source_cache, args):
+def _gradient_alignment(model, examples, schedule, device):
+    """Compare D/P update directions before changing a source snapshot."""
+    rows = []
+    for indices in schedule[: min(16, len(schedule))]:
+        batch = _batch(examples, indices, device)
+        vectors = {}
+        losses = {}
+        for method in ("discriminative", "predictive"):
+            model.zero_grad(set_to_none=True)
+            model.train()
+            _, _, loss, _, _ = _forward(model, batch, method)
+            loss.backward()
+            vector = torch.cat([
+                parameter.grad.detach().float().reshape(-1)
+                for parameter in model.parameters() if parameter.grad is not None
+            ])
+            vectors[method] = vector.cpu()
+            losses[method] = float(loss.detach())
+        d = vectors["discriminative"]
+        p = vectors["predictive"]
+        d_norm = float(d.norm())
+        p_norm = float(p.norm())
+        rows.append({
+            "gradient_cosine": float(torch.dot(d, p) / max(d_norm * p_norm, 1e-12)),
+            "discriminative_norm": d_norm,
+            "predictive_norm": p_norm,
+            "predictive_to_discriminative_norm_ratio": p_norm / max(d_norm, 1e-12),
+            "discriminative_loss": losses["discriminative"],
+            "predictive_loss": losses["predictive"],
+        })
+    return {
+        "batches": len(rows),
+        "gradient_cosine_mean": float(np.mean([row["gradient_cosine"] for row in rows])),
+        "gradient_cosine_p10": float(np.percentile([row["gradient_cosine"] for row in rows], 10)),
+        "gradient_cosine_p50": float(np.percentile([row["gradient_cosine"] for row in rows], 50)),
+        "gradient_cosine_p90": float(np.percentile([row["gradient_cosine"] for row in rows], 90)),
+        "discriminative_norm_mean": float(np.mean([row["discriminative_norm"] for row in rows])),
+        "predictive_norm_mean": float(np.mean([row["predictive_norm"] for row in rows])),
+        "predictive_to_discriminative_norm_ratio_mean": float(np.mean([
+            row["predictive_to_discriminative_norm_ratio"] for row in rows
+        ])),
+        "rows": rows,
+    }
+
+
+def _run_cell(source_path, update_method, examples, schedule, device, source_cache,
+              args, gradient_alignment):
     model, source_payload = _load_model(source_path, device)
     initial = [parameter.detach().cpu().clone() for parameter in model.parameters()]
     frozen = _metrics(model, examples, np.arange(len(examples)), device)
@@ -201,6 +247,7 @@ def _run_cell(source_path, update_method, examples, schedule, device, source_cac
         "source_validation_before": source_before,
         "source_validation_after": source_after,
         "parameter_update_l2": _parameter_distance(model, initial),
+        "gradient_alignment": gradient_alignment,
         "loss_first": losses[0],
         "loss_last": losses[-1],
         "gradient_norm_mean": float(np.mean([row["gradient_norm"] for row in losses])),
@@ -232,6 +279,12 @@ def main():
     examples, teacher_payload = _load_teacher_bank(args.teacher_bank)
     schedule = _make_schedule(len(examples), args.steps, args.batch, args.seed)
     schedule_sha = _hash_bytes(schedule.tobytes())
+    gradient_alignment = {}
+    for source_name, source_path in (("D", args.source_d), ("P", args.source_p)):
+        source_model, _ = _load_model(source_path, args.device)
+        gradient_alignment[source_name] = _gradient_alignment(
+            source_model, examples, schedule, args.device
+        )
     cells = {}
     for source_name, source_path in (("D", args.source_d), ("P", args.source_p)):
         for update_name, update_method in (("D", "discriminative"), ("P", "predictive")):
@@ -239,7 +292,7 @@ def main():
             print("H2_FIXED_TEACHER_CELL_START", cell_name, flush=True)
             cells[cell_name] = _run_cell(
                 source_path, update_method, examples, schedule, args.device,
-                args.source_cache, args,
+                args.source_cache, args, gradient_alignment[source_name],
             )
             print("H2_FIXED_TEACHER_CELL_COMPLETE", cell_name, flush=True)
     report = {
