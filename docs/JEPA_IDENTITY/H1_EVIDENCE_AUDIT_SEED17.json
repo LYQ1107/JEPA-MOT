@@ -307,6 +307,40 @@
       ]
     },
     {
+      "name": "ua_paired_status_and_counts",
+      "pass": true,
+      "observed": [
+        "COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17",
+        4199,
+        4159,
+        40
+      ],
+      "expected": [
+        "COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17",
+        4199,
+        4159,
+        40
+      ]
+    },
+    {
+      "name": "ua_paired_controls_and_limit",
+      "pass": true,
+      "observed": {
+        "controls": [
+          "history_last",
+          "mlp_ce",
+          "mlp_jepa_predictive",
+          "mlp_jepa_ranking",
+          "transformer_ce",
+          "transformer_jepa_predictive",
+          "transformer_jepa_ranking"
+        ],
+        "target_GT_used_for_training_or_gate": false,
+        "sealed_used": false
+      },
+      "expected": "required controls / false / false"
+    },
+    {
       "name": "domain_stratified_status_and_count",
       "pass": true,
       "observed": [
