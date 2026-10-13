@@ -37,6 +37,13 @@ produced no HOTA, IDF1, IDSW, or closed-loop result. It therefore does not
 support an H2 advantage claim; it identifies a concrete objective-versus-
 ranking trade-off for the next full-video causal run.
 
+The same batches also give a gradient-direction diagnostic. The mean
+predictive/discriminative gradient cosine was 0.255 from Source-D and 0.637
+from Source-P; the predictive gradient norm was 0.818 and 0.082 of the
+discriminative norm, respectively. This supports the next falsifiable
+mechanism test: prediction-only updates can be too weak or misaligned with
+candidate ranking, especially after a predictive source initialization.
+
 The study is retained as an independent H2 test. It may start with one seed
 and one forward order when a usable GPU or an explicitly bounded CPU window is
 available; positive H1 evidence is not a prerequisite. Reverse order and
