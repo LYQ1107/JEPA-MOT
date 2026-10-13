@@ -38,6 +38,10 @@
    frozen controls and stagewise metrics, using one seed and one forward order
    when a usable GPU or explicitly bounded CPU window is available. Keep
    reverse order and additional seeds deferred.
+11. The zero-training Wave-A preflight is now recorded in
+    `H2_WAVE_A_PREFLIGHT_SEED17.json`: local inputs and source snapshots pass,
+    while the NAS SSHFS endpoint and NVIDIA driver must be restored before any
+    formal rollout. Re-run that preflight immediately before execution.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a
