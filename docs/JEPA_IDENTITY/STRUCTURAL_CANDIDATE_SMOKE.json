@@ -1,0 +1,26 @@
+{
+  "status": "COMPLETE_STRUCTURAL_CANDIDATE_REAL_CACHE_SMOKE",
+  "source_cases": "runs/JEPA_IDENTITY/h1_wave_b/common_state_cases.jsonl",
+  "inputs_dir": "runs/JEPA_CMOT/development_rank_reward_v1/bdd100k_seed17/inputs",
+  "requested_events": 16,
+  "mapped_events": 16,
+  "skipped_events": 0,
+  "skip_reasons": {},
+  "candidate_present_events": 14,
+  "causal_history_checks": 16,
+  "candidate_order_checks": 16,
+  "candidate_independent_query_checks": 16,
+  "identity_residual_loss_checks": 14,
+  "candidate_relative_loss_checks": 14,
+  "feature_dim": 1024,
+  "parameter_counts": {
+    "identity_residual": 167424,
+    "candidate_relative": 166496
+  },
+  "min_history_match_iou": 1.0,
+  "min_candidate_match_iou": 0.999999946587933,
+  "target_gt_used_for_model_forward": false,
+  "target_gt_used_for_loss_index_only": true,
+  "identity_evidence_claim": false,
+  "limitation": "engineering smoke on existing residual common-state cases; no training or held-out identity result"
+}

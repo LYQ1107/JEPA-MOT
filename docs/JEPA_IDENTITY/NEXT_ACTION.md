@@ -6,7 +6,8 @@
 2. Leakage tests now cover past-only history, candidate-independent queries,
    target-GT exclusion from the forward contract, and deterministic candidate
    ordering (`jepa_identity.test_structural_candidates`).
-3. The existing BDD cache and full local case audit are retained; no new
+3. The existing BDD cache and full local case audit are retained; the new
+   structural interfaces pass a 16-event real-cache CPU smoke. No new
    full-video or multi-seed training job has been started.
 4. When a GPU is available, run one registered common-state comparison using
    the structural candidate protocol in

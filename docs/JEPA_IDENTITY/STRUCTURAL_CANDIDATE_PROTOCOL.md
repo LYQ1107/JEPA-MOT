@@ -87,7 +87,7 @@ not tune around the result.
 
 ## CPU smoke and provenance
 
-The implementation smoke test is:
+The random-tensor implementation smoke test is:
 
 ```bash
 ./run_python.sh -m unittest \
@@ -100,6 +100,24 @@ construction, strict-past validation, absence of target labels from the
 forward contract, candidate masks, and deterministic candidate ordering. A
 successful smoke test is engineering evidence only; it is not identity
 evidence.
+
+The same interface was also exercised on 16 real BDD common-state events with
+the existing `formal_detection_streams_v1` dense cache:
+
+```bash
+./run_python.sh -m jepa_identity.structural_candidate_smoke \
+  --cases runs/JEPA_IDENTITY/h1_wave_b/common_state_cases.jsonl \
+  --inputs-dir runs/JEPA_CMOT/development_rank_reward_v1/bdd100k_seed17/inputs \
+  --out runs/JEPA_IDENTITY/h1_wave_c/structural_candidate_smoke.json \
+  --max-events 16
+```
+
+All 16 cases mapped, with 1024-dimensional features, 14 candidate-present
+offline loss checks, history match IoU 1.0, and candidate match IoU above
+0.99999994. The report is versioned at
+`STRUCTURAL_CANDIDATE_SMOKE.json`. It records no identity metric and makes no
+H1 claim; it only verifies integration and the GT boundary on real cached
+inputs.
 
 ## Current status
 
