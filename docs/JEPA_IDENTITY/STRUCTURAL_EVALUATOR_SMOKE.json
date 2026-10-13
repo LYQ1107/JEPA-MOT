@@ -1,0 +1,29 @@
+{
+  "status": "COMPLETE_STRUCTURAL_COMMON_STATE_EVALUATOR_SMOKE",
+  "cases": "runs/JEPA_IDENTITY/h1_wave_b/common_state_cases.jsonl",
+  "requested_events_per_candidate": 16,
+  "scored_events_per_candidate": 16,
+  "candidate_present_events": 14,
+  "target_GT_used_for_training_or_gate": false,
+  "offline_GT_used_for_diagnosis": true,
+  "identity_evidence_claim": false,
+  "candidates": {
+    "identity_residual": {
+      "checkpoint_sha256": "ae58c87275a5fdd9d4a3731e1aefd4e75d9066f363e63f7917e27574d99db444",
+      "candidate_coverage": 0.875,
+      "top1_conditional": 0.7857142857142857,
+      "mrr_conditional": 0.8714285714285713,
+      "pairwise_auc": 0.8928571428571429,
+      "local_net_correction": 1
+    },
+    "candidate_relative": {
+      "checkpoint_sha256": "56fc4d2c1ec27a19f66699da2d0d515c97c836a85d60823bee8f19ab9cd505af",
+      "candidate_coverage": 0.875,
+      "top1_conditional": 0.14285714285714285,
+      "mrr_conditional": 0.5416666666666666,
+      "pairwise_auc": 0.7464285714285716,
+      "local_net_correction": -8
+    }
+  },
+  "limitation": "one-step engineering checkpoints with hidden/relation dimensions 8; no formal structural training or H1 conclusion"
+}

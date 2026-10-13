@@ -8,8 +8,8 @@
    ordering (`jepa_identity.test_structural_candidates`).
 3. The existing BDD cache and full local case audit are retained; the new
    structural interfaces pass a 16-event real-cache CPU smoke and a one-step
-   source-only training-entry smoke. No full-video or multi-seed training job
-   has been started.
+   source-only training-entry/evaluator smoke. No full-video or multi-seed
+   training job has been started.
 4. When a GPU is available, run one registered common-state comparison using
    the structural candidate protocol in
    `STRUCTURAL_CANDIDATE_PROTOCOL.md`, with residual JEPA and its matched

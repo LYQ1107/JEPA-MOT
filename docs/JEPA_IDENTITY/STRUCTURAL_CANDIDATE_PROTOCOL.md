@@ -127,6 +127,13 @@ labels; their compact summaries are in
 rank-1 0.4602 and the relation smoke 0.0951 after one uninformative step. These
 numbers are harness diagnostics, not a comparison or an H1 result.
 
+The checkpoint evaluator was also run on those two smoke checkpoints. It
+scored the same 16 common-state events and retained 14 candidate-present
+events for each. The residual smoke produced local net correction `+1`, while
+the relation smoke produced `-8`; this expectedly negative reduced smoke is
+recorded in `STRUCTURAL_EVALUATOR_SMOKE.json` and is not used to select a
+research candidate.
+
 ## Current status
 
 The protocol and CPU module are complete. GPU training is pending because the
