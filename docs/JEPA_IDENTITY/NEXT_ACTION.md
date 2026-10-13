@@ -6,19 +6,19 @@
 2. Leakage tests now cover past-only history, candidate-independent queries,
    target-GT exclusion from the forward contract, and deterministic candidate
    ordering (`jepa_identity.test_structural_candidates`).
-3. The existing BDD cache and full local case audit are retained; the new
-   structural interfaces pass a 16-event real-cache CPU smoke and a one-step
-   source-only training-entry/evaluator smoke. No full-video or multi-seed
-   training job has been started.
-4. When a GPU is available, run one registered common-state comparison using
-   the structural candidate protocol in
-   `STRUCTURAL_CANDIDATE_PROTOCOL.md` and pass the structural preflight, with
-   residual JEPA and its matched ranking-only control first.
-5. The common-state result selected two structural H1 candidates, in this
-   order: identity-residual JEPA, then candidate-relative JEPA. Train at most
-   one of them in the next GPU window, together with its matched CE control.
-6. Only after a structural candidate produces a held-out common-state gain,
-   run the same-initialization H2 factorial with one seed and one domain order.
+3. The existing BDD cache and full local case audit are retained; the
+   structural interfaces pass real-cache smoke, source-only training-entry
+   smoke, and full common-state preflight.
+4. The frozen seed17 structural comparison is complete on CPU: residual and
+   candidate-relative predictive methods were each paired with a same-budget
+   ranking-only control. Neither passed the H1 gate; see
+   `STRUCTURAL_FORMAL_SEED17.json`.
+5. Do not start a threshold sweep or additional seeds. The candidate-relative
+   numerical-stability failures are fixed in the final implementation and the
+   discarded attempts remain engineering diagnostics only.
+6. Keep H2 as a controlled, same-initialization protocol. Run it only after a
+   separately approved mechanism shows a held-out H1 identity-ranking gain;
+   the current evidence does not satisfy that gate.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a
