@@ -43,8 +43,8 @@
   "same_teacher_examples_across_cells": true,
   "same_sample_index_schedule_across_cells": true,
   "interpretation_limit": "This isolates the loss objective on one shared recorded pseudo-pair bank; it is not a full-video continual-learning result and does not replace the registered 2x2 closed-loop factorial.",
-  "code_sha256": "fc0e9e510eba2a50a5e38ebc87a944313e682e499f62dfa3b210795b4bbeb4b8",
-  "git_commit": "b7739641a620e105f0dc707461234ffdfc5eaa7d",
+  "code_sha256": "80566016f9889b25e04b8160e9daf59cc43accf33f48bde49d74f04fb613de05",
+  "git_commit": "87e106137382b7eb18504956143f331df017117a",
   "cells": {
     "D_to_D": {
       "source_checkpoint_sha256": "3b3c1b5161a75eec6a5753913bab56107dc249d578f496f59596da8780242a48",
@@ -102,6 +102,146 @@
         "target_gt_used_for_training_or_gate": false
       },
       "parameter_update_l2": 2.194402125128282,
+      "gradient_alignment": {
+        "batches": 16,
+        "gradient_cosine_mean": 0.25475625501712784,
+        "gradient_cosine_p10": 0.09971050918102264,
+        "gradient_cosine_p50": 0.23779605329036713,
+        "gradient_cosine_p90": 0.3983972370624542,
+        "discriminative_norm_mean": 1.0336849801242352,
+        "predictive_norm_mean": 0.678342193365097,
+        "predictive_to_discriminative_norm_ratio_mean": 0.8179526558212353,
+        "rows": [
+          {
+            "gradient_cosine": 0.41446512937545776,
+            "discriminative_norm": 0.6105684638023376,
+            "predictive_norm": 0.6881832480430603,
+            "predictive_to_discriminative_norm_ratio": 1.1271188881216918,
+            "discriminative_loss": 0.5520754456520081,
+            "predictive_loss": 0.581240177154541
+          },
+          {
+            "gradient_cosine": 0.0446123331785202,
+            "discriminative_norm": 1.0856959819793701,
+            "predictive_norm": 0.5857784748077393,
+            "predictive_to_discriminative_norm_ratio": 0.5395419017207618,
+            "discriminative_loss": 0.6257466077804565,
+            "predictive_loss": 0.6042523980140686
+          },
+          {
+            "gradient_cosine": 0.279660701751709,
+            "discriminative_norm": 0.29962146282196045,
+            "predictive_norm": 0.6008973121643066,
+            "predictive_to_discriminative_norm_ratio": 2.0055215888234574,
+            "discriminative_loss": 0.5315841436386108,
+            "predictive_loss": 0.4824943244457245
+          },
+          {
+            "gradient_cosine": 0.3823293447494507,
+            "discriminative_norm": 1.0395539999008179,
+            "predictive_norm": 0.68045973777771,
+            "predictive_to_discriminative_norm_ratio": 0.654568918827335,
+            "discriminative_loss": 0.4419945776462555,
+            "predictive_loss": 0.566487729549408
+          },
+          {
+            "gradient_cosine": 0.17874418199062347,
+            "discriminative_norm": 1.0191389322280884,
+            "predictive_norm": 0.8414249420166016,
+            "predictive_to_discriminative_norm_ratio": 0.8256233918736081,
+            "discriminative_loss": 0.6343684196472168,
+            "predictive_loss": 0.5461597442626953
+          },
+          {
+            "gradient_cosine": 0.32507646083831787,
+            "discriminative_norm": 0.7120758891105652,
+            "predictive_norm": 0.6960222125053406,
+            "predictive_to_discriminative_norm_ratio": 0.9774551043635576,
+            "discriminative_loss": 0.4992043972015381,
+            "predictive_loss": 0.4962153732776642
+          },
+          {
+            "gradient_cosine": 0.5540587306022644,
+            "discriminative_norm": 3.322162389755249,
+            "predictive_norm": 0.7093951106071472,
+            "predictive_to_discriminative_norm_ratio": 0.21353414655308584,
+            "discriminative_loss": 1.1055833101272583,
+            "predictive_loss": 0.5738006234169006
+          },
+          {
+            "gradient_cosine": 0.2277219146490097,
+            "discriminative_norm": 0.9203606247901917,
+            "predictive_norm": 0.6879104971885681,
+            "predictive_to_discriminative_norm_ratio": 0.7474358188078574,
+            "discriminative_loss": 0.6143324971199036,
+            "predictive_loss": 0.5821011066436768
+          },
+          {
+            "gradient_cosine": 0.19598309695720673,
+            "discriminative_norm": 0.8965194225311279,
+            "predictive_norm": 0.6356658935546875,
+            "predictive_to_discriminative_norm_ratio": 0.7090375039059643,
+            "discriminative_loss": 0.7221792340278625,
+            "predictive_loss": 0.5891051292419434
+          },
+          {
+            "gradient_cosine": 0.3549865186214447,
+            "discriminative_norm": 1.5671865940093994,
+            "predictive_norm": 0.8015329837799072,
+            "predictive_to_discriminative_norm_ratio": 0.5114470649785944,
+            "discriminative_loss": 1.0880366563796997,
+            "predictive_loss": 0.6943893432617188
+          },
+          {
+            "gradient_cosine": 0.24787019193172455,
+            "discriminative_norm": 0.7732383608818054,
+            "predictive_norm": 0.640620231628418,
+            "predictive_to_discriminative_norm_ratio": 0.8284899767490208,
+            "discriminative_loss": 0.7784601449966431,
+            "predictive_loss": 0.504723072052002
+          },
+          {
+            "gradient_cosine": 0.30025777220726013,
+            "discriminative_norm": 0.649753212928772,
+            "predictive_norm": 0.6608241200447083,
+            "predictive_to_discriminative_norm_ratio": 1.0170386338930653,
+            "discriminative_loss": 0.7258272171020508,
+            "predictive_loss": 0.6031994819641113
+          },
+          {
+            "gradient_cosine": 0.15480868518352509,
+            "discriminative_norm": 1.0601311922073364,
+            "predictive_norm": 0.6657279133796692,
+            "predictive_to_discriminative_norm_ratio": 0.6279674801319012,
+            "discriminative_loss": 0.3937138617038727,
+            "predictive_loss": 0.49066054821014404
+          },
+          {
+            "gradient_cosine": 0.01331815030425787,
+            "discriminative_norm": 0.7621968388557434,
+            "predictive_norm": 0.6245973706245422,
+            "predictive_to_discriminative_norm_ratio": 0.8194699043389186,
+            "discriminative_loss": 0.4593939483165741,
+            "predictive_loss": 0.5777860879898071
+          },
+          {
+            "gradient_cosine": 0.1781310886144638,
+            "discriminative_norm": 0.8358035683631897,
+            "predictive_norm": 0.7074370384216309,
+            "predictive_to_discriminative_norm_ratio": 0.8464154320458961,
+            "discriminative_loss": 0.8762263059616089,
+            "predictive_loss": 0.6025905609130859
+          },
+          {
+            "gradient_cosine": 0.2240757793188095,
+            "discriminative_norm": 0.9849527478218079,
+            "predictive_norm": 0.6269980072975159,
+            "predictive_to_discriminative_norm_ratio": 0.6365767380050488,
+            "discriminative_loss": 0.49280107021331787,
+            "predictive_loss": 0.5825017690658569
+          }
+        ]
+      },
       "loss_first": {
         "step": 1,
         "loss": 0.5520754456520081,
@@ -174,6 +314,146 @@
         "target_gt_used_for_training_or_gate": false
       },
       "parameter_update_l2": 3.6221513342636706,
+      "gradient_alignment": {
+        "batches": 16,
+        "gradient_cosine_mean": 0.25475625501712784,
+        "gradient_cosine_p10": 0.09971050918102264,
+        "gradient_cosine_p50": 0.23779605329036713,
+        "gradient_cosine_p90": 0.3983972370624542,
+        "discriminative_norm_mean": 1.0336849801242352,
+        "predictive_norm_mean": 0.678342193365097,
+        "predictive_to_discriminative_norm_ratio_mean": 0.8179526558212353,
+        "rows": [
+          {
+            "gradient_cosine": 0.41446512937545776,
+            "discriminative_norm": 0.6105684638023376,
+            "predictive_norm": 0.6881832480430603,
+            "predictive_to_discriminative_norm_ratio": 1.1271188881216918,
+            "discriminative_loss": 0.5520754456520081,
+            "predictive_loss": 0.581240177154541
+          },
+          {
+            "gradient_cosine": 0.0446123331785202,
+            "discriminative_norm": 1.0856959819793701,
+            "predictive_norm": 0.5857784748077393,
+            "predictive_to_discriminative_norm_ratio": 0.5395419017207618,
+            "discriminative_loss": 0.6257466077804565,
+            "predictive_loss": 0.6042523980140686
+          },
+          {
+            "gradient_cosine": 0.279660701751709,
+            "discriminative_norm": 0.29962146282196045,
+            "predictive_norm": 0.6008973121643066,
+            "predictive_to_discriminative_norm_ratio": 2.0055215888234574,
+            "discriminative_loss": 0.5315841436386108,
+            "predictive_loss": 0.4824943244457245
+          },
+          {
+            "gradient_cosine": 0.3823293447494507,
+            "discriminative_norm": 1.0395539999008179,
+            "predictive_norm": 0.68045973777771,
+            "predictive_to_discriminative_norm_ratio": 0.654568918827335,
+            "discriminative_loss": 0.4419945776462555,
+            "predictive_loss": 0.566487729549408
+          },
+          {
+            "gradient_cosine": 0.17874418199062347,
+            "discriminative_norm": 1.0191389322280884,
+            "predictive_norm": 0.8414249420166016,
+            "predictive_to_discriminative_norm_ratio": 0.8256233918736081,
+            "discriminative_loss": 0.6343684196472168,
+            "predictive_loss": 0.5461597442626953
+          },
+          {
+            "gradient_cosine": 0.32507646083831787,
+            "discriminative_norm": 0.7120758891105652,
+            "predictive_norm": 0.6960222125053406,
+            "predictive_to_discriminative_norm_ratio": 0.9774551043635576,
+            "discriminative_loss": 0.4992043972015381,
+            "predictive_loss": 0.4962153732776642
+          },
+          {
+            "gradient_cosine": 0.5540587306022644,
+            "discriminative_norm": 3.322162389755249,
+            "predictive_norm": 0.7093951106071472,
+            "predictive_to_discriminative_norm_ratio": 0.21353414655308584,
+            "discriminative_loss": 1.1055833101272583,
+            "predictive_loss": 0.5738006234169006
+          },
+          {
+            "gradient_cosine": 0.2277219146490097,
+            "discriminative_norm": 0.9203606247901917,
+            "predictive_norm": 0.6879104971885681,
+            "predictive_to_discriminative_norm_ratio": 0.7474358188078574,
+            "discriminative_loss": 0.6143324971199036,
+            "predictive_loss": 0.5821011066436768
+          },
+          {
+            "gradient_cosine": 0.19598309695720673,
+            "discriminative_norm": 0.8965194225311279,
+            "predictive_norm": 0.6356658935546875,
+            "predictive_to_discriminative_norm_ratio": 0.7090375039059643,
+            "discriminative_loss": 0.7221792340278625,
+            "predictive_loss": 0.5891051292419434
+          },
+          {
+            "gradient_cosine": 0.3549865186214447,
+            "discriminative_norm": 1.5671865940093994,
+            "predictive_norm": 0.8015329837799072,
+            "predictive_to_discriminative_norm_ratio": 0.5114470649785944,
+            "discriminative_loss": 1.0880366563796997,
+            "predictive_loss": 0.6943893432617188
+          },
+          {
+            "gradient_cosine": 0.24787019193172455,
+            "discriminative_norm": 0.7732383608818054,
+            "predictive_norm": 0.640620231628418,
+            "predictive_to_discriminative_norm_ratio": 0.8284899767490208,
+            "discriminative_loss": 0.7784601449966431,
+            "predictive_loss": 0.504723072052002
+          },
+          {
+            "gradient_cosine": 0.30025777220726013,
+            "discriminative_norm": 0.649753212928772,
+            "predictive_norm": 0.6608241200447083,
+            "predictive_to_discriminative_norm_ratio": 1.0170386338930653,
+            "discriminative_loss": 0.7258272171020508,
+            "predictive_loss": 0.6031994819641113
+          },
+          {
+            "gradient_cosine": 0.15480868518352509,
+            "discriminative_norm": 1.0601311922073364,
+            "predictive_norm": 0.6657279133796692,
+            "predictive_to_discriminative_norm_ratio": 0.6279674801319012,
+            "discriminative_loss": 0.3937138617038727,
+            "predictive_loss": 0.49066054821014404
+          },
+          {
+            "gradient_cosine": 0.01331815030425787,
+            "discriminative_norm": 0.7621968388557434,
+            "predictive_norm": 0.6245973706245422,
+            "predictive_to_discriminative_norm_ratio": 0.8194699043389186,
+            "discriminative_loss": 0.4593939483165741,
+            "predictive_loss": 0.5777860879898071
+          },
+          {
+            "gradient_cosine": 0.1781310886144638,
+            "discriminative_norm": 0.8358035683631897,
+            "predictive_norm": 0.7074370384216309,
+            "predictive_to_discriminative_norm_ratio": 0.8464154320458961,
+            "discriminative_loss": 0.8762263059616089,
+            "predictive_loss": 0.6025905609130859
+          },
+          {
+            "gradient_cosine": 0.2240757793188095,
+            "discriminative_norm": 0.9849527478218079,
+            "predictive_norm": 0.6269980072975159,
+            "predictive_to_discriminative_norm_ratio": 0.6365767380050488,
+            "discriminative_loss": 0.49280107021331787,
+            "predictive_loss": 0.5825017690658569
+          }
+        ]
+      },
       "loss_first": {
         "step": 1,
         "loss": 0.581240177154541,
@@ -246,6 +526,146 @@
         "target_gt_used_for_training_or_gate": false
       },
       "parameter_update_l2": 2.678488292576304,
+      "gradient_alignment": {
+        "batches": 16,
+        "gradient_cosine_mean": 0.6372213512659073,
+        "gradient_cosine_p10": 0.3563707172870636,
+        "gradient_cosine_p50": 0.6902031600475311,
+        "gradient_cosine_p90": 0.863475501537323,
+        "discriminative_norm_mean": 1.0740250647068024,
+        "predictive_norm_mean": 0.08511259430088103,
+        "predictive_to_discriminative_norm_ratio_mean": 0.08160206872657068,
+        "rows": [
+          {
+            "gradient_cosine": 0.30694034695625305,
+            "discriminative_norm": 0.681503415107727,
+            "predictive_norm": 0.06827643513679504,
+            "predictive_to_discriminative_norm_ratio": 0.10018502273536282,
+            "discriminative_loss": 0.8863441348075867,
+            "predictive_loss": 0.037059493362903595
+          },
+          {
+            "gradient_cosine": 0.7176609039306641,
+            "discriminative_norm": 1.5787670612335205,
+            "predictive_norm": 0.10720054060220718,
+            "predictive_to_discriminative_norm_ratio": 0.06790142968808165,
+            "discriminative_loss": 1.1960703134536743,
+            "predictive_loss": 0.055696599185466766
+          },
+          {
+            "gradient_cosine": 0.886798620223999,
+            "discriminative_norm": 0.9554821252822876,
+            "predictive_norm": 0.07904014736413956,
+            "predictive_to_discriminative_norm_ratio": 0.0827227901733776,
+            "discriminative_loss": 0.8599821329116821,
+            "predictive_loss": 0.023650936782360077
+          },
+          {
+            "gradient_cosine": 0.5345184803009033,
+            "discriminative_norm": 0.854228138923645,
+            "predictive_norm": 0.05872630700469017,
+            "predictive_to_discriminative_norm_ratio": 0.06874780205518306,
+            "discriminative_loss": 0.8378087282180786,
+            "predictive_loss": 0.02673397958278656
+          },
+          {
+            "gradient_cosine": 0.5389344096183777,
+            "discriminative_norm": 0.9563461542129517,
+            "predictive_norm": 0.08475830405950546,
+            "predictive_to_discriminative_norm_ratio": 0.08862722319332102,
+            "discriminative_loss": 1.040481448173523,
+            "predictive_loss": 0.03303629904985428
+          },
+          {
+            "gradient_cosine": 0.7098731398582458,
+            "discriminative_norm": 0.8113406300544739,
+            "predictive_norm": 0.05011509358882904,
+            "predictive_to_discriminative_norm_ratio": 0.06176825334812123,
+            "discriminative_loss": 0.8296635746955872,
+            "predictive_loss": 0.01806642860174179
+          },
+          {
+            "gradient_cosine": 0.9057393074035645,
+            "discriminative_norm": 2.134993553161621,
+            "predictive_norm": 0.15579615533351898,
+            "predictive_to_discriminative_norm_ratio": 0.072972658443304,
+            "discriminative_loss": 1.0445001125335693,
+            "predictive_loss": 0.050067417323589325
+          },
+          {
+            "gradient_cosine": 0.6705331802368164,
+            "discriminative_norm": 1.3224526643753052,
+            "predictive_norm": 0.10943962633609772,
+            "predictive_to_discriminative_norm_ratio": 0.08275504241794118,
+            "discriminative_loss": 1.0701285600662231,
+            "predictive_loss": 0.05098944902420044
+          },
+          {
+            "gradient_cosine": 0.7550772428512573,
+            "discriminative_norm": 1.0200833082199097,
+            "predictive_norm": 0.08117969334125519,
+            "predictive_to_discriminative_norm_ratio": 0.07958143485645043,
+            "discriminative_loss": 1.0407147407531738,
+            "predictive_loss": 0.03624608367681503
+          },
+          {
+            "gradient_cosine": 0.40580108761787415,
+            "discriminative_norm": 1.1397515535354614,
+            "predictive_norm": 0.07832469791173935,
+            "predictive_to_discriminative_norm_ratio": 0.06872085207410283,
+            "discriminative_loss": 1.518139123916626,
+            "predictive_loss": 0.0699012503027916
+          },
+          {
+            "gradient_cosine": 0.840152382850647,
+            "discriminative_norm": 0.7859516143798828,
+            "predictive_norm": 0.07274110615253448,
+            "predictive_to_discriminative_norm_ratio": 0.09255163399585017,
+            "discriminative_loss": 1.0807937383651733,
+            "predictive_loss": 0.02036624401807785
+          },
+          {
+            "gradient_cosine": 0.622702419757843,
+            "discriminative_norm": 0.7276766300201416,
+            "predictive_norm": 0.08539008349180222,
+            "predictive_to_discriminative_norm_ratio": 0.11734619468188592,
+            "discriminative_loss": 1.0244261026382446,
+            "predictive_loss": 0.02780059725046158
+          },
+          {
+            "gradient_cosine": 0.7148181796073914,
+            "discriminative_norm": 1.0880342721939087,
+            "predictive_norm": 0.07234569638967514,
+            "predictive_to_discriminative_norm_ratio": 0.06649211172714029,
+            "discriminative_loss": 0.4909655451774597,
+            "predictive_loss": 0.028673864901065826
+          },
+          {
+            "gradient_cosine": 0.2465684413909912,
+            "discriminative_norm": 1.2850106954574585,
+            "predictive_norm": 0.07805074006319046,
+            "predictive_to_discriminative_norm_ratio": 0.06073936998275701,
+            "discriminative_loss": 1.0034561157226562,
+            "predictive_loss": 0.05799829959869385
+          },
+          {
+            "gradient_cosine": 0.7727499604225159,
+            "discriminative_norm": 1.0635294914245605,
+            "predictive_norm": 0.10788027197122574,
+            "predictive_to_discriminative_norm_ratio": 0.10143608883541526,
+            "discriminative_loss": 1.3231858015060425,
+            "predictive_loss": 0.05203278362751007
+          },
+          {
+            "gradient_cosine": 0.5666735172271729,
+            "discriminative_norm": 0.7792497277259827,
+            "predictive_norm": 0.07253661006689072,
+            "predictive_to_discriminative_norm_ratio": 0.09308519141683637,
+            "discriminative_loss": 0.6079787611961365,
+            "predictive_loss": 0.024587608873844147
+          }
+        ]
+      },
       "loss_first": {
         "step": 1,
         "loss": 0.8863441348075867,
@@ -318,6 +738,146 @@
         "target_gt_used_for_training_or_gate": false
       },
       "parameter_update_l2": 1.866873764066474,
+      "gradient_alignment": {
+        "batches": 16,
+        "gradient_cosine_mean": 0.6372213512659073,
+        "gradient_cosine_p10": 0.3563707172870636,
+        "gradient_cosine_p50": 0.6902031600475311,
+        "gradient_cosine_p90": 0.863475501537323,
+        "discriminative_norm_mean": 1.0740250647068024,
+        "predictive_norm_mean": 0.08511259430088103,
+        "predictive_to_discriminative_norm_ratio_mean": 0.08160206872657068,
+        "rows": [
+          {
+            "gradient_cosine": 0.30694034695625305,
+            "discriminative_norm": 0.681503415107727,
+            "predictive_norm": 0.06827643513679504,
+            "predictive_to_discriminative_norm_ratio": 0.10018502273536282,
+            "discriminative_loss": 0.8863441348075867,
+            "predictive_loss": 0.037059493362903595
+          },
+          {
+            "gradient_cosine": 0.7176609039306641,
+            "discriminative_norm": 1.5787670612335205,
+            "predictive_norm": 0.10720054060220718,
+            "predictive_to_discriminative_norm_ratio": 0.06790142968808165,
+            "discriminative_loss": 1.1960703134536743,
+            "predictive_loss": 0.055696599185466766
+          },
+          {
+            "gradient_cosine": 0.886798620223999,
+            "discriminative_norm": 0.9554821252822876,
+            "predictive_norm": 0.07904014736413956,
+            "predictive_to_discriminative_norm_ratio": 0.0827227901733776,
+            "discriminative_loss": 0.8599821329116821,
+            "predictive_loss": 0.023650936782360077
+          },
+          {
+            "gradient_cosine": 0.5345184803009033,
+            "discriminative_norm": 0.854228138923645,
+            "predictive_norm": 0.05872630700469017,
+            "predictive_to_discriminative_norm_ratio": 0.06874780205518306,
+            "discriminative_loss": 0.8378087282180786,
+            "predictive_loss": 0.02673397958278656
+          },
+          {
+            "gradient_cosine": 0.5389344096183777,
+            "discriminative_norm": 0.9563461542129517,
+            "predictive_norm": 0.08475830405950546,
+            "predictive_to_discriminative_norm_ratio": 0.08862722319332102,
+            "discriminative_loss": 1.040481448173523,
+            "predictive_loss": 0.03303629904985428
+          },
+          {
+            "gradient_cosine": 0.7098731398582458,
+            "discriminative_norm": 0.8113406300544739,
+            "predictive_norm": 0.05011509358882904,
+            "predictive_to_discriminative_norm_ratio": 0.06176825334812123,
+            "discriminative_loss": 0.8296635746955872,
+            "predictive_loss": 0.01806642860174179
+          },
+          {
+            "gradient_cosine": 0.9057393074035645,
+            "discriminative_norm": 2.134993553161621,
+            "predictive_norm": 0.15579615533351898,
+            "predictive_to_discriminative_norm_ratio": 0.072972658443304,
+            "discriminative_loss": 1.0445001125335693,
+            "predictive_loss": 0.050067417323589325
+          },
+          {
+            "gradient_cosine": 0.6705331802368164,
+            "discriminative_norm": 1.3224526643753052,
+            "predictive_norm": 0.10943962633609772,
+            "predictive_to_discriminative_norm_ratio": 0.08275504241794118,
+            "discriminative_loss": 1.0701285600662231,
+            "predictive_loss": 0.05098944902420044
+          },
+          {
+            "gradient_cosine": 0.7550772428512573,
+            "discriminative_norm": 1.0200833082199097,
+            "predictive_norm": 0.08117969334125519,
+            "predictive_to_discriminative_norm_ratio": 0.07958143485645043,
+            "discriminative_loss": 1.0407147407531738,
+            "predictive_loss": 0.03624608367681503
+          },
+          {
+            "gradient_cosine": 0.40580108761787415,
+            "discriminative_norm": 1.1397515535354614,
+            "predictive_norm": 0.07832469791173935,
+            "predictive_to_discriminative_norm_ratio": 0.06872085207410283,
+            "discriminative_loss": 1.518139123916626,
+            "predictive_loss": 0.0699012503027916
+          },
+          {
+            "gradient_cosine": 0.840152382850647,
+            "discriminative_norm": 0.7859516143798828,
+            "predictive_norm": 0.07274110615253448,
+            "predictive_to_discriminative_norm_ratio": 0.09255163399585017,
+            "discriminative_loss": 1.0807937383651733,
+            "predictive_loss": 0.02036624401807785
+          },
+          {
+            "gradient_cosine": 0.622702419757843,
+            "discriminative_norm": 0.7276766300201416,
+            "predictive_norm": 0.08539008349180222,
+            "predictive_to_discriminative_norm_ratio": 0.11734619468188592,
+            "discriminative_loss": 1.0244261026382446,
+            "predictive_loss": 0.02780059725046158
+          },
+          {
+            "gradient_cosine": 0.7148181796073914,
+            "discriminative_norm": 1.0880342721939087,
+            "predictive_norm": 0.07234569638967514,
+            "predictive_to_discriminative_norm_ratio": 0.06649211172714029,
+            "discriminative_loss": 0.4909655451774597,
+            "predictive_loss": 0.028673864901065826
+          },
+          {
+            "gradient_cosine": 0.2465684413909912,
+            "discriminative_norm": 1.2850106954574585,
+            "predictive_norm": 0.07805074006319046,
+            "predictive_to_discriminative_norm_ratio": 0.06073936998275701,
+            "discriminative_loss": 1.0034561157226562,
+            "predictive_loss": 0.05799829959869385
+          },
+          {
+            "gradient_cosine": 0.7727499604225159,
+            "discriminative_norm": 1.0635294914245605,
+            "predictive_norm": 0.10788027197122574,
+            "predictive_to_discriminative_norm_ratio": 0.10143608883541526,
+            "discriminative_loss": 1.3231858015060425,
+            "predictive_loss": 0.05203278362751007
+          },
+          {
+            "gradient_cosine": 0.5666735172271729,
+            "discriminative_norm": 0.7792497277259827,
+            "predictive_norm": 0.07253661006689072,
+            "predictive_to_discriminative_norm_ratio": 0.09308519141683637,
+            "discriminative_loss": 0.6079787611961365,
+            "predictive_loss": 0.024587608873844147
+          }
+        ]
+      },
       "loss_first": {
         "step": 1,
         "loss": 0.037059493362903595,
