@@ -174,3 +174,11 @@ it is above history-last; Transformer predictive is 3.73 Top-1 points and
 0.0608 AUC below Transformer CE. The result is consistent with BDD but keeps
 the legacy-track reconstruction limits.
 
+Video-cluster resampling gives the same qualification. The BDD MLP predictive
+disadvantage versus CE and ranking remains negative across 19 video clusters;
+the UA AUC disadvantage versus CE/ranking remains negative across nearly every
+video, while predictive JEPA still beats last-history aggregation on Top-1 and
+net correction. These cluster-balanced diagnostics are in
+`H1_VIDEO_CLUSTER_PAIRED_SEED17.md` and do not turn one seed into a
+multi-seed claim.
+
