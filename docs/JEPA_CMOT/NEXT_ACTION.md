@@ -1,6 +1,6 @@
 # 下一步
 
-2026-10-13 的实际核查显示当前容器 `/dev/nvidia*` 不存在、CUDA 不可用。BDD reverse 四阶段矩阵、UA C2/H2 四阶段完整矩阵、UA主线stage0–2、UA RKD stage0–3、UA official paired encoder/predictor 已通过完整 native marker、快照/optimizer或source parity核验；UA主线stage3正在外部节点续跑，不重启或新增多种子任务。
+2026-10-13 的实际核查显示当前容器 `/dev/nvidia*` 不存在、CUDA 不可用。BDD reverse 四阶段矩阵、UA C2/H2 四阶段完整矩阵、UA主线stage0–3、UA RKD stage0–3、UA official paired encoder/predictor 已通过完整 native marker、快照/optimizer或source parity核验；当前仅保留sealed冻结与固定seed17范围审计，不重启或新增多种子任务。
 
 完成正在运行的全 development frozen 对照与 forward 连续矩阵；优先汇总已经完整的域，严格标注 source/target、seed和评测覆盖。主表始终使用相同 detector/native frame/caches，逐域报告负结果。
 
@@ -81,6 +81,8 @@ encoder pure比同读数CE +.44170 CI[.19336,.75556]，但比geometry -.05653 CI
 完整八组逐域六指标、十二项配对视频raw-count区间、source pool/checkpoint/实际prepared annotation SHA和复现命令见BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json，图figures/bdd_complete_official_paired_readouts.svg。全部原prepared detections、native frames和GT评分覆盖逐条匹配，targetGT没有进入训练/gates，sealed未用。UA official pipeline继续，不以BDD seed17 frozen结果替代全项目完成。
 
 UA通用RKD-D的seed17 forward已完成stage0–3冻结回测：stage1/2/3分别为27440/42140/65430累计adaptation frames、3395/5232/8101 updates，stage3四域等权HOTA 62.62327，最终HOTA AF/BWT/FWT为0.59132/-0.55559/0.17440；完整结果见UA_RKD_FULL_CONTINUAL_ANALYSIS.json与UA_RKD_COMPLETED_STAGES_1_2_3_ANALYSIS.json。该结果是固定seed17 development证据，sealed和跨seed仍未完成。早期启动和依赖关系仍见UA_GENERIC_RKD_EARLY_LAUNCH.json。
+
+UA主线六控制也已完成stage0–3冻结回测：17个development视频、65,430累计adaptation frames、replay128为8,101 updates，完整结果见UA_MAIN_FULL_CONTINUAL_ANALYSIS.json与UA_MAIN_COMPLETED_STAGES_1_2_3_ANALYSIS.json。六控制最终HOTA为61.94188–62.86108，HOTA AF/BWT/FWT范围为0–0.18498/-0.18498–0.14945/-0.11364–0.42536；这是固定seed17 development结果，不能替代sealed或跨seed稳健性。
 
 ## data1磁盘清理
 
