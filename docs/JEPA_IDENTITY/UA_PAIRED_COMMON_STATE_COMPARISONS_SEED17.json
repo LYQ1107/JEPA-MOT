@@ -1,0 +1,667 @@
+{
+  "status": "COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17",
+  "scope": "paired per-event comparison on the fixed BDD development common-state audit; no new training or rollout",
+  "source_cases": "runs/JEPA_IDENTITY/h1_wave_b/common_state_cases.jsonl",
+  "source_case_count": 4199,
+  "candidate_present_case_count": 4159,
+  "candidate_absent_case_count": 40,
+  "paired_event_key_sha256": "b03251c27dd60ce8811ecb5c654c42668ba52c933eb17b7cb589019b975d447d",
+  "controls": [
+    "history_last",
+    "mlp_ce",
+    "mlp_jepa_predictive",
+    "mlp_jepa_ranking",
+    "transformer_ce",
+    "transformer_jepa_predictive",
+    "transformer_jepa_ranking"
+  ],
+  "control_summary_candidate_present": {
+    "history_last": {
+      "candidate_present_cases": 4159,
+      "top1": 0.8355373887953835,
+      "mrr": 0.8804760759798028,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7419521920333413,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 1.0244526589258542,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.4078882568829836,
+      "brier_finite_cases": 4159,
+      "net_correction": -669.0,
+      "recovered_errors": 8,
+      "introduced_errors": 677
+    },
+    "mlp_ce": {
+      "candidate_present_cases": 4159,
+      "top1": 0.9302716999278673,
+      "mrr": 0.9605954957121103,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7958132964654965,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 0.9247383475385144,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.36235591986770516,
+      "brier_finite_cases": 4159,
+      "net_correction": -275.0,
+      "recovered_errors": 10,
+      "introduced_errors": 285
+    },
+    "mlp_jepa_predictive": {
+      "candidate_present_cases": 4159,
+      "top1": 0.9091127674921856,
+      "mrr": 0.9464654965135851,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7450846223718308,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 1.0554828791346902,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.4214553634065984,
+      "brier_finite_cases": 4159,
+      "net_correction": -363.0,
+      "recovered_errors": 11,
+      "introduced_errors": 374
+    },
+    "mlp_jepa_ranking": {
+      "candidate_present_cases": 4159,
+      "top1": 0.9278672757874489,
+      "mrr": 0.9591047527450509,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7860780502791804,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 0.9703939587185137,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.38326371725226743,
+      "brier_finite_cases": 4159,
+      "net_correction": -285.0,
+      "recovered_errors": 9,
+      "introduced_errors": 294
+    },
+    "transformer_ce": {
+      "candidate_present_cases": 4159,
+      "top1": 0.9081509978360183,
+      "mrr": 0.9481485934118778,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7886287435548075,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 0.9429026443062704,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.3710384126749438,
+      "brier_finite_cases": 4159,
+      "net_correction": -367.0,
+      "recovered_errors": 8,
+      "introduced_errors": 375
+    },
+    "transformer_jepa_predictive": {
+      "candidate_present_cases": 4159,
+      "top1": 0.8708824236595335,
+      "mrr": 0.91980844754348,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7278348828511128,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 1.0602775663537645,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.42361572775305006,
+      "brier_finite_cases": 4159,
+      "net_correction": -522.0,
+      "recovered_errors": 12,
+      "introduced_errors": 534
+    },
+    "transformer_jepa_ranking": {
+      "candidate_present_cases": 4159,
+      "top1": 0.8872325078143785,
+      "mrr": 0.9315660815901258,
+      "mrr_finite_cases": 4159,
+      "pairwise_auc": 0.7373437124308727,
+      "pairwise_auc_finite_cases": 4159,
+      "nll_uncalibrated": 0.9930727907724937,
+      "nll_finite_cases": 4159,
+      "brier_uncalibrated": 0.39374919426121424,
+      "brier_finite_cases": 4159,
+      "net_correction": -454.0,
+      "recovered_errors": 9,
+      "introduced_errors": 463
+    }
+  },
+  "comparisons": [
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "mlp_ce",
+      "paired_cases": 4159,
+      "improvement_convention": "positive means candidate is better; NLL/Brier use reference minus candidate",
+      "metrics": {
+        "top1": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.021158932435681656,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.029814859341187785,
+            -0.012503005530175523
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "mrr": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.014129999198525287,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.01931574096337261,
+            -0.008872224893804601
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "pairwise_auc": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.05072867409366568,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.05619274465015629,
+            -0.045408868985600176
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "nll_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.13074453159617594,
+          "median_improvement": -0.10505574210862112,
+          "bootstrap_95ci": [
+            -0.13463092388591316,
+            -0.12686413018096587
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "brier_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.059099443538893265,
+          "median_improvement": -0.049031338214982456,
+          "bootstrap_95ci": [
+            -0.06080330272003833,
+            -0.05742641612332201
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "net_correction": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.021158932435681656,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.029814859341187785,
+            -0.012503005530175523
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "recovered_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.00024044241404183698,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.00048088482808367395,
+            0.0012022120702091848
+          ],
+          "permutation_p_two_sided": 1.0
+        },
+        "introduced_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.021399374849723492,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.03005530175522962,
+            -0.01274344794421736
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        }
+      }
+    },
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "history_last",
+      "paired_cases": 4159,
+      "improvement_convention": "positive means candidate is better; NLL/Brier use reference minus candidate",
+      "metrics": {
+        "top1": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.07357537869680211,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.06491945179129599,
+            0.08223130560230825
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "mrr": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.06598942053378216,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.0596055742566322,
+            0.07289061873847881
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "pairwise_auc": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.0031324303384894867,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            5.555221607758194e-05,
+            0.006271255777296891
+          ],
+          "permutation_p_two_sided": 0.050594940505949405
+        },
+        "nll_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.03103022020883609,
+          "median_improvement": -0.016353667344046974,
+          "bootstrap_95ci": [
+            -0.033069594324291594,
+            -0.029110261882928243
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "brier_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.01356710652361485,
+          "median_improvement": -0.007455968277772174,
+          "bootstrap_95ci": [
+            -0.014431300933073356,
+            -0.012722564471581323
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "net_correction": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.07357537869680211,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.06515989420533783,
+            0.08271820149074288
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "recovered_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.000721327242125511,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.0,
+            0.001683096898292859
+          ],
+          "permutation_p_two_sided": 0.2528747125287471
+        },
+        "introduced_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.0728540514546766,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.06419812454917047,
+            0.08175042077422458
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        }
+      }
+    },
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "mlp_jepa_ranking",
+      "paired_cases": 4159,
+      "improvement_convention": "positive means candidate is better; NLL/Brier use reference minus candidate",
+      "metrics": {
+        "top1": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.018754508295263286,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.026448665544602068,
+            -0.011060351045924502
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "mrr": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.012639256231465897,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.017171896289172078,
+            -0.008215015628756915
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "pairwise_auc": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.04099342790734953,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.045891540434399296,
+            -0.03628621663861506
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "nll_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.0850889204161764,
+          "median_improvement": -0.06725114705532964,
+          "bootstrap_95ci": [
+            -0.08776661205196234,
+            -0.08244318805839691
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "brier_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.03819164615433096,
+          "median_improvement": -0.03093346406926961,
+          "bootstrap_95ci": [
+            -0.0393652121722334,
+            -0.037043354418058116
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "net_correction": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.018754508295263286,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.026448665544602068,
+            -0.011060351045924502
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "recovered_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.00048088482808367395,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.00048088482808367395,
+            0.001442654484251022
+          ],
+          "permutation_p_two_sided": 0.6266373362663734
+        },
+        "introduced_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.019235393123346958,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.026929550372685743,
+            -0.011781678288050011
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "transformer_ce",
+      "paired_cases": 4159,
+      "improvement_convention": "positive means candidate is better; NLL/Brier use reference minus candidate",
+      "metrics": {
+        "top1": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.037268574176484735,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.047607597980283724,
+            -0.027410435200769415
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "mrr": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.028340145868397854,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.03463593011140499,
+            -0.022056283561753636
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "pairwise_auc": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.0607938607036948,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.06710457241324036,
+            -0.0547152260158692
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "nll_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.11737492204749404,
+          "median_improvement": -0.09991781703862967,
+          "bootstrap_95ci": [
+            -0.12056542530334462,
+            -0.11414975693846915
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "brier_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.05257731507810624,
+          "median_improvement": -0.047279824787427815,
+          "bootstrap_95ci": [
+            -0.05400111703272927,
+            -0.051139657892835734
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "net_correction": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.037268574176484735,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.04736715556624189,
+            -0.026929550372685743
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "recovered_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.0009617696561673479,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.00024044241404183698,
+            0.002163981726376533
+          ],
+          "permutation_p_two_sided": 0.22077792220777923
+        },
+        "introduced_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.03823034383265208,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.048088482808367396,
+            -0.028612647270978602
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "history_last",
+      "paired_cases": 4159,
+      "improvement_convention": "positive means candidate is better; NLL/Brier use reference minus candidate",
+      "metrics": {
+        "top1": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.035345034864150034,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.02836619379658572,
+            0.042798749699446983
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "mrr": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.039332371563677165,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.03429850925703294,
+            0.04475054099543159
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "pairwise_auc": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.014117309182228635,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.017476940904597792,
+            -0.010853779287221825
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "nll_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.035824907427910245,
+          "median_improvement": -0.019877427672464254,
+          "bootstrap_95ci": [
+            -0.037802444799751804,
+            -0.03384354005258767
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "brier_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.015727470870066488,
+          "median_improvement": -0.008988610051926194,
+          "bootstrap_95ci": [
+            -0.01657773718574351,
+            -0.014886289699144867
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "net_correction": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.035345034864150034,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.028131762442894927,
+            0.04255830728540515
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "recovered_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.0009617696561673479,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.00024044241404183698,
+            0.0019235393123346958
+          ],
+          "permutation_p_two_sided": 0.12008799120087991
+        },
+        "introduced_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.03438326520798269,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.02740442414041837,
+            0.0415965376292378
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "transformer_jepa_ranking",
+      "paired_cases": 4159,
+      "improvement_convention": "positive means candidate is better; NLL/Brier use reference minus candidate",
+      "metrics": {
+        "top1": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.016350084154844916,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.024284683818225534,
+            -0.008896369319547967
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "mrr": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.011757634046645829,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.01681113248377014,
+            -0.007076120060912091
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "pairwise_auc": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.009508829579760094,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.013023479869626781,
+            -0.0058788003259330505
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "nll_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.0672047755812707,
+          "median_improvement": -0.06078296975163733,
+          "bootstrap_95ci": [
+            -0.06877524719327731,
+            -0.06562154790917045
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "brier_uncalibrated": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.02986653349183581,
+          "median_improvement": -0.027732378441407413,
+          "bootstrap_95ci": [
+            -0.030537467798421206,
+            -0.029191950703130996
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "net_correction": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.016350084154844916,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.023803798990141862,
+            -0.008890358259197009
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        },
+        "recovered_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": 0.000721327242125511,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            0.0,
+            0.001683096898292859
+          ],
+          "permutation_p_two_sided": 0.24707529247075294
+        },
+        "introduced_errors": {
+          "paired_cases": 4159,
+          "mean_improvement": -0.017071411396970427,
+          "median_improvement": 0.0,
+          "bootstrap_95ci": [
+            -0.02476556864630921,
+            -0.009377254147631643
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05
+        }
+      }
+    }
+  ],
+  "bootstrap_draws": 5000,
+  "permutation_draws": 10000,
+  "seed": 17,
+  "target_GT_used_for_training_or_gate": false,
+  "offline_GT_used_for_diagnosis": true,
+  "sealed_used": false,
+  "limitations": [
+    "the cases are recorded predictive-residual rollout states and not an independent all-opportunity baseline",
+    "candidate-absent cases are excluded from ranking metrics and are reported separately rather than imputed",
+    "paired permutation p-values and bootstrap intervals are descriptive uncertainty diagnostics for one seed, not a multi-seed confirmatory claim",
+    "NLL and Brier use the existing uncalibrated softmax(-cost) diagnostic"
+  ]
+}
