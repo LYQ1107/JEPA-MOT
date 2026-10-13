@@ -70,7 +70,7 @@
   ],
   "wave_b_fixed_teacher_diagnostic": {
     "status": "COMPLETE_H2_WAVE_B_FIXED_TEACHER_DIAGNOSTIC",
-    "summary": "BDD seed17; four cells share 153 recorded pseudo-pairs and one 128-step schedule; no target GT, live tracker, HOTA, or closed-loop update was used",
+    "summary": "BDD seed17; four cells share 153 recorded pseudo-pairs and one 128-step schedule, with a 16-batch gradient-direction audit; no target GT, live tracker, HOTA, or closed-loop update was used",
     "report": "docs/JEPA_IDENTITY/H2_WAVE_B_FIXED_TEACHER_SEED17.json",
     "full_factorial_evidence": false
   },
