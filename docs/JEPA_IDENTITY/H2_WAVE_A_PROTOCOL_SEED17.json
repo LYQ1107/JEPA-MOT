@@ -94,10 +94,12 @@
     "evaluation_feedback_enters_training": false,
     "update_magnitude_source": "per-video learner_stats.update_magnitude records",
     "update_magnitude_aggregate": "jepa_cmot.continual_analysis update_magnitude field with matched-control audit",
+    "controls_audit": "jepa_cmot.h2_wave_a_preflight control_protocol_audit",
     "post_run_matrix_analysis": "jepa_cmot.continual_analysis"
   },
   "required_evidence": [
     "source and teacher checkpoint identities",
+    "runtime controls match the registered four-cell source/update mapping and shared online config",
     "exact pseudo-pair, frame, and optimizer update counts matched across cells",
     "frozen stage0 snapshot for each source initialization",
     "stage0_to_stage3 HOTA, AssA, IDF1, and IDSW matrix for all domains",
