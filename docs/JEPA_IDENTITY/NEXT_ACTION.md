@@ -42,6 +42,9 @@
     `H2_WAVE_A_PREFLIGHT_SEED17.json`: local inputs and source snapshots pass,
     while the NAS SSHFS endpoint and NVIDIA driver must be restored before any
     formal rollout. Re-run that preflight immediately before execution.
+12. Use the registered exact four-cell configuration in
+    `H2_WAVE_A_PROTOCOL_SEED17.json`; it uses the common anchor teacher and
+    does not reuse the old retention-graph control matrix.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a
