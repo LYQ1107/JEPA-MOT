@@ -2,9 +2,11 @@
 
 **Snapshot:** 2026-10-13, branch `research/jepa-identity-evidence-20261014`.
 
-Phase 0 confirmed that NAS is mounted at `/data1/liuyeqiang/nas/A100`, no
-tracked experiment process is running, and `nvidia-smi` cannot communicate
-with the driver. `/data1` has about 35 GB free. No new dense cache was created;
+Phase 0 confirmed that the mount table still lists `/data1/liuyeqiang/nas/A100`,
+but the latest preflight receives `Transport endpoint is not connected` from
+that SSHFS endpoint. No tracked experiment process is running, and
+`nvidia-smi` cannot communicate with the driver. `/data1` has about 35 GB
+free. No new dense cache was created;
 the four local structural checkpoints and their compact reports use about
 32 MB under the ignored `runs/` tree.
 
@@ -76,4 +78,9 @@ P-cell hybrid gradient had cosine 0.998 with the discriminative gradient, so
 this is a partial ranking-objective rescue rather than evidence of a uniquely
 predictive H2 advantage. The full-video Wave-A factorial remains pending; the
 mechanism record is `H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`.
+
+The zero-training H2 Wave-A preflight confirms that all local BDD detection and
+dense-feature inputs and both source snapshots are ready, but it did not launch
+the formal rollout because the NAS endpoint and NVIDIA driver are unavailable;
+see `H2_WAVE_A_PREFLIGHT_SEED17.json`.
 
