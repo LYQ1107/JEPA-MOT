@@ -37,7 +37,7 @@ class ContinualLearner:
         self.pending={};self.memory=[];self.seen=0;self.frames=0;self.updates=0
         self.recent=[]
         self.stats=dict(proposed=0,delayed_confirmed=0,reliability_rejected=0,need_rejected=0,
-                        video_resets=0,updates=0,losses=[])
+                        video_resets=0,updates=0,losses=[],update_magnitude=[])
 
     def predict(self,features,metadata,mask):
         self.model.eval()
@@ -171,8 +171,24 @@ class ContinualLearner:
         self.optimizer.zero_grad(set_to_none=True);loss.backward()
         norm=torch.nn.utils.clip_grad_norm_(self.model.parameters(),1.)
         if not torch.isfinite(loss) or not torch.isfinite(norm):raise FloatingPointError('Online update is nonfinite')
+        # Keep the actual parameter delta separate from the gradient norm.  The
+        # latter is clipped and therefore cannot quantify how much the learner
+        # really moved.  A short-lived clone is used so the measurement also
+        # covers AdamW's moment and weight-decay effects exactly.
+        before=[parameter.detach().clone() for parameter in self.model.parameters()]
         self.optimizer.step();self.model.eval();self.updates+=1
         self.stats['updates']=self.updates
+        with torch.no_grad():
+            delta_sq=torch.zeros((),device=self.device,dtype=torch.float64)
+            parameter_sq=torch.zeros((),device=self.device,dtype=torch.float64)
+            for parameter,reference in zip(self.model.parameters(),before):
+                current=parameter.detach().double()
+                delta_sq+=torch.sum((current-reference.double())**2)
+                parameter_sq+=torch.sum(reference.double()**2)
+        delta=float(torch.sqrt(delta_sq).cpu())
+        base=float(torch.sqrt(parameter_sq).cpu())
+        self.stats['update_magnitude'].append(dict(update=self.updates,frame=self.frames,
+            l2=delta,relative=delta/max(base,1e-12),parameter_l2=base))
         self.stats['losses'].append(dict(update=self.updates,frame=self.frames,loss=float(loss.detach()),
             prediction=float(parts['prediction']),ranking=float(parts['ranking']),retention=float(retention.detach()),
             competition_columns=columns,column_retention=float(column_loss.detach())))
@@ -193,3 +209,4 @@ class ContinualLearner:
         self.memory=payload['memory'];self.rng.setstate(payload['sampler_state']);self.pending=payload['pending']
         self.recent=payload['recent']
         for key in ['seen','frames','updates','stats']:setattr(self,key,payload[key])
+        self.stats.setdefault('update_magnitude',[])
