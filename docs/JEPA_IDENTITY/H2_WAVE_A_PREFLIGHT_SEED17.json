@@ -1,8 +1,8 @@
 {
   "status": "INPUTS_VALID_RUNTIME_BLOCKED",
-  "created_utc": "2026-10-13T20:10:58.243964+00:00",
+  "created_utc": "2026-10-13T20:13:23.097168+00:00",
   "git": {
-    "commit": "3108ac64755f143529da8860ece481e5f28d3301",
+    "commit": "81b858d9facadabb575030831b1f8befc05bd694",
     "branch": "research/jepa-identity-evidence-20261014"
   },
   "registered_protocol": {
