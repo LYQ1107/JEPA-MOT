@@ -39,6 +39,13 @@ adds uncertainty evidence to the negative H1 direction without changing the
 one-seed scope or claiming a confirmatory multi-seed result. See
 `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`.
 
+The complete seed17 evidence bundle now passes a 22-check machine audit in
+`H1_EVIDENCE_AUDIT_SEED17.json`. The gate verifies every required control,
+shared candidate coverage, ranking/correction fields, paired-event identity, the two
+structural candidates, and the UA supplement while keeping runtime and
+generalization limits explicit. Its status is static consistency only;
+`H1_GENERAL_CLAIM_NOT_ESTABLISHED` remains the scientific claim.
+
 The structural source-only trainer and checkpoint evaluator first passed
 real-cache engineering smokes, including a negative reduced candidate-relative
 smoke. The frozen one-seed structural comparison was then completed on CPU
