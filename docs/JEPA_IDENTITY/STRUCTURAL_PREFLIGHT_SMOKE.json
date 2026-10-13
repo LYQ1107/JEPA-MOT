@@ -1,0 +1,17 @@
+{
+  "status": "PASS_STRUCTURAL_CANDIDATE_PREFLIGHT",
+  "candidate": "identity_residual",
+  "checkpoint_sha256": "ae58c87275a5fdd9d4a3731e1aefd4e75d9066f363e63f7917e27574d99db444",
+  "cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+  "source_domain": "clear",
+  "source_video_count": 25,
+  "feature_dim": 1024,
+  "engineering_smoke_only": true,
+  "target_gt_used_for_training_or_gate": false,
+  "candidate_input_to_history_encoder": false,
+  "scored_events": 16,
+  "candidate_present_events": 14,
+  "min_candidate_match_iou": 0.999999980878707,
+  "identity_evidence_claim": false,
+  "limitation": "preflight smoke uses one reduced CPU checkpoint; formal structural training remains pending"
+}

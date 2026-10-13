@@ -12,8 +12,8 @@
    training job has been started.
 4. When a GPU is available, run one registered common-state comparison using
    the structural candidate protocol in
-   `STRUCTURAL_CANDIDATE_PROTOCOL.md`, with residual JEPA and its matched
-   ranking-only control first.
+   `STRUCTURAL_CANDIDATE_PROTOCOL.md` and pass the structural preflight, with
+   residual JEPA and its matched ranking-only control first.
 5. The common-state result selected two structural H1 candidates, in this
    order: identity-residual JEPA, then candidate-relative JEPA. Train at most
    one of them in the next GPU window, together with its matched CE control.

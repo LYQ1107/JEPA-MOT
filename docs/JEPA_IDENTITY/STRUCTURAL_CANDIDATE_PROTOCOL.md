@@ -134,6 +134,26 @@ the relation smoke produced `-8`; this expectedly negative reduced smoke is
 recorded in `STRUCTURAL_EVALUATOR_SMOKE.json` and is not used to select a
 research candidate.
 
+Before a formal checkpoint is evaluated, run the preflight wrapper:
+
+```bash
+./run_python.sh -m jepa_identity.preflight_structural_candidate \
+  --checkpoint <checkpoint>/final.pt \
+  --metrics <checkpoint>/metrics.json \
+  --cache runs/JEPA_CMOT/source_identity_cache_v1/bdd100k/features_dense_current.npz \
+  --candidate identity_residual --source-domain clear \
+  --cases runs/JEPA_IDENTITY/h1_wave_b/common_state_cases.jsonl \
+  --inputs-dir runs/JEPA_CMOT/development_rank_reward_v1/bdd100k_seed17/inputs \
+  --out-cases <out>/common_state_cases.jsonl \
+  --out-report <out>/preflight.json
+```
+
+It rejects mismatched checkpoint/cache hashes, candidate or feature dimensions,
+non-causal source metadata, target-domain provenance, and candidate input to
+the history encoder before scoring. `--allow-engineering-smoke` is required
+for reduced smoke checkpoints and must not be used for a formal result. The
+real-cache preflight smoke is summarized in `STRUCTURAL_PREFLIGHT_SMOKE.json`.
+
 ## Current status
 
 The protocol and CPU module are complete. GPU training is pending because the
