@@ -192,6 +192,7 @@ are the only candidate-relative identity evidence retained for the H1 gate.
 The protocol, CPU module, formal seed17 comparison, and preflight path are
 complete. The current host still has no usable NVIDIA driver, but the frozen
 one-seed structural comparison was completed on CPU. No structural candidate
-passes the H1 gate, so H1 remains unresolved and H2 stays frozen; no multi-seed
-or online target update has been started.
+passes the H1 gate, so H1 remains unresolved. H2 is independent: a bounded
+fixed-teacher objective diagnostic has been run, while no multi-seed or
+full-video closed-loop target update has been started.
 
