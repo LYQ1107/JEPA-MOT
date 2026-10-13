@@ -11,6 +11,12 @@ as the explicit placeholder for the same-initialization D-to-D/D-to-P/P-to-D/
 P-to-P experiment. The readiness and gating decision is machine-readable in
 `H2_PROTOCOL_READINESS.json`.
 
+The exact executable four-cell registration is
+`H2_WAVE_A_PROTOCOL_SEED17.json`. It fixes the anchor teacher, delay-1
+pseudo-pair rule, confidence gate, replay/batch/interval/optimizer schedule,
+source calibrations, and the stagewise evidence required for D-to-D, D-to-P,
+P-to-D, and P-to-P. It is a protocol artifact only; no cell has been run.
+
 ## Wave-A preflight (seed17)
 
 The zero-training preflight is recorded in
