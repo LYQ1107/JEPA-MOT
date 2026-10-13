@@ -113,3 +113,5 @@ pure FT相对CE FT +.78640 HOTA CI[.50379,1.07441]，相对joint FT +.37676 CI[.
 相对实际frozen pure39.82910，FT -.09451 CI[-.32327,.13889]，Replay -.13111 CI[-.46871,.22496]；相对geometry39.90215，FT -.16756 CI[-.52401,.18123]，Replay -.20416 CI[-.53792,.12487]。Replay相对pure FT -.03661 CI[-.35638,.31336]，AF反而更高（单seed/实际采样与更新数不同）。当前支持pure比弱CE/joint的性能保留更好，但未建立online adaptation或Replay可靠额外收益；AF低也不等于学会新域或超过静态强方法。
 
 完整八组4×4逐域六指标、AF/signedAF/BWT/FWT、九项配对raw-count区间、实际边界optimizer/确认数/checkpoint SHA/原protocol与复现命令见BDD_FULL_PURE_PREDICTIVE_CONTINUAL_RESULTS.json，图figures/bdd_complete_pure_objective_continual.svg。源预算/同容量head/同source-only校准流程、detector/native/geometry/nominal更新预算保持，targetGT只用于offline metrics，sealed未用。反向顺序、三seed及UA counterpart仍在运行，不将本scope声明为最终全项目完成。
+
+纠正两个尚未执行的reverse17/UA reverse-all队列开关：此前false会误跑forward，现true并重载无child的等待队列；预期BDD clear→night→rainy→overcast、UA sunny→night→rainy→cloudy。未产生任何错误标签的reverse实验，也未修改已完成forward数据/学习预算。见REVERSE_QUEUE_FLAG_CORRECTION.json；多seed BDD原队列的reverse=True保持正确。

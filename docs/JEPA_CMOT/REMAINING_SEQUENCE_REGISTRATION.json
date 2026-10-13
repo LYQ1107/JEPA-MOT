@@ -30,7 +30,7 @@
           "dataset": "bdd100k",
           "controls": "configs/JEPA_CMOT/bdd100k_reverse_seed17_with_pure_predictive.json",
           "out": "runs/JEPA_CMOT/continual_completion_v1/bdd100k_reverse_seed17",
-          "reverse": false
+          "reverse": true
         }
       ]
     },
@@ -79,7 +79,7 @@
           "dataset": "ua_detrac",
           "controls": "configs/JEPA_CMOT/ua_detrac_reverse_all_seeds_with_pure_predictive17.json",
           "out": "runs/JEPA_CMOT/continual_completion_v1/ua_detrac_reverse_seeds17_23_42_pure17",
-          "reverse": false
+          "reverse": true
         }
       ]
     }

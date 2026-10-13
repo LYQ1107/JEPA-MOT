@@ -1,0 +1,37 @@
+{
+  "status": "REGISTERED_REVERSE_FLAG_CORRECTED_BEFORE_EXECUTION",
+  "corrections": [
+    {
+      "plan": "runs/JEPA_CMOT/scheduler_v1/bdd_remaining_sequences.json",
+      "previous_pid": 34633,
+      "new_pid": 37758,
+      "corrected_jobs": [
+        "runs/JEPA_CMOT/continual_completion_v1/bdd100k_reverse_seed17"
+      ],
+      "expected_order": [
+        "clear",
+        "night",
+        "rainy",
+        "overcast"
+      ],
+      "no_reverse_results_preexisting": true
+    },
+    {
+      "plan": "runs/JEPA_CMOT/scheduler_v1/ua_remaining_sequences.json",
+      "previous_pid": 38319,
+      "new_pid": 37760,
+      "corrected_jobs": [
+        "runs/JEPA_CMOT/continual_completion_v1/ua_detrac_reverse_seeds17_23_42_pure17"
+      ],
+      "expected_order": [
+        "sunny",
+        "night",
+        "rainy",
+        "cloudy"
+      ],
+      "no_reverse_results_preexisting": true
+    }
+  ],
+  "learning_or_split_changed": false,
+  "completed_forward_results_affected": false
+}

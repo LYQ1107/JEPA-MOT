@@ -15,6 +15,8 @@ def main():
     args = parser.parse_args()
     plan = json.loads(args.plan.read_text())
     for job in plan['jobs']:
+        if '_reverse_' in job['out'] and not job.get('reverse'):
+            raise ValueError('Registered reverse output requires the reverse command flag')
         controls = json.loads(Path(job['controls']).read_text())
         for control in controls:
             for field in ['checkpoint', 'calibration']:
