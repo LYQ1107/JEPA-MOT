@@ -77,6 +77,14 @@ matches the BDD distinction between predictive JEPA versus CE/ranking and
 versus simple history, while retaining the legacy-track limitation. See
 `UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.md`.
 
+To account for correlated frames, the BDD and UA paired reports also have
+video-cluster bootstrap audits. BDD keeps the MLP predictive disadvantage
+against CE/ranking after 19-video resampling; UA keeps a negative AUC delta
+against CE/ranking across nearly every video. Predictive JEPA remains stronger
+than last-history in UA Top-1 and correction, so the comparison is specifically
+against discriminative controls rather than every simple baseline. See
+`H1_VIDEO_CLUSTER_PAIRED_SEED17.md`.
+
 This is a useful selection signal, not a proof. The event set is conditioned
 on changed assignments, the methods do not share one propagated state, the
 tracer records a top candidate subset, and the NLL/Brier/ECE values are
