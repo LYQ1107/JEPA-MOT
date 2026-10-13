@@ -15,7 +15,7 @@
 | 相同actual update预算 | H2 final1096步/41563确认；C2/RKD final1094步/41176确认及边界样本相同；真实optimizer step核验 | 同family已验证；不同family/自教师样本不能假定一致 |
 | A/B/C机制独立贡献 | latent/response source目标、H2需求vsappearance-hard、C2 feature/row/column完整矩阵 | 有实质探索；当前无稳定超过强简单方法的证据 |
 | 普通关系蒸馏RKD控制 | GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION、BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY | BDD full4×4完成，三边界五组样本/1094更新对齐；RKD-D/column增量无可靠证据，UA仍待完成 |
-| 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；实际BDD23/42 forward序列、后续reverse队列 | 未完成；不能用源seed或video CI替代 |
+| 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；实际BDD23/42 forward序列、后续reverse队列 | 未完成；Transformer三目标seed23/42完整frozen development已排队（复用本项目GPU2），不能用源seed或video CI替代 |
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；反向/UA/多seed仍运行 |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |
 | 实际图像到轨迹FPS/latency/显存/更新成本 | FULL_NATIVE_LIVE_EFFICIENCY_RESULTS、RETENTION_ACTUAL_UPDATE_COSTS | 12个整视频live案例+真实update-call成本；非全场景/新增FP32读数live速度 |

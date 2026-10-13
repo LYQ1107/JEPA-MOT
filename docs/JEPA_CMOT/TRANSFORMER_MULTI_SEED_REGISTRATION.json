@@ -1,0 +1,63 @@
+{
+  "status": "QUEUED_NOT_TRAINING_OR_RESULTS",
+  "time_utc": "2026-10-13T06:44:52.614362+00:00",
+  "queue_pid": 11512,
+  "wait_pipeline_pid": 24690,
+  "wait_complete": "runs/JEPA_CMOT/paired_readout_v1/complete.json",
+  "gpu": 2,
+  "script": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/scheduler_v1/transformer_multiseed_after_paired.py",
+  "entrypoint": "jepa_cmot.transformer_pipeline",
+  "seeds": [
+    17,
+    23,
+    42
+  ],
+  "new_seeds": [
+    23,
+    42
+  ],
+  "datasets": [
+    "bdd100k",
+    "ua_detrac"
+  ],
+  "methods": [
+    "discriminative",
+    "predictive",
+    "predictive_ranking"
+  ],
+  "architecture": "transformer",
+  "parameters": 662016,
+  "history": 4,
+  "source_steps": 2000,
+  "source_batch": 64,
+  "prediction_gaps": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "calibration": "identical source validation only, two parameters, 200 steps",
+  "development": {
+    "bdd100k": {
+      "videos": 19,
+      "frames": 3844
+    },
+    "ua_detrac": {
+      "videos": 17,
+      "frames": 25460
+    }
+  },
+  "source_cache_sha256": {
+    "bdd100k": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+    "ua_detrac": "0dbe9d5b4000e02daaef2635694fdefe062a2f9a765eb5df5a19242ad2e12deb"
+  },
+  "seed17_root": "runs/JEPA_CMOT/transformer_v1",
+  "new_root": "runs/JEPA_CMOT/transformer_multiseed_v1",
+  "detector_seed": 17,
+  "detector_shared_across_seeds": true,
+  "target_GT_in_training": false,
+  "sealed_used": false,
+  "scope": "Frozen full development source-seed robustness; not continual or held-out evidence",
+  "reason": "Temporal Transformer has favorable fixed-seed source-objective comparisons; repeat all three objectives without selecting only the best loss. Use existing JEPA GPU after official pipeline, as initially empty GPUs4/5 were occupied before launch.",
+  "command_template": "./run_python.sh -m jepa_cmot.transformer_pipeline --dataset DATASET --seed SEED --root runs/JEPA_CMOT/transformer_multiseed_v1"
+}
