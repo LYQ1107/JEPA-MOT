@@ -1,6 +1,6 @@
 {
-  "status": "REGISTERED_H2_WAVE_A_NOT_EXECUTED_WAVE_B_DIAGNOSTIC_COMPLETE",
-  "scope": "same-initialization one-seed causal factorial readiness audit; the registered full-video Wave-A factorial remains unexecuted, while a bounded fixed-teacher Wave-B diagnostic is complete",
+  "status": "REGISTERED_H2_WAVE_A_NOT_EXECUTED_WAVE_B_AND_WAVE_D_DIAGNOSTICS_COMPLETE",
+  "scope": "same-initialization one-seed causal factorial readiness audit; the registered full-video Wave-A factorial remains unexecuted, while bounded fixed-teacher Wave-B and Wave-D diagnostics are complete",
   "h1_precondition": {
     "summary": "docs/JEPA_IDENTITY/STRUCTURAL_FORMAL_SEED17.json",
     "status": "COMPLETE_SEED17_CPU_STRUCTURAL_COMMON_STATE_COMPARISON",
@@ -52,8 +52,12 @@
   "execution_state": {
     "registered_wave_a_started": false,
     "wave_b_diagnostic_completed": true,
+    "wave_d_mechanism_probe_completed": true,
     "completed_cells": [],
-    "partial_outputs": ["docs/JEPA_IDENTITY/H2_WAVE_B_FIXED_TEACHER_SEED17.json"],
+    "partial_outputs": [
+      "docs/JEPA_IDENTITY/H2_WAVE_B_FIXED_TEACHER_SEED17.json",
+      "docs/JEPA_IDENTITY/H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json"
+    ],
     "legacy_reports_are_causal_evidence": false,
     "blockers": [
       "NVIDIA_DRIVER_UNAVAILABLE",
@@ -74,7 +78,14 @@
     "report": "docs/JEPA_IDENTITY/H2_WAVE_B_FIXED_TEACHER_SEED17.json",
     "full_factorial_evidence": false
   },
+  "wave_d_predictive_ranking_mechanism_probe": {
+    "status": "COMPLETE_H2_WAVE_D_PREDICTIVE_RANKING_MECHANISM_PROBE",
+    "summary": "D-to-predictive-plus-ranking gained 7.84 fixed-bank Top-1 points and P-to-predictive-plus-ranking gained 1.96 points on the same 153 examples and 128-step schedule; the P-cell hybrid gradient cosine with discriminative was 0.9983",
+    "report": "docs/JEPA_IDENTITY/H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json",
+    "full_factorial_evidence": false,
+    "interpretation": "The ranking term partly rescues prediction-only ranking, but the P-cell update is effectively discriminative-dominated and no H2 advantage is established."
+  },
   "legacy_evidence_limit": "Existing docs/JEPA_CMOT continual matrices mix source objectives or initializations and cannot identify the online objective effect.",
-  "next_allowed_action": "Execute one seed and one forward domain order for the four same-initialization cells, when a usable GPU or an explicitly bounded CPU window is available; H1 positivity is not a prerequisite. Do not infer H2 from legacy matrices.",
+  "next_allowed_action": "Execute the registered full-video Wave-A factorial with one seed and one forward domain order for the four same-initialization cells, when a usable GPU or an explicitly bounded CPU window is available; H1 positivity is not a prerequisite. Do not infer H2 from the fixed-teacher diagnostics or legacy matrices, and do not expand to reverse order or more seeds yet.",
   "identity_evidence_claim": false
 }
