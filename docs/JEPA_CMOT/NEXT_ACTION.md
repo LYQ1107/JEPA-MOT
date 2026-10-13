@@ -93,3 +93,5 @@ UA MLP/Transformer/pair-MLP/mean4/EMA全部17开发视频/25460 native帧完成�
 Transformer pure比同Transformer CE +.68317 CI[.08575,1.29499]，比geometry +.88491 CI[.20845,1.32044]；但比EMA只有+.11875 CI[-.27443,.28213]。MLP pure比EMA -.05180 CI[-.22667,.05772]，比pair +.61997 CI[.39052,.94665]，比last +.31086 CI[.11770,.83744]。EMA本身比geometry +.76616 CI[.16143,1.37539]；因此不能用弱CE/geometry的正差宣称预测损失已超越强简单历史，Transformer best点估计仍无selection correction/cross-seed证据。源时间支持/crop/readout探索不从最佳视频/阶段选结果。
 
 全部方法逐域六指标、十三项全native raw-count配对比较见UA_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json，图figures/ua_complete_strong_heads_hota.svg。结果是seed17 frozen development，仍需UA持续矩阵、多seed/orders与official UA读数；sealed未用。
+
+补查恢复UA历史1/2/4/8：磁盘满导致第17个开发视频MVI_40792退出，前16全native标记有效；GPU4实际controller26247从该未完成视频接续，完整之后自动执行跨长度bootstrap与history4全部轨迹bytes对照。见UA_HISTORY_DISK_RECOVERY.json；尚未以16/17当作完整消融结果。

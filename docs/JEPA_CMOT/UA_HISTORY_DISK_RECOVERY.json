@@ -1,0 +1,29 @@
+{
+  "pid": 26247,
+  "gpu": 4,
+  "command": [
+    "/data1/liuyeqiang/JEPA_MOT_resume_20261012/run_python.sh",
+    "-u",
+    "-m",
+    "jepa_cmot.development_controls",
+    "--dataset",
+    "ua_detrac",
+    "--manifest",
+    "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+    "--detections",
+    "runs/JEPA_CMOT/formal_detection_streams_v1/ua_detrac",
+    "--controls",
+    "runs/JEPA_CMOT/controls_v1/ua_detrac_history_length_clips.json",
+    "--feature-producer-pid",
+    "0",
+    "--out",
+    "runs/JEPA_CMOT/development_history_length_v1/ua_detrac_seed17"
+  ],
+  "scientific_protocol_changed": false,
+  "completed_videos_before_resume": 16,
+  "failed_video": "MVI_40792",
+  "cause": "Errno28: device exhausted",
+  "status": "RECOVERY_STARTED_NOT_COMPLETE",
+  "analysis_waiter_pid": 30353,
+  "verified_live": true
+}
