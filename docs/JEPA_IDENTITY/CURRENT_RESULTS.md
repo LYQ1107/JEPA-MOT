@@ -29,6 +29,16 @@ identity-ranking mechanism. The selected next hypotheses are identity-residual
 JEPA and candidate-relative JEPA; both were then tested once at seed17 with
 matched ranking-only controls, with the negative result below.
 
+A paired uncertainty audit now compares the same event and candidate list
+across controls. Among 1,177 candidate-present events, MLP predictive JEPA is
+2.63 Top-1 points below MLP CE (paired 95% CI -4.50 to -0.76), 0.0210 MRR
+below it, and 31 net corrections lower; it is also below history-last and MLP
+ranking. Transformer predictive has no reliable Top-1 or correction gain and
+has lower pairwise AUC than both Transformer CE and Transformer ranking. This
+adds uncertainty evidence to the negative H1 direction without changing the
+one-seed scope or claiming a confirmatory multi-seed result. See
+`PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`.
+
 The structural source-only trainer and checkpoint evaluator first passed
 real-cache engineering smokes, including a negative reduced candidate-relative
 smoke. The frozen one-seed structural comparison was then completed on CPU
