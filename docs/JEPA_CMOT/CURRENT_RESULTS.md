@@ -337,3 +337,11 @@ BDD paired w4 source来自25个clear source_train视频的原3174帧/38466 GT实
 真实源held-out rank1：encoder CE .555494 /pure .497362 /joint .547662；masked predictor CE .473748 /pure .476078 /joint .481818。pure source prediction error为encoder .116265、predictor .039299；1664-D predictor较低的cosine error不能直接解释为更强身份关联，不同读数的latent空间/信息不同。源rank不用于选择目标域视频或调整门控。
 
 两者分享合法4帧window和ROI，但encoder能看到当前像素，official predictor当前两帧像素在patch projection前归零且tokens masked；其额外22973056个frozen predictor参数与计算另计。这里匹配物理样本、源图像/可训练预算和近似head容量，不声称可用信息、frozen参数或算力相同。完整开发MOT部署仍在运行，UA对应pipeline尚未完成，不把源训练/池一致性当成HOTA结果。详见BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json，含六个真实checkpoint SHA、source-cache SHA、原采样定义下重建的seed17 index SHA和复现命令；重建sampler不声称保存了每步训练trace。
+
+## UA完整object-centered target与强geometry对照
+
+对象crop（context1.5）六组完成全部17开发视频/25460 native帧，four-domain平均HOTA：native62.16421、geometry62.27898、last62.57372、CE62.31090、pure62.88103、joint62.70728。pure相对geometry +.60205 CI[-.26407,1.05961]，相对last +.30731 CI[-.00141,.45103]，相对CE +.57013 CI[-.41858,1.06302]，相对joint +.17375 CI[-.39423,.44930]。正点估计尚未获得跨视频/跨seed稳定证据，不从多个读数中best选择宣称成功。
+
+pure全域HOTA为sunny56.77390/cloudy72.03579/rainy50.36298/night72.35145；逐域六指标和HOTA/AssA/IDF1配对raw-count bootstrap见UA_FULL_OBJECT_CROP_DEVELOPMENT_RESULTS.json。图figures/ua_complete_object_crop_hota.svg。actual source checkpoint hashes unchanged；sealed未使用。
+
+与此前连续source clips的17个prepared detection/native clock逐条相同。复用实际完整crop geometry作同输入基线后，clips pure相对geometry +.40247 CI[-.23687,.79159]；crop pure相对clips pure +.19958 CI[-.14183,.35637]。cross-readout同时改变source时间支持及source/target读数，不解释为单因素因果增量；两者都未显著超过strong geometry。crop native/geometry与目前已完成的原dense各12视频轨迹字节完全相同，不能将该12视频验证称作原dense17视频重新运行完成。crop提高对象分辨率并增加frozen encoder调用，不声称frozen算力相等。所有结果是fixed-seed开发/frozen阶段，不替代持续或held-out证据。

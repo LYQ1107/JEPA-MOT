@@ -1,6 +1,6 @@
 # 完成证据与仍需执行的工作
 
-状态：ACTIVE。此表用于接续研究，不是完成验收。最后核对工作树提交 e03a387 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
+状态：ACTIVE。此表用于接续研究，不是完成验收。最后核对工作树提交 fbd5f5a 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
 
 | 要求 | 当前证据 | 状态/范围 |
 |---|---|---|
@@ -8,13 +8,13 @@
 | 冻结完整视频划分与独立物理状态 | VIDEO_SPLITS、FROZEN_PROTOCOL、native_protocol_v3 manifest、逐视频 complete/causal stats | 已落实；sealed未用 |
 | 相同source预算的CE/prediction/joint | source_history_v1/v2与multiseed的实际metrics；SOURCE_MULTI_SEED_COMPLETE_RESULTS | 两数据集源训练完成；不能等价于三seed MOT完成 |
 | 普通projection/MLP/Transformer/pair/mean/EMA强对照 | BDD_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS、BDD_FULL_FROZEN_PROTOTYPE_RESULTS | BDD完整development；UA多个控制仍在运行 |
-| 预测目标与源时间支持诊断 | source_clips、source relation、crop source、BDD/UA clips与BDD crop完整结果 | 已有真实结构探索和负结果；未所有读数/数据集部署完成 |
+| 预测目标与源时间支持诊断 | source_clips、source relation、crop source、BDD/UA clips与两数据集crop完整结果 | 已有真实结构探索和负结果；未所有读数/数据集部署完成 |
 | 历史1/2/4/8与间隔/运动分组 | BDD_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS、BDD_COMPLETE_LOCAL_EVENT_GAP_MOTION_STRATA | BDD历史完整；UA运行；观测gap/速度不是实际occlusion或camera-motion证明 |
-| Encoder与official predictor正式配对读数 | OFFICIAL_PAIRED_READOUT_REGISTRATION、完整202-frame接口验证、paired_readout_v1源BDDcache | 工程验证及部分实际源cache完成；全源head/development仍在运行 |
+| Encoder与official predictor正式配对读数 | OFFICIAL_PAIRED_READOUT_REGISTRATION、完整202-frame接口验证、paired_readout_v1源BDDcache | BDD正式源cache/六head/物理候选池核验已完成；BDD development与后续UA pipeline运行中 |
 | 无标签跨域θ/optimizer/replay/RNG连续与旧域回测 | BDD_FIRST_WAVE_FULL_CONTINUAL_RESULTS、BDD_FIXED_TEACHER_FULL_CONTINUAL_RESULTS、BDD_COMPETITION_FULL_CONTINUAL_RESULTS | BDD seed17 forward三个完整family；UA仍未完成 |
-| 相同actual update预算 | H2 final1096步/41563确认；C2 final1094步/41176确认；真实optimizer step核验 | 同family已验证；不同family/自教师样本不能假定一致 |
+| 相同actual update预算 | H2 final1096步/41563确认；C2/RKD final1094步/41176确认及边界样本相同；真实optimizer step核验 | 同family已验证；不同family/自教师样本不能假定一致 |
 | A/B/C机制独立贡献 | latent/response source目标、H2需求vsappearance-hard、C2 feature/row/column完整矩阵 | 有实质探索；当前无稳定超过强简单方法的证据 |
-| 普通关系蒸馏RKD控制 | GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION、真实RKD完整序列进度 | 运行中，未完成多域回测 |
+| 普通关系蒸馏RKD控制 | GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION、BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY | BDD全44适应视频完成且三边界五组样本/1094更新对齐；完整矩阵仍回测中 |
 | 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；实际BDD23/42 forward序列、后续reverse队列 | 未完成；不能用源seed或video CI替代 |
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | 排队/运行状态；未最终结果 |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |

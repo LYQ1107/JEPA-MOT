@@ -1,0 +1,729 @@
+{
+  "dataset": "ua_detrac",
+  "scope": "complete frozen development split",
+  "domains": [
+    "sunny",
+    "cloudy",
+    "rainy",
+    "night"
+  ],
+  "methods": {
+    "native": {
+      "sunny": {
+        "HOTA": 56.7224096916223,
+        "AssA": 59.89756589634493,
+        "DetA": 53.81611039568214,
+        "IDF1": 70.0248145915406,
+        "MOTA": 60.27581156944105,
+        "IDSW": 106
+      },
+      "cloudy": {
+        "HOTA": 71.73808124177616,
+        "AssA": 77.34712512830467,
+        "DetA": 66.79910559209708,
+        "IDF1": 86.39787444292473,
+        "MOTA": 75.3740986741788,
+        "IDSW": 154
+      },
+      "rainy": {
+        "HOTA": 48.79801307692186,
+        "AssA": 49.5362573407956,
+        "DetA": 48.24617079873041,
+        "IDF1": 57.39704894138581,
+        "MOTA": 50.02961032808243,
+        "IDSW": 172
+      },
+      "night": {
+        "HOTA": 71.39833146949161,
+        "AssA": 74.21669096080142,
+        "DetA": 69.12173545552,
+        "IDF1": 83.34248820764999,
+        "MOTA": 81.0991164495802,
+        "IDSW": 147
+      }
+    },
+    "geometry_null": {
+      "sunny": {
+        "HOTA": 56.90710507746295,
+        "AssA": 59.72873687448059,
+        "DetA": 54.32255133207777,
+        "IDF1": 70.3097875943829,
+        "MOTA": 61.27654381254577,
+        "IDSW": 88
+      },
+      "cloudy": {
+        "HOTA": 71.87622540541119,
+        "AssA": 77.38509334665157,
+        "DetA": 67.02290302082297,
+        "IDF1": 86.58212219325264,
+        "MOTA": 75.78502571524565,
+        "IDSW": 140
+      },
+      "rainy": {
+        "HOTA": 49.76460284868647,
+        "AssA": 51.05291642760099,
+        "DetA": 48.67190447474531,
+        "IDF1": 59.49749912760265,
+        "MOTA": 51.92297930661071,
+        "IDSW": 138
+      },
+      "night": {
+        "HOTA": 70.56797831849948,
+        "AssA": 72.11092775729789,
+        "DetA": 69.44810297127884,
+        "IDF1": 81.83363414933325,
+        "MOTA": 81.66168296927,
+        "IDSW": 125
+      }
+    },
+    "frozen_last": {
+      "sunny": {
+        "HOTA": 56.69912580097617,
+        "AssA": 59.44203477544917,
+        "DetA": 54.18682233540218,
+        "IDF1": 70.39943542695836,
+        "MOTA": 61.35220893336588,
+        "IDSW": 84
+      },
+      "cloudy": {
+        "HOTA": 71.86637900541615,
+        "AssA": 77.33695524662917,
+        "DetA": 67.04607998118294,
+        "IDF1": 86.60072769305539,
+        "MOTA": 75.74625901325821,
+        "IDSW": 159
+      },
+      "rainy": {
+        "HOTA": 49.891708814039205,
+        "AssA": 51.41392518697467,
+        "DetA": 48.584921646291754,
+        "IDF1": 59.55583965288472,
+        "MOTA": 51.723321094397726,
+        "IDSW": 135
+      },
+      "night": {
+        "HOTA": 71.83767764729414,
+        "AssA": 74.55606881130042,
+        "DetA": 69.60907572709914,
+        "IDF1": 83.83702885399406,
+        "MOTA": 81.82217491933169,
+        "IDSW": 115
+      }
+    },
+    "discriminative": {
+      "sunny": {
+        "HOTA": 56.65884007380725,
+        "AssA": 59.427500624720544,
+        "DetA": 54.12198154889731,
+        "IDF1": 70.0743101284564,
+        "MOTA": 61.1154503295094,
+        "IDSW": 84
+      },
+      "cloudy": {
+        "HOTA": 71.86956896746747,
+        "AssA": 77.3306217765382,
+        "DetA": 67.0601330675764,
+        "IDF1": 86.45401061091559,
+        "MOTA": 75.77985682164733,
+        "IDSW": 139
+      },
+      "rainy": {
+        "HOTA": 49.99781489985416,
+        "AssA": 51.69078924900881,
+        "DetA": 48.52827109319297,
+        "IDF1": 59.69435653242744,
+        "MOTA": 51.60487978206798,
+        "IDSW": 131
+      },
+      "night": {
+        "HOTA": 70.71736105613611,
+        "AssA": 72.27079120291687,
+        "DetA": 69.58668968047486,
+        "IDF1": 82.31954155932917,
+        "MOTA": 81.71405402665856,
+        "IDSW": 124
+      }
+    },
+    "predictive": {
+      "sunny": {
+        "HOTA": 56.773895037612455,
+        "AssA": 59.69341357974255,
+        "DetA": 54.102106042974086,
+        "IDF1": 70.22381530298325,
+        "MOTA": 61.27410300219673,
+        "IDSW": 86
+      },
+      "cloudy": {
+        "HOTA": 72.0357850608932,
+        "AssA": 77.77440050152433,
+        "DetA": 66.98046992724773,
+        "IDF1": 86.8203007025146,
+        "MOTA": 75.74367456645905,
+        "IDSW": 141
+      },
+      "rainy": {
+        "HOTA": 50.362977202973134,
+        "AssA": 52.30208406869444,
+        "DetA": 48.68185085218643,
+        "IDF1": 60.18744432825994,
+        "MOTA": 51.858682594203145,
+        "IDSW": 150
+      },
+      "night": {
+        "HOTA": 72.35145445178829,
+        "AssA": 75.5883640355138,
+        "DetA": 69.64764672619171,
+        "IDF1": 84.87340440454481,
+        "MOTA": 81.80697041879952,
+        "IDSW": 115
+      }
+    },
+    "predictive_ranking": {
+      "sunny": {
+        "HOTA": 56.51932232834048,
+        "AssA": 59.216478927510074,
+        "DetA": 54.05539334979191,
+        "IDF1": 69.96320990090636,
+        "MOTA": 61.088601415670006,
+        "IDSW": 95
+      },
+      "cloudy": {
+        "HOTA": 72.0154574859074,
+        "AssA": 77.72778872287063,
+        "DetA": 66.9852511635654,
+        "IDF1": 86.67962031797714,
+        "MOTA": 75.69973897087328,
+        "IDSW": 137
+      },
+      "rainy": {
+        "HOTA": 50.56337526263853,
+        "AssA": 52.78935755886918,
+        "DetA": 48.59582025762387,
+        "IDF1": 60.38214341025244,
+        "MOTA": 51.71824503815502,
+        "IDSW": 139
+      },
+      "night": {
+        "HOTA": 71.73094961315833,
+        "AssA": 74.50292729264508,
+        "DetA": 69.44946933060902,
+        "IDF1": 83.94229590854182,
+        "MOTA": 81.54004696501276,
+        "IDSW": 113
+      }
+    }
+  },
+  "equal_domain_average": {
+    "native": {
+      "HOTA": 62.164208869952986,
+      "AssA": 65.24940983156165,
+      "IDF1": 74.29055654587529
+    },
+    "geometry_null": {
+      "HOTA": 62.278977912515025,
+      "AssA": 65.06941860150776,
+      "IDF1": 74.55576076614287
+    },
+    "frozen_last": {
+      "HOTA": 62.57372281693141,
+      "AssA": 65.68724600508835,
+      "IDF1": 75.09825790672313
+    },
+    "discriminative": {
+      "HOTA": 62.310896249316244,
+      "AssA": 65.1799257132961,
+      "IDF1": 74.63555470778215
+    },
+    "predictive": {
+      "HOTA": 62.88102793831676,
+      "AssA": 66.33956554636877,
+      "IDF1": 75.52624118457565
+    },
+    "predictive_ranking": {
+      "HOTA": 62.707276172511186,
+      "AssA": 66.05913812547374,
+      "IDF1": 75.24181738441943
+    }
+  },
+  "videos_by_domain": {
+    "sunny": [
+      "MVI_39311",
+      "MVI_20064",
+      "MVI_39211"
+    ],
+    "cloudy": [
+      "MVI_40141",
+      "MVI_40213",
+      "MVI_40244",
+      "MVI_40854",
+      "MVI_40201",
+      "MVI_40712"
+    ],
+    "rainy": [
+      "MVI_63544",
+      "MVI_40904",
+      "MVI_40864"
+    ],
+    "night": [
+      "MVI_40771",
+      "MVI_40992",
+      "MVI_40742",
+      "MVI_40774",
+      "MVI_40792"
+    ]
+  },
+  "frames_by_domain": {
+    "sunny": 3965,
+    "cloudy": 9255,
+    "rainy": 3945,
+    "night": 8295
+  },
+  "candidate": "predictive",
+  "paired_comparisons": {
+    "geometry_null": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.6020500258017449,
+          "percentile_95": [
+            -0.2640692565573373,
+            1.05961437572317
+          ]
+        },
+        "AssA": {
+          "delta": 1.2701469448610165,
+          "percentile_95": [
+            -0.41281188822388437,
+            2.1126796033899002
+          ]
+        },
+        "IDF1": {
+          "delta": 0.9704804184327926,
+          "percentile_95": [
+            -0.6223391433666565,
+            1.7730198656063147
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "frozen_last": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.3073051213853528,
+          "percentile_95": [
+            -0.0014065613954560073,
+            0.45102642345658295
+          ]
+        },
+        "AssA": {
+          "delta": 0.6523195412804235,
+          "percentile_95": [
+            0.01789301539109714,
+            0.9355657374082522
+          ]
+        },
+        "IDF1": {
+          "delta": 0.42798327785252077,
+          "percentile_95": [
+            0.00886653223349705,
+            0.6949345814846358
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "discriminative": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.5701316890005206,
+          "percentile_95": [
+            -0.4185751335143948,
+            1.0630220824173469
+          ]
+        },
+        "AssA": {
+          "delta": 1.159639833072676,
+          "percentile_95": [
+            -1.017354091369308,
+            2.1768578488022827
+          ]
+        },
+        "IDF1": {
+          "delta": 0.890686476793503,
+          "percentile_95": [
+            -0.5445461238611409,
+            1.626241933341565
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.1737517658055836,
+          "percentile_95": [
+            -0.3942291418961657,
+            0.4492982764053968
+          ]
+        },
+        "AssA": {
+          "delta": 0.2804274208950428,
+          "percentile_95": [
+            -0.9213530509835635,
+            0.8178442719399601
+          ]
+        },
+        "IDF1": {
+          "delta": 0.2844238001562118,
+          "percentile_95": [
+            -0.6346979008590771,
+            0.7347489699859037
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "source_checkpoint_hashes_unchanged": true,
+  "sealed_used": false,
+  "actual_protocol": {
+    "dataset": "ua_detrac",
+    "split": "development",
+    "controls": [
+      {
+        "name": "native",
+        "method": "native",
+        "geometry_duplicates": false
+      },
+      {
+        "name": "geometry_null",
+        "method": "native",
+        "geometry_duplicates": true
+      },
+      {
+        "name": "frozen_last",
+        "method": "frozen_last",
+        "geometry_duplicates": true,
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_crop_v1/ua_box_crop/seed17/frozen_last.json"
+      },
+      {
+        "name": "discriminative",
+        "method": "trained",
+        "geometry_duplicates": true,
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_crop_v1/ua_box_crop/seed17/discriminative.json",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v1/ua_box_crop/seed17/discriminative/final.pt"
+      },
+      {
+        "name": "predictive",
+        "method": "trained",
+        "geometry_duplicates": true,
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_crop_v1/ua_box_crop/seed17/predictive.json",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v1/ua_box_crop/seed17/predictive/final.pt"
+      },
+      {
+        "name": "predictive_ranking",
+        "method": "trained",
+        "geometry_duplicates": true,
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_crop_v1/ua_box_crop/seed17/predictive_ranking.json",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v1/ua_box_crop/seed17/predictive_ranking/final.pt"
+      }
+    ],
+    "checkpoint_sha256": {
+      "discriminative": "cc6aa3195022bb0ed8da54ad550fbd84d490a315dbf364c200a31f323ea87198",
+      "predictive": "291dafecfe0a6ac9014bf8b71cef1087abae59562122186a14a3b3469d7874e8",
+      "predictive_ranking": "66e1804dd0568d7d0ef08c9e6f7ecc0f2b9e20eae1e2c53aafb22147dd55f301"
+    },
+    "sealed_test_used": false,
+    "evaluation_GT_scope": "offline metrics only",
+    "updates_enabled": false,
+    "feature_name": "features_crop_current.npz"
+  },
+  "prepared_inputs_equal_to_source_clips": [
+    {
+      "video": "MVI_20064",
+      "domain": "sunny",
+      "native_frames": 800,
+      "prepared_annotation_sha256": "4324d4a2ebcbde32d0bdbf8f8ab0b2a3246cf04ba9ac05e9094794b1726b5c18"
+    },
+    {
+      "video": "MVI_39211",
+      "domain": "sunny",
+      "native_frames": 1660,
+      "prepared_annotation_sha256": "58a583b55d8054432a2943e92d86065652a8697a7351b42ada1a9507ac452e9d"
+    },
+    {
+      "video": "MVI_39311",
+      "domain": "sunny",
+      "native_frames": 1505,
+      "prepared_annotation_sha256": "ee4ed5f06af416857981836ba10c95a7beeec3be05e48fce7af24116278733fd"
+    },
+    {
+      "video": "MVI_40141",
+      "domain": "cloudy",
+      "native_frames": 1600,
+      "prepared_annotation_sha256": "16d8b6ec7dbe7de1f192609e9d4edb4f7f42ac0f29f92713775e5e041ad1f0d0"
+    },
+    {
+      "video": "MVI_40201",
+      "domain": "cloudy",
+      "native_frames": 925,
+      "prepared_annotation_sha256": "a219055d776838b00f79a5243e624f780e415ec64526bbf1ca73e276be77ef61"
+    },
+    {
+      "video": "MVI_40213",
+      "domain": "cloudy",
+      "native_frames": 1790,
+      "prepared_annotation_sha256": "df8930d2efd46e542690b1ecd03e48b1b6c7f7ad384777881d05ae3a22f9cf84"
+    },
+    {
+      "video": "MVI_40244",
+      "domain": "cloudy",
+      "native_frames": 1345,
+      "prepared_annotation_sha256": "03d48613c6dd5e2eb80be9288fe01c6d7179cc4222d1da0f68378382489100e1"
+    },
+    {
+      "video": "MVI_40712",
+      "domain": "cloudy",
+      "native_frames": 2400,
+      "prepared_annotation_sha256": "1be6262014a445d697f09aaa131bdef0d1d4e1179febbfc0519feb554833951d"
+    },
+    {
+      "video": "MVI_40742",
+      "domain": "night",
+      "native_frames": 1655,
+      "prepared_annotation_sha256": "34fbd83503ed566a2318827e0296ff4fba5377da58cbf117c83e10af3bee4491"
+    },
+    {
+      "video": "MVI_40771",
+      "domain": "night",
+      "native_frames": 1720,
+      "prepared_annotation_sha256": "94903ec3fc9b8a62d642171a3e1f26be200e01536567a3c4ac60b27a5ed22ff9"
+    },
+    {
+      "video": "MVI_40774",
+      "domain": "night",
+      "native_frames": 950,
+      "prepared_annotation_sha256": "c9b2320643396a2e7f479c63fb9d9901cfe35c0dad1a46db47d5100f4f728719"
+    },
+    {
+      "video": "MVI_40792",
+      "domain": "night",
+      "native_frames": 1810,
+      "prepared_annotation_sha256": "9b5983711290e96210bd77fda1f992df7d5648007559450a86740943fae1d34f"
+    },
+    {
+      "video": "MVI_40854",
+      "domain": "cloudy",
+      "native_frames": 1195,
+      "prepared_annotation_sha256": "ecd1cdb9cbf2fd53ba2fb5c9e97b0aa6f1a68bb3a5ea94a585ffcf9f5d5fe820"
+    },
+    {
+      "video": "MVI_40864",
+      "domain": "rainy",
+      "native_frames": 1515,
+      "prepared_annotation_sha256": "4551b09cd4c99974fcaf53c14af7902b28d2c68f8aee63e46f362fb0c9e469c7"
+    },
+    {
+      "video": "MVI_40904",
+      "domain": "rainy",
+      "native_frames": 1270,
+      "prepared_annotation_sha256": "1eccdb7b445af071d6c94cb11910e2c7887b5dd56d0e09402be5fb8a82e7ea5b"
+    },
+    {
+      "video": "MVI_40992",
+      "domain": "night",
+      "native_frames": 2160,
+      "prepared_annotation_sha256": "cb488b4de26a99cd588a2afbb0668eb46f18b52426ad634b7439351a72a86bc0"
+    },
+    {
+      "video": "MVI_63544",
+      "domain": "rainy",
+      "native_frames": 1160,
+      "prepared_annotation_sha256": "76384f3b33eb199409c27c2b81d61a95e79cd763c38816e13fd98834b9c5d801"
+    }
+  ],
+  "native_geometry_parity_with_available_original_dense_runs": {
+    "native": {
+      "verified_available_original_videos": 12,
+      "videos": [
+        {
+          "video": "MVI_20064",
+          "track_sha256": "be959e36fcbbb9b4f2d332e76eb583e9eaddbb039b1652af99b2bd5e77668368"
+        },
+        {
+          "video": "MVI_39211",
+          "track_sha256": "d6a36fa421945c30b6bd8f30721e911691584a66aae53089087c47fcde4e9733"
+        },
+        {
+          "video": "MVI_39311",
+          "track_sha256": "9d108c122a325c3cd06f44c7b22c9e990e7db233586ef26b701645e2cc6f8389"
+        },
+        {
+          "video": "MVI_40141",
+          "track_sha256": "5f892e5664242c748707758a0019263a2b24bed6dd033de5bc0739182c297d2c"
+        },
+        {
+          "video": "MVI_40201",
+          "track_sha256": "a7e8036da50a5cbeaaec949ff4339b502cf22ab2fed15c17b945662485a06ea7"
+        },
+        {
+          "video": "MVI_40213",
+          "track_sha256": "223c9357ca73fa66388d13ac6c5dd9c0784875d1dadd6317a0ab72014002fb25"
+        },
+        {
+          "video": "MVI_40244",
+          "track_sha256": "9e449db7935d39700b216f7a2be6455d8ec1640579e881a0aefd3ec96448c8e4"
+        },
+        {
+          "video": "MVI_40712",
+          "track_sha256": "b9058fa5a204e268c03d284035301b25425607b9d350b6dcb330311ab5910cad"
+        },
+        {
+          "video": "MVI_40854",
+          "track_sha256": "e7d02f944004ec348414fcf9493ae7fb92283a0d961fb50f551955474f72b661"
+        },
+        {
+          "video": "MVI_40864",
+          "track_sha256": "968fb9654292624b1da22d2650571dbc4a77f8e8f7df35b47f057712525c95d7"
+        },
+        {
+          "video": "MVI_40904",
+          "track_sha256": "468bc7970f93ca7ede9d7b181613e87d74595304206caebcce9918feb2743caa"
+        },
+        {
+          "video": "MVI_63544",
+          "track_sha256": "11c5b8dc6102e06ed2bc532cd1c8ba36f14afd77a5b59eed5528cada68e95710"
+        }
+      ],
+      "original_full_17_completed": false
+    },
+    "geometry_null": {
+      "verified_available_original_videos": 12,
+      "videos": [
+        {
+          "video": "MVI_20064",
+          "track_sha256": "84e2f1643cd99817f01080605461c7f7915594828102eaa7cfcdb8da37ea3745"
+        },
+        {
+          "video": "MVI_39211",
+          "track_sha256": "3117d243873392708c3b98aa2acadd5acc585b8361a3e912d5ca7f4a323d47bb"
+        },
+        {
+          "video": "MVI_39311",
+          "track_sha256": "ff8ecb2dffe1eba030793a1de10af098e2a9ed4013456eb5b2071add472c21e2"
+        },
+        {
+          "video": "MVI_40141",
+          "track_sha256": "a02a536563c0d02f4b80e1eb5899975828ce141f5f24de4ddfde15cb44c46445"
+        },
+        {
+          "video": "MVI_40201",
+          "track_sha256": "bcbdc082cdbcbae96575b47026a439697cce9f34385d5200d12f3231592f07f3"
+        },
+        {
+          "video": "MVI_40213",
+          "track_sha256": "7ac90721079f135f82568f0818147b8d2ef3f497ce0b607bf4dfb6de37f42084"
+        },
+        {
+          "video": "MVI_40244",
+          "track_sha256": "9b9568ab51e4800d3f786787a5ad46e83d3b37bc1c3cc7893bf2cb7511679aaf"
+        },
+        {
+          "video": "MVI_40712",
+          "track_sha256": "ee06ee313df9483a0f634a61f8102324c34d0b8d45de805e411e5d687def5752"
+        },
+        {
+          "video": "MVI_40854",
+          "track_sha256": "ab6eaac5404e9c2385bb0a2fa991ce8c99a110d2323746bc3993679774b39817"
+        },
+        {
+          "video": "MVI_40864",
+          "track_sha256": "c0a4751af1fc3a6411c5edddc5678924c1b4fa92966ebccc66996a04dafdf4d2"
+        },
+        {
+          "video": "MVI_40904",
+          "track_sha256": "544531ac01944bca883b5b784c10fdb2d26855abb1caa63feca095a358601d0c"
+        },
+        {
+          "video": "MVI_63544",
+          "track_sha256": "10457f75eb0c711dafbd4966cf6a5f361c85da398b50f4603ba48368526f7506"
+        }
+      ],
+      "original_full_17_completed": false
+    }
+  },
+  "cross_readout_comparisons": {
+    "crop_prediction_minus_contiguous_source_dense_prediction": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.19957840342012112,
+          "percentile_95": [
+            -0.14182741174283778,
+            0.3563729855714682
+          ]
+        },
+        "AssA": {
+          "delta": 0.3352647264621851,
+          "percentile_95": [
+            -0.37266657475551634,
+            0.6757592959607633
+          ]
+        },
+        "IDF1": {
+          "delta": 0.20645165317153946,
+          "percentile_95": [
+            -0.3966498264966223,
+            0.5429322602919259
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "contiguous_source_dense_prediction_minus_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.4024716223816238,
+          "percentile_95": [
+            -0.23686897953698233,
+            0.7915882154239443
+          ]
+        },
+        "AssA": {
+          "delta": 0.9348822183988315,
+          "percentile_95": [
+            -0.2995486483198584,
+            1.6986739707185035
+          ]
+        },
+        "IDF1": {
+          "delta": 0.7640287652612532,
+          "percentile_95": [
+            -0.3918546275292983,
+            1.3700261994316674
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "readout_comparison_limitation": "Crop and contiguous-source dense predictions differ in source time support and source/target readout; cross-readout comparison is not a single-factor effect. Identical prepared detections/native clocks/GT scoring; geometry has no JEPA query and is reused from the actual completed crop baseline, not presented as a new dense geometry run. Crop changes object resolution and frozen feature compute; not equal frozen compute."
+}
