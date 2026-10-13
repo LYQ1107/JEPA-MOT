@@ -46,6 +46,13 @@ runtime blockers, verifies that the runtime `controls.json` still matches the
 registered four-cell source/update mapping and shared online configuration,
 and confirms that no Wave-A process was launched.
 
+After the preflight reaches `INPUTS_VALID_RUNTIME_READY`, execute only the
+relative-path command template stored in
+`H2_WAVE_A_PROTOCOL_SEED17.json`. It fixes the BDD seed17 forward order,
+common teacher calibration, four-cell controls, and existing feature caches;
+the current `PID 0` placeholder is valid only because the preflight confirms
+all feature caches are already complete.
+
 As a bounded Wave-B diagnostic, one BDD seed17 fixed-teacher comparison has
 now been executed. All four cells used the same 153 recorded pseudo-pairs and
 the same 128 update indices. From Source-D, D-to-D gained 7.19 percentage
