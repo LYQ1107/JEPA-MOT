@@ -1,8 +1,8 @@
 {
   "status": "INPUTS_VALID_RUNTIME_BLOCKED",
-  "created_utc": "2026-10-13T20:49:36.509037+00:00",
+  "created_utc": "2026-10-13T20:51:54.518035+00:00",
   "git": {
-    "commit": "604f3a7c26f8418c16cf382feedf4ee57e472396",
+    "commit": "a3b6cb93608a686db3f074aee02c160bb8770ca2",
     "branch": "research/jepa-identity-evidence-20261014"
   },
   "registered_protocol": {
@@ -39,7 +39,70 @@
       }
     ],
     "same_initialization": true,
-    "readiness_status": "REGISTERED_H2_WAVE_A_NOT_EXECUTED_WAVE_B_AND_WAVE_D_DIAGNOSTICS_COMPLETE"
+    "readiness_status": "REGISTERED_H2_WAVE_A_NOT_EXECUTED_WAVE_B_AND_WAVE_D_DIAGNOSTICS_COMPLETE",
+    "controls_audit": {
+      "path": {
+        "status": "ok",
+        "size": 2771,
+        "role": "wave_a_controls"
+      },
+      "status": "COMPLETE_H2_CONTROL_PROTOCOL_AUDIT",
+      "checks": {
+        "file": true,
+        "four_cells": true,
+        "cell_mapping": true,
+        "shared_online_config": true,
+        "online_enabled": true,
+        "geometry_duplicates": true
+      },
+      "expected_cells": {
+        "D_to_D": [
+          "discriminative",
+          "discriminative"
+        ],
+        "D_to_P": [
+          "discriminative",
+          "predictive"
+        ],
+        "P_to_D": [
+          "predictive",
+          "discriminative"
+        ],
+        "P_to_P": [
+          "predictive",
+          "predictive"
+        ]
+      },
+      "observed_cells": {
+        "D_to_D": [
+          "discriminative",
+          "discriminative"
+        ],
+        "D_to_P": [
+          "discriminative",
+          "predictive"
+        ],
+        "P_to_D": [
+          "predictive",
+          "discriminative"
+        ],
+        "P_to_P": [
+          "predictive",
+          "predictive"
+        ]
+      },
+      "shared_online_config": {
+        "replay": 128,
+        "batch": 8,
+        "interval": 8,
+        "learning_rate": 0.0001,
+        "reliability": "confidence",
+        "retention": "none",
+        "seed": 17,
+        "need_threshold": 0.05,
+        "retention_weight": 1.0
+      }
+    }
   },
   "inputs": {
     "source": "native_protocol_manifest_adaptation_and_development",
@@ -3151,6 +3214,7 @@
   "decision": {
     "source_checkpoints_and_calibrations_ready": true,
     "local_detection_and_feature_inputs_ready": true,
+    "registered_controls_match": true,
     "formal_wave_a_started": false,
     "formal_wave_a_allowed_now": false,
     "blockers": [
