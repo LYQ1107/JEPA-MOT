@@ -47,6 +47,16 @@ than both. These runs therefore do not pass the H1 gate; the complete hashes,
 provenance, and numerical-stability diagnostics are in
 `STRUCTURAL_FORMAL_SEED17.json`.
 
+The mounted UA-DETRAC XML labels also enabled one supplementary legacy-track
+CPU replay on 17 existing development videos. It scored 4,199 shared states at
+99.05% candidate coverage after 554 cache-join exclusions. UA MLP CE,
+predictive JEPA, and JEPA+ranking reached 93.03%, 90.91%, and 92.79% Top-1;
+the corresponding Transformer values were 90.82%, 87.09%, and 88.72%. This
+reuses old `predictive_ranking` tracks and reconstructs geometry candidates, so
+it is negative supporting evidence for the present predictive target rather
+than a registered GPU Wave-A result. See `UA_LEGACY_TRACK_REPLAY_SEED17.md`
+and `UA_LEGACY_TRACK_REPLAY_SEED17.json`.
+
 These results are real and reproducible, but they are not a common-state
 all-opportunity benchmark and do not prove H1. H2 is an independent hypothesis
 rather than an H1-gated follow-up. Its bounded BDD seed17 fixed-teacher
