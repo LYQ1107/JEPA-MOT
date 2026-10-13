@@ -2,7 +2,7 @@
 
 The machine-readable gate
 `H1_EVIDENCE_AUDIT_SEED17.json` checks the compact H1 evidence bundle without
-rerunning training or reading raw labels. All 26 static checks pass.
+rerunning training or reading raw labels. All 29 static checks pass.
 
 It verifies:
 
@@ -24,6 +24,9 @@ It verifies:
   and sums back to the same 1,394 common-state events.
 - the UA paired replay covers 4,199 cases with 4,159 candidate-present cases
   and preserves its legacy-track/evaluability limitations.
+- the BDD 19-video and UA 17-video cluster audits pass their count, control,
+  and GT-boundary checks, so frame-level uncertainty is not the only reported
+  uncertainty view.
 
 The audit status is `COMPLETE_STATIC_H1_EVIDENCE_AUDIT_WITH_RUNTIME_LIMITS`.
 That status means the registered seed17 evidence is internally consistent; it
