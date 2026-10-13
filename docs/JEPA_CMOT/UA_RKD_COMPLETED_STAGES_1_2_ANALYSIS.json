@@ -1,0 +1,186 @@
+{
+  "status": "VERIFIED_COMPLETED_STAGES_NOT_FINAL_CONTINUAL_RESULT",
+  "dataset": "ua_detrac",
+  "stages": [
+    1,
+    2
+  ],
+  "order": [
+    "sunny",
+    "cloudy",
+    "rainy",
+    "night"
+  ],
+  "actual_source_stage0_parity": {
+    "predictive_ranking_distance_graph": {
+      "reference": "predictive_ranking",
+      "checkpoint_sha256": "b63b044cad9ced9f9d312e396eabb7f9e44d5ec33fd67bdc5e17c983d7f16c10"
+    }
+  },
+  "actual_boundary_states": {
+    "1": {
+      "predictive_ranking_distance_graph": {
+        "frames": 27440,
+        "updates": 3395,
+        "confirmed": 229359,
+        "seen": 229359,
+        "memory": 128,
+        "frozen_source_checkpoint": false,
+        "checkpoint_sha256": "2f10210cb8df2926ff2523f7257c44940d5645e7e7b1ed2062ce98205434b2a4"
+      }
+    },
+    "2": {
+      "predictive_ranking_distance_graph": {
+        "frames": 42140,
+        "updates": 5232,
+        "confirmed": 337223,
+        "seen": 337223,
+        "memory": 128,
+        "frozen_source_checkpoint": false,
+        "checkpoint_sha256": "2522bd99f8da14efe778ad21892ecf02eb09342a428be988c2b36386a17c3331"
+      }
+    }
+  },
+  "stage_metrics": {
+    "1": {
+      "predictive_ranking_distance_graph": {
+        "sunny": {
+          "HOTA": 56.569536646662236,
+          "AssA": 59.32673879424668,
+          "DetA": 54.047075055036196,
+          "IDF1": 70.32328983342259,
+          "MOTA": 61.07395655357579,
+          "IDSW": 86
+        },
+        "cloudy": {
+          "HOTA": 71.93294762819383,
+          "AssA": 77.5634153352383,
+          "DetA": 66.97278602698184,
+          "IDF1": 86.61496943472294,
+          "MOTA": 75.74238234305946,
+          "IDSW": 117
+        },
+        "rainy": {
+          "HOTA": 49.79774192105911,
+          "AssA": 51.324174564275914,
+          "DetA": 48.48189748183969,
+          "IDF1": 59.22946000309454,
+          "MOTA": 51.772389638077186,
+          "IDSW": 127
+        },
+        "night": {
+          "HOTA": 72.78429707224907,
+          "AssA": 76.61431012293431,
+          "DetA": 69.52189277415076,
+          "IDF1": 85.73030066824899,
+          "MOTA": 81.6498572466339,
+          "IDSW": 107
+        }
+      }
+    },
+    "2": {
+      "predictive_ranking_distance_graph": {
+        "sunny": {
+          "HOTA": 56.82018993918212,
+          "AssA": 59.844623128299325,
+          "DetA": 54.05047456034659,
+          "IDF1": 70.64111596449204,
+          "MOTA": 61.00805467415182,
+          "IDSW": 91
+        },
+        "cloudy": {
+          "HOTA": 71.94435070435372,
+          "AssA": 77.55219719328545,
+          "DetA": 67.00723723601162,
+          "IDF1": 86.63720939393741,
+          "MOTA": 75.76951903445067,
+          "IDSW": 118
+        },
+        "rainy": {
+          "HOTA": 50.93672462888378,
+          "AssA": 53.631093820707456,
+          "DetA": 48.548543163865745,
+          "IDF1": 61.08159888530872,
+          "MOTA": 51.69963283193177,
+          "IDSW": 115
+        },
+        "night": {
+          "HOTA": 72.72572204954987,
+          "AssA": 76.5031389101653,
+          "DetA": 69.51151320091631,
+          "IDF1": 85.65247854265195,
+          "MOTA": 81.64478907978983,
+          "IDSW": 109
+        }
+      }
+    }
+  },
+  "delta_from_actual_stage0": {
+    "1": {
+      "predictive_ranking_distance_graph": {
+        "HOTA": {
+          "by_domain": {
+            "sunny": -0.15487092413113857,
+            "cloudy": -0.1295614195903454,
+            "rainy": -0.8602312356362063,
+            "night": 1.442005100679296
+          },
+          "equal_domain_average": 0.07433538033040143
+        },
+        "AssA": {
+          "by_domain": {
+            "sunny": -0.3544774787461549,
+            "cloudy": -0.2736117431281144,
+            "rainy": -1.8124008064405075,
+            "night": 3.0184157562015344
+          },
+          "equal_domain_average": 0.1444814319716894
+        },
+        "IDF1": {
+          "by_domain": {
+            "sunny": -0.07598881629985499,
+            "cloudy": -0.16806968506541864,
+            "rainy": -1.4033582456177456,
+            "night": 2.373899890379718
+          },
+          "equal_domain_average": 0.18162078584917474
+        }
+      }
+    },
+    "2": {
+      "predictive_ranking_distance_graph": {
+        "HOTA": {
+          "by_domain": {
+            "sunny": 0.09578236838874687,
+            "cloudy": -0.1181583434304514,
+            "rainy": 0.27875147218846763,
+            "night": 1.383430077980094
+          },
+          "equal_domain_average": 0.4099513937817143
+        },
+        "AssA": {
+          "by_domain": {
+            "sunny": 0.16340685530649068,
+            "cloudy": -0.28482988508096696,
+            "rainy": 0.494518449991034,
+            "night": 2.907244543432526
+          },
+          "equal_domain_average": 0.8200849909122709
+        },
+        "IDF1": {
+          "by_domain": {
+            "sunny": 0.24183731476959736,
+            "cloudy": -0.14582972585094467,
+            "rainy": 0.44878063659643885,
+            "night": 2.29607776478268
+          },
+          "equal_domain_average": 0.7102164975744429
+        }
+      }
+    }
+  },
+  "paired_comparisons": {},
+  "target_GT_used_for_training": false,
+  "sealed_used": false,
+  "limitation": "no final forgetting/BWT/FWT before complete matrix; fixed-seed development comparisons, no selection-adjusted or cross-seed claim"
+}
