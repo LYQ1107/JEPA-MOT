@@ -49,6 +49,10 @@
     `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json` when interpreting H1: it is
     a one-seed uncertainty audit on 1,177 candidate-present events, not a
     reason to add seeds or declare the general JEPA claim resolved.
+14. Use `H1_EVIDENCE_AUDIT_SEED17.json` as the pre-run static gate. It passes
+    22/22 checks, but the remaining UA tracer, sealed evaluation, and H2
+    closed-loop evidence still require the restored runtime; do not infer
+    completion from the static pass.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a
