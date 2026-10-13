@@ -22,6 +22,17 @@ candidate coverage was identical at 84.43% for every control. This common-state
 result is negative evidence against the current absolute-latent predictive
 target as the source of incremental identity ranking.
 
+A paired uncertainty audit then compared every control on the same event and
+candidate list. The correct identity was present in 1,177 of 1,394 events.
+MLP predictive JEPA was 2.63 Top-1 points below MLP CE (paired 95% CI -4.50
+to -0.76), 0.0210 MRR lower, and 31 net corrections lower; the paired
+intervals for those four ranking/correction comparisons excluded zero. It was
+also below history-last and MLP ranking. Transformer predictive had no stable
+Top-1 or correction advantage and remained below Transformer CE and ranking in
+pairwise AUC. These are one-seed, rollout-conditioned uncertainty diagnostics,
+not multi-seed confirmatory evidence. The machine-readable result is
+`PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`.
+
 The registered structural follow-up was completed with one seed (17), 1,000
 source-only updates, batch 64, and a video-disjoint source split. The host had
 no usable NVIDIA driver, so the device was CPU; the seed, cache, candidate set,
