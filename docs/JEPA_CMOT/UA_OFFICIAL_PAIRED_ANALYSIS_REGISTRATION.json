@@ -1,0 +1,12 @@
+{
+  "status": "WAITING_FOR_ACTUAL_FULL_UA_DEVELOPMENT",
+  "time_utc": "2026-10-13T06:29:28.003556+00:00",
+  "pipeline_pid": 24690,
+  "analysis_waiter_pid": 32840,
+  "script": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/scheduler_v1/analyze_ua_paired_when_complete.py",
+  "output": "docs/JEPA_CMOT/UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json",
+  "expected_videos": 17,
+  "expected_native_frames": 25460,
+  "source_audit": "docs/JEPA_CMOT/UA_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json",
+  "note": "Waiter checks live pipeline until both full completion markers; source audit is not target MOT evidence."
+}
