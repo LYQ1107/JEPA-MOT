@@ -33,10 +33,10 @@ tested directly. The protocol-readiness audit is recorded in
 without creating a result.
 
 The latest zero-training preflight is
-`H2_WAVE_A_PREFLIGHT_SEED17.json`. It verifies all 19 local prepared streams,
-their 3,844 frames, target-GT isolation, 1024-D feature offsets, and the D/P
-source snapshots. It records the two runtime blockers and confirms that no
-Wave-A process was launched.
+`H2_WAVE_A_PREFLIGHT_SEED17.json`. It verifies all 63 local Wave-A streams
+(44 adaptation and 19 development), their 12,655 frames, target-GT isolation,
+1024-D feature offsets, and the D/P source snapshots. It records the two
+runtime blockers and confirms that no Wave-A process was launched.
 
 As a bounded Wave-B diagnostic, one BDD seed17 fixed-teacher comparison has
 now been executed. All four cells used the same 153 recorded pseudo-pairs and
