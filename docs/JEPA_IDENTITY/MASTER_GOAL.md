@@ -21,7 +21,8 @@ The two claims are treated as independent hypotheses:
 
 The current H1-Wave-A result is an offline audit of existing BDD development
 events. It is evidence for where the existing intervention can act, not a
-proof of either hypothesis. H2 has not been re-run in this branch.
+proof of either hypothesis. H2 has only bounded fixed-teacher diagnostics in
+this branch; the registered full-video factorial has not been re-run.
 
 ## Evidence policy
 
@@ -46,6 +47,6 @@ summaries, and reproducibility metadata are versioned.
 | H1-Wave A: candidate identity metrics | complete on recorded changed events | `IDENTITY_INFORMATION_METRICS.json` |
 | H1 common-state evaluator | complete for BDD development seed17 residual states | `COMMON_STATE_IDENTITY_METRICS.json`; 1,394/1,394 cases mapped |
 | H1 structural candidate selection | one seed17 CPU comparison complete; both structural candidates fail the held-out H1 gate | `STRUCTURAL_FORMAL_SEED17.json`, `STRUCTURAL_CANDIDATE_PROTOCOL.md`; all four final checkpoints passed preflight, but neither candidate beats its matched control and strong history/CE references |
-| H2 same-initialization factorial | Wave-B fixed-teacher diagnostic complete; registered full-video Wave-A not executed | `H2_WAVE_B_FIXED_TEACHER_SEED17.json`, `H2_PROTOCOL_READINESS.json`; independent of H1, and not inferable from different-source continual results |
+| H2 same-initialization factorial | Wave-B fixed-teacher and Wave-D mechanism diagnostics complete; registered full-video Wave-A not executed | `H2_WAVE_B_FIXED_TEACHER_SEED17.json`, `H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`, `H2_PROTOCOL_READINESS.json`; ranking partly rescues predictive updates but the P-cell hybrid is discriminative-dominated and no H2 claim is made |
 | Final validation | pending | sealed and multi-seed remain frozen |
 
