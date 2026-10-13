@@ -97,6 +97,21 @@ domain/gap breakdowns, checkpoint hashes, and causal limitations, is
 `COMMON_STATE_IDENTITY_METRICS.json` with its companion
 `COMMON_STATE_IDENTITY_METRICS.md`.
 
+## Paired uncertainty check
+
+The common-state controls are paired event by event rather than only compared
+through separate averages in
+`PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`. The audit retains 1,177 events
+where the expected identity is present in the shared candidate list and keeps
+217 candidate-absent events as a coverage count. On the MLP, predictive JEPA
+is below CE by 2.63 Top-1 points, 0.0210 MRR, 0.0235 pairwise-AUC units, and
+31 net corrections; the paired bootstrap intervals exclude zero for all four
+quantities. It is also below history-last and the MLP ranking objective. The
+Transformer predictive model has no reliable Top-1 or correction gain, and its
+pairwise AUC is below both Transformer CE and Transformer ranking. These are
+one-seed, rollout-conditioned uncertainty diagnostics, not multi-seed
+confirmatory p-values.
+
 ## Structural seed17 follow-up
 
 The pre-registered structural candidates were trained once on the source-only
