@@ -68,4 +68,9 @@ P-to-D/P-to-P gained 3.27/0.65 points from Source-P. Predictive updates
 reduced prediction error more, but did not yield the larger ranking gain. This
 diagnostic has no full-video HOTA or closed-loop evidence and does not support
 an H2 claim; the registered Wave-A factorial remains pending.
+On the first 16 shared batches, predictive/discriminative gradient cosine
+averaged 0.255 from Source-D and 0.637 from Source-P, while predictive
+gradient norms were 0.818 and 0.082 of the discriminative norms. This makes
+prediction/ranking gradient misalignment the next falsifiable mechanism to
+test.
 
