@@ -1,0 +1,1025 @@
+{
+  "status": "INPUTS_VALID_RUNTIME_BLOCKED",
+  "created_utc": "2026-10-13T20:07:03.965357+00:00",
+  "git": {
+    "commit": "e621c256361cc390e0efbd52d87d5cf517fbb836",
+    "branch": "research/jepa-identity-evidence-20261014"
+  },
+  "registered_protocol": {
+    "hypothesis": "H2",
+    "wave": "A",
+    "dataset": "bdd100k",
+    "seed": 17,
+    "domain_order": [
+      "clear",
+      "overcast",
+      "rainy",
+      "night"
+    ],
+    "cells": [
+      {
+        "id": "D_to_D",
+        "source_initialization": "discriminative",
+        "online_update": "discriminative"
+      },
+      {
+        "id": "D_to_P",
+        "source_initialization": "discriminative",
+        "online_update": "predictive"
+      },
+      {
+        "id": "P_to_D",
+        "source_initialization": "predictive",
+        "online_update": "discriminative"
+      },
+      {
+        "id": "P_to_P",
+        "source_initialization": "predictive",
+        "online_update": "predictive"
+      }
+    ],
+    "same_initialization": true,
+    "readiness_status": "REGISTERED_H2_WAVE_A_NOT_EXECUTED_WAVE_B_AND_WAVE_D_DIAGNOSTICS_COMPLETE"
+  },
+  "inputs": {
+    "manifest": {
+      "status": "ok",
+      "size": 8474,
+      "role": "development_stream_manifest"
+    },
+    "legacy_protocol_excluded_from_causal_wave_a": {
+      "record": {
+        "status": "ok",
+        "size": 3376,
+        "role": "legacy_continual_competition_protocol"
+      },
+      "reason": "Its four controls all use predictive_ranking with different retention graphs; it is not the registered D/P 2x2 factorial."
+    },
+    "stream_count": 19,
+    "declared_frame_count": 3844,
+    "stream_records": [
+      {
+        "video": "b202cae2-672e61c5",
+        "domain": "clear",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 439217,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 8646108,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 4002,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            4002,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b1df722f-57d21f3f",
+        "domain": "clear",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 420210,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 6684458,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 3790,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3790,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b1f0efd9-e900c6e5",
+        "domain": "clear",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 574885,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 9212083,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 5398,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            5398,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b2208b0f-2796a692",
+        "domain": "clear",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 920498,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 14800487,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 8968,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            8968,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b2169b74-fa197951",
+        "domain": "clear",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 765044,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 9331554,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 7326,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            7326,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b1ff4656-ebcfeb35",
+        "domain": "overcast",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 377477,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 5083540,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 3327,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3327,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b23b2649-8349d2a1",
+        "domain": "overcast",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 339377,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 4767850,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 2982,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            2982,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b1ff4656-0435391e",
+        "domain": "overcast",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 617186,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 10517891,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 5842,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            5842,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b23b2649-6af03cd5",
+        "domain": "overcast",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 363552,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 6326346,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 3227,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3227,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "0081da60-27997c07",
+        "domain": "rainy",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 456242,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 7465539,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 4163,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            4163,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "00810e80-37641274",
+        "domain": "rainy",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 365306,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 6916520,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 3287,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3287,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b1e1a7b8-65ec7612",
+        "domain": "rainy",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 437452,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 7263069,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 3982,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3982,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b1ebfc3c-740ec84a",
+        "domain": "night",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 488693,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 7846713,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 4536,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            4536,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b214d1e1-f248c616",
+        "domain": "night",
+        "declared_frames": 200,
+        "annotation": {
+          "status": "ok",
+          "size": 411879,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 6521376,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 200,
+          "detection_count": 3745,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3745,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            201
+          ],
+          "image_ids_shape": [
+            200
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b21547c1-73e457f8",
+        "domain": "night",
+        "declared_frames": 203,
+        "annotation": {
+          "status": "ok",
+          "size": 548393,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 6797890,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 203,
+          "detection_count": 5148,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            5148,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            204
+          ],
+          "image_ids_shape": [
+            203
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b21d5efb-5e2cd743",
+        "domain": "night",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 187164,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 2730328,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 1421,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            1421,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b23f7012-fab06dac",
+        "domain": "night",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 201570,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 2554958,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 1568,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            1568,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b2505382-272e7823",
+        "domain": "night",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 166058,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 2389525,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 1205,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            1205,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      },
+      {
+        "video": "b20eae11-6817ba7a",
+        "domain": "night",
+        "declared_frames": 202,
+        "annotation": {
+          "status": "ok",
+          "size": 432299,
+          "role": "prepared_detection_annotation"
+        },
+        "features": {
+          "status": "ok",
+          "size": 5849078,
+          "role": "dense_feature_cache"
+        },
+        "annotation_checks": {
+          "status": "ok",
+          "image_count": 202,
+          "detection_count": 3937,
+          "flags": {
+            "gt_read": false,
+            "native_full_frames": true,
+            "engineering_smoke_only": false,
+            "annotations_key_count": 0
+          },
+          "target_gt_isolated": true,
+          "native_frame_complete": true
+        },
+        "image_sample": {
+          "status": "transport_endpoint_not_connected",
+          "errno": 107
+        },
+        "feature_checks": {
+          "status": "ok",
+          "shape": [
+            3937,
+            1024
+          ],
+          "dtype": "float32",
+          "offsets_shape": [
+            203
+          ],
+          "image_ids_shape": [
+            202
+          ],
+          "consistent_with_prepared_stream": true
+        }
+      }
+    ],
+    "all_streams_structurally_ready": true
+  },
+  "source_artifacts": {
+    "D_checkpoint": {
+      "status": "ok",
+      "size": 2652807,
+      "role": "D_checkpoint"
+    },
+    "P_checkpoint": {
+      "status": "ok",
+      "size": 2652807,
+      "role": "P_checkpoint"
+    },
+    "D_calibration": {
+      "status": "ok",
+      "size": 611,
+      "role": "D_calibration"
+    },
+    "P_calibration": {
+      "status": "ok",
+      "size": 608,
+      "role": "P_calibration"
+    },
+    "frozen_teacher_calibration": {
+      "status": "ok",
+      "size": 540,
+      "role": "frozen_teacher_calibration"
+    }
+  },
+  "leakage_audit": {
+    "target_gt_used_for_training_or_gate": false,
+    "all_prepared_annotations_gt_read_false": true,
+    "all_prepared_annotations_have_zero_gt_annotations": true
+  },
+  "runtime": {
+    "nas": {
+      "status": "transport_endpoint_not_connected",
+      "errno": 107
+    },
+    "nas_images_accessible_from_prepared_sample": false,
+    "cuda_ready_for_formal_run": false,
+    "torch": {
+      "version": "2.0.0+cu118",
+      "compiled_cuda": "11.8",
+      "cuda_available": false,
+      "device_count": 0
+    },
+    "nvidia_smi": {
+      "command": [
+        "nvidia-smi",
+        "-L"
+      ],
+      "status": "failed",
+      "returncode": 9,
+      "stdout": "NVIDIA-SMI has failed because it couldn't communicate with the NVIDIA driver. Make sure that the latest NVIDIA driver is installed and running.",
+      "stderr": ""
+    },
+    "active_owned_processes": []
+  },
+  "decision": {
+    "source_checkpoints_and_calibrations_ready": true,
+    "local_detection_and_feature_inputs_ready": true,
+    "formal_wave_a_started": false,
+    "formal_wave_a_allowed_now": false,
+    "blockers": [
+      "NAS_FUSE_ENDPOINT_DISCONNECTED",
+      "NVIDIA_DRIVER_UNAVAILABLE"
+    ],
+    "next_action": "Re-run this preflight after the NAS SSHFS endpoint and NVIDIA driver are restored; then execute only one seed17 forward-order Wave-A factorial."
+  }
+}
