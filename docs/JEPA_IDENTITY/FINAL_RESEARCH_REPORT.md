@@ -22,6 +22,25 @@ candidate coverage was identical at 84.43% for every control. This common-state
 result is negative evidence against the current absolute-latent predictive
 target as the source of incremental identity ranking.
 
+The registered structural follow-up was completed with one seed (17), 1,000
+source-only updates, batch 64, and a video-disjoint source split. The host had
+no usable NVIDIA driver, so the device was CPU; the seed, cache, candidate set,
+and budget were unchanged. Every final checkpoint passed provenance preflight
+and scored the same 1,394 common-state events:
+
+| candidate / method | Top-1 | MRR | pairwise AUC | net correction |
+|---|---:|---:|---:|---:|
+| identity-residual predictive | 74.17% | 0.8453 | 0.8954 | +88 |
+| identity-residual ranking-only | 74.51% | 0.8555 | 0.9148 | +92 |
+| candidate-relative predictive | 42.31% | 0.6355 | 0.7227 | -287 |
+| candidate-relative ranking-only | 43.84% | 0.6495 | 0.7416 | -269 |
+
+Residual predictive is below its matched ranking-only control and below the
+history-last (75.36% / 0.8525 / 0.9012 / +102) and MLP CE (76.13% / 0.8638 /
+0.9191 / +111) references. Candidate-relative is far below both and has
+negative net correction. Neither structural candidate passes the H1 gate. The
+complete machine-readable comparison is `STRUCTURAL_FORMAL_SEED17.json`.
+
 This is a useful selection signal, not a proof. The event set is conditioned
 on changed assignments, the methods do not share one propagated state, the
 tracer records a top candidate subset, and the NLL/Brier/ECE values are
@@ -36,12 +55,9 @@ particular, different source initializations cannot be used as evidence for an
 online JEPA advantage. The same-initialization H2 factorial is still pending.
 
 The common-state evaluator, source-only structural trainer, and structural
-checkpoint evaluator are now implemented and pass real-cache engineering
-smokes. The reduced smoke checkpoints are explicitly excluded from the H1
-evidence because they use one CPU step and reduced dimensions; one of them
-produces negative local correction, which the evaluator preserves. The next
-falsifiable step is one small identity-residual JEPA experiment followed, only
-if needed, by one candidate-relative experiment. Neither will be expanded to
-multiple seeds or continual-learning matrices until a held-out identity-ranking
-gain appears.
+checkpoint evaluator are implemented and pass real-cache engineering smokes.
+The reduced smoke checkpoints remain excluded from H1 evidence. The formal
+seed17 structural comparison is now complete and negative under its registered
+gate, so no threshold sweep, extra seed, or H2 continual-learning matrix is
+justified. H2 remains a controlled follow-up protocol rather than a result.
 
