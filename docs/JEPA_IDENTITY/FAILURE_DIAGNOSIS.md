@@ -57,6 +57,15 @@ four stable final runs are the registered comparison.
 The common-state evaluator is complete and remains the fixed path for every
 structural checkpoint. The registered structural options have now been
 exhausted at seed17 without an H1 gain; no threshold sweep or extra seed is
-justified. H2 remains frozen until a separately approved mechanism produces a
-held-out identity-ranking gain.
+justified. H2 remains independently unresolved and is retained as the next
+causal continual-learning test. The H1 result does not gate it; execution is
+deferred by the unavailable GPU and the current single-seed resource boundary.
+
+The bounded fixed-teacher H2 diagnostic then isolated the objective on one
+shared BDD pseudo-pair bank. Discriminative updates produced larger candidate
+ranking gains than predictive updates within both source initializations,
+while predictive updates reduced cosine prediction error more strongly in the
+D initialization. This is a falsifiable warning about prediction/ranking
+misalignment, not a full-video H2 conclusion; the next test must preserve the
+same controls in the registered causal stream.
 
