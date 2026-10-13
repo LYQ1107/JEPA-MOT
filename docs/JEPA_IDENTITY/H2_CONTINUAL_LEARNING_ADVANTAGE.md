@@ -41,3 +41,9 @@ but their candidate ranking gain was smaller. The run is recorded in
 `H2_WAVE_B_FIXED_TEACHER_SEED17.json` and is a diagnostic only: it has no
 full-video HOTA/IDF1/IDSW or closed-loop evidence.
 
+On the first 16 shared batches, the predictive/discriminative gradient cosine
+averaged 0.255 for Source-D and 0.637 for Source-P, while the predictive
+gradient norm averaged 0.818 and 0.082 of the discriminative norm. This points
+to a testable prediction/ranking-gradient mismatch rather than evidence that
+the online JEPA hypothesis is closed.
+
