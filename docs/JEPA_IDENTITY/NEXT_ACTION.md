@@ -50,7 +50,7 @@
     a one-seed uncertainty audit on 1,177 candidate-present events, not a
     reason to add seeds or declare the general JEPA claim resolved.
 14. Use `H1_EVIDENCE_AUDIT_SEED17.json` as the pre-run static gate. It passes
-    26/26 checks, but the remaining fresh UA tracer, sealed evaluation, and H2
+    29/29 checks, but the remaining fresh UA tracer, sealed evaluation, and H2
     closed-loop evidence still require the restored runtime; do not infer
     completion from the static pass.
 
