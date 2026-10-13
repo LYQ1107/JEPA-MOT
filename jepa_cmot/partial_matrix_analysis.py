@@ -50,12 +50,26 @@ def main():
                 equal_domain_average=sum(current[d][metric]-values['0'][d][metric] for d in domains)/len(domains))
                 for metric in ['HOTA', 'AssA', 'IDF1']}
             payload = torch.load(snapshots[stage][name], map_location='cpu')
-            optimizer_steps = {int(value['step']) for value in payload['optimizer']['state'].values()}
-            if optimizer_steps != {payload['updates']}:
-                raise ValueError('Actual optimizer steps differ from the reported learner count')
-            states[str(stage)][name] = dict(frames=payload['frames'], updates=payload['updates'],
-                confirmed=payload['stats']['delayed_confirmed'], seen=payload['seen'], memory=len(payload['memory']),
-                checkpoint_sha256=sha256(snapshots[stage][name]))
+            if 'optimizer' not in payload:
+                # Stage 0 may be an actual immutable source evaluation reused
+                # after checkpoint compaction.  A source training checkpoint
+                # has no online learner state; report zero continual updates
+                # explicitly instead of treating its source training step as
+                # an adaptation update.
+                if stage != 0:
+                    raise ValueError('Learner snapshot is missing optimizer state')
+                states[str(stage)][name] = dict(frames=0, updates=0, confirmed=0,
+                    seen=0, memory=0, frozen_source_checkpoint=True,
+                    source_training_step=payload.get('step'),
+                    checkpoint_sha256=sha256(snapshots[stage][name]))
+            else:
+                optimizer_steps = {int(value['step']) for value in payload['optimizer']['state'].values()}
+                if optimizer_steps != {payload['updates']}:
+                    raise ValueError('Actual optimizer steps differ from the reported learner count')
+                states[str(stage)][name] = dict(frames=payload['frames'], updates=payload['updates'],
+                    confirmed=payload['stats']['delayed_confirmed'], seen=payload['seen'], memory=len(payload['memory']),
+                    frozen_source_checkpoint=False,
+                    checkpoint_sha256=sha256(snapshots[stage][name]))
         if protocol.get('actual_update_counts_matched_each_frame'):
             if len({(v['frames'], v['updates'], v['confirmed'], v['seen']) for v in states[str(stage)].values()}) != 1:
                 raise ValueError('Fixed-teacher source/update budgets differ')
