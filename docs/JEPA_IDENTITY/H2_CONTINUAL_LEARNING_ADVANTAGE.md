@@ -47,3 +47,16 @@ gradient norm averaged 0.818 and 0.082 of the discriminative norm. This points
 to a testable prediction/ranking-gradient mismatch rather than evidence that
 the online JEPA hypothesis is closed.
 
+A Wave-D mechanism probe then kept that bank and schedule fixed and added the
+existing equal-weight ranking term to the predictive update. D-to-
+predictive-plus-ranking gained 7.84 fixed-bank Top-1 points, compared with
+4.58 for D-to-P and 7.19 for D-to-D. P-to-predictive-plus-ranking gained 1.96
+points, compared with 0.65 for P-to-P and 3.27 for P-to-D. The P-cell hybrid
+gradient had cosine 0.998 with the discriminative gradient and only 0.679 with
+the predictive gradient, so the apparent rescue is largely a discriminative
+ranking effect. The source validation subset moved from 67.77% to 65.43% for
+Source-D and from 59.18% to 60.94% for Source-P. This remains objective-level
+mechanism evidence only; it has no full-video, HOTA, IDF1, IDSW, forgetting,
+BWT, FWT, or closed-loop evidence. The compact record is
+`H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`.
+
