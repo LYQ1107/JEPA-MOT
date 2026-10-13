@@ -17,3 +17,5 @@ BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测�
 纯预测目标的在线贡献不能由prediction+ranking替代。已补排seed17纯预测FT/replay的两数据集forward与reverse；reverse17的CE/联合六组同时保留。UA source seeds23/42已真实训练和source-only校准完成，forward12组及reverse17/23/42共18组已补排（各附pure17两组），相同detector/caches/splits。队列等待现有完整矩阵/开发组终态之后占用GPU；排队状态不能作为已运行的科学结果。BDD原seed23/42两顺序队列继续，新增任务等待该队列两次complete，GPU0队列等待六个已有完整实验。
 
 完整source-validation诊断已经覆盖24快照，需与后续source AssA/HOTA逐方法对应；避免混合CE与预测模型不同loss尺度。官方1664-D predictor先前小规模工程cache不能代替正式读数对照；补充需要相同合法时序输入、明确encoder与masked predictor的信息差别、匹配head参数/源预算和全视频部署，作为仍未完成的要求保留。
+
+官方配对读数完整pipeline已实际排队，等待PID20894/20960退出后用GPU2，先source paired caches、三目标/校准，再两数据集全部development；不是复用旧1664工程缓存。相同4帧观察窗口与source clips图片预算，mask导致当前像素信息有意不同，新增frozen predictor计算另计。源4帧GPU检查完成，202帧无标签整视频接口检查继续。

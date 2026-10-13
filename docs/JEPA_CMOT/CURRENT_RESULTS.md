@@ -207,3 +207,23 @@ stage2那1个确认错配的prediction need=0.1333，而一致样本均值约0.1
 该联合replay全源query covariance trace .542556→.567305，distinct-pair mean cosine .457421→.432671，未显示全局完全collapse；不能用这一项排除条件性/身份级退化。四stage的source描述符诊断已完整，stage2/3的MOT回测仍在运行，不能把该表称为完整MOT遗忘证据。不同目标的loss尺度不同，不跨模型池化报告loss与AssA相关性；等真实完整矩阵后再做逐方法探索性分析。见BDD_COMPLETE_SOURCE_VALIDATION_SNAPSHOT_AUDIT.json。
 
 已将53个本次完成source模型的冗余中间optimizer/RNG状态缩减，保存所有901份中间模型weight、全部final.pt及首/中/末完整训练state；逐文件验证θ tensor相同并记录前后SHA，释放约4.797GB。历史备份与NAS不改。详见SOURCE_CHECKPOINT_COMPACTION_SUMMARY.json。
+
+## 官方encoder/predictor配对读数：正式任务已排队
+
+补齐任务书encoder-only与官方predictor feature对照。两者相同4帧因果窗口、相同现有连续source clips/128图像预算、相同ROI/detector rows；encoder使用当前tubelet，predictor全final tubelet masked，仅由t-3/t-2预测1664-D map。两种读数信息因mask不同，这正是该补充对照要记录的差别，不能声称相同当前像素信息或总计算量。source identity head参数662400/662657，hidden128/79，相差0.04%；三目标各2,000×64、seed17、相同source-only校准。两数据集全development都在pipeline中，尚无正式收益结果。
+
+初始化缺失历史用normalized-zero，不复制当前帧到过去context；source窗口按video/segment重置，不跨clip洞。FP16扰动检查失败，相同input也波动（一次repeat raw token max差0.05469），故不能由该差直接断言信息泄漏。FP32+deterministic的4帧/64对象实际GPU验证：同input和masked-target变化均0，改变过去像素的max token差13.1614；两读数1024/1664维，有限、L2 norm约1，offsets相同。工程smoke不计source正式训练。
+
+代码paired_readout_cache/pipeline独立于现有tracker；全实验等待UA两feature producer完成后使用GPU2。完整202帧无标签适应视频的读数/跟踪接口验证继续，仅作为工程闭环，不用于选阈值。详见OFFICIAL_PAIRED_READOUT_REGISTRATION.json。
+
+## 两数据集12个完整图像链路效率案例完成
+
+新增UA完整cloudy MVI_40152（1,750 native帧）六方法已完成，GPU5各case起止未观察other-job，source初始化、warmup10在原轨迹内，权重启动时间不计。geometry3.016 FPS，frozen-last1.901，CE frozen1.804，联合frozen1.849，CE online1.846，联合online1.833；online两组均218次真实更新，update-call p50 9.919/9.778ms，p95 21.468/20.922ms，包含伪对、fresh/replay、梯度和optimizer。联合online整链路p50/p95 528.369/671.482ms，torch两进程reservation峰值之和约3.986GiB（不含driver context，峰值未必同时）。
+
+BDD六组202帧结果保持：联合online1.603 FPS、25次更新、end-to-end p50/p95 617.139/748.651ms。12案例均来自真实NAS图片+private detector IPC+current encoder+frozen matcher，cached_input_used=false、GT_read=false、history current violations0，benchmark θ从未接续到研究训练。原目录P_*实际是prediction+ranking；不是pure预测。
+
+同一个dataset共享stream和detector SHA已核验，但每方法只有一次执行、整个server/CPU/NAS仍共享，只检查GPU起止；CE在线偶然更快不作为加速结论。主full-video launch没有传parity reference，默认reference error=0不能理解为bitwise cache parity。这个表尚未测C2/RKD或者新FP32 w4读数的额外成本。完整可复核报告FULL_NATIVE_LIVE_EFFICIENCY_RESULTS.json。
+
+官方配对读数完整202帧BDD适应视频接口验证已完成：encoder/predictor各2824条detection rows，维度1024/1664；FP32重复/目标扰动差0，过去扰动max token差11.0013。两读数均实际跑完native geometry+frozen-last，202帧、updates0、GT_read=false、history violations0；两套geometry轨迹逐字节一致。校准和source训练未在该工程验证中进行，不报告HOTA或把它当作全development收益。详见OFFICIAL_PAIRED_READOUT_NATIVE_TRACKING_VERIFICATION.json。
+
+配对读数的源负例进一步固定为共同encoder的last-feature cosine挖掘。Predictor源cache额外携带对齐的encoder ranking features，仅用于选取同一物理候选，不输入predictor历史网络；两读数的正例/历史/gaps与hard-negative行完全相同。针对不同1024/1664特征、每帧17个可用负例的sampler检查，18个样例candidate index列表一致。旧cache没有该字段时SourcePairs保持原行为；旧checkpoint与source训练记录不改写。

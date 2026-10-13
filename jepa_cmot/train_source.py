@@ -26,7 +26,14 @@ class SourcePairs(Dataset):
             self.videos = np.asarray(data['video_ids'], np.int64)
             self.tracks = np.asarray(data['track_ids'], np.int64)
             self.segments = np.asarray(data['segment_ids'], np.int64) if 'segment_ids' in data else np.zeros_like(self.frames)
+            self.ranking_features = (np.asarray(data['candidate_ranking_features'], np.float32)
+                                     if 'candidate_ranking_features' in data else None)
         self.features /= np.maximum(np.linalg.norm(self.features, axis=1, keepdims=True), 1e-8)
+        if self.ranking_features is None:
+            self.ranking_features = self.features
+        else:
+            if len(self.ranking_features) != len(self.features):raise ValueError('Negative reference rows differ')
+            self.ranking_features /= np.maximum(np.linalg.norm(self.ranking_features, axis=1, keepdims=True), 1e-8)
         self.history = history
         self.scale = np.array([width, height, width, height], np.float32)
         self.max_candidates = max_candidates
@@ -49,7 +56,7 @@ class SourcePairs(Dataset):
                 negatives = [i for i in candidates if i != target]
                 if not negatives:
                     continue
-                negatives.sort(key=lambda i: -float(self.features[previous[-1]] @ self.features[i]))
+                negatives.sort(key=lambda i: -float(self.ranking_features[previous[-1]] @ self.ranking_features[i]))
                 if not np.all(self.frames[previous] < self.frames[target]):
                     raise ValueError('Current/future observation entered source history')
                 self.samples.append((previous, target, [target] + negatives[:max_candidates - 1]))

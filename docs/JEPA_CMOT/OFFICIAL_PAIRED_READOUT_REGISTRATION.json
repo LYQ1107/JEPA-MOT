@@ -1,0 +1,105 @@
+{
+  "status": "SOURCE_GPU_SMOKE_COMPLETE_FORMAL_PIPELINE_QUEUED",
+  "source_smoke": {
+    "frames": 4,
+    "source_objects": 64,
+    "encoder_dim": 1024,
+    "predictor_dim": 1664,
+    "all_features_finite": true,
+    "offsets_equal": [
+      0,
+      16,
+      32,
+      48,
+      64
+    ],
+    "feature_norm_range": [
+      0.9999999,
+      1.0000001
+    ],
+    "engineering_only": true,
+    "probe": {
+      "masked_target_max_abs_delta": 0.0,
+      "same_input_repeat_max_abs_delta": 0.0,
+      "past_context_max_abs_delta": 13.161407470703125,
+      "token_mask_only_vs_explicit_pixel_mask_max_abs_delta": 0.0
+    }
+  },
+  "failed_probes": [
+    {
+      "precision": "FP16 default SDPA, token masks",
+      "masked_target_max_abs_delta": 0.0390625,
+      "past_context_max_abs_delta": 13.15625
+    },
+    {
+      "precision": "FP16 default SDPA, explicit target pixels zeroed",
+      "masked_target_max_abs_delta": 0.109375,
+      "past_context_max_abs_delta": 13.171875
+    },
+    {
+      "precision": "FP16 math SDPA and deterministic cuDNN",
+      "masked_target_max_abs_delta": 0.03125,
+      "same_input_repeat_max_abs_delta": 0.0546875,
+      "past_context_max_abs_delta": 13.1484375
+    }
+  ],
+  "interpretation": "FP16 output differences also occur on identical inputs; these failed checks are not proof of target leakage. FP32 deterministic readout passes both repeat and masked-target invariance, and responds to past pixels.",
+  "formal_registration": {
+    "datasets": [
+      "ua_detrac",
+      "bdd100k"
+    ],
+    "split": "all development videos; sealed untouched",
+    "source_data": "same pre-existing contiguous source clips, 128 images/video; history cannot cross segments",
+    "window": 4,
+    "startup_padding": "normalized-zero missing history; no first/current image copied into past",
+    "encoder_readout": "current final tubelet from all observed window pixels",
+    "predictor_readout": "masked final tubelet forecast from t-3,t-2; target pixels zero before projection and target tokens removed before context attention",
+    "encoder_head_parameters": 662400,
+    "predictor_head_parameters": 662657,
+    "hidden_widths": {
+      "encoder": 128,
+      "predictor": 79
+    },
+    "source_steps": 2000,
+    "source_batch": 64,
+    "source_losses": [
+      "discriminative",
+      "predictive",
+      "predictive_ranking"
+    ],
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "seed": 17,
+    "calibration": "source validation only, 2 parameters / 200 steps",
+    "detection_rows": "identical original source-detector arrays, no target GT",
+    "precision": "FP32 deterministic paired feature extraction; common to source/development",
+    "compute_limitation": "head capacity and source sampling budgets matched; frozen predictor adds parameters and compute, information available to the readouts differs by masking; no equal total compute claim",
+    "queue": {
+      "pid": 24690,
+      "gpu": 2,
+      "wait_pids": [
+        20894,
+        20960
+      ],
+      "entrypoint": "jepa_cmot.paired_readout_pipeline",
+      "scope": "all source clips and all frozen development videos in both datasets; three losses per readout; same source budget and matched head capacity",
+      "status": "QUEUED_NOT_RESULTS",
+      "previous_idle_queue_pid": 398,
+      "reload_reason": "load final FP32 cache checks and source state compaction before training; no source work or child had started"
+    },
+    "source_negative_pool": "same physical candidate rows mined by the paired encoder last-feature cosine; predictor source cache carries encoder ranking features"
+  },
+  "target_GT_used_for_training": false,
+  "sealed_used": false,
+  "shared_negative_pool_validation": {
+    "scope": "focused sampler property check with different 1024/1664 features and 17 available negatives",
+    "examples": 18,
+    "candidate_lists_equal": true,
+    "not_training_or_performance_evidence": true
+  }
+}
