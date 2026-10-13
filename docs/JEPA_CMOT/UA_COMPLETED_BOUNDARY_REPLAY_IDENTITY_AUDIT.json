@@ -1,0 +1,211 @@
+{
+  "scope": "offline completed-domain reservoir and remaining fresh buffer identity audit",
+  "target_GT_fed_to_training_or_gates": false,
+  "definition": "nearest IoU05 group-compatible GT; dominant matched-history identity purity >=.75",
+  "limitation": "not all proposed/confirmed pseudo pairs or frequency-weighted training batches; unmatched boxes are separate from confirmed identity mismatches; clipped historical gaps cannot be recovered and are excluded",
+  "sequence_protocol_sha256": "ba194492fb40e2f2aad70559d38908f96ada961a6c00f429010b2f866bfaa845",
+  "dataset": "ua_detrac",
+  "status": "COMPLETE_OFFLINE_BOUNDARY_MEMORY_DIAGNOSIS_NOT_FINAL_MOT",
+  "target_GT_read_for_offline_diagnosis": true,
+  "sealed_used": false,
+  "audit_code_sha256": "6bce74dc91ce62a81407206de6ecdffe274ee1fb26dffdd367abaf32b662f2db",
+  "invocation": "./run_python.sh -m jepa_cmot.audit_replay_identity --sequence runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17 --manifest runs/JEPA_CMOT/native_protocol_v3/manifest.json --detections runs/JEPA_CMOT/formal_detection_streams_v1/ua_detrac --stages 1 2 3 --out docs/JEPA_CMOT/UA_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT.json",
+  "snapshots": [
+    {
+      "stage": 1,
+      "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_none_graph/MVI_40191/learner.pt",
+      "checkpoint_sha256": "8f54e003e6bda043b8ef296426a4ea3afc1674c0239ac0b4827083e63bdfb48c",
+      "native_frames": 27440,
+      "updates": 3395,
+      "all_delayed_confirmed": 229359,
+      "counts": {
+        "memory": {
+          "identity_consistent": 102,
+          "unmatched_history": 23,
+          "unmatched_current_detection": 3
+        },
+        "recent": {
+          "identity_consistent": 26,
+          "unmatched_current_detection": 1,
+          "unmatched_history": 1
+        }
+      },
+      "maximum_positive_feature_reconstruction_error": 0.0,
+      "reconstructed_history_observations": 621,
+      "maximum_history_feature_reconstruction_error": 5.960464477539063e-08,
+      "maximum_history_box_reconstruction_error_pixels": 5.53131103515625e-05,
+      "matched_controls": {
+        "predictive_ranking_none_graph": {
+          "sample_fields_equal": true,
+          "updates": 3395,
+          "checkpoint_sha256": "8f54e003e6bda043b8ef296426a4ea3afc1674c0239ac0b4827083e63bdfb48c"
+        },
+        "predictive_ranking_features_graph": {
+          "sample_fields_equal": true,
+          "updates": 3395,
+          "checkpoint_sha256": "6c3b2ab9c47eed56876564ae42ae0c21e23071f5983213f444b2375b70fcb05f"
+        },
+        "predictive_ranking_relations_graph": {
+          "sample_fields_equal": true,
+          "updates": 3395,
+          "checkpoint_sha256": "0504e03d2b6e6b4b2f2fc361d775fb7126b703559c664e588ff630bfd6a9f243"
+        },
+        "predictive_ranking_competition_graph": {
+          "sample_fields_equal": true,
+          "updates": 3395,
+          "checkpoint_sha256": "678b9576d211fdd1b1529c10076409de56a6db995aef33090b0fde1c4369c996"
+        }
+      },
+      "discrepancy_by_status": {
+        "unmatched_history": {
+          "prediction_need": 0.09865622719128926,
+          "appearance_hardness": 0.009029043217500051
+        },
+        "unmatched_current_detection": {
+          "prediction_need": 0.10909979045391083,
+          "appearance_hardness": 0.005534946918487549
+        },
+        "identity_consistent": {
+          "prediction_need": 0.13652595644816756,
+          "appearance_hardness": 0.016385617665946484
+        }
+      },
+      "identity_consistent_matched_history_coverage": {
+        "4": 123,
+        "3": 4,
+        "2": 1
+      },
+      "clipped_history_slots": 0
+    },
+    {
+      "stage": 2,
+      "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_none_graph/MVI_40891/learner.pt",
+      "checkpoint_sha256": "a280e4a78d8ac14c6b24061231d7bd499ac14c50ca3e688514f0057e3a17d49c",
+      "native_frames": 42140,
+      "updates": 5232,
+      "all_delayed_confirmed": 337223,
+      "counts": {
+        "memory": {
+          "identity_consistent": 107,
+          "unmatched_history": 20,
+          "unmatched_current_detection": 1
+        },
+        "recent": {
+          "identity_consistent": 32
+        }
+      },
+      "maximum_positive_feature_reconstruction_error": 0.0,
+      "reconstructed_history_observations": 639,
+      "maximum_history_feature_reconstruction_error": 5.960464477539063e-08,
+      "maximum_history_box_reconstruction_error_pixels": 5.53131103515625e-05,
+      "matched_controls": {
+        "predictive_ranking_none_graph": {
+          "sample_fields_equal": true,
+          "updates": 5232,
+          "checkpoint_sha256": "a280e4a78d8ac14c6b24061231d7bd499ac14c50ca3e688514f0057e3a17d49c"
+        },
+        "predictive_ranking_features_graph": {
+          "sample_fields_equal": true,
+          "updates": 5232,
+          "checkpoint_sha256": "7b76c159f09b63215450ee394fa0a8810c212c44c3e79dfe441650e9563951af"
+        },
+        "predictive_ranking_relations_graph": {
+          "sample_fields_equal": true,
+          "updates": 5232,
+          "checkpoint_sha256": "1de6b0235b8c177de55ff806271dc6ea9c0682c32aa85ffe6c6947f90b056df9"
+        },
+        "predictive_ranking_competition_graph": {
+          "sample_fields_equal": true,
+          "updates": 5232,
+          "checkpoint_sha256": "0e83f0df0ebabbe9563c562706f072a203317bb37a893fb318dafa68304f0016"
+        }
+      },
+      "discrepancy_by_status": {
+        "unmatched_history": {
+          "prediction_need": 0.08808447420597076,
+          "appearance_hardness": 0.009504571557044983
+        },
+        "unmatched_current_detection": {
+          "prediction_need": 0.092521071434021,
+          "appearance_hardness": 0.0015649795532226562
+        },
+        "identity_consistent": {
+          "prediction_need": 0.11713046993283059,
+          "appearance_hardness": 0.011204418089750002
+        }
+      },
+      "identity_consistent_matched_history_coverage": {
+        "4": 138,
+        "3": 1
+      },
+      "clipped_history_slots": 0
+    },
+    {
+      "stage": 3,
+      "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_none_graph/MVI_40793/learner.pt",
+      "checkpoint_sha256": "b056310aa7b5cf9d29c56ae99339d1771222d37a8884a2923d90bd4f94d2a707",
+      "native_frames": 65430,
+      "updates": 8101,
+      "all_delayed_confirmed": 442278,
+      "counts": {
+        "memory": {
+          "identity_consistent": 110,
+          "unmatched_history": 18
+        },
+        "recent": {
+          "identity_consistent": 21,
+          "unmatched_current_detection": 2,
+          "unmatched_history": 9
+        }
+      },
+      "maximum_positive_feature_reconstruction_error": 0.0,
+      "reconstructed_history_observations": 639,
+      "maximum_history_feature_reconstruction_error": 5.960464477539063e-08,
+      "maximum_history_box_reconstruction_error_pixels": 5.53131103515625e-05,
+      "matched_controls": {
+        "predictive_ranking_none_graph": {
+          "sample_fields_equal": true,
+          "updates": 8101,
+          "checkpoint_sha256": "b056310aa7b5cf9d29c56ae99339d1771222d37a8884a2923d90bd4f94d2a707"
+        },
+        "predictive_ranking_features_graph": {
+          "sample_fields_equal": true,
+          "updates": 8101,
+          "checkpoint_sha256": "783b471fb95b93edeafb108cf4002777492e3d5563c1d04fd60a6f2b9b30ebea"
+        },
+        "predictive_ranking_relations_graph": {
+          "sample_fields_equal": true,
+          "updates": 8101,
+          "checkpoint_sha256": "b5ce7758f8f8eca160efe2a50f36e1b2ceb75de7def785de64dd6177727eeed5"
+        },
+        "predictive_ranking_competition_graph": {
+          "sample_fields_equal": true,
+          "updates": 8101,
+          "checkpoint_sha256": "55d669af9f55f91d8840c91b66ffeff1c1e0892b2cb4dea16866c53142e2be15"
+        }
+      },
+      "discrepancy_by_status": {
+        "unmatched_history": {
+          "prediction_need": 0.07132249629056012,
+          "appearance_hardness": 0.0082956420050727
+        },
+        "unmatched_current_detection": {
+          "prediction_need": 0.06026467680931091,
+          "appearance_hardness": 0.019886285066604614
+        },
+        "identity_consistent": {
+          "prediction_need": 0.10306165145553706,
+          "appearance_hardness": 0.010679154450656803
+        }
+      },
+      "identity_consistent_matched_history_coverage": {
+        "4": 131
+      },
+      "clipped_history_slots": 0
+    }
+  ],
+  "full_local_cases": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/offline_replay_identity_audit.json",
+  "full_local_cases_sha256": "c15ac8a2b20890e398d27ec776961300fd7ffd4d108d844bda8d6bde535a5ecf",
+  "full_local_case_count": 476,
+  "coverage_limitation": "Identity consistency is defined only over matched history slots; missing GT matches do not establish clean full histories or accurate pseudo-labels."
+}

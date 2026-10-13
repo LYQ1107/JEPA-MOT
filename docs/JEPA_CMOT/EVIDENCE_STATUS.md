@@ -19,7 +19,7 @@
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；seed17反向/UA仍运行；批量多seed延后 |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |
 | 实际图像到轨迹FPS/latency/显存/更新成本 | FULL_NATIVE_LIVE_EFFICIENCY_RESULTS、RETENTION_ACTUAL_UPDATE_COSTS | 12个整视频live案例+真实update-call成本；非全场景/新增FP32读数live速度 |
-| Pseudo确认偏差与改变匹配事件 | BDD_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT、BDD_FULL_RANK_REWARD_RESULTS、event strata | 离线局部/终态memory诊断；非所有训练对或传播的counterfactual因果结论 |
+| Pseudo确认偏差与改变匹配事件 | BDD/UA_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT、BDD_FULL_RANK_REWARD_RESULTS、event strata | 离线局部/终态memory诊断；非所有训练对或传播的counterfactual因果结论 |
 | Future/targetGT严格限制 | 查询history严格past、source-only校准、target stream labels空、实际GT_read=false；官方masked readout扰动验证 | 已落实已运行路径；最终仍应审计所有新配置/代码版本 |
 | 文献/真正新颖性 | NOVELTY_AND_REVIEWER_AUDIT | 原文审计已完成；未因机制命名宣称首次/论文成立 |
 | 方法冻结后的独立held-out测试 | sealed split仍未消费 | 待开发选择与超参数冻结后执行 |
