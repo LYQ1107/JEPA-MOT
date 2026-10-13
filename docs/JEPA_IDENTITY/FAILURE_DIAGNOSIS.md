@@ -71,7 +71,13 @@ same controls in the registered causal stream.
 
 On the first 16 shared batches, the predictive/discriminative gradient cosine
 was 0.255 from Source-D and 0.637 from Source-P, with predictive gradient
-norms 0.818 and 0.082 of the discriminative norms. The next mechanism should
-therefore test a controlled identity-ranking component or a calibrated
-predictive target, rather than simply increasing replay.
+norms 0.818 and 0.082 of the discriminative norms. The Wave-D probe added an
+equal-weight identity-ranking term to the predictive update. Fixed-bank Top-1
+gain became +7.84 points from Source-D and +1.96 from Source-P; the latter
+hybrid gradient had cosine 0.998 with the discriminative gradient. Thus the
+ranking term can repair part of the objective mismatch, but the observed P-cell
+rescue is largely discriminative-driven and does not establish an H2 advantage.
+The next causal step is still the registered full-video Wave-A factorial; a
+calibrated predictive target remains a later mechanism candidate if that test
+shows the same failure.
 
