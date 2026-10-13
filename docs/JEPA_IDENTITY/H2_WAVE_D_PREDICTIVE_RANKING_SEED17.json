@@ -1,0 +1,117 @@
+{
+  "status": "COMPLETE_H2_WAVE_D_PREDICTIVE_RANKING_MECHANISM_PROBE",
+  "scope": "one-seed BDD fixed-teacher mechanism probe after the Wave-B gradient diagnosis",
+  "dataset": "bdd100k",
+  "seed": 17,
+  "device": "cpu",
+  "objective": "predictive_ranking_equal_weight_prediction_plus_ranking",
+  "target_gt_used_for_training_or_gate": false,
+  "sealed_test_used": false,
+  "full_video_metrics": false,
+  "closed_loop_online": false,
+  "hota_claim": false,
+  "schedule": {
+    "steps": 128,
+    "batch": 8,
+    "example_count": 153,
+    "sha256": "f5c0658281ebcb1fa1c58b013d997bb9ce12fa0b7d003693ac6fdc791fcb2e31"
+  },
+  "teacher_bank": {
+    "path": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/discriminative_confidence/b251064f-5f6b663e/learner.pt",
+    "sha256": "65ec24e4d6eb880b99e1b18a10a940138726ca34ce2050ad6c0b7d03ed442db5",
+    "memory_count": 128,
+    "recent_count": 25,
+    "target_gt_read": false
+  },
+  "baseline_report": {
+    "path": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_IDENTITY/h2_wave_b_fixed_teacher_seed17/report.json",
+    "sha256": "16cefa746dfb09915e4b239d61af3d0eeb07472e46e81b7c22830f63ea2eeecd"
+  },
+  "source_checkpoint_sha256": {
+    "D": "3b3c1b5161a75eec6a5753913bab56107dc249d578f496f59596da8780242a48",
+    "P": "a6915692a9dd5473b7483f0e144d45ab96926d4feb5db280529e568731c181d2"
+  },
+  "source_cache": {
+    "path": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_identity_cache_v1/bdd100k/features_dense_current.npz",
+    "sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+    "validation_examples": 512,
+    "video_split": [21, 22, 23, 24, 25]
+  },
+  "same_teacher_examples_across_cells": true,
+  "same_sample_index_schedule_across_cells": true,
+  "cells": {
+    "D_to_predictive_ranking": {
+      "source_initialization": "D",
+      "online_update": "predictive_ranking",
+      "steps": 128,
+      "fixed_teacher_before": {
+        "top1": 0.8758169934640523,
+        "mrr": 0.9276766309551164,
+        "prediction_error": 0.5646393844504761,
+        "teacher_kl": 0.033237928268956204
+      },
+      "fixed_teacher_after": {
+        "top1": 0.954248366013072,
+        "mrr": 0.973856184217665,
+        "prediction_error": 0.21191493514316534,
+        "teacher_kl": 0.053891090006610146
+      },
+      "fixed_teacher_delta": {
+        "top1": 0.07843137254901966,
+        "mrr": 0.04617955326254852,
+        "prediction_error": -0.3527244493073108,
+        "teacher_kl": 0.02065316173765394
+      },
+      "source_validation_top1_before_after": [0.677734375, 0.654296875],
+      "source_validation_prediction_error_before_after": [0.6660682335495949, 0.36373039335012436],
+      "parameter_update_l2": 2.8170831016804727,
+      "gradient_alignment": {
+        "hybrid_vs_discriminative_cosine_mean": 0.8411412350833416,
+        "hybrid_vs_predictive_cosine_mean": 0.7187059745192528,
+        "hybrid_norm_mean": 1.394471738487482,
+        "discriminative_norm_mean": 1.0336849801242352,
+        "predictive_norm_mean": 0.678342193365097,
+        "batches": 16
+      },
+      "loss_first_last": [1.1333155632019043, 0.8049136400222778]
+    },
+    "P_to_predictive_ranking": {
+      "source_initialization": "P",
+      "online_update": "predictive_ranking",
+      "steps": 128,
+      "fixed_teacher_before": {
+        "top1": 0.9281045751633987,
+        "mrr": 0.9479030534332874,
+        "prediction_error": 0.038057151183583375,
+        "teacher_kl": 0.23537507400014043
+      },
+      "fixed_teacher_after": {
+        "top1": 0.9477124183006536,
+        "mrr": 0.965421714034735,
+        "prediction_error": 0.08688139136320626,
+        "teacher_kl": 0.06422762153974546
+      },
+      "fixed_teacher_delta": {
+        "top1": 0.019607843137254832,
+        "mrr": 0.017518660601447578,
+        "prediction_error": 0.048824240179622884,
+        "teacher_kl": -0.17114745246039498
+      },
+      "source_validation_top1_before_after": [0.591796875, 0.609375],
+      "source_validation_prediction_error_before_after": [0.11023074761033058, 0.160614101216197],
+      "parameter_update_l2": 2.299364904082678,
+      "gradient_alignment": {
+        "hybrid_vs_discriminative_cosine_mean": 0.9983042851090431,
+        "hybrid_vs_predictive_cosine_mean": 0.6794963292777538,
+        "hybrid_norm_mean": 1.1318996250629425,
+        "discriminative_norm_mean": 1.0740250647068024,
+        "predictive_norm_mean": 0.08511259430088103,
+        "batches": 16
+      },
+      "loss_first_last": [0.9234036207199097, 0.6859710216522217]
+    }
+  },
+  "interpretation_limit": "This tests whether adding a ranking term rescues prediction-only updates on one shared recorded pseudo-pair bank. The P-cell hybrid gradient is almost identical to the discriminative gradient, so this is not evidence for a uniquely predictive online advantage. It is not a full-video continual-learning result and does not replace the registered 2x2 factorial.",
+  "code_sha256": "9d051b295ee660dae6fe1a1b964b02d6be01fe1648cd5ed7a2fdef2dc2e6f42f",
+  "git_commit": "bf9f92092bd879789865aaccc028ac11ef504f0b"
+}
