@@ -65,6 +65,8 @@ def _check(checks: list[dict[str, Any]], name: str, passed: bool,
 def audit(root: Path) -> dict[str, Any]:
     common = _read(root, "COMMON_STATE_IDENTITY_METRICS.json")
     paired = _read(root, "PAIRED_COMMON_STATE_COMPARISONS_SEED17.json")
+    ua_paired = _read(root, "UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.json")
+    stratified = _read(root, "H1_DOMAIN_STRATIFIED_PAIRED_SEED17.json")
     structural = _read(root, "STRUCTURAL_FORMAL_SEED17.json")
     ua = _read(root, "UA_LEGACY_TRACK_REPLAY_SEED17.json")
     taxonomy = _read(root, "IDENTITY_ERROR_TAXONOMY.json")
@@ -114,6 +116,32 @@ def audit(root: Path) -> dict[str, Any]:
     _check(checks, "paired_no_training_gt", paired.get("target_GT_used_for_training_or_gate") is False
            and paired.get("sealed_used") is False,
            [paired.get("target_GT_used_for_training_or_gate"), paired.get("sealed_used")], [False, False])
+    _check(checks, "ua_paired_status_and_counts", ua_paired.get("status") == "COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17"
+           and [ua_paired.get("source_case_count"), ua_paired.get("candidate_present_case_count"),
+                ua_paired.get("candidate_absent_case_count")] == [4199, 4159, 40],
+           [ua_paired.get("status"), ua_paired.get("source_case_count"),
+            ua_paired.get("candidate_present_case_count"), ua_paired.get("candidate_absent_case_count")],
+           ["COMPLETE_PAIRED_COMMON_STATE_COMPARISON_SEED17", 4199, 4159, 40])
+    _check(checks, "ua_paired_controls_and_limit", set(PAIR_CONTROLS).issubset(set(ua_paired.get("controls", [])))
+           and ua_paired.get("target_GT_used_for_training_or_gate") is False
+           and ua_paired.get("sealed_used") is False,
+           {"controls": ua_paired.get("controls", []),
+            "target_GT_used_for_training_or_gate": ua_paired.get("target_GT_used_for_training_or_gate"),
+            "sealed_used": ua_paired.get("sealed_used")},
+           "required controls / false / false")
+    _check(checks, "domain_stratified_status_and_count", stratified.get("status") == "COMPLETE_BDD_DOMAIN_STRATIFIED_PAIRED_COMPARISON_SEED17"
+           and stratified.get("source_case_count") == 1394
+           and set(stratified.get("domains", {})) == {"clear", "night", "overcast", "rainy"},
+           [stratified.get("status"), stratified.get("source_case_count"), sorted(stratified.get("domains", {}))],
+           ["COMPLETE_BDD_DOMAIN_STRATIFIED_PAIRED_COMPARISON_SEED17", 1394, ["clear", "night", "overcast", "rainy"]])
+    stratified_counts = [value.get("source_case_count", 0) for value in stratified.get("domains", {}).values()]
+    _check(checks, "domain_stratified_controls_and_coverage", stratified.get("target_GT_used_for_training_or_gate") is False
+           and stratified.get("sealed_used") is False
+           and set(PAIR_CONTROLS).issubset(set(stratified.get("controls", [])))
+           and sum(stratified_counts) == 1394,
+           {"controls": stratified.get("controls", []), "target_GT_used_for_training_or_gate": stratified.get("target_GT_used_for_training_or_gate"),
+            "sealed_used": stratified.get("sealed_used"), "domain_counts": stratified_counts},
+           "required controls / false / false / domain counts sum to 1394")
 
     training = structural.get("training_budget", {})
     structural_runs = structural.get("runs", {})
