@@ -1,0 +1,109 @@
+{
+  "status": "REGISTERED_NOT_EXECUTED",
+  "hypothesis": "H2",
+  "wave": "A",
+  "scope": "one-seed full-video BDD100K forward-order causal factorial with a common frozen teacher stream",
+  "dataset": "bdd100k",
+  "seed": 17,
+  "domain_order": [
+    "clear",
+    "overcast",
+    "rainy",
+    "night"
+  ],
+  "inputs": {
+    "manifest": "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+    "detections": "runs/JEPA_CMOT/formal_detection_streams_v1/bdd100k",
+    "adaptation_splits": [
+      "overcast",
+      "rainy",
+      "night"
+    ],
+    "development_evaluation_splits": [
+      "clear",
+      "overcast",
+      "rainy",
+      "night"
+    ],
+    "preflight": "docs/JEPA_IDENTITY/H2_WAVE_A_PREFLIGHT_SEED17.json",
+    "verified_streams": 63,
+    "verified_frames": 12655,
+    "target_gt_used_for_training_or_gate": false,
+    "sealed_data_used": false
+  },
+  "teacher": {
+    "mode": "frozen_anchor_stream",
+    "implementation": "jepa_cmot.anchor_controls through jepa_cmot.continual_controls",
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/frozen_last.json",
+    "association_state": "one frozen native teacher makes all current-frame assignments before any learner update",
+    "pseudo_pair_delay_frames": 1,
+    "same_teacher_across_cells": true,
+    "same_candidate_and_reliability_protocol": true,
+    "teacher_reads_target_gt": false
+  },
+  "shared_online_config": {
+    "enabled": true,
+    "replay": 128,
+    "batch": 8,
+    "interval": 8,
+    "learning_rate": 0.0001,
+    "reliability": "confidence",
+    "retention": "none",
+    "seed": 17,
+    "need_threshold": 0.05,
+    "retention_weight": 1.0
+  },
+  "cells": [
+    {
+      "id": "D_to_D",
+      "source_initialization": "discriminative",
+      "online_update": "discriminative",
+      "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
+      "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/discriminative.json"
+    },
+    {
+      "id": "D_to_P",
+      "source_initialization": "discriminative",
+      "online_update": "predictive",
+      "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
+      "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/discriminative.json"
+    },
+    {
+      "id": "P_to_D",
+      "source_initialization": "predictive",
+      "online_update": "discriminative",
+      "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive/final.pt",
+      "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive.json"
+    },
+    {
+      "id": "P_to_P",
+      "source_initialization": "predictive",
+      "online_update": "predictive",
+      "checkpoint": "runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive/final.pt",
+      "calibration": "runs/JEPA_CMOT/source_calibration_v1/bdd_dense_current/seed17/predictive.json"
+    }
+  ],
+  "execution": {
+    "module": "jepa_cmot.continual_controls",
+    "controls_file_runtime": "runs/JEPA_CMOT/h2_wave_a_seed17/controls.json",
+    "output_root_runtime": "runs/JEPA_CMOT/h2_wave_a_seed17",
+    "teacher_calibration_argument_required": true,
+    "reverse_order": false,
+    "extra_seeds": false,
+    "frozen_stage0_and_stagewise_evaluation": true,
+    "evaluation_feedback_enters_training": false,
+    "update_magnitude_source": "per-video learner_stats.update_magnitude records",
+    "post_run_matrix_analysis": "jepa_cmot.continual_analysis"
+  },
+  "required_evidence": [
+    "source and teacher checkpoint identities",
+    "exact pseudo-pair, frame, and optimizer update counts matched across cells",
+    "frozen stage0 snapshot for each source initialization",
+    "stage0_to_stage3 HOTA, AssA, IDF1, and IDSW matrix for all domains",
+    "online gain against the same-source frozen stage0",
+    "average and signed forgetting, BWT, and FWT",
+    "per-update parameter delta magnitude",
+    "target-GT leakage audit"
+  ],
+  "interpretation_limit": "This protocol defines the causal experiment only; no H2 advantage is claimed until all four cells complete and the required matrix and update audits pass."
+}
