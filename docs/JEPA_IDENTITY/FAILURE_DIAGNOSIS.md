@@ -69,3 +69,9 @@ D initialization. This is a falsifiable warning about prediction/ranking
 misalignment, not a full-video H2 conclusion; the next test must preserve the
 same controls in the registered causal stream.
 
+On the first 16 shared batches, the predictive/discriminative gradient cosine
+was 0.255 from Source-D and 0.637 from Source-P, with predictive gradient
+norms 0.818 and 0.082 of the discriminative norms. The next mechanism should
+therefore test a controlled identity-ranking component or a calibrated
+predictive target, rather than simply increasing replay.
+
