@@ -31,6 +31,79 @@ H2_CELLS = [
 ]
 
 
+def _checkpoint_initialization(path: str) -> str | None:
+    parts = Path(path).parts
+    for name in ("discriminative", "predictive"):
+        if name in parts:
+            return name
+    return None
+
+
+def control_protocol_audit(path: Path, expected_cells: list[dict]) -> dict:
+    """Verify the runtime controls match the registered four-cell factorial."""
+    result = {"path": file_record(path, "wave_a_controls")}
+    if not path.is_file():
+        result.update(status="H2_CONTROLS_UNAVAILABLE", checks={"file": False})
+        return result
+    try:
+        controls = json.loads(path.read_text())
+    except (OSError, json.JSONDecodeError) as error:
+        result.update(status="H2_CONTROLS_INVALID_JSON", checks={"file": False}, error=str(error))
+        return result
+    if not isinstance(controls, list):
+        result.update(status="H2_CONTROLS_INVALID_SHAPE", checks={"file": True, "list": False})
+        return result
+    expected = {
+        str(cell["id"]): (str(cell["source_initialization"]), str(cell["online_update"]))
+        for cell in expected_cells
+    }
+    observed = {}
+    for control in controls:
+        if not isinstance(control, dict):
+            continue
+        config = control.get("online_config", {})
+        if not isinstance(config, dict):
+            config = {}
+        observed[str(control.get("name"))] = (
+            _checkpoint_initialization(str(control.get("checkpoint", ""))),
+            config.get("method"),
+        )
+    shared_keys = (
+        "replay", "batch", "interval", "learning_rate", "reliability", "retention",
+        "seed", "need_threshold", "retention_weight",
+    )
+    configs = [control.get("online_config", {}) for control in controls if isinstance(control, dict)]
+    shared_config = bool(configs) and all(
+        isinstance(config, dict) and all(config.get(key) == configs[0].get(key) for key in shared_keys)
+        for config in configs
+    )
+    checks = {
+        "file": True,
+        "four_cells": list(observed) == list(expected),
+        "cell_mapping": observed == expected,
+        "shared_online_config": shared_config,
+        "online_enabled": all(
+            isinstance(control, dict)
+            and control.get("method") == "online"
+            and isinstance(control.get("online_config"), dict)
+            and control["online_config"].get("enabled") is True
+            for control in controls
+        ),
+        "geometry_duplicates": all(
+            isinstance(control, dict) and control.get("geometry_duplicates") is True
+            for control in controls
+        ),
+    }
+    result.update(
+        status="COMPLETE_H2_CONTROL_PROTOCOL_AUDIT" if all(checks.values()) else "H2_CONTROL_PROTOCOL_MISMATCH",
+        checks=checks,
+        expected_cells=expected,
+        observed_cells=observed,
+        shared_online_config={key: configs[0].get(key) for key in shared_keys} if configs else {},
+    )
+    return result
+
+
 def stat_probe(path: Path) -> dict:
     """Return a serialisable probe without turning a stale FUSE mount into a crash."""
     try:
@@ -191,6 +264,16 @@ def main() -> None:
         default=WORKSPACE / "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/protocol.json",
     )
     parser.add_argument(
+        "--controls",
+        type=Path,
+        default=WORKSPACE / "runs/JEPA_CMOT/h2_wave_a_seed17/controls.json",
+    )
+    parser.add_argument(
+        "--wave-a-protocol",
+        type=Path,
+        default=WORKSPACE / "docs/JEPA_IDENTITY/H2_WAVE_A_PROTOCOL_SEED17.json",
+    )
+    parser.add_argument(
         "--readiness",
         type=Path,
         default=WORKSPACE / "docs/JEPA_IDENTITY/H2_PROTOCOL_READINESS.json",
@@ -228,6 +311,8 @@ def main() -> None:
             ))
         input_source = "native_protocol_manifest_adaptation_and_development"
     readiness = json.loads(args.readiness.read_text()) if args.readiness.exists() else {}
+    wave_protocol = json.loads(args.wave_a_protocol.read_text()) if args.wave_a_protocol.exists() else {}
+    control_audit = control_protocol_audit(args.controls, wave_protocol.get("cells", H2_CELLS))
     source_root = WORKSPACE / "runs/JEPA_CMOT"
     source_files = {
         "D_checkpoint": source_root / "source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
@@ -268,6 +353,7 @@ def main() -> None:
             "cells": H2_CELLS,
             "same_initialization": True,
             "readiness_status": readiness.get("status"),
+            "controls_audit": control_audit,
         },
         "inputs": {
             "source": input_source,
@@ -305,13 +391,19 @@ def main() -> None:
         "decision": {
             "source_checkpoints_and_calibrations_ready": source_ready,
             "local_detection_and_feature_inputs_ready": all_streams_structurally_ready,
+            "registered_controls_match": control_audit["status"] == "COMPLETE_H2_CONTROL_PROTOCOL_AUDIT",
             "formal_wave_a_started": False,
-            "formal_wave_a_allowed_now": bool(source_ready and all_streams_structurally_ready and images_accessible and cuda_ready),
+            "formal_wave_a_allowed_now": bool(
+                source_ready and all_streams_structurally_ready and images_accessible and cuda_ready
+                and control_audit["status"] == "COMPLETE_H2_CONTROL_PROTOCOL_AUDIT"
+            ),
             "blockers": [
                 reason
                 for reason, failed in [
                     ("NAS_FUSE_ENDPOINT_DISCONNECTED", not images_accessible),
                     ("NVIDIA_DRIVER_UNAVAILABLE", not cuda_ready),
+                    ("H2_CONTROL_CONFIG_MISSING_OR_MISMATCH",
+                     control_audit["status"] != "COMPLETE_H2_CONTROL_PROTOCOL_AUDIT"),
                 ]
                 if failed
             ],
