@@ -16,9 +16,16 @@
 5. Do not start a threshold sweep or additional seeds. The candidate-relative
    numerical-stability failures are fixed in the final implementation and the
    discarded attempts remain engineering diagnostics only.
-6. Keep H2 as a controlled, same-initialization protocol. Run it only after a
-   separately approved mechanism shows a held-out H1 identity-ranking gain;
-   the current evidence does not satisfy that gate.
+6. Keep H2 as an independent controlled, same-initialization protocol. The
+   negative H1 result does not cancel it. When a usable GPU or an explicitly
+   bounded CPU window is available, run one seed and one forward order first;
+   do not expand to reverse order or more seeds yet.
+7. The bounded BDD seed17 fixed-teacher Wave-B diagnostic is now complete. It
+   used the same 153 recorded pseudo-pairs and 128-step schedule in all four
+   cells; D updates produced larger fixed-bank ranking gains than P updates.
+   Treat this as objective-level evidence only, not as a full H2 result. The
+   next experiment is the registered full-video Wave-A factorial with frozen
+   controls and stagewise metrics.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a
