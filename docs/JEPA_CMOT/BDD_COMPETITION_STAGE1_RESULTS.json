@@ -1,0 +1,392 @@
+{
+  "status": "VERIFIED_COMPLETED_STAGES_NOT_FINAL_CONTINUAL_RESULT",
+  "dataset": "bdd100k",
+  "stages": [
+    1
+  ],
+  "order": [
+    "clear",
+    "overcast",
+    "rainy",
+    "night"
+  ],
+  "actual_source_stage0_parity": {
+    "predictive_ranking_none_graph": {
+      "reference": "predictive_ranking",
+      "checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0"
+    },
+    "predictive_ranking_features_graph": {
+      "reference": "predictive_ranking",
+      "checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0"
+    },
+    "predictive_ranking_relations_graph": {
+      "reference": "predictive_ranking",
+      "checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0"
+    },
+    "predictive_ranking_competition_graph": {
+      "reference": "predictive_ranking",
+      "checkpoint_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0"
+    }
+  },
+  "actual_boundary_states": {
+    "1": {
+      "predictive_ranking_none_graph": {
+        "frames": 2630,
+        "updates": 328,
+        "confirmed": 15667,
+        "seen": 15667,
+        "memory": 128,
+        "checkpoint_sha256": "b38172430d885af1d2771bcead1ab440edeb5d7f089bf9ebc83eccf02d852dc4"
+      },
+      "predictive_ranking_features_graph": {
+        "frames": 2630,
+        "updates": 328,
+        "confirmed": 15667,
+        "seen": 15667,
+        "memory": 128,
+        "checkpoint_sha256": "3331edf297984d2749a8b44f15ad07f607894cc31e347f0af5fb84c69b3df25b"
+      },
+      "predictive_ranking_relations_graph": {
+        "frames": 2630,
+        "updates": 328,
+        "confirmed": 15667,
+        "seen": 15667,
+        "memory": 128,
+        "checkpoint_sha256": "7ecdf634950f07535d65b731d7bfd2453361a48a938bccd6f71ce83d03bf3f18"
+      },
+      "predictive_ranking_competition_graph": {
+        "frames": 2630,
+        "updates": 328,
+        "confirmed": 15667,
+        "seen": 15667,
+        "memory": 128,
+        "checkpoint_sha256": "f8a1c3336520f9d4a6ce3c66f5bf9ff7cb88d50b7d4ef502d3ac75490e37e048"
+      }
+    }
+  },
+  "stage_metrics": {
+    "1": {
+      "predictive_ranking_none_graph": {
+        "clear": {
+          "HOTA": 37.032878918116054,
+          "AssA": 39.793952587766704,
+          "DetA": 36.14060120929467,
+          "IDF1": 43.666775992128564,
+          "MOTA": 16.589106639575277,
+          "IDSW": 630
+        },
+        "overcast": {
+          "HOTA": 41.00751164219719,
+          "AssA": 47.97909699687034,
+          "DetA": 36.999682915258134,
+          "IDF1": 45.60924915562484,
+          "MOTA": 13.102998696219034,
+          "IDSW": 281
+        },
+        "rainy": {
+          "HOTA": 45.8829547355332,
+          "AssA": 53.24510208482922,
+          "DetA": 41.11539687330988,
+          "IDF1": 54.28832875800682,
+          "MOTA": 27.036782399449983,
+          "IDSW": 196
+        },
+        "night": {
+          "HOTA": 33.58467793605392,
+          "AssA": 39.88427518784102,
+          "DetA": 29.022919914572377,
+          "IDF1": 39.725862690874116,
+          "MOTA": 16.86479951642152,
+          "IDSW": 319
+        }
+      },
+      "predictive_ranking_features_graph": {
+        "clear": {
+          "HOTA": 37.00950614522266,
+          "AssA": 39.790749852734564,
+          "DetA": 36.11516716992168,
+          "IDF1": 43.5666950987468,
+          "MOTA": 16.667759061414433,
+          "IDSW": 620
+        },
+        "overcast": {
+          "HOTA": 41.067924886474074,
+          "AssA": 48.07567581687907,
+          "DetA": 37.024763619033195,
+          "IDF1": 45.76700669222273,
+          "MOTA": 13.207301173402868,
+          "IDSW": 278
+        },
+        "rainy": {
+          "HOTA": 45.88708192136501,
+          "AssA": 53.25453952539294,
+          "DetA": 41.114355892558876,
+          "IDF1": 54.33824141086432,
+          "MOTA": 27.019594362323822,
+          "IDSW": 197
+        },
+        "night": {
+          "HOTA": 33.32879441265991,
+          "AssA": 39.34514925440272,
+          "DetA": 28.970075785449705,
+          "IDF1": 39.5158704713049,
+          "MOTA": 16.690173953925715,
+          "IDSW": 328
+        }
+      },
+      "predictive_ranking_relations_graph": {
+        "clear": {
+          "HOTA": 37.03828653105968,
+          "AssA": 39.88596478396811,
+          "DetA": 36.07353528286708,
+          "IDF1": 43.62598799645797,
+          "MOTA": 16.451464901356754,
+          "IDSW": 628
+        },
+        "overcast": {
+          "HOTA": 41.00442094111372,
+          "AssA": 47.915003401094744,
+          "DetA": 37.02763043248958,
+          "IDF1": 45.35639958376691,
+          "MOTA": 13.285528031290744,
+          "IDSW": 279
+        },
+        "rainy": {
+          "HOTA": 45.81676325398748,
+          "AssA": 53.07929962054359,
+          "DetA": 41.133808605485235,
+          "IDF1": 54.20063217434703,
+          "MOTA": 27.002406325197665,
+          "IDSW": 193
+        },
+        "night": {
+          "HOTA": 33.602142991714004,
+          "AssA": 39.916711730565545,
+          "DetA": 29.02661301263616,
+          "IDF1": 39.80282931911995,
+          "MOTA": 16.82450130969172,
+          "IDSW": 329
+        }
+      },
+      "predictive_ranking_competition_graph": {
+        "clear": {
+          "HOTA": 37.03828653105968,
+          "AssA": 39.88596478396811,
+          "DetA": 36.07353528286708,
+          "IDF1": 43.62598799645797,
+          "MOTA": 16.451464901356754,
+          "IDSW": 628
+        },
+        "overcast": {
+          "HOTA": 41.006224317115844,
+          "AssA": 47.915567653775796,
+          "DetA": 37.030360779730316,
+          "IDF1": 45.359349593495935,
+          "MOTA": 13.298565840938723,
+          "IDSW": 279
+        },
+        "rainy": {
+          "HOTA": 45.81676325398748,
+          "AssA": 53.07929962054359,
+          "DetA": 41.133808605485235,
+          "IDF1": 54.20063217434703,
+          "MOTA": 27.002406325197665,
+          "IDSW": 193
+        },
+        "night": {
+          "HOTA": 33.602142991714004,
+          "AssA": 39.916711730565545,
+          "DetA": 29.02661301263616,
+          "IDF1": 39.80282931911995,
+          "MOTA": 16.82450130969172,
+          "IDSW": 329
+        }
+      }
+    }
+  },
+  "delta_from_actual_stage0": {
+    "1": {
+      "predictive_ranking_none_graph": {
+        "HOTA": {
+          "by_domain": {
+            "clear": -0.2996836689815652,
+            "overcast": -0.2211226699060873,
+            "rainy": 0.010501030942073442,
+            "night": 0.07373533918472219
+          },
+          "equal_domain_average": -0.10914249219021421
+        },
+        "AssA": {
+          "by_domain": {
+            "clear": -0.546681001725517,
+            "overcast": -0.6124764644287168,
+            "rainy": -0.23081919941969886,
+            "night": 0.34866147876777376
+          },
+          "equal_domain_average": -0.26032879670153974
+        },
+        "IDF1": {
+          "by_domain": {
+            "clear": -0.801706651199197,
+            "overcast": -0.816307626402299,
+            "rainy": -0.26922280553276323,
+            "night": -0.31430601770190236
+          },
+          "equal_domain_average": -0.5503857752090404
+        }
+      },
+      "predictive_ranking_features_graph": {
+        "HOTA": {
+          "by_domain": {
+            "clear": -0.32305644187496085,
+            "overcast": -0.1607094256292001,
+            "rainy": 0.014628216773886038,
+            "night": -0.18214818420928935
+          },
+          "equal_domain_average": -0.16282145873489107
+        },
+        "AssA": {
+          "by_domain": {
+            "clear": -0.549883736757657,
+            "overcast": -0.5158976444199865,
+            "rainy": -0.22138175885597633,
+            "night": -0.19046445467052564
+          },
+          "equal_domain_average": -0.3694068986760364
+        },
+        "IDF1": {
+          "by_domain": {
+            "clear": -0.9017875445809622,
+            "overcast": -0.6585500898044074,
+            "rainy": -0.21931015267526277,
+            "night": -0.5242982372711182
+          },
+          "equal_domain_average": -0.5759865060829377
+        }
+      },
+      "predictive_ranking_relations_graph": {
+        "HOTA": {
+          "by_domain": {
+            "clear": -0.29427605603793694,
+            "overcast": -0.22421337098955263,
+            "rainy": -0.05569045060364175,
+            "night": 0.09120039484480458
+          },
+          "equal_domain_average": -0.12074487069658169
+        },
+        "AssA": {
+          "by_domain": {
+            "clear": -0.4546688055241077,
+            "overcast": -0.6765700602043125,
+            "rainy": -0.39662166370533214,
+            "night": 0.3810980214922992
+          },
+          "equal_domain_average": -0.2866906269853633
+        },
+        "IDF1": {
+          "by_domain": {
+            "clear": -0.8424946468697883,
+            "overcast": -1.0691571982602284,
+            "rainy": -0.35691938919255506,
+            "night": -0.2373393894560678
+          },
+          "equal_domain_average": -0.6264776559446599
+        }
+      },
+      "predictive_ranking_competition_graph": {
+        "HOTA": {
+          "by_domain": {
+            "clear": -0.29427605603793694,
+            "overcast": -0.22240999498743008,
+            "rainy": -0.05569045060364175,
+            "night": 0.09120039484480458
+          },
+          "equal_domain_average": -0.12029402669605105
+        },
+        "AssA": {
+          "by_domain": {
+            "clear": -0.4546688055241077,
+            "overcast": -0.6760058075232607,
+            "rainy": -0.39662166370533214,
+            "night": 0.3810980214922992
+          },
+          "equal_domain_average": -0.2865495638151003
+        },
+        "IDF1": {
+          "by_domain": {
+            "clear": -0.8424946468697883,
+            "overcast": -1.0662071885312017,
+            "rainy": -0.35691938919255506,
+            "night": -0.2373393894560678
+          },
+          "equal_domain_average": -0.6257401535124032
+        }
+      }
+    }
+  },
+  "paired_comparisons": {
+    "1": {
+      "predictive_ranking_competition_graph:predictive_ranking_none_graph": {
+        "metrics": {
+          "HOTA": {
+            "delta": -0.011151534505835059,
+            "percentile_95": [
+              -0.04231725583381385,
+              0.00937327920728922
+            ]
+          },
+          "AssA": {
+            "delta": -0.026220767113560584,
+            "percentile_95": [
+              -0.1044934964219562,
+              0.0312834219144571
+            ]
+          },
+          "IDF1": {
+            "delta": -0.07535437830336278,
+            "percentile_95": [
+              -0.17785765009626936,
+              0.034381745297020365
+            ]
+          }
+        },
+        "repeats": 2000,
+        "seed": 17,
+        "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+        "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+      },
+      "predictive_ranking_competition_graph:predictive_ranking_relations_graph": {
+        "metrics": {
+          "HOTA": {
+            "delta": 0.0004508440005306369,
+            "percentile_95": [
+              0.0,
+              0.0015038536552633985
+            ]
+          },
+          "AssA": {
+            "delta": 0.00014106317026296722,
+            "percentile_95": [
+              0.0,
+              0.00046175625883115856
+            ]
+          },
+          "IDF1": {
+            "delta": 0.0007375024322566759,
+            "percentile_95": [
+              0.0,
+              0.002395544907466629
+            ]
+          }
+        },
+        "repeats": 2000,
+        "seed": 17,
+        "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+        "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+      }
+    }
+  },
+  "target_GT_used_for_training": false,
+  "sealed_used": false,
+  "limitation": "no final forgetting/BWT/FWT before complete matrix; fixed-seed development comparisons, no selection-adjusted or cross-seed claim"
+}

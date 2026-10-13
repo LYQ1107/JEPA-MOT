@@ -89,3 +89,7 @@ Observation：固定教师completed stage1/2的reservoir128中，身份一致119
 ## “预测更准”与“身份更可分”出现分离
 
 Observation：完整原source-validation上联合replay最终error下降.02470，但rank1下降.00859、hard-negative cosine margin从.02083降至.01472；全局query covariance trace并未趋于零。Hypothesis：latent匹配的改善没有保护身份区分，可能受域变化、候选来源和source-calibration与更新θ的交互影响；全局collapse目前缺乏证据。Discriminating experiment：已有固定教师matched负例、candidate-column和通用RKD的完整矩阵，纯预测在线对照与对象crop/history长度；补齐encoder/official-predictor读数。Architectural Change：C2保护同帧跨轨迹候选竞争、对全部对照统一native-group负例，不改变检测/生命周期；结果仍待完整MOT回测，不能由源验证表宣告该机制有效。
+
+## 预测需求优先暂未优于普通hard-example
+
+Observation：H2相同328步和15756确认对，prediction priority四域HOTA低于appearance-hard .2982，固定seed配对CI全负；C2增加column相对row仅.00045，无实质量级。Hypothesis：高forecast discrepancy可能不是优质学习需求，保持已有弱关系也不足以增加身份信息。Discriminating experiment：完成旧域/新域矩阵、RKD、相同数据不同顺序、pure预测和多seed，而不提高replay预算或用GT筛对。Next decision：继续已有完整对照，当前不保留“预测priority更优”的结论。

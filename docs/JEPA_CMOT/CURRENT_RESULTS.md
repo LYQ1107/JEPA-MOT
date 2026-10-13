@@ -227,3 +227,17 @@ BDD六组202帧结果保持：联合online1.603 FPS、25次更新、end-to-end p
 官方配对读数完整202帧BDD适应视频接口验证已完成：encoder/predictor各2824条detection rows，维度1024/1664；FP32重复/目标扰动差0，过去扰动max token差11.0013。两读数均实际跑完native geometry+frozen-last，202帧、updates0、GT_read=false、history violations0；两套geometry轨迹逐字节一致。校准和source训练未在该工程验证中进行，不报告HOTA或把它当作全development收益。详见OFFICIAL_PAIRED_READOUT_NATIVE_TRACKING_VERIFICATION.json。
 
 配对读数的源负例进一步固定为共同encoder的last-feature cosine挖掘。Predictor源cache额外携带对齐的encoder ranking features，仅用于选取同一物理候选，不输入predictor历史网络；两读数的正例/历史/gaps与hard-negative行完全相同。针对不同1024/1664特征、每帧17个可用负例的sampler检查，18个样例candidate index列表一致。旧cache没有该字段时SourcePairs保持原行为；旧checkpoint与source训练记录不改写。
+
+## 固定教师第一阶段与第二目标域回测
+
+BDD H2第一阶段5组均2630 native适应帧、328个实际optimizer步、15756确认对、memory128，原source stage0逐指标等于独立frozen开发评测。相对source四域HOTA变化：联合confidence -0.2736，prediction priority -0.2025，普通appearance-hard priority +0.0956；CE confidence -0.4458、CE prediction priority -0.2680。预测priority相对confidence +0.0711 CI[-0.1139,0.3159]，相对普通appearance-hard -0.2982 CI[-0.5045,-0.1435]，没有JEPA需求信号的独立正收益。固定seed开发探索，不是选择校正或跨seed结论。详见BDD_FIXED_TEACHER_STAGE1_RESULTS.json。
+
+BDD C2第一阶段4组均2630帧、328步、15667确认对、memory128；比H2少89对来自共同native-group负例过滤，不声称跨family的样本完全相同。四组相对source HOTA变化replay -0.1091、feature -0.1628、row -0.1207、row+column -0.1203。column相对row仅+0.0004508，相对replay -0.01115 CI[-0.04232,0.00937]，当前无实质增量。详见BDD_COMPETITION_STAGE1_RESULTS.json，RKD与后续回测继续。
+
+第一波六组stage2（适应rainy后）全部19视频回测也已完成：相对本身source均值CE FT -0.6295、联合FT -0.3114、CE replay -0.4545、联合replay -0.3520、feature KD -0.0230、row KD +0.0099。row KD新rainy域仍-0.06045，old overcast -0.31751，不能用宏均值正号称适应成功。实际预算记录见BDD_CONTINUAL_STAGE2_PARTIAL_RESULTS.json；final night快照回测未完成，不计算最终forgetting。
+
+## 完整BDD历史长度对照
+
+同source clips、相近容量、2,000×64，全部19开发视频/3844 native帧：H1/2/4/8 CE HOTA39.388/39.517/39.635/39.394，pure预测39.527/39.820/39.718/39.644，联合39.747/39.656/39.746/39.989。联合H8相对H1 +0.2422 CI[0.0951,0.3889]，但相对强geometry39.902仅+0.0866 CI[-0.3717,0.5471]；不从选出的best长度宣称JEPA优势。H4三目标19条轨迹与独立clips部署逐字节一致。详见BDD_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS.json。
+
+GPU7/8/9原外部任务终态后，已对UA main/H2/C2安排完整native child边界迁移；H2已经在GPU8接续，main/C2仍等待当前child自然结束。旧控制器停止派发但保留到实际完整experiment终态，既有dependent队列不会因PID变更提前启动；θ/optimizer/replay/recent/RNG仍从完整视频checkpoint继续，未停止训练child、未改参数/数据。GPU5的历史长度迁移也继续等待它的当前完整视频。记录UA_NATIVE_BOUNDARY_GPU_MIGRATION.json为该时刻快照，不把待迁移当作已完成。

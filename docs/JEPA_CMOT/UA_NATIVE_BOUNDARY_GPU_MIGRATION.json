@@ -1,0 +1,89 @@
+{
+  "scope": "same registered inputs/controls; finish current child and resume full saved learner state; no training child interrupted",
+  "records": {
+    "ua_main_gpu7": {
+      "old_pid": 33178,
+      "gpu": 7,
+      "argv": [
+        "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+        "-u",
+        "-m",
+        "jepa_cmot.continual_controls",
+        "--dataset",
+        "ua_detrac",
+        "--manifest",
+        "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+        "--detections",
+        "runs/JEPA_CMOT/formal_detection_streams_v1/ua_detrac",
+        "--feature-producer-pid",
+        "20894",
+        "--controls",
+        "runs/JEPA_CMOT/controls_v1/ua_detrac_continual.json",
+        "--out",
+        "runs/JEPA_CMOT/continual_v1/ua_detrac_forward_seed17"
+      ],
+      "output": "runs/JEPA_CMOT/continual_v1/ua_detrac_forward_seed17",
+      "status": "WAITING_CURRENT_CHILD"
+    },
+    "ua_h2_gpu8": {
+      "old_pid": 35222,
+      "gpu": 8,
+      "argv": [
+        "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+        "-u",
+        "-m",
+        "jepa_cmot.continual_controls",
+        "--dataset",
+        "ua_detrac",
+        "--manifest",
+        "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+        "--detections",
+        "runs/JEPA_CMOT/formal_detection_streams_v1/ua_detrac",
+        "--feature-producer-pid",
+        "20894",
+        "--controls",
+        "runs/JEPA_CMOT/controls_v1/ua_detrac_matched_teacher_h2.json",
+        "--teacher-calibration",
+        "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json",
+        "--compact-intermediate",
+        "--out",
+        "runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17"
+      ],
+      "output": "runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17",
+      "status": "REPLACEMENT_RUNNING_OLD_CONTROLLER_RETAINED",
+      "completed_child_outputs": [
+        "runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_63552"
+      ],
+      "new_pid": 40214
+    },
+    "ua_c2_gpu9": {
+      "old_pid": 33246,
+      "gpu": 9,
+      "argv": [
+        "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+        "-u",
+        "-m",
+        "jepa_cmot.continual_controls",
+        "--dataset",
+        "ua_detrac",
+        "--manifest",
+        "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+        "--detections",
+        "runs/JEPA_CMOT/formal_detection_streams_v1/ua_detrac",
+        "--feature-producer-pid",
+        "20894",
+        "--controls",
+        "runs/JEPA_CMOT/controls_v1/ua_detrac_matched_teacher_h3_competition.json",
+        "--teacher-calibration",
+        "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json",
+        "--compact-intermediate",
+        "--out",
+        "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17"
+      ],
+      "output": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+      "status": "WAITING_CURRENT_CHILD"
+    }
+  },
+  "dependency_policy": "retain stopped original controller until actual full experiment completes; existing queued PID dependencies stay valid",
+  "not_goal_pause": true
+}
