@@ -1,3 +1,5 @@
+当前执行以用户2026-10-13指令为准：seed17优先，批量seed23/42暂停。关键复现命令与已核验源权重见 `docs/JEPA_CMOT/REPRODUCTION.md`；下文pending表述是原始注册背景，具体完成范围以完整结果和EVIDENCE_STATUS为准。
+
 # Registered comparison configurations
 
 Run from the repository root with `./run_python.sh`. Paths below `runs/JEPA_CMOT` refer to local source checkpoints and source-only calibrations documented in `docs/JEPA_CMOT`. These copies preserve the actually launched configurations and replace only the machine-specific repository prefix with relative paths. Dataset images and large checkpoints are kept locally.
