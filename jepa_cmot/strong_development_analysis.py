@@ -14,11 +14,13 @@ def main():
     parser.add_argument('--prototypes',type=Path,required=True)
     parser.add_argument('--out',type=Path,required=True)
     args=parser.parse_args();matrix={};reports={};protocols={}
-    domains=['clear','overcast','rainy','night']
+    baseline=json.loads((args.baseline/'complete.json').read_text())
+    dataset=baseline['protocol']['dataset'];video_count=baseline['videos']
+    domains=list(baseline['matrix']['geometry_null'])
     for prefix,root in [('MLP',args.baseline),('Transformer',args.transformer),('Pair',args.pair),('Prototype',args.prototypes)]:
         complete=json.loads((root/'complete.json').read_text())
-        if complete['protocol']['dataset']!='bdd100k' or complete['videos']!=19 or not complete['checkpoint_hashes_unchanged']:
-            raise ValueError('Need actual complete frozen BDD development')
+        if complete['protocol']['dataset']!=dataset or complete['videos']!=video_count or not complete['checkpoint_hashes_unchanged']:
+            raise ValueError('Need actual complete frozen development on the same dataset')
         protocols[prefix]=complete['protocol']
         for name,values in complete['matrix'].items():
             if set(values)!=set(domains):raise ValueError('A head is missing a full development domain')
@@ -34,11 +36,15 @@ def main():
            ('Transformer/discriminative','MLP/geometry_null'),
            ('Transformer/predictive','MLP/geometry_null'),
            ('MLP/predictive','Pair/pair_MLP'),
-           ('MLP/predictive','Prototype/frozen_ema')]
+           ('MLP/predictive','Prototype/frozen_ema'),
+           ('Transformer/predictive','Prototype/frozen_ema'),
+           ('Prototype/frozen_ema','MLP/geometry_null'),
+           ('MLP/predictive','MLP/frozen_last')]
     for candidate,reference in pairs:
         comparisons[candidate+':'+reference]=compare_domains(reports[reference],reports[candidate])
-    result=dict(status='COMPLETE_MATCHED_NATIVE_FROZEN_STRONG_HEAD_DEVELOPMENT',dataset='bdd100k',seed=17,
-        videos=19,native_frames=3844,domain_metrics=matrix,
+    native_frames=sum(v['native_frames'] for r in reports['MLP/geometry_null'].values() for v in r['videos'].values())
+    result=dict(status='COMPLETE_MATCHED_NATIVE_FROZEN_STRONG_HEAD_DEVELOPMENT',dataset=dataset,seed=17,
+        videos=video_count,native_frames=native_frames,domain_metrics=matrix,
         equal_domain_average={name:{metric:sum(v[metric] for v in values.values())/4
             for metric in ['HOTA','AssA','IDF1']} for name,values in matrix.items()},
         actual_protocols=protocols,paired_comparisons=comparisons,

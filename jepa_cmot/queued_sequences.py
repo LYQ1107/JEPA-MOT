@@ -50,6 +50,8 @@ def main():
                      '--detections', 'runs/JEPA_CMOT/formal_detection_streams_v1/' + dataset,
                      '--feature-producer-pid', '0', '--controls', job['controls'],
                      '--compact-intermediate', '--out', str(out)]
+        if plan.get('compact_native'):
+            arguments.append('--compact-native')
         if job.get('reverse'):
             arguments.append('--reverse')
         command(out.parent / (out.name + '.log'), arguments)

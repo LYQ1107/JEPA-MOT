@@ -17,6 +17,7 @@ def main():
     parser.add_argument('--reverse',action='store_true')
     parser.add_argument('--teacher-calibration',type=Path)
     parser.add_argument('--compact-intermediate',action='store_true')
+    parser.add_argument('--compact-native',action='store_true')
     args=parser.parse_args();args.out.mkdir(parents=True,exist_ok=True)
     manifest=json.loads(args.manifest.read_text());initial=json.loads(args.controls.read_text())
     source='sunny' if args.dataset=='ua_detrac' else 'clear'
@@ -33,6 +34,8 @@ def main():
     path.write_text(json.dumps(protocol,indent=2))
     previous={s['name']:None for s in initial}
     snapshots=[{s['name']:s['checkpoint'] for s in initial}]
+    if args.compact_native and not (args.out/'snapshots.json').exists():
+        (args.out/'snapshots.json').write_text(json.dumps(snapshots,indent=2))
     for stage,domain in enumerate(domains,1):
         videos=[v for v in manifest['videos'] if v['dataset']==args.dataset and
                 v['domain']==domain and v['split']=='adaptation']
@@ -57,7 +60,11 @@ def main():
                     report=json.loads((output/spec['name']/video['name']/'complete.json').read_text())
                     if report['frames']!=video['frames'] or report['GT_read']:
                         raise ValueError('Completed adaptation video is inconsistent')
-            else:command(args.out/f'logs/adaptation/{domain}/{video["name"]}.log',arguments)
+            else:
+                command(args.out/f'logs/adaptation/{domain}/{video["name"]}.log',arguments)
+                if args.compact_native:
+                    from .compact_checkpoints import compact
+                    compact(args.out,completed_native=True)
             for spec in initial:
                 previous[spec['name']]=str((output/spec['name']/video['name']/'learner.pt').resolve())
             print('CONTINUAL_CONTROL_VIDEO_COMPLETE',args.dataset,stage,domain,video['name'],flush=True)

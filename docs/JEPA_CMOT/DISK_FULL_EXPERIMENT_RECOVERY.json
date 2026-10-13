@@ -1,0 +1,61 @@
+{
+  "cause": "Observed OSError Errno28 /data1 exhausted in each failed child log",
+  "scientific_protocol_changed": false,
+  "source_target_GT_rules_changed": false,
+  "resume_validation": "Actual preceding completed-video states loaded for 12 BDD multiseed, 6 UA main, 4 UA column controls; optimizer step matches recorded updates. Completed adaptation retained for UA H2 and BDD pure. Incomplete video work reruns from preceding full state.",
+  "storage_change": "Optional compact-native converts older completed video states after native completion; source/domain boundary/latest two full states remain.",
+  "recoveries": [
+    {
+      "name": "ua_main",
+      "wrapper_pid": 34611,
+      "old_dependency_pid": 33178,
+      "gpu": 7,
+      "controller_pid": 34650,
+      "status": "RESUME_RUNNING_OLD_DEPENDENCY_PID_RETAINED",
+      "verified_live": true
+    },
+    {
+      "name": "ua_h2",
+      "wrapper_pid": 34612,
+      "old_dependency_pid": 35222,
+      "gpu": 8,
+      "controller_pid": 34643,
+      "status": "RESUME_RUNNING_OLD_DEPENDENCY_PID_RETAINED",
+      "verified_live": true
+    },
+    {
+      "name": "ua_c2",
+      "wrapper_pid": 34613,
+      "old_dependency_pid": 33246,
+      "gpu": 9,
+      "controller_pid": 34642,
+      "status": "RESUME_RUNNING_OLD_DEPENDENCY_PID_RETAINED",
+      "verified_live": true
+    },
+    {
+      "name": "bdd_multiseed_two_orders",
+      "pid": 34617,
+      "gpu": 6,
+      "verified_live": true
+    },
+    {
+      "name": "bdd_pure_forward",
+      "pid": 34625,
+      "gpu": 5,
+      "verified_live": true
+    },
+    {
+      "name": "ua_rkd",
+      "pid": 34627,
+      "gpu": 3,
+      "verified_live": true
+    },
+    {
+      "name": "bdd_remaining",
+      "pid": 34633,
+      "gpu": 6,
+      "verified_live": true
+    }
+  ],
+  "remaining_ua_queue_pid": 38319
+}

@@ -83,3 +83,13 @@ UA通用RKD-D已在空闲GPU3提前实际启动，原注册45适应视频+全4×
 ## data1磁盘清理
 
 磁盘曾出现ENOSPC，按已完成native状态保留source/domain-boundary及每阶段最近两个完整视频的续跑状态，388个更早中间状态仅保留逐tensor一致的模型参数；清理2313个已完成frozen评测的重复权重（与canonical source θ逐tensor核对），以及6个非主要detector快照（保留500/1500/3000，final SHA不变）。本次释放13.39 GiB，核对时可用16.18 GiB；NAS原数据、主要checkpoint、轨迹/指标/报告保留。完成的run_controls可直接复用完整标记；实际清理后重入验证通过，轨迹与完成标记SHA未改变。未提交的analysis源码因失败写入变空，已从原执行patch恢复，SHA与既有结果记录一致。详细清单/保留策略见DATA1_STORAGE_CLEANUP.json和本地runs manifest。空间不足期间的任务终态与续跑节点还需单独核验，不以旧PID声称仍在运行。
+
+## 磁盘恢复与UA完整强普通对照
+
+磁盘满使BDD多seed夜间第40视频、pure forward stage0、UA主矩阵夜间第35视频、H2 stage0、C2最后第45视频和UA RKD首视频因Errno28退出；没有将部分文件或失败进程当作完成。最后完整视频的12/6/4 learner全状态实际torch.load核验optimizer step，按原source/calibration/target videos/order/seed预算接续。原保留的UA dependency PID保持T直到真正完整矩阵，BDD死依赖重绑到实际恢复队列，已排除重复启动。新增compact-native仅在完成native视频之后转换更早中间状态，保留source/domain-boundary/latest-two full states，减少阶段内磁盘峰值，不修改学习数学或GT规则。DISK_FULL_EXPERIMENT_RECOVERY.json记录真实存活的新controller/queue。
+
+UA MLP/Transformer/pair-MLP/mean4/EMA全部17开发视频/25460 native帧完成，四域等权HOTA：geometry62.27898、last62.68248、MLP CE61.98899/pure62.99334/joint62.69680、Transformer CE62.48072/pure63.16389/joint62.62472、pair62.37338、mean4 62.50597、lifetime EMA63.04514。EMA不含trainable predictor，beta .25真实持续历史，仅两参数source-only score calibration；与其它组相同detector/native/current dense features/geometry。
+
+Transformer pure比同Transformer CE +.68317 CI[.08575,1.29499]，比geometry +.88491 CI[.20845,1.32044]；但比EMA只有+.11875 CI[-.27443,.28213]。MLP pure比EMA -.05180 CI[-.22667,.05772]，比pair +.61997 CI[.39052,.94665]，比last +.31086 CI[.11770,.83744]。EMA本身比geometry +.76616 CI[.16143,1.37539]；因此不能用弱CE/geometry的正差宣称预测损失已超越强简单历史，Transformer best点估计仍无selection correction/cross-seed证据。源时间支持/crop/readout探索不从最佳视频/阶段选结果。
+
+全部方法逐域六指标、十三项全native raw-count配对比较见UA_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json，图figures/ua_complete_strong_heads_hota.svg。结果是seed17 frozen development，仍需UA持续矩阵、多seed/orders与official UA读数；sealed未用。
