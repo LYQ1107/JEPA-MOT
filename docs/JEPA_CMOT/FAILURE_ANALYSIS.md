@@ -145,3 +145,13 @@ Transformer pure比同Transformer CE +.68317 CI[.08575,1.29499]，比geometry +.
 pure history4比history1 -.19099 CI[-.57326,-.01093]，history8比history1 -.18165 CI[-.50792,.08258]，history8比geometry +.41181 CI[-.14166,.79067]；CE history4比history1 -.22408 CI[-.44736,-.07791]，joint history8比history1 +.02205 CI[-.32898,.36664]。本匹配预算协议未提供更长历史稳定收益，不从K1最佳点选择删掉其它长度，也不等价于证明一切历史结构无效。
 
 history4全部三目标×17视频轨迹与独立完成的UA source-clips部署bytes逐条相同；Source head SHA未变，GT只用于离线指标，sealed未用。完整12组逐域六指标、九项配对raw-count bootstrap、51条轨迹SHA见UA_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS.json，图figures/ua_complete_history_length_hota.svg。磁盘满失败视频已从合法完整节点恢复，不以16/17替代完整scope。尚未完成的持续矩阵/多seed/orders/official UA读数继续。
+
+## BDD纯预测FT/Replay完整持续矩阵完成
+
+seed17 pure两组完成全部44适应视频/8811 native帧及完整4×4冻结回测（每阶段19视频/3844帧）；初始stage0逐六指标与实际frozen pure对齐，checkpoint SHA匹配。Pure FT final HOTA39.73459/AF.09938/AssA45.99166/IDF1 46.68544；pure Replay39.69799/AF.22356/AssA45.85356/IDF1 46.54923。实际FT1073步、41703 confirmed/seen、memory0；Replay1096步、41562 confirmed/seen、memory128。与CE对应组的最终更新数恰好相同，但self-teacher轨迹/伪对供给不同，不声称每帧或每batch相同。
+
+pure FT相对CE FT +.78640 HOTA CI[.50379,1.07441]，相对joint FT +.37676 CI[.04084,.72665]；pure Replay相对CE Replay +.42350 CI[-.06098,.95699]，相对joint Replay +.50580 CI[.10204,1.05359]。这类目标对比混合了源初始化优势与在线适应/保持差异，不能全部当作target learning gain。
+
+相对实际frozen pure39.82910，FT -.09451 CI[-.32327,.13889]，Replay -.13111 CI[-.46871,.22496]；相对geometry39.90215，FT -.16756 CI[-.52401,.18123]，Replay -.20416 CI[-.53792,.12487]。Replay相对pure FT -.03661 CI[-.35638,.31336]，AF反而更高（单seed/实际采样与更新数不同）。当前支持pure比弱CE/joint的性能保留更好，但未建立online adaptation或Replay可靠额外收益；AF低也不等于学会新域或超过静态强方法。
+
+完整八组4×4逐域六指标、AF/signedAF/BWT/FWT、九项配对raw-count区间、实际边界optimizer/确认数/checkpoint SHA/原protocol与复现命令见BDD_FULL_PURE_PREDICTIVE_CONTINUAL_RESULTS.json，图figures/bdd_complete_pure_objective_continual.svg。源预算/同容量head/同source-only校准流程、detector/native/geometry/nominal更新预算保持，targetGT只用于offline metrics，sealed未用。反向顺序、三seed及UA counterpart仍在运行，不将本scope声明为最终全项目完成。
