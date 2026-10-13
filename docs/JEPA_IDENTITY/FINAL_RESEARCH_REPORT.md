@@ -1,6 +1,6 @@
 # Final research report (interim)
 
-**Research state:** `ACTIVE / H1_DIAGNOSIS`  
+**Research state:** `ACTIVE / H2_READINESS_RUNTIME_BLOCKED`
 **Scientific conclusion:** insufficient evidence for the final JEPA claim.
 
 The first new stage reused existing BDD100K development seed17 outputs instead
@@ -123,4 +123,11 @@ averaged 0.255 from Source-D and 0.637 from Source-P, while predictive
 gradient norms were 0.818 and 0.082 of the discriminative norms. The Wave-D
 result makes the ranking component a plausible repair for the prediction/
 ranking mismatch, while leaving the causal full-video H2 question open.
+
+The current zero-training Wave-A preflight confirms 63 local BDD streams and
+both source snapshots, audits the runtime four-cell controls against the
+registered D/P mapping, and records the two active runtime blockers: the NAS
+SSHFS endpoint is disconnected and the NVIDIA driver is unavailable. The
+registered launch command is retained in `H2_WAVE_A_PROTOCOL_SEED17.json` and
+remains unexecuted.
 
