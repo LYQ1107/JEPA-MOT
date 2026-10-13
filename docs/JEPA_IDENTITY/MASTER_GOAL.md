@@ -42,10 +42,11 @@ summaries, and reproducibility metadata are versioned.
 
 | Phase | State | Evidence |
 |---|---|---|
-| Phase 0: protocol and environment inheritance | complete | old JEPA-CMOT reports, protocol/manifest hashes, no active process, GPU driver unavailable, NAS reachable |
+| Phase 0: protocol and environment inheritance | complete with runtime blockers | old JEPA-CMOT reports, protocol/manifest hashes, no active process; NVIDIA driver unavailable and NAS SSHFS endpoint disconnected |
 | H1-Wave A: event taxonomy and candidate headroom | complete for BDD development seed17 | `IDENTITY_ERROR_TAXONOMY.json`, `ASSOCIATION_HEADROOM.json` |
 | H1-Wave A: candidate identity metrics | complete on recorded changed events | `IDENTITY_INFORMATION_METRICS.json` |
 | H1 common-state evaluator | complete for BDD development seed17 residual states | `COMMON_STATE_IDENTITY_METRICS.json`; 1,394/1,394 cases mapped |
+| H1 paired uncertainty audit | complete for the same BDD common-state events | `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`; 1,177 candidate-present paired cases |
 | H1 structural candidate selection | one seed17 CPU comparison complete; both structural candidates fail the held-out H1 gate | `STRUCTURAL_FORMAL_SEED17.json`, `STRUCTURAL_CANDIDATE_PROTOCOL.md`; all four final checkpoints passed preflight, but neither candidate beats its matched control and strong history/CE references |
 | H1 UA extension | supplementary legacy-track CPU replay complete for 17 existing development videos; not the registered GPU tracer | `UA_LEGACY_TRACK_REPLAY_SEED17.json`; 4,199/4,753 selected cases scored, 99.05% candidate coverage, predictive JEPA below CE/ranking controls |
 | H2 same-initialization factorial | Wave-B fixed-teacher and Wave-D mechanism diagnostics complete; registered full-video Wave-A not executed | `H2_WAVE_B_FIXED_TEACHER_SEED17.json`, `H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`, `H2_PROTOCOL_READINESS.json`; ranking partly rescues predictive updates but the P-cell hybrid is discriminative-dominated and no H2 claim is made |
