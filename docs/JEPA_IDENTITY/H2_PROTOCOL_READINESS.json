@@ -1,6 +1,7 @@
 {
   "status": "REGISTERED_H2_WAVE_A_NOT_EXECUTED_WAVE_B_AND_WAVE_D_DIAGNOSTICS_COMPLETE",
   "scope": "same-initialization one-seed causal factorial readiness audit; the registered full-video Wave-A factorial remains unexecuted, while bounded fixed-teacher Wave-B and Wave-D diagnostics are complete",
+  "registered_wave_a_protocol": "docs/JEPA_IDENTITY/H2_WAVE_A_PROTOCOL_SEED17.json",
   "preflight": {
     "status": "INPUTS_VALID_RUNTIME_BLOCKED",
     "report": "docs/JEPA_IDENTITY/H2_WAVE_A_PREFLIGHT_SEED17.json",
