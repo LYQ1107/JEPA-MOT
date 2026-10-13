@@ -45,6 +45,10 @@
 12. Use the registered exact four-cell configuration in
     `H2_WAVE_A_PROTOCOL_SEED17.json`; it uses the common anchor teacher and
     does not reuse the old retention-graph control matrix.
+13. Preserve the paired BDD common-state result in
+    `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json` when interpreting H1: it is
+    a one-seed uncertainty audit on 1,177 candidate-present events, not a
+    reason to add seeds or declare the general JEPA claim resolved.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a
