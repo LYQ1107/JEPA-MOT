@@ -69,6 +69,14 @@ GeneralTrack event tracer. It supplements H1 diagnosis and cannot establish
 the registered GPU Wave-A or an online tracking gain. See
 `UA_LEGACY_TRACK_REPLAY_SEED17.md` and its JSON provenance report.
 
+The paired UA replay comparison keeps the same event and reconstructed
+candidate list across controls. MLP predictive is below MLP CE and ranking by
+2.12 and 1.88 Top-1 points respectively, although it is above history-last;
+Transformer predictive is below Transformer CE by 3.73 Top-1 points. This
+matches the BDD distinction between predictive JEPA versus CE/ranking and
+versus simple history, while retaining the legacy-track limitation. See
+`UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.md`.
+
 This is a useful selection signal, not a proof. The event set is conditioned
 on changed assignments, the methods do not share one propagated state, the
 tracer records a top candidate subset, and the NLL/Brier/ECE values are
