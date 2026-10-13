@@ -19,3 +19,5 @@ BDD连续clips的四目标完整开发集部署已补排；UA历史长度回测�
 完整source-validation诊断已经覆盖24快照，需与后续source AssA/HOTA逐方法对应；避免混合CE与预测模型不同loss尺度。官方1664-D predictor先前小规模工程cache不能代替正式读数对照；补充需要相同合法时序输入、明确encoder与masked predictor的信息差别、匹配head参数/源预算和全视频部署，作为仍未完成的要求保留。
 
 官方配对读数完整pipeline已实际排队，等待PID20894/20960退出后用GPU2，先source paired caches、三目标/校准，再两数据集全部development；不是复用旧1664工程缓存。相同4帧观察窗口与source clips图片预算，mask导致当前像素信息有意不同，新增frozen predictor计算另计。源4帧GPU检查完成，202帧无标签整视频接口检查继续。
+
+普通mean4与真实lifetime EMA（beta .25）已补齐source-only matched两参数校准并启动全部native development；这比源GT聚合诊断更直接地检查简单历史是否解释身份收益。完整后与同inputs实际geometry/last/predictive/CE对照，以source stage0按video配对聚合，不能从单video挑最强。

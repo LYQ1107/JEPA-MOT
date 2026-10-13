@@ -16,6 +16,7 @@ from yolox.tracker.basetrack import BaseTrack
 from .causal_tracker import CausalHistoryTracker
 from .online import ContinualLearner,OnlineConfig
 from .shared_matcher import SharedMatcher
+from .prototypes import PrototypeHistoryTracker
 from .run_stream import ROOT,COCO6_TO_NATIVE8,NATIVE8_TO_COCO6
 
 
@@ -88,7 +89,9 @@ def main():
             if spec.get('calibration'):
                 native.source_calibration=json.loads(Path(spec['calibration']).read_text())
                 if native.source_calibration['target_gt_used']:raise ValueError('Calibration used target GT')
-            tracker=CausalHistoryTracker(native,learner)
+            native.query_aggregation=spec.get('query_aggregation')
+            tracker_class=PrototypeHistoryTracker if native.query_aggregation else CausalHistoryTracker
+            tracker=tracker_class(native,learner)
             if shared is None:shared=SharedMatcher(tracker.model).eval()
             tracker.model=shared;trackers[key]=tracker
         start=time.perf_counter();initial_forwards=shared.image_pair_forwards

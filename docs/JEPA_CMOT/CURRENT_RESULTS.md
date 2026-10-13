@@ -241,3 +241,15 @@ BDD C2第一阶段4组均2630帧、328步、15667确认对、memory128；比H2�
 同source clips、相近容量、2,000×64，全部19开发视频/3844 native帧：H1/2/4/8 CE HOTA39.388/39.517/39.635/39.394，pure预测39.527/39.820/39.718/39.644，联合39.747/39.656/39.746/39.989。联合H8相对H1 +0.2422 CI[0.0951,0.3889]，但相对强geometry39.902仅+0.0866 CI[-0.3717,0.5471]；不从选出的best长度宣称JEPA优势。H4三目标19条轨迹与独立clips部署逐字节一致。详见BDD_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS.json。
 
 GPU7/8/9原外部任务终态后，已对UA main/H2/C2安排完整native child边界迁移；H2已经在GPU8接续，main/C2仍等待当前child自然结束。旧控制器停止派发但保留到实际完整experiment终态，既有dependent队列不会因PID变更提前启动；θ/optimizer/replay/recent/RNG仍从完整视频checkpoint继续，未停止训练child、未改参数/数据。GPU5的历史长度迁移也继续等待它的当前完整视频。记录UA_NATIVE_BOUNDARY_GPU_MIGRATION.json为该时刻快照，不把待迁移当作已完成。
+
+## 进一步补齐普通mean/EMA强对照
+
+此前SourcePairs的mean/recent-weighted仅是GT轨迹源诊断，实际native frozen控制器使用last；不能把源诊断当作完整MOT EMA基线。新增独立PrototypeHistoryTracker：mean4用最多四个严格过去描述符的单位均值；EMA使用完整physical-track历史、beta .25，每次更新后归一化，视频重置。当前观测只改变下一帧prototype，单元检查验证本帧已冻结query逐值不变。核心CausalHistoryTracker/online/anchor控制器不修改，新run_controls仅按显式query_aggregation选择子类，默认last行为保持。
+
+两种prototype都无trainable identity head，source-only两参数BCE校准200步，使用原匹配源验证video/positive/candidate/gaps：BDD23623对、UA11831对；不是用目标GT校准。与geometry、last同一source detector/dense-current cache/geometry/lifecycle/lambda .15，完整两数据集development已启动。当前只有校准与运行记录，不提前报告收益，见FROZEN_PROTOTYPE_CONTROL_REGISTRATION.json。
+
+## H2第二阶段：需求信号未形成独立优势
+
+BDD H2 stage2全部19视频/四域已实际回测，五组均4560适应帧、570真实optimizer步、27193确认/seen样例、memory128。相对source均值联合confidence -0.06315、prediction priority +0.04177、appearance-hard +0.11335；CE confidence -0.51344、CE prediction priority -0.33464。prediction priority相对appearance-hard -0.07158 CI[-0.21970,0.07691]；其新rainy域相对source -0.34295，appearance-hard -0.02717。不能由old clear上+0.66329或小宏正号宣称新域改善；final night仍待完整回测。见BDD_FIXED_TEACHER_STAGE2_RESULTS.json。
+
+新增prototype部署已经完成两个完整BDD开发视频。原geometry/last与此前独立全开发集对应轨迹逐字节相同，验证新增子类选择不改变既有默认对照。mean/EMA全19视频仍在运行，不对这两个视频选择方法或改参数。

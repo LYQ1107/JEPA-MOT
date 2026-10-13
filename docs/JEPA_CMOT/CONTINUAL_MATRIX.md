@@ -13,3 +13,5 @@
 BDD六组stage1已完成19视频/四域回测，详细记录BDD_CONTINUAL_STAGE1_PARTIAL_RESULTS.json；stage2/3仍待MOT回测。source内部完整23,623对上的24快照descriptor诊断已独立完成，见BDD_COMPLETE_SOURCE_VALIDATION_SNAPSHOT_AUDIT.json，不能填充缺失MOT矩阵。新增reverse17、UA23/42及pure-prediction在线任务已登记队列，状态仍QUEUED而非结果。
 
 BDD first-wave stage0/1/2已完成，H2与C2 stage0/1已完成；明确存于部分阶段报告，不填未完成stage3。固定教师预算已用真实checkpoint的optimizer step/frames/confirmed/seen核对。当前H2 prediction priority不优于普通appearance-hard，C2 column相对row无实质增量；完整final矩阵仍需实际回测。
+
+H2 stage2同预算回测已完成，见BDD_FIXED_TEACHER_STAGE2_RESULTS.json。prediction-need priority并未超过ordinary appearance-hard priority。新增frozen mean/EMA源校准与完整部署进行中；冻结prototype属于物理历史基线，并非参数持续学习，不把其每帧prototype更新计为optimizer更新。

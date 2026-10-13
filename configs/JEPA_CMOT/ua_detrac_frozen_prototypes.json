@@ -1,0 +1,27 @@
+[
+  {
+    "name": "geometry_null",
+    "method": "native",
+    "geometry_duplicates": true
+  },
+  {
+    "name": "frozen_last",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "calibration": "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json"
+  },
+  {
+    "name": "frozen_mean4",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "query_aggregation": "mean4",
+    "calibration": "runs/JEPA_CMOT/source_prototype_calibration_v1/ua_detrac/mean4.json"
+  },
+  {
+    "name": "frozen_ema",
+    "method": "frozen_last",
+    "geometry_duplicates": true,
+    "query_aggregation": "ema",
+    "calibration": "runs/JEPA_CMOT/source_prototype_calibration_v1/ua_detrac/ema.json"
+  }
+]
