@@ -57,3 +57,13 @@ pure全域HOTA为sunny56.77390/cloudy72.03579/rainy50.36298/night72.35145；逐�
 ## UA固定教师五组完整适应预算
 
 五组完成45个目标适应视频/65430 native帧，域顺序sunny→cloudy→rainy→night；实际final checkpoint均为8101 optimizer updates、442278 delayed-confirmed/seen、memory128、45 video resets、pending为空。三个完整域边界均核对frames与原manifest、optimizer step与learner count、五组确认/供给数量一致。当前已经进入stage0冻结回测，仍未完成4×4指标与AF/BWT/FWT。priority选择fresh样本不同，不将数量一致解释为所有batch完全相同，更不能解释为预测需求优先级有效。checkpoint路径/SHA/三边界计数/原protocol见UA_FIXED_TEACHER_COMPLETED_ADAPTATION_BUDGET.json；targetGT训练=false，sealed未用。
+
+## BDD完整通用RKD-D反事实机制对照完成
+
+真实通用RKD-D已完成44适应视频/8811帧及全部4×4冻结回测（每阶段19视频/3844帧）。所有五组在相同固定教师、同native-group负例、相同source checkpoint/校准和三个域边界实际更新/确认/ordered buffers/RNG核验下比较；final均1094 optimizer steps、41176 confirmed/seen、memory128。每批训练样本未逐步记录，边界一致性不扩大为跨run逐batch完全一致。
+
+Final HOTA/AF：Replay39.300926/.255566、feature39.235753/.349849、row39.303274/.250772、column39.326297/.220075、RKD-D39.303482/.258916。Column相对RKD-D仅+.022815 CI[-.206092,.295419]，RKD-D相对row+.000208 CI[-.291793,.251347]，相对Replay+.002556 CI[-.017555,.020145]。Column的AF比RKD-D低.038841只是seed17点估计，不能代替可重复的防遗忘证据。
+
+实际静态geometry39.90215仍更强；五组相对geometry的HOTA区间均在0以下，RKD-D差-.598671 CI[-1.184840,-.130581]，column差-.575856 CI[-1.117550,-.146660]。候选竞争命名、非零loss和较小AF不足以建立MOT-specific创新；通用RKD-D没有产生可靠独立增量。这与实际update-call中column p50较高的成本一起，削弱当前H3主张。没有根据这些target评测GT调整门控/超参数。
+
+完整六指标5×4×4、AF/signedAF/BWT/FWT、十一项final raw-count配对比较、actual protocol/checkpoint SHA/预算及复现命令见BDD_FULL_GRAPH_RKD_RETENTION_RESULTS.json，图figures/bdd_complete_graph_rkd_retention.svg。当前仅BDD seed17 forward，UA RKD及多seed/order尚未完整；sealed仍未用，不能因此宣布全项目完成。

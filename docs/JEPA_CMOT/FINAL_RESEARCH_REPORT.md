@@ -17,3 +17,5 @@ BDD完整frozen Transformer纯预测39.9719比同架构CE39.4402高，但相对g
 最终报告仍须逐一回答任务书17问，补齐UA/多seed/逆序/RKD/pure-online/官方读数结果与冻结后的held-out，并明确最终checkpoint、hash、命令、所有主表和局限。完整待办与已完成范围见[完成证据表](EVIDENCE_STATUS.md)，实际指标、代码版本、路径和失败链见[当前结果](CURRENT_RESULTS.md)、[实验索引](EXPERIMENT_REGISTRY.csv)、[连续矩阵](CONTINUAL_MATRIX.md)及[新颖性审计](NOVELTY_AND_REVIEWER_AUDIT.md)。
 
 UA对象crop完整开发17视频的纯预测HOTA为62.88103，比相同几何基线+.60205，但视频配对区间[-.26407,1.05961]包含0；连续source clips比同输入几何基线+.40247，区间[-.23687,.79159]也包含0。当前UA正点估计不能弥补BDD负结果或尚未完成的持续学习/多seed/held-out证据。完整数据见UA_FULL_OBJECT_CROP_DEVELOPMENT_RESULTS.json。
+
+H3补齐普通RKD-D完整对照后仍缺乏独立收益：BDD column比RKD-D仅+.022815 HOTA，配对区间[-.206092,.295419]；RKD-D比Replay仅+.002556，区间[-.017555,.020145]。五组均弱于实际同输入几何基线，当前不足以支撑候选竞争保持是有效新机制。全部矩阵/预算/成本证据保留；UA/多seed/order/最终held-out仍须完成。

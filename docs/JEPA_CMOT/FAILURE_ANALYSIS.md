@@ -117,3 +117,13 @@ Observation：Transformer pure预测39.9719高于自身CE .5317，但比geometry
 ## object-centered target和源时间支持修正的部署边界
 
 Observation：BDD crop pure与dense pure只差.00159、CI跨0；UA完整clips pure相对CE +.33416但相对last +.04196、CI跨0。Hypothesis：源身份排序和更清晰object target并非native图像关联收益的充分条件，普通history与score calibration可解释一部分差。Next decision：保留全域失败与source/readout预算区别，等已运行强geometry/EMA/Transformer/pair及持续矩阵；不改变数据划分或额外调lambda筛到有利分数。
+
+## BDD完整通用RKD-D反事实机制对照完成
+
+真实通用RKD-D已完成44适应视频/8811帧及全部4×4冻结回测（每阶段19视频/3844帧）。所有五组在相同固定教师、同native-group负例、相同source checkpoint/校准和三个域边界实际更新/确认/ordered buffers/RNG核验下比较；final均1094 optimizer steps、41176 confirmed/seen、memory128。每批训练样本未逐步记录，边界一致性不扩大为跨run逐batch完全一致。
+
+Final HOTA/AF：Replay39.300926/.255566、feature39.235753/.349849、row39.303274/.250772、column39.326297/.220075、RKD-D39.303482/.258916。Column相对RKD-D仅+.022815 CI[-.206092,.295419]，RKD-D相对row+.000208 CI[-.291793,.251347]，相对Replay+.002556 CI[-.017555,.020145]。Column的AF比RKD-D低.038841只是seed17点估计，不能代替可重复的防遗忘证据。
+
+实际静态geometry39.90215仍更强；五组相对geometry的HOTA区间均在0以下，RKD-D差-.598671 CI[-1.184840,-.130581]，column差-.575856 CI[-1.117550,-.146660]。候选竞争命名、非零loss和较小AF不足以建立MOT-specific创新；通用RKD-D没有产生可靠独立增量。这与实际update-call中column p50较高的成本一起，削弱当前H3主张。没有根据这些target评测GT调整门控/超参数。
+
+完整六指标5×4×4、AF/signedAF/BWT/FWT、十一项final raw-count配对比较、actual protocol/checkpoint SHA/预算及复现命令见BDD_FULL_GRAPH_RKD_RETENTION_RESULTS.json，图figures/bdd_complete_graph_rkd_retention.svg。当前仅BDD seed17 forward，UA RKD及多seed/order尚未完整；sealed仍未用，不能因此宣布全项目完成。
