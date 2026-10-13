@@ -41,6 +41,18 @@ history-last (75.36% / 0.8525 / 0.9012 / +102) and MLP CE (76.13% / 0.8638 /
 negative net correction. Neither structural candidate passes the H1 gate. The
 complete machine-readable comparison is `STRUCTURAL_FORMAL_SEED17.json`.
 
+Because the mounted NAS exposes the raw UA-DETRAC XML, one supplementary
+legacy-track CPU replay was also completed without new training. It used the
+existing seed17 `predictive_ranking` tracks from 17 development videos and
+scored 4,199 shared states after 554 dense-cache join exclusions. Candidate
+coverage was 99.05%. UA MLP CE / predictive / predictive+ranking reached
+93.03% / 90.91% / 92.79% Top-1; the Transformer counterparts reached 90.82%
+/ 87.09% / 88.72%. This points in the same negative direction as BDD, but the
+replay reconstructs candidates with last-box IoU and is not a fresh
+GeneralTrack event tracer. It supplements H1 diagnosis and cannot establish
+the registered GPU Wave-A or an online tracking gain. See
+`UA_LEGACY_TRACK_REPLAY_SEED17.md` and its JSON provenance report.
+
 This is a useful selection signal, not a proof. The event set is conditioned
 on changed assignments, the methods do not share one propagated state, the
 tracer records a top candidate subset, and the NLL/Brier/ECE values are
