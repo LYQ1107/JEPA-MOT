@@ -307,6 +307,54 @@
       ]
     },
     {
+      "name": "domain_stratified_status_and_count",
+      "pass": true,
+      "observed": [
+        "COMPLETE_BDD_DOMAIN_STRATIFIED_PAIRED_COMPARISON_SEED17",
+        1394,
+        [
+          "clear",
+          "night",
+          "overcast",
+          "rainy"
+        ]
+      ],
+      "expected": [
+        "COMPLETE_BDD_DOMAIN_STRATIFIED_PAIRED_COMPARISON_SEED17",
+        1394,
+        [
+          "clear",
+          "night",
+          "overcast",
+          "rainy"
+        ]
+      ]
+    },
+    {
+      "name": "domain_stratified_controls_and_coverage",
+      "pass": true,
+      "observed": {
+        "controls": [
+          "history_last",
+          "mlp_ce",
+          "mlp_jepa_predictive",
+          "mlp_jepa_ranking",
+          "transformer_ce",
+          "transformer_jepa_predictive",
+          "transformer_jepa_ranking"
+        ],
+        "target_GT_used_for_training_or_gate": false,
+        "sealed_used": false,
+        "domain_counts": [
+          717,
+          300,
+          208,
+          169
+        ]
+      },
+      "expected": "required controls / false / false / domain counts sum to 1394"
+    },
+    {
       "name": "structural_status",
       "pass": true,
       "observed": "COMPLETE_SEED17_CPU_STRUCTURAL_COMMON_STATE_COMPARISON",
