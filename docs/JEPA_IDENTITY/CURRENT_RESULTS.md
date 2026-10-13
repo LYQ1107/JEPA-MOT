@@ -39,12 +39,19 @@ adds uncertainty evidence to the negative H1 direction without changing the
 one-seed scope or claiming a confirmatory multi-seed result. See
 `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`.
 
-The complete seed17 evidence bundle now passes a 24-check machine audit in
+The complete seed17 evidence bundle now passes a 26-check machine audit in
 `H1_EVIDENCE_AUDIT_SEED17.json`. The gate verifies every required control,
 shared candidate coverage, ranking/correction fields, paired-event identity, the two
 structural candidates, the UA supplement, and domain-stratified coverage while keeping runtime and
 generalization limits explicit. Its status is static consistency only;
 `H1_GENERAL_CLAIM_NOT_ESTABLISHED` remains the scientific claim.
+
+The UA legacy replay now also has a paired report:
+`UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`. On 4,159 candidate-present
+cases, MLP predictive is below CE and ranking but above history-last, while
+Transformer predictive is below CE, ranking, and pairwise-AUC references. The
+replay remains supplementary because its tracks and geometry candidates are
+reconstructed from an existing rollout.
 
 The structural source-only trainer and checkpoint evaluator first passed
 real-cache engineering smokes, including a negative reduced candidate-relative
