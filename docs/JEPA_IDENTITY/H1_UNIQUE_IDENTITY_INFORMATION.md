@@ -46,12 +46,14 @@ does not rule out score-scale, history-state, or selection explanations.
 ## Current H1 judgement
 
 **H1 is unresolved.** The data justify retaining predictive residual as a
-candidate for a common-state test, while rejecting any statement that the
-current Wave-A result proves JEPA-specific identity information. The next
-experiment must freeze one pre-decision state and expose A0--A10 scores on one
-candidate set, including EMA/last/mean, native appearance/geometry, temporal
-MLP, temporal Transformer, JEPA predictive, ranking, random/shuffled, and
-constant/affine score controls.
+candidate for the completed common-state test, while rejecting any statement
+that the current Wave-A result proves JEPA-specific identity information. The
+common-state audit has now frozen one pre-decision state and exposed A0--A10
+scores on one candidate set, including EMA/last/mean, native
+appearance/geometry, temporal MLP, temporal Transformer, JEPA predictive,
+ranking, random/shuffled, and constant/affine controls. The next experiment is
+the registered identity-residual structural candidate; candidate-relative
+prediction remains conditional on that result.
 
 Detailed machine-readable outputs are in
 `IDENTITY_ERROR_TAXONOMY.json`, `ASSOCIATION_HEADROOM.json`, and

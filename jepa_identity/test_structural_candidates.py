@@ -39,11 +39,12 @@ class StructuralCandidateTest(unittest.TestCase):
         self.assertTrue(torch.isfinite(anchor).all())
         self.assertEqual(query.shape, (self.batch, self.dim))
         self.assertFalse(torch.equal(self.candidates, altered_candidates))
-        loss, parts = identity_residual_objective(
-            query, anchor, self.candidates, self.positive, "predictive_ranking",
-            candidate_mask=self.candidate_mask)
-        self.assertTrue(torch.isfinite(loss))
-        self.assertTrue(torch.isfinite(parts["anchor_error"]))
+        for method in ("predictive", "discriminative", "predictive_ranking"):
+            loss, parts = identity_residual_objective(
+                query, anchor, self.candidates, self.positive, method,
+                candidate_mask=self.candidate_mask)
+            self.assertTrue(torch.isfinite(loss))
+            self.assertTrue(torch.isfinite(parts["anchor_error"]))
 
     def test_candidate_relative_query_is_candidate_independent_and_scores_later(self):
         model = CandidateRelativePredictor(CandidateRelativeConfig(
@@ -56,11 +57,12 @@ class StructuralCandidateTest(unittest.TestCase):
         self.assertEqual(scores.shape, (self.batch, 5))
         self.assertTrue(torch.isfinite(scores).all())
         self.assertTrue(torch.all(scores[~self.candidate_mask] < -9999))
-        loss, parts = candidate_relative_objective(
-            model, query, self.candidates, self.positive, "predictive_ranking",
-            candidate_mask=self.candidate_mask)
-        self.assertTrue(torch.isfinite(loss))
-        self.assertTrue(torch.isfinite(parts["relation"]))
+        for method in ("predictive", "discriminative", "predictive_ranking"):
+            loss, parts = candidate_relative_objective(
+                model, query, self.candidates, self.positive, method,
+                candidate_mask=self.candidate_mask)
+            self.assertTrue(torch.isfinite(loss))
+            self.assertTrue(torch.isfinite(parts["relation"]))
 
     def test_strictly_past_history_is_checked(self):
         history_frames = torch.tensor([[0, 2, 4, 5], [0, 0, 3, 4]])

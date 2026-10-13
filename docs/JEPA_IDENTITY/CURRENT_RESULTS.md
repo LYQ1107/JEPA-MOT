@@ -25,6 +25,11 @@ against the current absolute-latent predictive target as an incremental
 identity-ranking mechanism. The selected next hypotheses are identity-residual
 JEPA and candidate-relative JEPA; neither has been trained yet.
 
+The structural source-only trainer and checkpoint evaluator now pass real-cache
+engineering smokes, including a negative reduced candidate-relative smoke. No
+formal structural checkpoint has been produced; these smoke numbers are
+plumbing evidence only.
+
 These results are real and reproducible, but they are not a common-state
 all-opportunity benchmark and do not prove H1. H2 remains unexecuted in this
 branch. See the JSON reports beside this file and the final report for the

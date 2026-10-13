@@ -33,7 +33,8 @@ incremental identity ranking in this audit. The two structural follow-ups are
 identity-residual prediction and candidate-relative prediction; both require
 matched same-budget controls and held-out event scoring.
 
-The next action is a common-state evaluator, not a threshold sweep. Only after
-that evaluator separates these explanations should a residual JEPA,
-identity-target JEPA, or candidate-relative JEPA be trained.
+The common-state evaluator is complete and is now the fixed path for every
+structural checkpoint. The next action is a registered identity-residual
+training/evaluation window, not a threshold sweep. Only after a held-out gain
+does it make sense to consider the conditional candidate-relative candidate.
 

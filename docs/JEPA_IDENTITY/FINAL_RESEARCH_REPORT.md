@@ -35,9 +35,13 @@ their registered scopes, but they do not identify H1 or H2 causal effects. In
 particular, different source initializations cannot be used as evidence for an
 online JEPA advantage. The same-initialization H2 factorial is still pending.
 
-The next falsifiable step is the common-state evaluator described in
-`NEXT_ACTION.md`. That evaluator is now complete; the next falsifiable step is
-one small identity-residual JEPA experiment followed, only if needed, by one
-candidate-relative experiment. Neither will be expanded to multiple seeds or
-continual-learning matrices until a held-out identity-ranking gain appears.
+The common-state evaluator, source-only structural trainer, and structural
+checkpoint evaluator are now implemented and pass real-cache engineering
+smokes. The reduced smoke checkpoints are explicitly excluded from the H1
+evidence because they use one CPU step and reduced dimensions; one of them
+produces negative local correction, which the evaluator preserves. The next
+falsifiable step is one small identity-residual JEPA experiment followed, only
+if needed, by one candidate-relative experiment. Neither will be expanded to
+multiple seeds or continual-learning matrices until a held-out identity-ranking
+gain appears.
 
