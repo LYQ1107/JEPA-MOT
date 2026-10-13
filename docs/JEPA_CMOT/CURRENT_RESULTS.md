@@ -1,6 +1,6 @@
 # 当前结果
 
-状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2/H2 两组完整0–3矩阵、UA主线stage0–2和通用RKD stage0–2也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线stage3冻结回测、RKD stage3、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，不重复启动新的多种子任务。
+状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2/H2 两组完整0–3矩阵、UA主线stage0–2和通用RKD stage0–3也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线stage3冻结回测、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，不重复启动新的多种子任务。
 
 ## 最新已封口的 UA 证据
 
@@ -23,9 +23,9 @@ UA 主线六控制的 stage0–2 冻结回测已经封口。stage1/2 分别覆�
 
 stage2 的 replay128 relation 相对同一 predictive replay128 baseline 为 +0.13003 HOTA（固定 seed17 development 配对区间 -0.02666–0.23155），feature 为 +0.03200（-0.19097–0.14791）；区间跨零，不能称独立增益。stage3 的适应边界快照已保留，冻结评测已在外部节点续跑但尚未生成完整 stage3 指标或最终 complete.json，因此没有计算主线 AF/BWT/FWT。
 
-## UA 通用 RKD-D stage0–2 阶段结果
+## UA 通用 RKD-D 完整 stage0–3 矩阵
 
-`predictive_ranking_distance_graph` 的 stage0–2 native evaluation 已完整核验。stage1 累计边界为 27,440 frames、3,395 updates、229,359 confirmed/seen，四域等权 HOTA 62.77113；stage2 为 42,140 frames、5,232 updates、337,223 confirmed/seen，四域等权 HOTA 63.10675。相对实际 stage0 frozen source，HOTA 变化分别为 +0.07434 与 +0.40995；stage2 各域指标、source parity、checkpoint SHA 和 snapshot/optimizer 核验见 [UA RKD 阶段1–2分析](UA_RKD_COMPLETED_STAGES_1_2_ANALYSIS.json)。RKD stage3 尚未完成，因此不计算最终 AF/BWT/FWT，也不把阶段点估计当作跨 seed 结论。
+`predictive_ranking_distance_graph` 的 stage0–3 native evaluation 已完整核验。stage1 累计边界为 27,440 frames、3,395 updates、229,359 confirmed/seen，四域等权 HOTA 62.77113；stage2 为 42,140 frames、5,232 updates、337,223 confirmed/seen，HOTA 63.10675；stage3 为 65,430 frames、8,101 updates、442,278 confirmed/seen，最终四域等权 HOTA 62.62327、AssA 65.89131、IDF1 75.31903。相对实际 stage0 frozen source，stage1/2/3 HOTA 变化分别为 +0.07434、+0.40995、-0.07352；最终 HOTA AF/BWT/FWT 为 0.59132/-0.55559/0.17440。完整逐域指标、定义、source reference 与边界 checkpoint 见 [UA RKD 完整分析](UA_RKD_FULL_CONTINUAL_ANALYSIS.json) 和 [UA RKD 阶段1–2–3分析](UA_RKD_COMPLETED_STAGES_1_2_3_ANALYSIS.json)。这是固定 seed17 development 证据，不代表 sealed 或跨 seed。
 
 ## 有效工程证据
 

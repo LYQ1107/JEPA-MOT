@@ -1,6 +1,6 @@
 # 最终科研报告（进行中的证据草稿，尚非最终交付）
 
-状态：ACTIVE。用户于2026-10-13要求减少多种子耗时，当前集中seed17，批量seed23/42任务已撤下；完整三seed不再是当前自动执行门槛，仍不得声称已验证跨seed稳健性。本稿回答任务书17问，表格只采用已完成范围的实际结果。尚未冻结最终方法与超参数；sealed测试未执行，UA主线stage3与RKD stage3持续矩阵尚未齐备，UA逆序与多seed尚未齐备。BDD seed17 reverse、UA C2/H2及RKD stage0–2已完成相应范围的矩阵，但不能据本稿声明全项目完成或CVPR主张成立。
+状态：ACTIVE。用户于2026-10-13要求减少多种子耗时，当前集中seed17，批量seed23/42任务已撤下；完整三seed不再是当前自动执行门槛，仍不得声称已验证跨seed稳健性。本稿回答任务书17问，表格只采用已完成范围的实际结果。尚未冻结最终方法与超参数；sealed测试未执行，UA主线stage3持续矩阵、UA逆序与多种子尚未齐备。BDD seed17 reverse、UA C2/H2及通用RKD stage0–3已完成相应范围的矩阵，但不能据本稿声明全项目完成或CVPR主张成立。
 
 所有分数以百分点表示；开发集按域分别聚合TrackEval后取四域等权平均。视频bootstrap是固定seed开发探索的不确定性，未做模型选择校正，不能替代跨seed均值/标准差或独立测试。以下不同训练目标和不同frozen读数的点估计不自动构成等信息、等算力或等伪对供给的因果对照。
 
@@ -98,9 +98,9 @@ BDD官方paired frozen读数另有完整19视频结果：encoder pure39.84562、
 
 ## 8. 完整顺序学习后平均遗忘降低多少？
 
-BDD seed17 clear→overcast→rainy→night完成44适应视频/8,811 native帧及每阶段19视频冻结回测。以下八组源初始化/自教师伪对并非全相同，AF比较应结合初始性能、最终性能和新域学习，AF低不等于适应成功。AF采用已学习旧域历史最佳阶段到final的非负降幅；signed AF、BWT与FWT另报，不能混用。UA C2 四组和H2五组也已完成四阶段回测；UA主线 stage0–2与通用RKD stage0–2只有阶段证据，主线 stage3/RKD stage3仍未齐，不能给出两数据集共同的遗忘结论。
+BDD seed17 clear→overcast→rainy→night完成44适应视频/8,811 native帧及每阶段19视频冻结回测。以下八组源初始化/自教师伪对并非全相同，AF比较应结合初始性能、最终性能和新域学习，AF低不等于适应成功。AF采用已学习旧域历史最佳阶段到final的非负降幅；signed AF、BWT与FWT另报，不能混用。UA C2 四组和H2五组也已完成四阶段回测；UA通用RKD stage0–3已完成完整矩阵，UA主线仍缺stage3，不能据此给出两数据集共同的最终结论。
 
-UA C2 的最终四域等权 HOTA/AF/BWT/FWT 为：none 62.61165/.59870/-.56967/.16868，feature 62.83441/.30282/-.26502/.16249，relation 62.65220/.33442/-.33442/.08989，competition 62.65687/.33051/-.33051/.09083。UA H2 的五组对应结果为：prediction-priority 62.95704/.09769/-.02180/.07876，appearance-hard 62.85191/.08327/-.08327/.24031，CE-confidence 62.92082/0/.69487/-.02483，CE-prediction-priority 62.73757/.00401/.54839/-.02021，confidence-FIFO 62.61165/.59870/-.56967/.16868。通用RKD `predictive_ranking_distance_graph` 的 stage1/stage2 HOTA 分别为 62.77113/63.10675，相对实际source分别 +.07434/+ .40995；阶段状态和逐域六指标见 [UA RKD 阶段1–2分析](UA_RKD_COMPLETED_STAGES_1_2_ANALYSIS.json)。完整六指标与实际预算见 [UA C2 完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json) 和 [UA H2 完整分析](UA_H2_FULL_CONTINUAL_ANALYSIS.json)；这些是固定 seed17 development 证据，不能替代其它 UA family、sealed 或跨 seed。
+UA C2 的最终四域等权 HOTA/AF/BWT/FWT 为：none 62.61165/.59870/-.56967/.16868，feature 62.83441/.30282/-.26502/.16249，relation 62.65220/.33442/-.33442/.08989，competition 62.65687/.33051/-.33051/.09083。UA H2 的五组对应结果为：prediction-priority 62.95704/.09769/-.02180/.07876，appearance-hard 62.85191/.08327/-.08327/.24031，CE-confidence 62.92082/0/.69487/-.02483，CE-prediction-priority 62.73757/.00401/.54839/-.02021，confidence-FIFO 62.61165/.59870/-.56967/.16868。通用RKD `predictive_ranking_distance_graph` 已完成 stage0–3：stage1/2/3 HOTA 分别为 62.77113/63.10675/62.62327，相对实际source分别 +.07434/+ .40995/- .07352；最终 HOTA/AssA/IDF1 为 62.62327/65.89131/75.31903，AF/BWT/FWT 为 .59132/-.55559/.17440。完整六指标、逐域结果和实际预算见 [UA RKD 完整分析](UA_RKD_FULL_CONTINUAL_ANALYSIS.json)、[UA RKD 阶段1–2–3分析](UA_RKD_COMPLETED_STAGES_1_2_3_ANALYSIS.json)、[UA C2 完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json) 和 [UA H2 完整分析](UA_H2_FULL_CONTINUAL_ANALYSIS.json)；这些是固定 seed17 development 证据，不能替代其它 UA family、sealed 或跨 seed。
 
 | BDD方法 | final HOTA | final AssA | final IDF1 | HOTA AF |
 |---|---:|---:|---:|---:|
@@ -152,11 +152,11 @@ BDD dense规则的1,732个关联改变中，离线一步诊断纠错354、反改
 
 ## 16. 当前是否足以支撑持续学习核心的CVPR论文？
 
-不足。已有真实多轮结构探索、完整BDD forward/reverse、UA C2/H2完整回测、UA主线stage0–2与通用RKD stage0–2阶段证据及两数据集frozen负结果，不是仅工程smoke；但未证明稳定超过强非JEPA的MOT/遗忘收益，UA主线stage3/RKD stage3、UA逆序和冻结后的独立测试未齐，三seed稳健性受用户资源约束尚未证明。仅凭弱CE对照的提升、较小cosine error、nonzero relation loss或低AF不能成立主张。最终研究可能得到证据不足的诚实结论，不能预先宣判整个方向失败，也不能伪造支持。
+不足。已有真实多轮结构探索、完整BDD forward/reverse、UA C2/H2完整回测、UA通用RKD stage0–3矩阵及两数据集frozen负结果，不是仅工程smoke；但未证明稳定超过强非JEPA的MOT/遗忘收益，UA主线stage3、UA逆序和冻结后的独立测试未齐，三seed稳健性受用户资源约束尚未证明。仅凭弱CE对照的提升、较小cosine error、nonzero relation loss或低AF不能成立主张。最终研究可能得到证据不足的诚实结论，不能预先宣判整个方向失败，也不能伪造支持。
 
 ## 17. 还缺哪些关键证据？
 
-补齐实际运行中的UA主线stage3和RKD stage3持续矩阵及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；UA主线stage1/2阶段证据已记录于[UA主线阶段1–2分析](UA_MAIN_COMPLETED_STAGES_1_2_ANALYSIS.json)，UA C2/H2完整结果已记录于[UA C2完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json)和[UA H2完整分析](UA_H2_FULL_CONTINUAL_ANALYSIS.json)，UA通用RKD的stage0–2已记录于[RKD阶段1–2分析](UA_RKD_COMPLETED_STAGES_1_2_ANALYSIS.json)及[初始阶段分析](UA_RKD_COMPLETED_STAGES_0_1_ANALYSIS.json)，UA official paired frozen development已记录于[UA官方读数结果](UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json)，BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
+补齐实际运行中的UA主线stage3持续矩阵及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；UA主线stage1/2阶段证据已记录于[UA主线阶段1–2分析](UA_MAIN_COMPLETED_STAGES_1_2_ANALYSIS.json)，UA C2/H2完整结果已记录于[UA C2完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json)和[UA H2完整分析](UA_H2_FULL_CONTINUAL_ANALYSIS.json)，UA通用RKD完整0–3结果已记录于[RKD完整分析](UA_RKD_FULL_CONTINUAL_ANALYSIS.json)及[RKD阶段1–2–3分析](UA_RKD_COMPLETED_STAGES_1_2_3_ANALYSIS.json)，UA official paired frozen development已记录于[UA官方读数结果](UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json)，BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
 
 ## 已完成BDD八组顺序矩阵：HOTA
 
