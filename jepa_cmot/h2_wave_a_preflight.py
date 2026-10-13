@@ -112,6 +112,7 @@ def annotation_and_feature_record(entry: dict) -> dict:
     result = {
         "video": entry["video"],
         "domain": entry["domain"],
+        "split": entry.get("split", "unspecified"),
         "declared_frames": int(entry["frames"]),
         "annotation": file_record(annotation_path, "prepared_detection_annotation"),
         "features": file_record(features_path, "dense_feature_cache"),
@@ -171,7 +172,18 @@ def main() -> None:
     parser.add_argument(
         "--inputs",
         type=Path,
-        default=WORKSPACE / "runs/JEPA_CMOT/continual_competition_v1/bdd100k_forward_seed17/inputs/development.json",
+        default=None,
+        help="Optional explicit input list; otherwise derive adaptation and development streams from --manifest.",
+    )
+    parser.add_argument(
+        "--manifest",
+        type=Path,
+        default=WORKSPACE / "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+    )
+    parser.add_argument(
+        "--detections",
+        type=Path,
+        default=WORKSPACE / "runs/JEPA_CMOT/formal_detection_streams_v1/bdd100k",
     )
     parser.add_argument(
         "--protocol",
@@ -196,7 +208,25 @@ def main() -> None:
     )
     args = parser.parse_args()
 
-    inputs = json.loads(args.inputs.read_text())
+    if args.inputs is not None:
+        inputs = json.loads(args.inputs.read_text())
+        input_source = "explicit_input_list"
+    else:
+        manifest = json.loads(args.manifest.read_text())
+        selected = [
+            video for video in manifest["videos"]
+            if video["dataset"] == "bdd100k" and video["split"] in {"adaptation", "development"}
+        ]
+        inputs = []
+        for video in selected:
+            root = args.detections / video["domain"] / video["split"] / video["name"]
+            inputs.append(dict(
+                dataset=video["dataset"], domain=video["domain"], split=video["split"],
+                video=video["name"], frames=video["frames"],
+                prepared=str(root / "prepared"),
+                features=str(root / "features_dense_current.npz"),
+            ))
+        input_source = "native_protocol_manifest_adaptation_and_development"
     readiness = json.loads(args.readiness.read_text()) if args.readiness.exists() else {}
     source_root = WORKSPACE / "runs/JEPA_CMOT"
     source_files = {
@@ -240,13 +270,19 @@ def main() -> None:
             "readiness_status": readiness.get("status"),
         },
         "inputs": {
-            "manifest": file_record(args.inputs, "development_stream_manifest"),
+            "source": input_source,
+            "manifest": file_record(args.manifest, "native_protocol_manifest"),
+            "explicit_input_list": file_record(args.inputs, "explicit_stream_manifest") if args.inputs else None,
             "legacy_protocol_excluded_from_causal_wave_a": {
                 "record": file_record(args.protocol, "legacy_continual_competition_protocol"),
                 "reason": "Its four controls all use predictive_ranking with different retention graphs; it is not the registered D/P 2x2 factorial.",
             },
             "stream_count": len(stream_records),
             "declared_frame_count": sum(int(entry["frames"]) for entry in inputs),
+            "split_counts": {
+                split: sum(1 for entry in inputs if entry.get("split") == split)
+                for split in sorted({entry.get("split", "unspecified") for entry in inputs})
+            },
             "stream_records": stream_records,
             "all_streams_structurally_ready": all_streams_structurally_ready,
         },
