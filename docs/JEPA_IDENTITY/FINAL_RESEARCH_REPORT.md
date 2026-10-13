@@ -3,6 +3,11 @@
 **Research state:** `ACTIVE / H2_READINESS_RUNTIME_BLOCKED`
 **Scientific conclusion:** insufficient evidence for the final JEPA claim.
 
+The machine-readable requirement audit is
+`RESEARCH_REQUIREMENT_AUDIT_SEED17.json`; it records the completed H1 scope,
+the registered H2 controls, and the runtime evidence still required before a
+continual-learning claim.
+
 The first new stage reused existing BDD100K development seed17 outputs instead
 of retraining. It classified 1,785 recorded association changes using offline
 labels and measured candidate-level ranking diagnostics. Predictive residual
