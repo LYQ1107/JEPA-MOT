@@ -1,0 +1,862 @@
+{
+  "status": "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17",
+  "dataset": "bdd100k",
+  "scope": "video-cluster-balanced paired diagnostics on fixed event and candidate cases",
+  "source_case_count": 1394,
+  "candidate_present_case_count": 1177,
+  "candidate_absent_case_count": 217,
+  "video_count": 19,
+  "videos_with_candidate_present_cases": 19,
+  "controls": [
+    "history_last",
+    "mlp_ce",
+    "mlp_jepa_predictive",
+    "mlp_jepa_ranking",
+    "transformer_ce",
+    "transformer_jepa_predictive",
+    "transformer_jepa_ranking"
+  ],
+  "comparisons": [
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "mlp_ce",
+      "metrics": {
+        "top1": {
+          "clusters": 19,
+          "mean_improvement": -0.03632733846067462,
+          "bootstrap_95ci": [
+            -0.059470319559333434,
+            -0.014592752216487996
+          ],
+          "permutation_p_two_sided": 0.004899510048995101,
+          "positive_clusters": 3,
+          "negative_clusters": 13,
+          "zero_clusters": 3,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "mrr": {
+          "clusters": 19,
+          "mean_improvement": -0.02424293051456525,
+          "bootstrap_95ci": [
+            -0.03792457007070172,
+            -0.010420576863470192
+          ],
+          "permutation_p_two_sided": 0.0031996800319968005,
+          "positive_clusters": 3,
+          "negative_clusters": 15,
+          "zero_clusters": 1,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 19,
+          "mean_improvement": -0.026427984544716152,
+          "bootstrap_95ci": [
+            -0.03762908133396269,
+            -0.01515156840734221
+          ],
+          "permutation_p_two_sided": 0.00039996000399960006,
+          "positive_clusters": 2,
+          "negative_clusters": 16,
+          "zero_clusters": 1,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "net_correction": {
+          "clusters": 19,
+          "mean_improvement": -0.03632733846067462,
+          "bootstrap_95ci": [
+            -0.060124420333575374,
+            -0.014572823190098927
+          ],
+          "permutation_p_two_sided": 0.0053994600539946005,
+          "positive_clusters": 3,
+          "negative_clusters": 13,
+          "zero_clusters": 3,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "history_last",
+      "metrics": {
+        "top1": {
+          "clusters": 19,
+          "mean_improvement": -0.019538980044527938,
+          "bootstrap_95ci": [
+            -0.03890866131295812,
+            0.00039296372008877184
+          ],
+          "permutation_p_two_sided": 0.072992700729927,
+          "positive_clusters": 3,
+          "negative_clusters": 11,
+          "zero_clusters": 5,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "mrr": {
+          "clusters": 19,
+          "mean_improvement": -0.006505818976335476,
+          "bootstrap_95ci": [
+            -0.018226650881194288,
+            0.008200406402063183
+          ],
+          "permutation_p_two_sided": 0.36306369363063695,
+          "positive_clusters": 4,
+          "negative_clusters": 12,
+          "zero_clusters": 3,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 19,
+          "mean_improvement": 0.002625314465863813,
+          "bootstrap_95ci": [
+            -0.01138461192251836,
+            0.020743972579215342
+          ],
+          "permutation_p_two_sided": 0.8367163283671633,
+          "positive_clusters": 6,
+          "negative_clusters": 10,
+          "zero_clusters": 3,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "net_correction": {
+          "clusters": 19,
+          "mean_improvement": -0.019538980044527938,
+          "bootstrap_95ci": [
+            -0.03831843047215408,
+            0.0005041742457523099
+          ],
+          "permutation_p_two_sided": 0.07389261073892611,
+          "positive_clusters": 3,
+          "negative_clusters": 11,
+          "zero_clusters": 5,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "mlp_jepa_ranking",
+      "metrics": {
+        "top1": {
+          "clusters": 19,
+          "mean_improvement": -0.036535790413936925,
+          "bootstrap_95ci": [
+            -0.05642428897469658,
+            -0.016841320826209413
+          ],
+          "permutation_p_two_sided": 0.0032996700329967,
+          "positive_clusters": 2,
+          "negative_clusters": 12,
+          "zero_clusters": 5,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "mrr": {
+          "clusters": 19,
+          "mean_improvement": -0.023616448302202196,
+          "bootstrap_95ci": [
+            -0.03619537755180224,
+            -0.011664120081171764
+          ],
+          "permutation_p_two_sided": 0.0012998700129987,
+          "positive_clusters": 3,
+          "negative_clusters": 13,
+          "zero_clusters": 3,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 19,
+          "mean_improvement": -0.022487903267081416,
+          "bootstrap_95ci": [
+            -0.033140696179646545,
+            -0.01162003815559228
+          ],
+          "permutation_p_two_sided": 0.000999900009999,
+          "positive_clusters": 2,
+          "negative_clusters": 15,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "net_correction": {
+          "clusters": 19,
+          "mean_improvement": -0.036535790413936925,
+          "bootstrap_95ci": [
+            -0.05782756400325176,
+            -0.01727943779556923
+          ],
+          "permutation_p_two_sided": 0.0026997300269973002,
+          "positive_clusters": 2,
+          "negative_clusters": 12,
+          "zero_clusters": 5,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "transformer_ce",
+      "metrics": {
+        "top1": {
+          "clusters": 19,
+          "mean_improvement": 0.018411163669154774,
+          "bootstrap_95ci": [
+            -0.01233067589534651,
+            0.05268206806768053
+          ],
+          "permutation_p_two_sided": 0.33156684331566844,
+          "positive_clusters": 8,
+          "negative_clusters": 5,
+          "zero_clusters": 6,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "mrr": {
+          "clusters": 19,
+          "mean_improvement": 0.002399634336426274,
+          "bootstrap_95ci": [
+            -0.01719377676320585,
+            0.026244489408745672
+          ],
+          "permutation_p_two_sided": 0.8653134686531346,
+          "positive_clusters": 6,
+          "negative_clusters": 11,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 19,
+          "mean_improvement": -0.016635353393407257,
+          "bootstrap_95ci": [
+            -0.0343121367288452,
+            0.004083002390703407
+          ],
+          "permutation_p_two_sided": 0.12788721127887212,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "net_correction": {
+          "clusters": 19,
+          "mean_improvement": 0.018411163669154774,
+          "bootstrap_95ci": [
+            -0.011823852172613277,
+            0.05324236333010863
+          ],
+          "permutation_p_two_sided": 0.3250674932506749,
+          "positive_clusters": 8,
+          "negative_clusters": 5,
+          "zero_clusters": 6,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "history_last",
+      "metrics": {
+        "top1": {
+          "clusters": 19,
+          "mean_improvement": -0.02155158083719072,
+          "bootstrap_95ci": [
+            -0.04314164800840657,
+            -0.003414946733126784
+          ],
+          "permutation_p_two_sided": 0.04329567043295671,
+          "positive_clusters": 3,
+          "negative_clusters": 8,
+          "zero_clusters": 8,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "mrr": {
+          "clusters": 19,
+          "mean_improvement": -0.009355149568367142,
+          "bootstrap_95ci": [
+            -0.02321935220422929,
+            0.0016176732434818753
+          ],
+          "permutation_p_two_sided": 0.18318168183181682,
+          "positive_clusters": 6,
+          "negative_clusters": 10,
+          "zero_clusters": 3,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 19,
+          "mean_improvement": -0.004255876147141801,
+          "bootstrap_95ci": [
+            -0.015723368117545142,
+            0.0054169418676325255
+          ],
+          "permutation_p_two_sided": 0.5111488851114888,
+          "positive_clusters": 6,
+          "negative_clusters": 9,
+          "zero_clusters": 4,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "net_correction": {
+          "clusters": 19,
+          "mean_improvement": -0.02155158083719072,
+          "bootstrap_95ci": [
+            -0.043093001049750064,
+            -0.003414139358598767
+          ],
+          "permutation_p_two_sided": 0.041695830416958304,
+          "positive_clusters": 3,
+          "negative_clusters": 8,
+          "zero_clusters": 8,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "transformer_jepa_ranking",
+      "metrics": {
+        "top1": {
+          "clusters": 19,
+          "mean_improvement": -0.003409814250615124,
+          "bootstrap_95ci": [
+            -0.02406717260541038,
+            0.018028019484509564
+          ],
+          "permutation_p_two_sided": 0.7672232776722328,
+          "positive_clusters": 7,
+          "negative_clusters": 7,
+          "zero_clusters": 5,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "mrr": {
+          "clusters": 19,
+          "mean_improvement": -0.010061490960853407,
+          "bootstrap_95ci": [
+            -0.02281090249081731,
+            0.0025051153061158493
+          ],
+          "permutation_p_two_sided": 0.1496850314968503,
+          "positive_clusters": 6,
+          "negative_clusters": 11,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 19,
+          "mean_improvement": -0.019409387634741215,
+          "bootstrap_95ci": [
+            -0.0314410601484404,
+            -0.008425401854083088
+          ],
+          "permutation_p_two_sided": 0.004299570042995701,
+          "positive_clusters": 5,
+          "negative_clusters": 12,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        },
+        "net_correction": {
+          "clusters": 19,
+          "mean_improvement": -0.003409814250615124,
+          "bootstrap_95ci": [
+            -0.02399807591477221,
+            0.0168101359809926
+          ],
+          "permutation_p_two_sided": 0.7677232276772322,
+          "positive_clusters": 7,
+          "negative_clusters": 7,
+          "zero_clusters": 5,
+          "cluster_names": [
+            "00810e80-37641274",
+            "0081da60-27997c07",
+            "b1df722f-57d21f3f",
+            "b1e1a7b8-65ec7612",
+            "b1ebfc3c-740ec84a",
+            "b1f0efd9-e900c6e5",
+            "b1ff4656-0435391e",
+            "b1ff4656-ebcfeb35",
+            "b202cae2-672e61c5",
+            "b20eae11-6817ba7a",
+            "b214d1e1-f248c616",
+            "b21547c1-73e457f8",
+            "b2169b74-fa197951",
+            "b21d5efb-5e2cd743",
+            "b2208b0f-2796a692",
+            "b23b2649-6af03cd5",
+            "b23b2649-8349d2a1",
+            "b23f7012-fab06dac",
+            "b2505382-272e7823"
+          ]
+        }
+      }
+    }
+  ],
+  "bootstrap_draws": 5000,
+  "permutation_draws": 10000,
+  "seed": 17,
+  "target_GT_used_for_training_or_gate": false,
+  "offline_GT_used_for_diagnosis": true,
+  "sealed_used": false,
+  "interpretation": "Each video contributes one cluster mean; positive means candidate improves the metric over reference. This is a video-balanced diagnostic, not a multi-seed claim.",
+  "limitations": [
+    "video cluster means change the estimand from event-weighted to video-balanced and are reported alongside, not instead of, event-level results",
+    "the cases inherit the recorded rollout and candidate-subset limits of the source audit",
+    "UA uses the existing legacy-track replay and reconstructed geometry candidates",
+    "one seed and no multiple-comparison correction are used"
+  ]
+}
