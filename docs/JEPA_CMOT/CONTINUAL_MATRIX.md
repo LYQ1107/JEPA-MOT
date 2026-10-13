@@ -1,6 +1,6 @@
 # 连续域学习矩阵
 
-状态：ACTIVE。BDD forward seed17 的六组训练已完成 source→overcast→rainy→night 和44个适应视频，四个参数快照保存；第一波六组完整stage×domain矩阵已生成。UA主线六组已完成45个适应视频并保存stage0–3边界快照，stage0–2冻结回测和指标已核验；通用 RKD-D 已完成 stage0–2 冻结回测，主线 stage3 正在外部节点续跑，RKD stage3尚未开始，固定教师及其它对照另有完整矩阵。未评测 sealed。
+状态：ACTIVE。BDD forward seed17 的六组训练已完成 source→overcast→rainy→night 和44个适应视频，四个参数快照保存；第一波六组完整stage×domain矩阵已生成。UA主线六组已完成45个适应视频并保存stage0–3边界快照，stage0–2冻结回测和指标已核验；通用 RKD-D 已完成 stage0–2 冻结回测，主线 stage3 与 RKD stage3 正在外部节点续跑，固定教师及其它对照另有完整矩阵。未评测 sealed。
 
 路径：runs/JEPA_CMOT/continual_v1/{dataset}_forward_seed17；同教师比较为continual_h2_v1。所有 snapshot 评测关闭更新，不反馈到训练；物理 track/pending 在视频边界重置，参数、optimizer、replay/recent和RNG持续。
 
