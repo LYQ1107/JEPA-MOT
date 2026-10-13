@@ -1,0 +1,338 @@
+{
+  "status": "COMPLETE_H2_WAVE_B_FIXED_TEACHER_DIAGNOSTIC",
+  "scope": "one-seed BDD fixed-teacher recorded-pair objective comparison",
+  "dataset": "bdd100k",
+  "seed": 17,
+  "device": "cpu",
+  "full_video_metrics": false,
+  "closed_loop_online": false,
+  "target_gt_used_for_training_or_gate": false,
+  "sealed_test_used": false,
+  "schedule": {
+    "steps": 128,
+    "batch": 8,
+    "example_count": 153,
+    "sha256": "f5c0658281ebcb1fa1c58b013d997bb9ce12fa0b7d003693ac6fdc791fcb2e31"
+  },
+  "teacher_bank": {
+    "path": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_h2_v1/bdd100k_forward_seed17/adaptation/stage1_overcast/b251064f-5f6b663e/discriminative_confidence/b251064f-5f6b663e/learner.pt",
+    "sha256": "65ec24e4d6eb880b99e1b18a10a940138726ca34ce2050ad6c0b7d03ed442db5",
+    "artifact_kind": "recorded_frozen_pseudo_pair_bank_from_one_prior_unlabeled_stream",
+    "online_config": {
+      "method": "discriminative",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "confidence",
+      "retention": "none",
+      "seed": 17,
+      "need_threshold": 0.05,
+      "retention_weight": 1.0
+    },
+    "memory_count": 128,
+    "recent_count": 25,
+    "target_gt_read": false
+  },
+  "source_checkpoint_paths": {
+    "D": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/discriminative/final.pt",
+    "P": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v1/bdd_dense_current/seed17/predictive/final.pt"
+  },
+  "source_cache": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_identity_cache_v1/bdd100k/features_dense_current.npz",
+  "same_teacher_examples_across_cells": true,
+  "same_sample_index_schedule_across_cells": true,
+  "interpretation_limit": "This isolates the loss objective on one shared recorded pseudo-pair bank; it is not a full-video continual-learning result and does not replace the registered 2x2 closed-loop factorial.",
+  "code_sha256": "fc0e9e510eba2a50a5e38ebc87a944313e682e499f62dfa3b210795b4bbeb4b8",
+  "git_commit": "b7739641a620e105f0dc707461234ffdfc5eaa7d",
+  "cells": {
+    "D_to_D": {
+      "source_checkpoint_sha256": "3b3c1b5161a75eec6a5753913bab56107dc249d578f496f59596da8780242a48",
+      "source_method": "discriminative",
+      "source_initialization": "D",
+      "online_update": "D",
+      "steps": 128,
+      "batch_size": 8,
+      "fixed_teacher_before": {
+        "examples": 153,
+        "top1": 0.8758169934640523,
+        "mrr": 0.9276766309551164,
+        "prediction_error": 0.5646393844504761,
+        "teacher_kl": 0.033237928268956204
+      },
+      "fixed_teacher_after": {
+        "examples": 153,
+        "top1": 0.9477124183006536,
+        "mrr": 0.9705882103614558,
+        "prediction_error": 0.4511982475230896,
+        "teacher_kl": 0.05755700161254484
+      },
+      "fixed_teacher_delta": {
+        "top1": 0.07189542483660127,
+        "mrr": 0.042911579406339384,
+        "prediction_error": -0.1134411369273865,
+        "teacher_kl": 0.024319073343588633
+      },
+      "source_validation_before": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.677734375,
+        "prediction_error": 0.6660682335495949,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "source_validation_after": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.66796875,
+        "prediction_error": 0.5863111317157745,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "parameter_update_l2": 2.194402125128282,
+      "loss_first": {
+        "step": 1,
+        "loss": 0.5520754456520081,
+        "prediction": 0.581240177154541,
+        "ranking": 0.5520754456520081,
+        "gradient_norm": 0.6105734705924988
+      },
+      "loss_last": {
+        "step": 128,
+        "loss": 0.4809834957122803,
+        "prediction": 0.49849069118499756,
+        "ranking": 0.4809834957122803,
+        "gradient_norm": 0.4536132216453552
+      },
+      "gradient_norm_mean": 0.8307369003305212
+    },
+    "D_to_P": {
+      "source_checkpoint_sha256": "3b3c1b5161a75eec6a5753913bab56107dc249d578f496f59596da8780242a48",
+      "source_method": "discriminative",
+      "source_initialization": "D",
+      "online_update": "P",
+      "steps": 128,
+      "batch_size": 8,
+      "fixed_teacher_before": {
+        "examples": 153,
+        "top1": 0.8758169934640523,
+        "mrr": 0.9276766309551164,
+        "prediction_error": 0.5646393844504761,
+        "teacher_kl": 0.033237928268956204
+      },
+      "fixed_teacher_after": {
+        "examples": 153,
+        "top1": 0.9215686274509803,
+        "mrr": 0.9471210404938343,
+        "prediction_error": 0.10388018570694268,
+        "teacher_kl": 0.142643771140404
+      },
+      "fixed_teacher_delta": {
+        "top1": 0.04575163398692805,
+        "mrr": 0.019444409538717844,
+        "prediction_error": -0.46075919874353344,
+        "teacher_kl": 0.10940584287144779
+      },
+      "source_validation_before": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.677734375,
+        "prediction_error": 0.6660682335495949,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "source_validation_after": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.63671875,
+        "prediction_error": 0.22662673331797123,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "parameter_update_l2": 3.6221513342636706,
+      "loss_first": {
+        "step": 1,
+        "loss": 0.581240177154541,
+        "prediction": 0.581240177154541,
+        "ranking": 0.5520754456520081,
+        "gradient_norm": 0.6881878972053528
+      },
+      "loss_last": {
+        "step": 128,
+        "loss": 0.1233619675040245,
+        "prediction": 0.1233619675040245,
+        "ranking": 0.8509290218353271,
+        "gradient_norm": 0.19687898457050323
+      },
+      "gradient_norm_mean": 0.3273176554357633
+    },
+    "P_to_D": {
+      "source_checkpoint_sha256": "a6915692a9dd5473b7483f0e144d45ab96926d4feb5db280529e568731c181d2",
+      "source_method": "predictive",
+      "source_initialization": "P",
+      "online_update": "D",
+      "steps": 128,
+      "batch_size": 8,
+      "fixed_teacher_before": {
+        "examples": 153,
+        "top1": 0.9281045751633987,
+        "mrr": 0.9479030534332874,
+        "prediction_error": 0.038057151183583375,
+        "teacher_kl": 0.23537507400014043
+      },
+      "fixed_teacher_after": {
+        "examples": 153,
+        "top1": 0.9607843137254902,
+        "mrr": 0.9751633787466809,
+        "prediction_error": 0.2550845769495746,
+        "teacher_kl": 0.06462298538170609
+      },
+      "fixed_teacher_delta": {
+        "top1": 0.0326797385620915,
+        "mrr": 0.027260325313393508,
+        "prediction_error": 0.2170274257659912,
+        "teacher_kl": -0.17075208861843433
+      },
+      "source_validation_before": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.591796875,
+        "prediction_error": 0.11023074761033058,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "source_validation_after": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.609375,
+        "prediction_error": 0.3131259195506573,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "parameter_update_l2": 2.678488292576304,
+      "loss_first": {
+        "step": 1,
+        "loss": 0.8863441348075867,
+        "prediction": 0.037059493362903595,
+        "ranking": 0.8863441348075867,
+        "gradient_norm": 0.6815065145492554
+      },
+      "loss_last": {
+        "step": 128,
+        "loss": 0.49304020404815674,
+        "prediction": 0.29418858885765076,
+        "ranking": 0.49304020404815674,
+        "gradient_norm": 0.6794580817222595
+      },
+      "gradient_norm_mean": 1.117085127858445
+    },
+    "P_to_P": {
+      "source_checkpoint_sha256": "a6915692a9dd5473b7483f0e144d45ab96926d4feb5db280529e568731c181d2",
+      "source_method": "predictive",
+      "source_initialization": "P",
+      "online_update": "P",
+      "steps": 128,
+      "batch_size": 8,
+      "fixed_teacher_before": {
+        "examples": 153,
+        "top1": 0.9281045751633987,
+        "mrr": 0.9479030534332874,
+        "prediction_error": 0.038057151183583375,
+        "teacher_kl": 0.23537507400014043
+      },
+      "fixed_teacher_after": {
+        "examples": 153,
+        "top1": 0.934640522875817,
+        "mrr": 0.956100189607907,
+        "prediction_error": 0.026483748473373113,
+        "teacher_kl": 0.1935018386716157
+      },
+      "fixed_teacher_delta": {
+        "top1": 0.006535947712418277,
+        "mrr": 0.00819713617461959,
+        "prediction_error": -0.011573402710210262,
+        "teacher_kl": -0.041873235328524744
+      },
+      "source_validation_before": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.591796875,
+        "prediction_error": 0.11023074761033058,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "source_validation_after": {
+        "examples": 512,
+        "video_split": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "top1": 0.611328125,
+        "prediction_error": 0.10771443787962198,
+        "source_cache_sha256": "2ecab4a39c4a6d0ca6b63c624980260390e3727141be0de534f92484f7fa05f3",
+        "target_gt_used_for_training_or_gate": false
+      },
+      "parameter_update_l2": 1.866873764066474,
+      "loss_first": {
+        "step": 1,
+        "loss": 0.037059493362903595,
+        "prediction": 0.037059493362903595,
+        "ranking": 0.8863441348075867,
+        "gradient_norm": 0.06827676296234131
+      },
+      "loss_last": {
+        "step": 128,
+        "loss": 0.03199184685945511,
+        "prediction": 0.03199184685945511,
+        "ranking": 0.9341869950294495,
+        "gradient_norm": 0.06806544214487076
+      },
+      "gradient_norm_mean": 0.061592498037498444
+    }
+  }
+}
