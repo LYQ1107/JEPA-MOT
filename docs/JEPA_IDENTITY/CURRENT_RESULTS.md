@@ -17,6 +17,14 @@ Phase 1 reused the completed BDD100K development seed17 rank-reward protocol:
 - predictive residual candidate coverage: 84.43%;
 - random rank-reward has zero changed-event rows.
 
+The common-state CPU follow-up mapped all 1,394 evaluable residual events and
+held the candidate subset fixed. Native recorded cost reached 97.37% Top-1;
+MLP CE reached 76.13%, MLP pure predictive JEPA 73.49%, MLP JEPA+ranking
+76.21%, and feature shuffle/random 19.37%/25.66%. This is negative evidence
+against the current absolute-latent predictive target as an incremental
+identity-ranking mechanism. The selected next hypotheses are identity-residual
+JEPA and candidate-relative JEPA; neither has been trained yet.
+
 These results are real and reproducible, but they are not a common-state
 all-opportunity benchmark and do not prove H1. H2 remains unexecuted in this
 branch. See the JSON reports beside this file and the final report for the

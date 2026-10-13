@@ -124,6 +124,8 @@ def diagnose_event(labels: dict[str, Any], event: dict[str, Any]) -> dict[str, A
         candidate_id, candidate_iou = choice_identity(labels, frame, candidate)
         candidate_ids.append({
             "index": int(candidate["index"]),
+            "box": candidate.get("box"),
+            "native_class": candidate.get("native_class"),
             "gt_id": candidate_id,
             "iou": candidate_iou,
             "native_cost": candidate.get("native_cost"),
@@ -149,6 +151,7 @@ def diagnose_event(labels: dict[str, Any], event: dict[str, Any]) -> dict[str, A
         "track_id": int(event.get("track_id", -1)),
         "diagnosis": diagnosis,
         "history_purity": purity,
+        "history": event.get("history", []),
         "expected_gt_id": expected,
         "native_gt_id": native_id,
         "jepa_gt_id": jepa_id,

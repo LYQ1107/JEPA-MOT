@@ -12,6 +12,16 @@ versus 97.366% for the native score. Predictive rank reward and the
 discriminative control each had one correction and one harm; frozen-last had
 no local correction or harm; random had no changed rows.
 
+The common-state CPU audit then mapped all 1,394 evaluable residual events to
+the existing dense feature cache and scored the same candidate subset with
+history, geometry, MLP/Transformer CE, predictive JEPA, JEPA+ranking,
+shuffle/random, and constant controls. Native recorded cost had 97.37%
+conditional Top-1; MLP CE had 76.13%; pure MLP predictive JEPA had 73.49%;
+MLP JEPA+ranking had 76.21%; Transformer predictive JEPA had 73.92%. The
+candidate coverage was identical at 84.43% for every control. This common-state
+result is negative evidence against the current absolute-latent predictive
+target as the source of incremental identity ranking.
+
 This is a useful selection signal, not a proof. The event set is conditioned
 on changed assignments, the methods do not share one propagated state, the
 tracer records a top candidate subset, and the NLL/Brier/ECE values are
@@ -26,8 +36,8 @@ particular, different source initializations cannot be used as evidence for an
 online JEPA advantage. The same-initialization H2 factorial is still pending.
 
 The next falsifiable step is the common-state evaluator described in
-`NEXT_ACTION.md`. If it does not show held-out identity-ranking evidence after
-strong controls, the project will retain the negative result and test a
-structural change such as identity-residual or candidate-relative prediction
-before any large continual-learning sweep.
+`NEXT_ACTION.md`. That evaluator is now complete; the next falsifiable step is
+one small identity-residual JEPA experiment followed, only if needed, by one
+candidate-relative experiment. Neither will be expanded to multiple seeds or
+continual-learning matrices until a held-out identity-ranking gain appears.
 

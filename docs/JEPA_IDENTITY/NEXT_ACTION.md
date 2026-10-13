@@ -10,8 +10,11 @@
 4. When a GPU is available, run one small registered common-state comparison
    with predictive residual, EMA, temporal control, random/shuffled, and
    constant/affine calibration controls.
-5. Select at most one structural H1 candidate from that result. Only then run
-   the same-initialization H2 factorial with one seed and one domain order.
+5. The common-state result has selected two structural H1 candidates, in this
+   order: identity-residual JEPA, then candidate-relative JEPA. Train at most
+   one of them in the next GPU window, together with its matched CE control.
+6. Only after a structural candidate produces a held-out common-state gain,
+   run the same-initialization H2 factorial with one seed and one domain order.
 
 The gate for claiming H1 is a held-out candidate-ranking/proper-scoring gain,
 non-random hard-negative improvement, and a net correction advantage under a

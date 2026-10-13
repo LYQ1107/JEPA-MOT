@@ -59,3 +59,40 @@ Detailed machine-readable outputs are in
 locally at `runs/JEPA_IDENTITY/h1_wave_a/identity_event_cases.jsonl` and is not
 part of the source/data commit.
 
+## Wave-A common-state result
+
+The second audit reconstructs every evaluable predictive-residual event from
+the existing dense feature cache. All controls receive the same recorded
+history, the same candidate boxes, and the same top-candidate subset; model
+queries are computed before the offline identity labels are consulted. The
+candidate coverage is 84.43% for every control because the candidate set is
+held fixed.
+
+| control | Top-1 | MRR | pairwise AUC | local net correction on eligible candidates |
+|---|---:|---:|---:|---:|
+| native recorded cost | 97.37% | 0.9850 | 0.9884 | +361 |
+| last history | 75.36% | 0.8525 | 0.9012 | +102 |
+| mean4 history | 71.96% | 0.8337 | 0.8913 | +62 |
+| EMA history | 71.11% | 0.8283 | 0.8866 | +52 |
+| MLP CE | 76.13% | 0.8638 | 0.9191 | +111 |
+| MLP JEPA predictive | 73.49% | 0.8428 | 0.8956 | +80 |
+| MLP JEPA + ranking | 76.21% | 0.8637 | 0.9176 | +112 |
+| Transformer CE | 73.32% | 0.8493 | 0.9126 | +78 |
+| Transformer JEPA predictive | 73.92% | 0.8457 | 0.8959 | +85 |
+| Transformer JEPA + ranking | 74.34% | 0.8538 | 0.9110 | +90 |
+| feature shuffle / random | 19.37% / 25.66% | 0.4410 / 0.4986 | 0.4966 / 0.4892 | -559 / -483 |
+
+The native score is a full GeneralTrack association cost and is therefore a
+strong reference rather than a feature-only identity probe. Within the
+feature-only controls, pure predictive JEPA is below last, CE, and ranking
+controls on this common state. The same direction appears in clear, overcast,
+rainy, and night strata; the largest sample gap groups are 1 frame (1,037
+events) and 2--4 frames (284 events). This is negative evidence for the
+current absolute-latent predictive target, not evidence that every possible
+JEPA target is impossible.
+
+The full report, including confidence intervals, calibration diagnostics,
+domain/gap breakdowns, checkpoint hashes, and causal limitations, is
+`COMMON_STATE_IDENTITY_METRICS.json` with its companion
+`COMMON_STATE_IDENTITY_METRICS.md`.
+

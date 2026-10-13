@@ -1,6 +1,9 @@
 import unittest
 
+import numpy as np
+
 from .identity_event_audit import bdd_category_group, iou_xyxy, native_group
+from .common_state_audit import ema_query, event_metric, xyxy_iou
 from .identity_metrics import ranking_case, summarize_cases
 
 
@@ -31,6 +34,17 @@ class IdentityEventAuditTest(unittest.TestCase):
         report = summarize_cases([case])
         self.assertEqual(report["methods"]["toy"]["intervention"]["correct_candidate_present"], 1)
         self.assertEqual(report["methods"]["toy"]["intervention"]["top1_identity_accuracy_conditional"], 1.0)
+
+    def test_common_state_primitives(self):
+        self.assertAlmostEqual(xyxy_iou([0, 0, 10, 10], [0, 0, 10, 10]), 1.0)
+        first = ema_query([np.array([1.0, 0.0], dtype='float32')])
+        self.assertAlmostEqual(float(first[0]), 1.0)
+        case = {
+            "expected_gt_id": 7,
+            "scores": {"toy": [0.8, 0.1]},
+            "candidate_gt_ids": [{"index": 0, "gt_id": 3}, {"index": 1, "gt_id": 7}],
+        }
+        self.assertTrue(event_metric(case, "toy")["top1"])
 
 
 if __name__ == "__main__":

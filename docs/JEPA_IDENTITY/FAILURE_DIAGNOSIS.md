@@ -26,6 +26,13 @@ JEPA has failed.
 - residual prediction may contain useful information that is not aligned with
   the ranking decision.
 
+The common-state result sharpens the diagnosis: pure predictive JEPA is below
+MLP CE and JEPA+ranking on the same candidate rows, while shuffle/random are
+near chance. The current absolute-latent target therefore does not show
+incremental identity ranking in this audit. The two structural follow-ups are
+identity-residual prediction and candidate-relative prediction; both require
+matched same-budget controls and held-out event scoring.
+
 The next action is a common-state evaluator, not a threshold sweep. Only after
 that evaluator separates these explanations should a residual JEPA,
 identity-target JEPA, or candidate-relative JEPA be trained.

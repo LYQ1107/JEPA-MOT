@@ -20,3 +20,10 @@ also paired with lower intervention cost margin and higher uncalibrated NLL in
 the candidate metrics, so the follow-up must include proper held-out scoring
 and calibration controls.
 
+The common-state follow-up is now complete in
+`COMMON_STATE_IDENTITY_METRICS.json`. It keeps candidate coverage fixed at
+84.43% and shows that the current pure predictive JEPA query is below MLP-CE,
+MLP ranking, and even the last-history query on Top-1 and pairwise AUC. The
+observed headroom therefore points to a target/representation mismatch or a
+candidate-relative modeling problem, rather than a missing fusion coefficient.
+
