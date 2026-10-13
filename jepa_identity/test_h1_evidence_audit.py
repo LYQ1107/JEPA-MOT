@@ -9,7 +9,7 @@ class H1EvidenceAuditTest(unittest.TestCase):
         report = audit(Path("docs/JEPA_IDENTITY"))
         self.assertTrue(report["static_checks_pass"])
         self.assertEqual(report["status"], "COMPLETE_STATIC_H1_EVIDENCE_AUDIT_WITH_RUNTIME_LIMITS")
-        self.assertEqual(len(report["checks"]), 22)
+        self.assertEqual(len(report["checks"]), 26)
         self.assertEqual(report["scientific_claim"], "H1_GENERAL_CLAIM_NOT_ESTABLISHED")
 
 
