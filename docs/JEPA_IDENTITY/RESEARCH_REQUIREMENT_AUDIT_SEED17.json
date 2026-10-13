@@ -1,0 +1,147 @@
+{
+  "status": "INCOMPLETE_H2_RUNTIME_PENDING",
+  "scope": "seed17 BDD/UA identity evidence and the registered one-seed H2 Wave-A causal protocol",
+  "branch": "research/jepa-identity-evidence-20261014",
+  "h1": {
+    "common_state_and_association_prestate": {
+      "status": "COMPLETE_WITH_SCOPE_LIMITS",
+      "evidence": [
+        "COMMON_STATE_IDENTITY_METRICS.json",
+        "PAIRED_COMMON_STATE_COMPARISONS_SEED17.json",
+        "H1_EVIDENCE_AUDIT_SEED17.json"
+      ],
+      "facts": {
+        "source_cases": 1394,
+        "candidate_present_cases": 1177,
+        "candidate_absent_cases": 217,
+        "candidate_coverage": 0.8443328550932568,
+        "shared_candidate_subset_across_controls": true,
+        "same_recorded_tracker_state": true
+      },
+      "scope_limit": "recorded predictive-residual states and top candidate subset; not an independent all-opportunity rollout"
+    },
+    "registered_controls": {
+      "status": "COMPLETE",
+      "evidence": "H1_EVIDENCE_AUDIT_SEED17.json",
+      "controls": [
+        "history_ema",
+        "history_last",
+        "history_mean4",
+        "geometry_iou",
+        "mlp_ce",
+        "transformer_ce",
+        "mlp_jepa_predictive",
+        "transformer_jepa_predictive",
+        "mlp_jepa_ranking",
+        "transformer_jepa_ranking",
+        "feature_shuffle",
+        "feature_random",
+        "constant_affine",
+        "native_recorded"
+      ],
+      "shared_candidate_coverage": true
+    },
+    "ranking_and_correction_metrics": {
+      "status": "COMPLETE",
+      "evidence": [
+        "PAIRED_COMMON_STATE_COMPARISONS_SEED17.json",
+        "UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.json",
+        "BDD_VIDEO_CLUSTER_PAIRED_SEED17.json",
+        "UA_VIDEO_CLUSTER_PAIRED_SEED17.json"
+      ],
+      "metrics": [
+        "top1_identity_accuracy_conditional",
+        "mrr_conditional",
+        "pairwise_auc",
+        "local_net_correction_candidate_present"
+      ]
+    },
+    "structural_candidates": {
+      "status": "COMPLETE_NEGATIVE_H1_GATE",
+      "evidence": "STRUCTURAL_FORMAL_SEED17.json",
+      "candidates": [
+        "identity_residual",
+        "candidate_relative"
+      ],
+      "matched_controls": "same-budget ranking-only",
+      "seed": 17,
+      "multi_seed": false,
+      "decision": "both candidates fail their matched held-out H1 gate"
+    },
+    "ua_extension": {
+      "status": "COMPLETE_SUPPLEMENTARY_LEGACY_REPLAY",
+      "evidence": [
+        "UA_LEGACY_TRACK_REPLAY_SEED17.json",
+        "UA_PAIRED_COMMON_STATE_COMPARISONS_SEED17.json",
+        "UA_VIDEO_CLUSTER_PAIRED_SEED17.json"
+      ],
+      "facts": {
+        "videos": 17,
+        "scored_cases": 4199,
+        "candidate_present_cases": 4159
+      },
+      "scope_limit": "reconstructed legacy tracks/candidates; registered fresh UA tracer remains unexecuted"
+    }
+  },
+  "h2": {
+    "registered_protocol": {
+      "status": "COMPLETE_REGISTERED",
+      "evidence": "H2_WAVE_A_PROTOCOL_SEED17.json",
+      "cells": [
+        "D_to_D",
+        "D_to_P",
+        "P_to_D",
+        "P_to_P"
+      ],
+      "seed": 17,
+      "forward_order_only": true,
+      "extra_seeds": false
+    },
+    "preflight": {
+      "status": "INPUTS_VALID_RUNTIME_BLOCKED",
+      "evidence": "H2_WAVE_A_PREFLIGHT_SEED17.json",
+      "streams": 63,
+      "declared_frames": 12655,
+      "local_streams_structurally_ready": true,
+      "source_snapshots_ready": true,
+      "controls_audit": "COMPLETE_H2_CONTROL_PROTOCOL_AUDIT",
+      "formal_wave_a_allowed_now": false,
+      "blockers": [
+        "NAS_FUSE_ENDPOINT_DISCONNECTED",
+        "NVIDIA_DRIVER_UNAVAILABLE"
+      ]
+    },
+    "formal_factorial": {
+      "status": "PENDING_RUNTIME",
+      "evidence": "H2_PROTOCOL_READINESS.json",
+      "started": false,
+      "completed_cells": [],
+      "required_before_claim": [
+        "full-video stage0_to_stage3 matrix",
+        "online gain and forgetting/BWT/FWT/IDSW",
+        "actual per-update parameter delta audit",
+        "target-GT leakage audit"
+      ]
+    },
+    "bounded_diagnostics": {
+      "status": "COMPLETE_DIAGNOSTIC_ONLY",
+      "evidence": [
+        "H2_WAVE_B_FIXED_TEACHER_SEED17.json",
+        "H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json"
+      ],
+      "full_factorial_evidence": false,
+      "h2_advantage_claim": false
+    }
+  },
+  "deferred_scope": {
+    "fresh_ua_event_tracer": "PENDING_NAS_GPU_RUNTIME",
+    "sealed_evaluation": "FROZEN_BY_PROTOCOL",
+    "reverse_domain_order": "DEFERRED",
+    "additional_seeds": "DEFERRED_BY_USER_SCOPE"
+  },
+  "claims": {
+    "h1_general_identity_claim": false,
+    "h2_predictive_continual_advantage": false
+  },
+  "next_allowed_action": "After NAS and NVIDIA recovery, rerun H2_WAVE_A_PREFLIGHT_SEED17.json, then execute only the registered seed17 forward-order command template; do not add seeds or threshold sweeps."
+}
