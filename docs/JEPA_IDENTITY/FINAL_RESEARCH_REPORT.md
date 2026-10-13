@@ -58,6 +58,14 @@ The common-state evaluator, source-only structural trainer, and structural
 checkpoint evaluator are implemented and pass real-cache engineering smokes.
 The reduced smoke checkpoints remain excluded from H1 evidence. The formal
 seed17 structural comparison is now complete and negative under its registered
-gate, so no threshold sweep, extra seed, or H2 continual-learning matrix is
-justified. H2 remains a controlled follow-up protocol rather than a result.
+gate, so no threshold sweep or extra H1 seed is justified. H2 remains a
+separate controlled follow-up protocol rather than a result; its execution is
+deferred by the unavailable GPU and current single-seed resource boundary, not
+by the H1 outcome. A bounded H2-Wave-B fixed-teacher diagnostic has since run
+on BDD seed17: all four cells shared 153 recorded pseudo-pairs and 128 update
+steps. D-to-D/D-to-P gained 7.19/4.58 fixed-bank Top-1 points from Source-D;
+P-to-D/P-to-P gained 3.27/0.65 points from Source-P. Predictive updates
+reduced prediction error more, but did not yield the larger ranking gain. This
+diagnostic has no full-video HOTA or closed-loop evidence and does not support
+an H2 claim; the registered Wave-A factorial remains pending.
 
