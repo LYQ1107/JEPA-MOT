@@ -1,5 +1,5 @@
 {
-  "status": "QUEUED_NOT_TRAINING_OR_RESULTS",
+  "status": "DEFERRED_BY_USER_QUEUE_STOPPED_BEFORE_TRAINING",
   "time_utc": "2026-10-13T06:44:52.614362+00:00",
   "queue_pid": 11512,
   "wait_pipeline_pid": 24690,
@@ -59,5 +59,7 @@
   "sealed_used": false,
   "scope": "Frozen full development source-seed robustness; not continual or held-out evidence",
   "reason": "Temporal Transformer has favorable fixed-seed source-objective comparisons; repeat all three objectives without selecting only the best loss. Use existing JEPA GPU after official pipeline, as initially empty GPUs4/5 were occupied before launch.",
-  "command_template": "./run_python.sh -m jepa_cmot.transformer_pipeline --dataset DATASET --seed SEED --root runs/JEPA_CMOT/transformer_multiseed_v1"
+  "command_template": "./run_python.sh -m jepa_cmot.transformer_pipeline --dataset DATASET --seed SEED --root runs/JEPA_CMOT/transformer_multiseed_v1",
+  "user_update": "2026-10-13T06:59:19.444865+00:00",
+  "queue_stop_pid": 11512
 }

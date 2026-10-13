@@ -1,6 +1,6 @@
 # 完成证据与仍需执行的工作
 
-状态：ACTIVE。此表用于接续研究，不是完成验收。最后核对工作树提交 5e528ea 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
+状态：ACTIVE。用户于2026-10-13要求限制多种子耗时；当前优先seed17，批量seed23/42已撤下，详见SINGLE_SEED_PRIORITY_USER_UPDATE.json。完整三seed矩阵不再作为当前自动执行门槛；未完成的重复验证须如实列为结论局限。此表用于接续研究，不是完成验收。最后核对工作树提交 5e528ea 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
 
 | 要求 | 当前证据 | 状态/范围 |
 |---|---|---|
@@ -15,8 +15,8 @@
 | 相同actual update预算 | H2 final1096步/41563确认；C2/RKD final1094步/41176确认及边界样本相同；真实optimizer step核验 | 同family已验证；不同family/自教师样本不能假定一致 |
 | A/B/C机制独立贡献 | latent/response source目标、H2需求vsappearance-hard、C2 feature/row/column完整矩阵 | 有实质探索；当前无稳定超过强简单方法的证据 |
 | 普通关系蒸馏RKD控制 | GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION、BDD_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY | BDD full4×4完成，三边界五组样本/1094更新对齐；RKD-D/column增量无可靠证据，UA仍待完成 |
-| 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；实际BDD23/42 forward序列、后续reverse队列 | 未完成；Transformer三目标seed23/42完整frozen development已排队（复用本项目GPU2），不能用源seed或video CI替代 |
-| 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；反向/UA/多seed仍运行 |
+| 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；BDD23/42 forward已按用户要求暂停，后续多seed reverse撤下 | 未完成；Transformer三目标seed23/42队列已按用户要求撤下，不能用源seed或video CI替代 |
+| 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；seed17反向/UA仍运行；批量多seed延后 |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |
 | 实际图像到轨迹FPS/latency/显存/更新成本 | FULL_NATIVE_LIVE_EFFICIENCY_RESULTS、RETENTION_ACTUAL_UPDATE_COSTS | 12个整视频live案例+真实update-call成本；非全场景/新增FP32读数live速度 |
 | Pseudo确认偏差与改变匹配事件 | BDD_COMPLETED_BOUNDARY_REPLAY_IDENTITY_AUDIT、BDD_FULL_RANK_REWARD_RESULTS、event strata | 离线局部/终态memory诊断；非所有训练对或传播的counterfactual因果结论 |

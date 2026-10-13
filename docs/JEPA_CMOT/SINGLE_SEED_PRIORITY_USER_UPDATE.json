@@ -1,0 +1,125 @@
+{
+  "status": "ACTIVE_SINGLE_SEED_PRIORITY_MULTI_SEED_DEFERRED_BY_USER",
+  "time_utc": "2026-10-13T06:59:19.444865+00:00",
+  "user_instruction": [
+    "暂时不要进行多种子任务，这样耗时太多了",
+    "继续你的任务，多种子任务不要进行太多"
+  ],
+  "decisions": [
+    "Continue research goal and single-seed scientific controls",
+    "Stop BDD seeds23/42 forward controller and scheduler; preserve all outputs and resume states",
+    "Cancel unstarted Transformer seeds23/42 queue",
+    "Remove future UA seed23/42 forward/reverse jobs",
+    "Run BDD seed17 reverse on previous project GPU6 allocation",
+    "Run UA pure forward and reverse seed17 on project GPU7 after current single-seed jobs complete",
+    "Use existing multi-seed source/partial results only within observed scope; no three-seed final-performance claim",
+    "Any later repetition limited to a small shortlisted method, not automatic full method-by-seed grids"
+  ],
+  "stopped_processes": [
+    {
+      "pid": 34617,
+      "command": "/home/liuyeqiang/anaconda3/envs/GMT/bin/python -u -m jepa_cmot.queued_sequences --plan runs/JEPA_CMOT/scheduler_v1/bdd_multiseed_enospc_recovery.json "
+    },
+    {
+      "pid": 34655,
+      "command": "/home/liuyeqiang/anaconda3/envs/GMT/bin/python -u -m jepa_cmot.continual_controls --dataset bdd100k --manifest runs/JEPA_CMOT/native_protocol_v3/manifest.json --detections runs/JEPA_CMOT/formal_detection_streams_v1/bdd100k --feature-producer-pid 0 --controls runs/JEPA_CMOT/controls_v1/bdd100k_continual_seeds23_42.json --compact-intermediate --out runs/JEPA_CMOT/continual_multiseed_v1/bdd100k_forward_seeds23_42 --compact-native "
+    },
+    {
+      "pid": 11558,
+      "command": "/home/liuyeqiang/anaconda3/envs/GMT/bin/python -u -m jepa_cmot.run_controls --inputs runs/JEPA_CMOT/continual_multiseed_v1/bdd100k_forward_seeds23_42/inputs/development.json --controls runs/JEPA_CMOT/continual_multiseed_v1/bdd100k_forward_seeds23_42/controls/evaluation_stage2.json --out runs/JEPA_CMOT/continual_multiseed_v1/bdd100k_forward_seeds23_42/evaluation/stage2 "
+    },
+    {
+      "pid": 37758,
+      "command": "/home/liuyeqiang/anaconda3/envs/GMT/bin/python -u -m jepa_cmot.queued_sequences --plan runs/JEPA_CMOT/scheduler_v1/bdd_remaining_sequences.json "
+    },
+    {
+      "pid": 37760,
+      "command": "/home/liuyeqiang/anaconda3/envs/GMT/bin/python -u -m jepa_cmot.queued_sequences --plan runs/JEPA_CMOT/scheduler_v1/ua_remaining_sequences.json "
+    },
+    {
+      "pid": 11512,
+      "command": "/home/liuyeqiang/anaconda3/envs/GMT/bin/python -u /data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/scheduler_v1/transformer_multiseed_after_paired.py "
+    }
+  ],
+  "plans": {
+    "bdd_remaining_sequences.json": {
+      "gpu": 6,
+      "dependencies": [
+        {
+          "pid": 34625,
+          "complete": "runs/JEPA_CMOT/continual_completion_v1/bdd100k_forward_pure_predictive_seed17/complete.json",
+          "entrypoint": "jepa_cmot.queued_sequences"
+        }
+      ],
+      "jobs": [
+        {
+          "dataset": "bdd100k",
+          "controls": "configs/JEPA_CMOT/bdd100k_pure_predictive_continual.json",
+          "out": "runs/JEPA_CMOT/continual_completion_v1/bdd100k_forward_pure_predictive_seed17",
+          "reverse": false
+        },
+        {
+          "dataset": "bdd100k",
+          "controls": "configs/JEPA_CMOT/bdd100k_reverse_seed17_with_pure_predictive.json",
+          "out": "runs/JEPA_CMOT/continual_completion_v1/bdd100k_reverse_seed17",
+          "reverse": true
+        }
+      ],
+      "compact_native": true
+    },
+    "ua_remaining_sequences.json": {
+      "gpu": 7,
+      "dependencies": [
+        {
+          "pid": 33178,
+          "complete": "runs/JEPA_CMOT/continual_v1/ua_detrac_forward_seed17/complete.json",
+          "entrypoint": "jepa_cmot.continual_controls"
+        },
+        {
+          "pid": 35222,
+          "complete": "runs/JEPA_CMOT/continual_h2_v1/ua_detrac_forward_seed17/complete.json",
+          "entrypoint": "jepa_cmot.continual_controls"
+        },
+        {
+          "pid": 33246,
+          "complete": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/complete.json",
+          "entrypoint": "jepa_cmot.continual_controls"
+        },
+        {
+          "pid": 6528,
+          "complete": "runs/JEPA_CMOT/development_all_v1/ua_detrac_seed17/complete.json",
+          "entrypoint": "jepa_cmot.development_controls"
+        },
+        {
+          "pid": 1664,
+          "complete": "runs/JEPA_CMOT/development_clips_v1/ua_detrac_seed17/complete.json",
+          "entrypoint": "jepa_cmot.development_controls"
+        },
+        {
+          "pid": 3414,
+          "complete": "runs/JEPA_CMOT/development_crop_v1/ua_detrac_seed17/complete.json",
+          "entrypoint": "jepa_cmot.development_controls"
+        }
+      ],
+      "jobs": [
+        {
+          "dataset": "ua_detrac",
+          "controls": "configs/JEPA_CMOT/ua_detrac_pure_predictive_continual_seed17.json",
+          "out": "runs/JEPA_CMOT/continual_completion_v1/ua_detrac_forward_pure_predictive_seed17",
+          "reverse": false
+        },
+        {
+          "dataset": "ua_detrac",
+          "controls": "configs/JEPA_CMOT/ua_detrac_reverse_seed17_with_pure_predictive.json",
+          "out": "runs/JEPA_CMOT/continual_completion_v1/ua_detrac_reverse_seed17",
+          "reverse": true
+        }
+      ],
+      "compact_native": true
+    }
+  },
+  "new_queue_pids": {
+    "bdd_remaining_sequences.json": 24044,
+    "ua_remaining_sequences.json": 24045
+  }
+}
