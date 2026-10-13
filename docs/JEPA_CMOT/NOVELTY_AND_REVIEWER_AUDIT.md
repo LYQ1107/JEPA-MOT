@@ -53,3 +53,5 @@ DOI、CVF 部分页面存在访问限制，使用作者 arXiv 和 CVF 已索引�
 ## 关系保持的额外边界
 
 [RKD，CVPR 2019 原文](https://openaccess.thecvf.com/content_CVPR_2019/html/Park_Relational_Knowledge_Distillation_CVPR_2019_paper.html) 已用样例间距离和角度蒸馏结构关系；[Comparative Knowledge Distillation，WACV 2025 原文](https://openaccess.thecvf.com/content/WACV2025/papers/Xu_Comparative_Knowledge_Distillation_WACV_2025_paper.pdf) 同样研究样例组关系与教师推理预算。因此不能以增加一个column归一化或跨query KL本身宣称新的蒸馏范式。C2的可检验定位限于：候选出现前的identity forecast，在动态同帧一对一竞争中保留旧关系，同时用无GT教师跨天气持续更新。完整旧域保持、相对普通KD/通用关系KD的增量和额外开销仍是必要证据；当前只有实际路径验证。
+
+C2额外成本已经用实际after_assignment分支与真实保存样例做受控测量：column相对row p50从7.576升到10.731ms，50步有266列真实激活。它在完整BDD开发矩阵相对row仅+.023 HOTA，因此当前数据不支持“新增关系值得该计算开销”的结论；不能把nonzero loss或可实现性当论文新颖性。RKD全域效果仍待真实回测。

@@ -1,0 +1,56 @@
+{
+  "scope": "controlled actual update-call benchmark on saved pseudo examples; not a live video or learning-performance experiment",
+  "checkpoint_sha256": "e8b342b782a939e61c04d2ba942c6d019596d0fe8884ac27fecfeb1eaad3cbfe",
+  "source_sha256": "f230c681cc46ccc43dcf07f24fa9f455c67d01f0355e22cbcee12efbb16ef4f0",
+  "timings": {
+    "none_graph": {
+      "measured_updates": 50,
+      "warmup_updates": 5,
+      "mean_ms": 7.690937966108322,
+      "p50_ms": 6.702922284603119,
+      "p95_ms": 13.076418638229368,
+      "active_competition_columns": 0
+    },
+    "features_graph": {
+      "measured_updates": 50,
+      "warmup_updates": 5,
+      "mean_ms": 7.635811120271683,
+      "p50_ms": 7.009584456682205,
+      "p95_ms": 11.307420954108235,
+      "active_competition_columns": 0
+    },
+    "relations_graph": {
+      "measured_updates": 50,
+      "warmup_updates": 5,
+      "mean_ms": 8.034250885248184,
+      "p50_ms": 7.576338946819305,
+      "p95_ms": 11.80841475725174,
+      "active_competition_columns": 0
+    },
+    "competition_graph": {
+      "measured_updates": 50,
+      "warmup_updates": 5,
+      "mean_ms": 11.177078038454056,
+      "p50_ms": 10.731454938650131,
+      "p95_ms": 14.468066394329071,
+      "active_competition_columns": 266
+    },
+    "distance_graph": {
+      "measured_updates": 50,
+      "warmup_updates": 5,
+      "mean_ms": 10.202760994434357,
+      "p50_ms": 8.625432848930359,
+      "p95_ms": 16.941558569669724,
+      "active_competition_columns": 0
+    }
+  },
+  "same_starting_model_optimizer_and_batches": true,
+  "examples": "four actual remaining recent plus four actual reservoir samples, same seeded indices for every loss",
+  "timing_includes": "original after_assignment update branch, transfer/collation, history forward, loss, backward, clipping, optimizer and stats",
+  "excludes": "image/encoder/detector/matcher, pseudo-pair construction, reservoir draw; fixed selected rows inserted into recent queue",
+  "device": "Tesla V100-DGXS-32GB",
+  "shared_server": true,
+  "target_GT_read": false,
+  "benchmark_states_adopted_for_research": false,
+  "code_sha256": "17bb396f11d9c963802cba4c750affdb3fd21c608cac323e76bf8c2aa56cc227"
+}

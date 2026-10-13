@@ -307,3 +307,9 @@ Transformer三目标与ordinary pair MLP均完成19开发视频/3844 native帧�
 Transformer纯预测比同Transformer CE +.53167 CI[.10729,.99374]，但比强geometry39.90215仅+.06976 CI[-.37109,.49923]，比MLP预测39.82910 +.14281 CI[-.09065,.44687]。pair MLP比MLP CE -.14527 CI[-.67304,.28914]、比geometry -.65621 CI[-1.19582,-.24943]。MLP pure预测比pair +.58316 CI[.17442,1.01228]，比EMA +.17906 CI[-.23841,.69538]。不能以弱对照的正差、多个候选中的best点估计或未选择校正的开发区间声称稳定JEPA优势。
 
 这些是frozen阶段，不能替代持续学习结果；图bdd_complete_strong_heads_hota.svg、所有域六指标/actual protocol/raw-count paired bootstrap见BDD_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json。paired official w4全源BDDcache已真实生成，后续训练/development继续；RKD已完成15个真实适应视频，多seed forward已9视频，仍不提前汇报final。
+
+## 关系保持的真实update-call受控开销
+
+从实际C2 final none_graph完整checkpoint复制相同模型/optimizer，使用其真实recent/reservoir的固定4+4选择，每loss先5步warmup再50步，直接调用未修改的ContinualLearner.after_assignment。没有使用GT、合成descriptor或把benchmark θ接续到研究。Replay/feature/row/row+column/RKD-D的p50分别6.703/7.010/7.576/10.731/8.625ms，p95分别13.076/11.307/11.808/14.468/16.942ms；column累计266 active columns。
+
+测量包含实际collation/transfer/history forward/loss/backward/clip/optimizer/stats分支，固定batch插入recent，排除pseudo生成、reservoir draw、image/detector/encoder/matcher。统一源状态与batch索引减少不同sample confound，但仅一组共享server执行、次序固定，不作重复计时显著性或live FPS声称；实际算法全视频开销仍有其它部分。详见RETENTION_ACTUAL_UPDATE_COSTS.json。
