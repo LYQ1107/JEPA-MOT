@@ -119,3 +119,30 @@ hashes, provenance checks, training code hashes, and the discarded numerical
 stability attempts. H1 remains unresolved as a general JEPA question, but
 these two structural mechanisms are negative on this development audit.
 
+## UA legacy-track extension
+
+The mounted NAS made the raw UA-DETRAC XML labels available, so one bounded
+CPU replay was added without starting another seed or retraining. It covers 17
+existing UA development videos and 4,199 scored states after excluding 554
+history/candidate joins that did not map to the formal dense cache. The replay
+holds a reconstructed top-six candidate set fixed and gives every control the
+same old `predictive_ranking` history. Coverage is 99.05%.
+
+| control | Top-1 | MRR | pairwise AUC |
+|---|---:|---:|---:|
+| MLP CE | 93.03% | 0.9606 | 0.7958 |
+| MLP JEPA predictive | 90.91% | 0.9465 | 0.7451 |
+| MLP JEPA + ranking | 92.79% | 0.9591 | 0.7861 |
+| Transformer CE | 90.82% | 0.9481 | 0.7886 |
+| Transformer JEPA predictive | 87.09% | 0.9198 | 0.7278 |
+| Transformer JEPA + ranking | 88.72% | 0.9316 | 0.7373 |
+
+This supplementary UA replay points in the same direction as BDD: the current
+predictive JEPA objective does not beat its CE, ranking, or stable-history
+references. It is not the registered GPU event tracer: it reuses an existing
+closed-loop output and reconstructs the geometry candidate cost. The H1 gate
+therefore remains unresolved, and the replay cannot support an online tracking
+claim. Full provenance is in
+`UA_LEGACY_TRACK_REPLAY_SEED17.json` and the readable summary is in
+`UA_LEGACY_TRACK_REPLAY_SEED17.md`.
+
