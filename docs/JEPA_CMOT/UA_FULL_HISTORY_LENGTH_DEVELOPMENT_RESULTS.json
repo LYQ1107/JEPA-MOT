@@ -1,0 +1,840 @@
+{
+  "status": "COMPLETE_FIXED_SEED_FULL_FROZEN_DEVELOPMENT_HISTORY_ABLATION",
+  "dataset": "ua_detrac",
+  "seed": 17,
+  "videos": 17,
+  "native_frames": 25460,
+  "source": "same contiguous source clips, 2000x64 per objective; matched capacity history1/2/4/8",
+  "metrics": {
+    "discriminative_history1": {
+      "sunny": {
+        "HOTA": 56.54677693535686,
+        "AssA": 59.26845603901745,
+        "DetA": 54.05148675391963,
+        "IDF1": 70.3151239751062,
+        "MOTA": 61.2448132780083,
+        "IDSW": 97
+      },
+      "cloudy": {
+        "HOTA": 71.92192861347864,
+        "AssA": 77.48361800277021,
+        "DetA": 67.02641783546822,
+        "IDF1": 86.61319037952397,
+        "MOTA": 75.79277905564314,
+        "IDSW": 146
+      },
+      "rainy": {
+        "HOTA": 50.09165009591372,
+        "AssA": 51.48699826575589,
+        "DetA": 48.89602592416208,
+        "IDF1": 59.750755872548254,
+        "MOTA": 52.62178304935618,
+        "IDSW": 141
+      },
+      "night": {
+        "HOTA": 71.72514479992374,
+        "AssA": 74.36095591402675,
+        "DetA": 69.57716258598946,
+        "IDF1": 83.73854055285807,
+        "MOTA": 81.71743280455459,
+        "IDSW": 116
+      }
+    },
+    "predictive_history1": {
+      "sunny": {
+        "HOTA": 56.341632807164174,
+        "AssA": 58.82210127639118,
+        "DetA": 54.06924139072413,
+        "IDF1": 69.84400124121977,
+        "MOTA": 61.237490846961194,
+        "IDSW": 87
+      },
+      "cloudy": {
+        "HOTA": 71.99405444787976,
+        "AssA": 77.69509348985468,
+        "DetA": 66.97149260038849,
+        "IDF1": 86.83731953754341,
+        "MOTA": 75.74367456645905,
+        "IDSW": 134
+      },
+      "rainy": {
+        "HOTA": 50.81390774365848,
+        "AssA": 53.341031389401685,
+        "DetA": 48.57113318023807,
+        "IDF1": 60.98323827599229,
+        "MOTA": 51.73347320688313,
+        "IDSW": 125
+      },
+      "night": {
+        "HOTA": 72.34017347380004,
+        "AssA": 75.7413487295493,
+        "DetA": 69.48335171586709,
+        "IDF1": 84.73148780445098,
+        "MOTA": 81.57045596607708,
+        "IDSW": 115
+      }
+    },
+    "predictive_ranking_history1": {
+      "sunny": {
+        "HOTA": 56.730835481188805,
+        "AssA": 59.54928853814436,
+        "DetA": 54.144308782843275,
+        "IDF1": 70.17281723097742,
+        "MOTA": 61.12765438125458,
+        "IDSW": 86
+      },
+      "cloudy": {
+        "HOTA": 71.90093602712831,
+        "AssA": 77.48545287464779,
+        "DetA": 66.98376138870744,
+        "IDF1": 86.61230171236475,
+        "MOTA": 75.74496678985862,
+        "IDSW": 130
+      },
+      "rainy": {
+        "HOTA": 49.94472703984996,
+        "AssA": 51.80781578006556,
+        "DetA": 48.326743697154605,
+        "IDF1": 59.814766425688816,
+        "MOTA": 51.599803725825275,
+        "IDSW": 130
+      },
+      "night": {
+        "HOTA": 71.80879479531639,
+        "AssA": 74.59319969008797,
+        "DetA": 69.51824798106377,
+        "IDF1": 83.79696515975378,
+        "MOTA": 81.60255435608941,
+        "IDSW": 109
+      }
+    },
+    "discriminative_history2": {
+      "sunny": {
+        "HOTA": 56.4739710401433,
+        "AssA": 59.07708024025226,
+        "DetA": 54.0977479144081,
+        "IDF1": 69.63397274175135,
+        "MOTA": 61.06663412252868,
+        "IDSW": 92
+      },
+      "cloudy": {
+        "HOTA": 71.85850436936958,
+        "AssA": 77.38188792312543,
+        "DetA": 66.9949512494789,
+        "IDF1": 86.49323019948258,
+        "MOTA": 75.75142790685653,
+        "IDSW": 157
+      },
+      "rainy": {
+        "HOTA": 49.352494080223465,
+        "AssA": 50.321606579469055,
+        "DetA": 48.57997947840853,
+        "IDF1": 59.14613452793049,
+        "MOTA": 51.97712390653288,
+        "IDSW": 147
+      },
+      "night": {
+        "HOTA": 72.03017522031078,
+        "AssA": 74.94252019666303,
+        "DetA": 69.6207215826148,
+        "IDF1": 84.16937653936839,
+        "MOTA": 81.7951446961634,
+        "IDSW": 99
+      }
+    },
+    "predictive_history2": {
+      "sunny": {
+        "HOTA": 56.60461372201892,
+        "AssA": 59.370029105833254,
+        "DetA": 54.06928026721328,
+        "IDF1": 70.16702403791896,
+        "MOTA": 61.23993165731023,
+        "IDSW": 92
+      },
+      "cloudy": {
+        "HOTA": 71.9041318021489,
+        "AssA": 77.48706725095282,
+        "DetA": 66.98472268700067,
+        "IDF1": 86.70509605157766,
+        "MOTA": 75.7333367792624,
+        "IDSW": 149
+      },
+      "rainy": {
+        "HOTA": 50.10098963758687,
+        "AssA": 51.78928200258077,
+        "DetA": 48.63685940545094,
+        "IDF1": 60.00329390337238,
+        "MOTA": 51.83668635048476,
+        "IDSW": 118
+      },
+      "night": {
+        "HOTA": 72.37658312744136,
+        "AssA": 75.82559371844619,
+        "DetA": 69.4778809330034,
+        "IDF1": 84.83978287515322,
+        "MOTA": 81.57214535502509,
+        "IDSW": 114
+      }
+    },
+    "predictive_ranking_history2": {
+      "sunny": {
+        "HOTA": 56.90573770975431,
+        "AssA": 59.96353162849514,
+        "DetA": 54.10397643603901,
+        "IDF1": 70.60332675500422,
+        "MOTA": 61.06907493287772,
+        "IDSW": 92
+      },
+      "cloudy": {
+        "HOTA": 71.9082718241277,
+        "AssA": 77.50010986787454,
+        "DetA": 66.98439429949423,
+        "IDF1": 86.54588420638046,
+        "MOTA": 75.71653787506784,
+        "IDSW": 142
+      },
+      "rainy": {
+        "HOTA": 49.80125275831906,
+        "AssA": 51.41327504455604,
+        "DetA": 48.41373677583573,
+        "IDF1": 59.48770551292348,
+        "MOTA": 51.61841593204852,
+        "IDSW": 127
+      },
+      "night": {
+        "HOTA": 71.82992735817506,
+        "AssA": 74.65313535745277,
+        "DetA": 69.50097559401766,
+        "IDF1": 83.86622307827001,
+        "MOTA": 81.59072863345328,
+        "IDSW": 109
+      }
+    },
+    "discriminative_history4": {
+      "sunny": {
+        "HOTA": 56.29929193912996,
+        "AssA": 58.772606658445255,
+        "DetA": 54.040248404944435,
+        "IDF1": 69.66472652451485,
+        "MOTA": 61.03246277764218,
+        "IDSW": 98
+      },
+      "cloudy": {
+        "HOTA": 71.57022211144529,
+        "AssA": 76.78010229609474,
+        "DetA": 66.98512661226357,
+        "IDF1": 86.16027160672188,
+        "MOTA": 75.72041454526659,
+        "IDSW": 170
+      },
+      "rainy": {
+        "HOTA": 49.44784238666769,
+        "AssA": 50.56162705501288,
+        "DetA": 48.52101529648178,
+        "IDF1": 59.08751804520749,
+        "MOTA": 51.92636334410585,
+        "IDSW": 143
+      },
+      "night": {
+        "HOTA": 72.07180996582183,
+        "AssA": 75.02220524151649,
+        "DetA": 69.62021257585059,
+        "IDF1": 84.35979911829409,
+        "MOTA": 81.77487202878719,
+        "IDSW": 109
+      }
+    },
+    "predictive_history4": {
+      "sunny": {
+        "HOTA": 56.29169034419539,
+        "AssA": 58.73013900670373,
+        "DetA": 54.06111279315059,
+        "IDF1": 69.77026245645705,
+        "MOTA": 61.22284598486698,
+        "IDSW": 86
+      },
+      "cloudy": {
+        "HOTA": 71.91582087543865,
+        "AssA": 77.50410040227065,
+        "DetA": 66.99152998223448,
+        "IDF1": 86.67209412259047,
+        "MOTA": 75.719122321867,
+        "IDSW": 148
+      },
+      "rainy": {
+        "HOTA": 50.059736800871676,
+        "AssA": 51.79415834790318,
+        "DetA": 48.562109419349206,
+        "IDF1": 59.86670024993703,
+        "MOTA": 51.83330231298962,
+        "IDSW": 121
+      },
+      "night": {
+        "HOTA": 72.45855011908088,
+        "AssA": 75.98880552274882,
+        "DetA": 69.47867496663531,
+        "IDF1": 84.97010129663191,
+        "MOTA": 81.5839710776612,
+        "IDSW": 110
+      }
+    },
+    "predictive_ranking_history4": {
+      "sunny": {
+        "HOTA": 56.792287847728595,
+        "AssA": 59.72940225817383,
+        "DetA": 54.0988778889905,
+        "IDF1": 70.43940098333404,
+        "MOTA": 61.059311691481575,
+        "IDSW": 85
+      },
+      "cloudy": {
+        "HOTA": 71.93406330653637,
+        "AssA": 77.53800195452921,
+        "DetA": 66.99532596236438,
+        "IDF1": 86.63931466832967,
+        "MOTA": 75.74496678985862,
+        "IDSW": 123
+      },
+      "rainy": {
+        "HOTA": 50.09250313093281,
+        "AssA": 51.98021652754319,
+        "DetA": 48.45059494008216,
+        "IDF1": 59.6932604383376,
+        "MOTA": 51.61841593204852,
+        "IDSW": 123
+      },
+      "night": {
+        "HOTA": 71.82657965271311,
+        "AssA": 74.65799662277387,
+        "DetA": 69.49495039064496,
+        "IDF1": 83.81210874228428,
+        "MOTA": 81.5924180224013,
+        "IDSW": 107
+      }
+    },
+    "discriminative_history8": {
+      "sunny": {
+        "HOTA": 56.520417622441535,
+        "AssA": 59.25137481804272,
+        "DetA": 54.01634092773817,
+        "IDF1": 70.0235546340569,
+        "MOTA": 61.20331950207469,
+        "IDSW": 102
+      },
+      "cloudy": {
+        "HOTA": 71.62045328853367,
+        "AssA": 76.84350455075143,
+        "DetA": 67.02115467652695,
+        "IDF1": 86.09114126830933,
+        "MOTA": 75.72946010906365,
+        "IDSW": 161
+      },
+      "rainy": {
+        "HOTA": 49.27010286662553,
+        "AssA": 50.087621003280624,
+        "DetA": 48.627664683076716,
+        "IDF1": 58.75221504585024,
+        "MOTA": 51.84853048171774,
+        "IDSW": 137
+      },
+      "night": {
+        "HOTA": 71.84801155635651,
+        "AssA": 74.60895780106183,
+        "DetA": 69.59236223607924,
+        "IDF1": 83.66434694199519,
+        "MOTA": 81.75628875035899,
+        "IDSW": 113
+      }
+    },
+    "predictive_history8": {
+      "sunny": {
+        "HOTA": 56.49637324152968,
+        "AssA": 59.11538858592911,
+        "DetA": 54.098028808774714,
+        "IDF1": 70.15089550133973,
+        "MOTA": 61.22040517451794,
+        "IDSW": 86
+      },
+      "cloudy": {
+        "HOTA": 71.97522788928312,
+        "AssA": 77.6530852924459,
+        "DetA": 66.97650695156432,
+        "IDF1": 86.69791625635168,
+        "MOTA": 75.73204455586281,
+        "IDSW": 148
+      },
+      "rainy": {
+        "HOTA": 49.85196770303767,
+        "AssA": 51.351083178167244,
+        "DetA": 48.575118920623325,
+        "IDF1": 59.62784660538373,
+        "MOTA": 51.80623001302854,
+        "IDSW": 124
+      },
+      "night": {
+        "HOTA": 72.43960183143825,
+        "AssA": 75.93566172628648,
+        "DetA": 69.49544554787944,
+        "IDF1": 84.92807676481145,
+        "MOTA": 81.58059229976517,
+        "IDSW": 114
+      }
+    },
+    "predictive_ranking_history8": {
+      "sunny": {
+        "HOTA": 56.6232300629393,
+        "AssA": 59.39218278423937,
+        "DetA": 54.08926346597763,
+        "IDF1": 70.03212353471596,
+        "MOTA": 61.03978520868929,
+        "IDSW": 92
+      },
+      "cloudy": {
+        "HOTA": 71.74075569452575,
+        "AssA": 77.16443052481229,
+        "DetA": 66.966090975944,
+        "IDF1": 86.2811262908425,
+        "MOTA": 75.71783009846742,
+        "IDSW": 150
+      },
+      "rainy": {
+        "HOTA": 49.838031258244555,
+        "AssA": 51.390826690470185,
+        "DetA": 48.495708959956225,
+        "IDF1": 59.778926379774276,
+        "MOTA": 51.66071640073772,
+        "IDSW": 129
+      },
+      "night": {
+        "HOTA": 72.27146525469901,
+        "AssA": 75.57774563522224,
+        "DetA": 69.51121535183256,
+        "IDF1": 84.62791390090547,
+        "MOTA": 81.62958457925768,
+        "IDSW": 116
+      }
+    }
+  },
+  "equal_domain_average": {
+    "discriminative_history1": {
+      "HOTA": 62.57137511116824,
+      "AssA": 65.65000705539258,
+      "IDF1": 75.10440269500913
+    },
+    "predictive_history1": {
+      "HOTA": 62.87244211812561,
+      "AssA": 66.39989372129921,
+      "IDF1": 75.5990117148016
+    },
+    "predictive_ranking_history1": {
+      "HOTA": 62.59632333587086,
+      "AssA": 65.85893922073643,
+      "IDF1": 75.0992126321962
+    },
+    "discriminative_history2": {
+      "HOTA": 62.42878617751178,
+      "AssA": 65.43077373487745,
+      "IDF1": 74.8606785021332
+    },
+    "predictive_history2": {
+      "HOTA": 62.74657957229901,
+      "AssA": 66.11799301945325,
+      "IDF1": 75.42879921700555
+    },
+    "predictive_ranking_history2": {
+      "HOTA": 62.61129741259403,
+      "AssA": 65.88251297459462,
+      "IDF1": 75.12578488814455
+    },
+    "discriminative_history4": {
+      "HOTA": 62.3472916007662,
+      "AssA": 65.28413531276733,
+      "IDF1": 74.81807882368457
+    },
+    "predictive_history4": {
+      "HOTA": 62.68144953489666,
+      "AssA": 66.00430081990659,
+      "IDF1": 75.31978953140411
+    },
+    "predictive_ranking_history4": {
+      "HOTA": 62.66135848447772,
+      "AssA": 65.97640434075502,
+      "IDF1": 75.1460212080714
+    },
+    "discriminative_history8": {
+      "HOTA": 62.31474633348931,
+      "AssA": 65.19786454328415,
+      "IDF1": 74.63281447255292
+    },
+    "predictive_history8": {
+      "HOTA": 62.69079266632218,
+      "AssA": 66.01380469570718,
+      "IDF1": 75.35118378197164
+    },
+    "predictive_ranking_history8": {
+      "HOTA": 62.618370567602156,
+      "AssA": 65.88129640868603,
+      "IDF1": 75.18002252655955
+    }
+  },
+  "geometry_reference": {
+    "sunny": {
+      "HOTA": 56.90710507746295,
+      "AssA": 59.72873687448059,
+      "DetA": 54.32255133207777,
+      "IDF1": 70.3097875943829,
+      "MOTA": 61.27654381254577,
+      "IDSW": 88
+    },
+    "cloudy": {
+      "HOTA": 71.87622540541119,
+      "AssA": 77.38509334665157,
+      "DetA": 67.02290302082297,
+      "IDF1": 86.58212219325264,
+      "MOTA": 75.78502571524565,
+      "IDSW": 140
+    },
+    "rainy": {
+      "HOTA": 49.76460284868647,
+      "AssA": 51.05291642760099,
+      "DetA": 48.67190447474531,
+      "IDF1": 59.49749912760265,
+      "MOTA": 51.92297930661071,
+      "IDSW": 138
+    },
+    "night": {
+      "HOTA": 70.56797831849948,
+      "AssA": 72.11092775729789,
+      "DetA": 69.44810297127884,
+      "IDF1": 81.83363414933325,
+      "MOTA": 81.66168296927,
+      "IDSW": 125
+    }
+  },
+  "paired_comparisons": {
+    "discriminative_history8_vs_history1": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.2566287776789231,
+          "percentile_95": [
+            -0.4229849818999942,
+            0.07254608969081829
+          ]
+        },
+        "AssA": {
+          "delta": -0.45214251210841816,
+          "percentile_95": [
+            -0.763485080889187,
+            0.28898124090546357
+          ]
+        },
+        "IDF1": {
+          "delta": -0.47158822245621046,
+          "percentile_95": [
+            -0.7414410210395516,
+            0.09585032436091309
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "discriminative_history8_vs_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.03576842097429278,
+          "percentile_95": [
+            -0.485978079654725,
+            0.5263254674379395
+          ]
+        },
+        "AssA": {
+          "delta": 0.12844594177638946,
+          "percentile_95": [
+            -0.9348503598268596,
+            1.2007915594394796
+          ]
+        },
+        "IDF1": {
+          "delta": 0.07705370641005338,
+          "percentile_95": [
+            -0.6044286869775927,
+            0.6830577289396224
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "discriminative_history4_vs_history1": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.22408351040204977,
+          "percentile_95": [
+            -0.44735861759639634,
+            -0.07790532493526584
+          ]
+        },
+        "AssA": {
+          "delta": -0.3658717426252309,
+          "percentile_95": [
+            -0.6694296154749484,
+            -0.09486425265519863
+          ]
+        },
+        "IDF1": {
+          "delta": -0.28632387132454795,
+          "percentile_95": [
+            -0.7060254802515916,
+            -0.03750975674830334
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_history8_vs_history1": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.18164945180342862,
+          "percentile_95": [
+            -0.5079214099533762,
+            0.08258237274394295
+          ]
+        },
+        "AssA": {
+          "delta": -0.38608902559202996,
+          "percentile_95": [
+            -1.139868846207895,
+            0.17275519612367304
+          ]
+        },
+        "IDF1": {
+          "delta": -0.2478279328299653,
+          "percentile_95": [
+            -0.7560356836674292,
+            0.0805020949871555
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_history8_vs_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.4118147538071568,
+          "percentile_95": [
+            -0.14165574173620654,
+            0.7906663669642043
+          ]
+        },
+        "AssA": {
+          "delta": 0.9443860941994195,
+          "percentile_95": [
+            -0.14905369766427815,
+            1.7087652007241332
+          ]
+        },
+        "IDF1": {
+          "delta": 0.7954230158287867,
+          "percentile_95": [
+            -0.27537615963305806,
+            1.3823086400404323
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_history4_vs_history1": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.19099258322896162,
+          "percentile_95": [
+            -0.5732630116779702,
+            -0.010934472405784459
+          ]
+        },
+        "AssA": {
+          "delta": -0.39559290139261805,
+          "percentile_95": [
+            -1.266687973540392,
+            -0.02047327049570494
+          ]
+        },
+        "IDF1": {
+          "delta": -0.2792221833974988,
+          "percentile_95": [
+            -0.8488425222773588,
+            -0.003020387101233542
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_history8_vs_history1": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.022047231731280093,
+          "percentile_95": [
+            -0.3289806284042464,
+            0.3666391902843035
+          ]
+        },
+        "AssA": {
+          "delta": 0.022357187949596735,
+          "percentile_95": [
+            -0.6872121929740366,
+            0.7086646409898929
+          ]
+        },
+        "IDF1": {
+          "delta": 0.08080989436335884,
+          "percentile_95": [
+            -0.5843429579928887,
+            0.5593152717367984
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_history8_vs_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.3393926550871207,
+          "percentile_95": [
+            -0.2608249116880769,
+            0.7707471646684668
+          ]
+        },
+        "AssA": {
+          "delta": 0.8118778071782504,
+          "percentile_95": [
+            -0.41921102769746005,
+            1.727689489235772
+          ]
+        },
+        "IDF1": {
+          "delta": 0.6242617604166902,
+          "percentile_95": [
+            -0.5773159918161175,
+            1.3047017744567495
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_history4_vs_history1": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.06503514860685655,
+          "percentile_95": [
+            -0.05756459658426882,
+            0.16307162569192846
+          ]
+        },
+        "AssA": {
+          "delta": 0.11746512001860587,
+          "percentile_95": [
+            -0.18224864368279828,
+            0.33208955243356797
+          ]
+        },
+        "IDF1": {
+          "delta": 0.04680857587520748,
+          "percentile_95": [
+            -0.19741249923022047,
+            0.1992874142657874
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "actual_history4_tracks_equal_independent_clips_deployment": {
+    "discriminative_history4": {
+      "MVI_39311": "7aacc5bc849f51c4effa4b710901935ff53fa06018a66b22ee3f8e84c77332d1",
+      "MVI_20064": "c81c58184969bc1298fc6a734fddfa445313c790ec44447b891633daed310e20",
+      "MVI_39211": "204196d4ded343c3d71805ed13b61ed4c29e55dd12a6e2fc8e18c1d6e89f9e57",
+      "MVI_40141": "064457a13f41bc6b8e3179e8ecab0ee8fa554ecc6aed2ef2a3d31ec22f4fc9dc",
+      "MVI_40213": "9d09e8d03a8366408a7e3e73251a9a224da95a32654d4897f20385f1794c3255",
+      "MVI_40244": "25bd9ffb8c81ca5881777570d3cce36dfcfbd5c671172b1725f9e4df51c4f9da",
+      "MVI_40854": "a84c692b8fd26e531c6443f42e0ef04b28ac0ee3aa706aec86623568dbb45849",
+      "MVI_40201": "61ea497f41667230d732013496be22f00ffa2715d01091045c060772ae9069c3",
+      "MVI_40712": "ea53101ee24c56f51962da9bf66f0b100ed2db5e90b7eb5bf892ba75aa14e980",
+      "MVI_63544": "5de996e8a29795e6a2fdb0c3386a3624416488127f29de6d2e6fa953f5ee12a5",
+      "MVI_40904": "d8ad381e40d04b90a4a1520526fadff70de5f6f3b92aed52ba162326bc9236f3",
+      "MVI_40864": "9127a3664a07cc626c666fdfe99c6ff46868c93787d84409d963c619b696afaf",
+      "MVI_40771": "a7c13fcb0841120ee14360cd7769bf2c2760f6b73c77e037e2e1099b55332b05",
+      "MVI_40992": "00a95d72cff1efefb29f335c18d92cdd09ca9e8c9fced8263446495fa928b858",
+      "MVI_40742": "2507fba67d06ab9c74833053a1dd78c303fd4eee42ba562ba44830b31539f944",
+      "MVI_40774": "d10350ef107ab5f50201556f3af45fdc15db91afe1c203b653a7cddc4cf0555d",
+      "MVI_40792": "7c7c587d4b4f8305630ab521d9e50c8e7fcb894c97aaf5b3d51e3167d171fb14"
+    },
+    "predictive_history4": {
+      "MVI_39311": "7c6e48b80ea99d21340f56e0e5613219922c1a86110d1810be6c853b99b4076a",
+      "MVI_20064": "947f1d679f36dcfd531f268cab3a186a359a4885a488387f5e2254eb62118533",
+      "MVI_39211": "6541bf0b64c6ae9ca1c53cc26afb2184ff05bf4c04c8b2e0697db9e6df920600",
+      "MVI_40141": "00d38d11065b4bd6621f18ee4989285a0ed04a882a1916718c129378a186fd08",
+      "MVI_40213": "f99aa5d4bf0f71f6df2702c81f43ec974a5f54c0cd40d465c552e6ab9be0c6c8",
+      "MVI_40244": "afbe1be0936678b52097f2dd401d893299a2449d8dbec089427eb0015b6f42a2",
+      "MVI_40854": "901662d9dd7d41c40b76799e7a1ffeb89a263557ecb4af3b3ec8bded0d368a10",
+      "MVI_40201": "90ed02842c9f746b48210a4faeee70bbd237c2e98f3872792554f58c2b268ee5",
+      "MVI_40712": "c5127fceb2332d8dd3a2cb3d42f8dead19bc558f071b3b1a9ee60ce19ba29867",
+      "MVI_63544": "3458e1b3c71cb015c7f879eeb6e999829c5eefc256bf6d46c842834bafb1652e",
+      "MVI_40904": "a51b13820171b26bebb08a85f3dd05aefdb55d83f2eecb6a4a96a4bd37e3001c",
+      "MVI_40864": "cb81d7129d2ec922fd56cffdb8818e069f3015cad0fb553c36133b531502f86a",
+      "MVI_40771": "c4f10a0fb38c993c8cba3df4419f4cc74d1a691a33a8dfbcec87b926967629b4",
+      "MVI_40992": "1c2b3d6bfedbac5bcb700fbcd60685749533f9ce06d9850ab1ea0a1e3e58cb2d",
+      "MVI_40742": "dba7c3450441e469b17c6ae559529e987f8d446f9cad450f084da9d31fe358bb",
+      "MVI_40774": "37e120c32adc1e544819437e593e0c1612ccd53a82c115c48a85e95a6d87529e",
+      "MVI_40792": "05710d2ac98f4e6302b0176b527dd42956ba4977c713eb17fd983bfe4ea6d8d1"
+    },
+    "predictive_ranking_history4": {
+      "MVI_39311": "15b1de7319d4ec5d32c68f1126ff7db09e30945be3a1d261cb7ea423b706dcf2",
+      "MVI_20064": "1d92c02d133b44c958386fa3af9db49ef322e18f505815f9b7158b8b66b95fce",
+      "MVI_39211": "34869560c6d0157da2b83ac6dfbd2de623e192122a2150079da97ea550db4663",
+      "MVI_40141": "956024a03f7f8da86cf50e00d2fc2be975c6999fa9c18cba294ac17134448576",
+      "MVI_40213": "a40ee489f81fe5dcbb2be6779ee648b20b4c90f8a3990285d361f0c7b1b96522",
+      "MVI_40244": "ee530f3f088318546153e7ab3aafb4122d101a4b29d8f960fd9df622a8a4d5e6",
+      "MVI_40854": "3c809dbd9e705971697992cffc9785a4b3daa0da6d597102c761f331744cdf5f",
+      "MVI_40201": "54972049a8fae364ec20300ad0392dfcdda088c9d4e818ea469447bb5f640d43",
+      "MVI_40712": "a8c81ad018c66fed04337c1bae0de1f70a329d27916253b7e4804970a8491d6c",
+      "MVI_63544": "48b274fa7cfd1da1f8d3677afbc9a67031a8496648a10cce103386de55892f62",
+      "MVI_40904": "2bdfd4bba1f9b52ec2b4aaf4b29821dfb45f3abdcc02627ee9a7aeac4f598fc0",
+      "MVI_40864": "28d86dce99419760542395b7a43796ca29c4269dbb7ce73da4a04791837ef237",
+      "MVI_40771": "04da6a64de5bb349d816564f1cc87176bdd7d37144ec67049782f11628d110e4",
+      "MVI_40992": "9695a96263699435c0d6030a859b59d84368a3853492a7d6b32e883605f66e43",
+      "MVI_40742": "5c4bc85c332f6adae9e2596ef355cc8f9140e55ed98b9026230dffc73d1fdf36",
+      "MVI_40774": "35e9b65b92b8362491b0bc5a438773951de3bfb67d7e6dcdecccc8cd89ac7111",
+      "MVI_40792": "21fab23afc936758008b5e782efe6a4d151a7efbe1b0727355dc16e2a227a1c2"
+    }
+  },
+  "source_checkpoint_hashes_unchanged": true,
+  "target_GT_in_training": false,
+  "sealed_used": false,
+  "limitation": "fixed-seed development exploration; not selection-adjusted, multi-seed or continual evidence"
+}

@@ -9,7 +9,7 @@
 | 相同source预算的CE/prediction/joint | source_history_v1/v2与multiseed的实际metrics；SOURCE_MULTI_SEED_COMPLETE_RESULTS | 两数据集源训练完成；不能等价于三seed MOT完成 |
 | 普通projection/MLP/Transformer/pair/mean/EMA强对照 | BDD_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS、BDD_FULL_FROZEN_PROTOTYPE_RESULTS | 两数据集全部development完成；UA Transformer pure与EMA差的CI含0，独立优势未成立 |
 | 预测目标与源时间支持诊断 | source_clips、source relation、crop source、BDD/UA clips与两数据集crop完整结果 | 已有真实结构探索和负结果；未所有读数/数据集部署完成 |
-| 历史1/2/4/8与间隔/运动分组 | BDD_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS、BDD_COMPLETE_LOCAL_EVENT_GAP_MOTION_STRATA | BDD历史完整；UA运行；观测gap/速度不是实际occlusion或camera-motion证明 |
+| 历史1/2/4/8与间隔/运动分组 | BDD_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS、BDD_COMPLETE_LOCAL_EVENT_GAP_MOTION_STRATA | 两数据集历史完整；UA更长历史未得稳定增益；观测gap/速度不是实际occlusion或camera-motion证明 |
 | Encoder与official predictor正式配对读数 | OFFICIAL_PAIRED_READOUT_REGISTRATION、完整202-frame接口验证、paired_readout_v1源BDDcache | BDD正式源cache/六head/物理候选池及两读数完整development完成；masked predictor pure优于同读数CE/last，但未可靠超geometry；UA pipeline运行中 |
 | 无标签跨域θ/optimizer/replay/RNG连续与旧域回测 | BDD_FIRST_WAVE_FULL_CONTINUAL_RESULTS、BDD_FIXED_TEACHER_FULL_CONTINUAL_RESULTS、BDD_COMPETITION_FULL_CONTINUAL_RESULTS | BDD seed17 forward三个完整family；UA仍未完成 |
 | 相同actual update预算 | H2 final1096步/41563确认；C2/RKD final1094步/41176确认及边界样本相同；真实optimizer step核验 | 同family已验证；不同family/自教师样本不能假定一致 |

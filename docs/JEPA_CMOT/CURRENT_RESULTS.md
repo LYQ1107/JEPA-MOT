@@ -383,3 +383,11 @@ UA MLP/Transformer/pair-MLP/mean4/EMA全部17开发视频/25460 native帧完成�
 Transformer pure比同Transformer CE +.68317 CI[.08575,1.29499]，比geometry +.88491 CI[.20845,1.32044]；但比EMA只有+.11875 CI[-.27443,.28213]。MLP pure比EMA -.05180 CI[-.22667,.05772]，比pair +.61997 CI[.39052,.94665]，比last +.31086 CI[.11770,.83744]。EMA本身比geometry +.76616 CI[.16143,1.37539]；因此不能用弱CE/geometry的正差宣称预测损失已超越强简单历史，Transformer best点估计仍无selection correction/cross-seed证据。源时间支持/crop/readout探索不从最佳视频/阶段选结果。
 
 全部方法逐域六指标、十三项全native raw-count配对比较见UA_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json，图figures/ua_complete_strong_heads_hota.svg。结果是seed17 frozen development，仍需UA持续矩阵、多seed/orders与official UA读数；sealed未用。
+
+## UA完整历史1/2/4/8消融与独立轨迹复现
+
+12组均完成17开发视频/25460 native帧；四域等权HOTA按history1/2/4/8分别：CE62.57138/62.42879/62.34729/62.31475，pure62.87244/62.74658/62.68145/62.69079，joint62.59632/62.61130/62.66136/62.61837。相同连续source clips、2,000×64/gaps1,2,4,8/同detector/native/current dense features/source-only校准，近似容量K1/2/4/8=660864/660685/662400/661821；hidden width随history调整，不能把差异解释成仅增加time tokens而其它结构完全相同。
+
+pure history4比history1 -.19099 CI[-.57326,-.01093]，history8比history1 -.18165 CI[-.50792,.08258]，history8比geometry +.41181 CI[-.14166,.79067]；CE history4比history1 -.22408 CI[-.44736,-.07791]，joint history8比history1 +.02205 CI[-.32898,.36664]。本匹配预算协议未提供更长历史稳定收益，不从K1最佳点选择删掉其它长度，也不等价于证明一切历史结构无效。
+
+history4全部三目标×17视频轨迹与独立完成的UA source-clips部署bytes逐条相同；Source head SHA未变，GT只用于离线指标，sealed未用。完整12组逐域六指标、九项配对raw-count bootstrap、51条轨迹SHA见UA_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS.json，图figures/ua_complete_history_length_hota.svg。磁盘满失败视频已从合法完整节点恢复，不以16/17替代完整scope。尚未完成的持续矩阵/多seed/orders/official UA读数继续。
