@@ -112,6 +112,12 @@ pairwise AUC is below both Transformer CE and Transformer ranking. These are
 one-seed, rollout-conditioned uncertainty diagnostics, not multi-seed
 confirmatory p-values.
 
+The domain-stratified paired audit in `H1_DOMAIN_STRATIFIED_PAIRED_SEED17.json`
+keeps the MLP predictive direction negative against CE and ranking in clear,
+night, overcast, and rainy. Transformer Top-1 and correction differences vary
+by domain, but its pairwise AUC does not show a consistent advantage. The
+smaller strata are diagnostic and do not change the one-seed conclusion.
+
 ## Structural seed17 follow-up
 
 The pre-registered structural candidates were trained once on the source-only
