@@ -1,10 +1,9 @@
 # Structural H1 candidate protocol
 
-This document freezes the next small experiment before a GPU becomes
-available. It is a protocol and an implementation audit, not a result. The
-CPU implementation is in
-`jepa_identity/structural_candidates.py`; it has not been trained on the
-BDD100K or UA-DETRAC target streams.
+This document freezes the small structural experiment and records its result.
+The CPU implementation is in `jepa_identity/structural_candidates.py`; source
+training used only the audited BDD100K cache and no BDD100K or UA-DETRAC target
+stream was used for updates or gating.
 
 ## Why these two candidates
 
@@ -30,7 +29,7 @@ matched non-predictive control under the same common state.
 
 ## Frozen training budget
 
-The first GPU window is one seed (`17`), one source-only cache, one
+The first formal window is one seed (`17`), one source-only cache, one
 video-disjoint source fit/validation split, and at most 1,000 update steps with
 batch 64. The residual candidate and its ranking-only control use the same
 architecture, initialization seed, sampler, cache, batch, and update count.
@@ -154,9 +153,45 @@ the history encoder before scoring. `--allow-engineering-smoke` is required
 for reduced smoke checkpoints and must not be used for a formal result. The
 real-cache preflight smoke is summarized in `STRUCTURAL_PREFLIGHT_SMOKE.json`.
 
+## Formal seed17 comparison
+
+The frozen one-seed budget was executed on CPU because the host NVIDIA driver
+was unavailable. This changes the recorded device, not the source split,
+candidate set, seed, or 1,000-step budget. Each candidate used the same
+source-only cache, video-disjoint fit/validation split, hidden size 128, batch
+64, and matched predictive/ranking-only pair. All four final checkpoints passed
+preflight and scored all 1,394 common-state events with identical 84.43%
+candidate coverage.
+
+| candidate / method | Top-1 | MRR | pairwise AUC | net correction |
+|---|---:|---:|---:|---:|
+| identity-residual predictive | 74.17% | 0.8453 | 0.8954 | +88 |
+| identity-residual ranking-only | 74.51% | 0.8555 | 0.9148 | +92 |
+| candidate-relative predictive | 42.31% | 0.6355 | 0.7227 | -287 |
+| candidate-relative ranking-only | 43.84% | 0.6495 | 0.7416 | -269 |
+| history-last reference | 75.36% | 0.8525 | 0.9012 | +102 |
+| MLP CE reference | 76.13% | 0.8638 | 0.9191 | +111 |
+
+Neither structural candidate passes the H1 gate. Residual predictive is below
+its matched ranking-only control and the strongest feature-only references;
+candidate-relative is far below them and has negative net correction. The full
+machine-readable comparison, checkpoint hashes, provenance, and discarded
+non-finite-gradient diagnostics are in `STRUCTURAL_FORMAL_SEED17.json`. These
+results are a seed17 development decision and do not prove that every JEPA
+target is ineffective.
+
+During the first candidate-relative attempts, finite but very large gradients
+overflowed the default float32 norm accumulator and a near-constant candidate
+encoder LayerNorm produced NaN backward values. The final implementation uses
+an affine candidate encoder, guarded relation normalization, and float64
+gradient-norm accumulation with explicit finite checks. The final four runs
+are the only candidate-relative identity evidence retained for the H1 gate.
+
 ## Current status
 
-The protocol and CPU module are complete. GPU training is pending because the
-current host has no usable NVIDIA driver. No structural checkpoint or H1 gain
-is claimed, and H2 remains frozen until the H1 gate is resolved.
+The protocol, CPU module, formal seed17 comparison, and preflight path are
+complete. The current host still has no usable NVIDIA driver, but the frozen
+one-seed structural comparison was completed on CPU. No structural candidate
+passes the H1 gate, so H1 remains unresolved and H2 stays frozen; no multi-seed
+or online target update has been started.
 
