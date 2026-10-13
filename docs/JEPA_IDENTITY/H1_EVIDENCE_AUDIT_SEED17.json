@@ -341,6 +341,61 @@
       "expected": "required controls / false / false"
     },
     {
+      "name": "bdd_cluster_status_and_counts",
+      "pass": true,
+      "observed": [
+        "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17",
+        "bdd100k",
+        1394,
+        1177,
+        217,
+        19
+      ],
+      "expected": [
+        "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17",
+        "bdd100k",
+        1394,
+        1177,
+        217,
+        19
+      ]
+    },
+    {
+      "name": "ua_cluster_status_and_counts",
+      "pass": true,
+      "observed": [
+        "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17",
+        "ua_detrac_legacy_replay",
+        4199,
+        4159,
+        40,
+        17
+      ],
+      "expected": [
+        "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17",
+        "ua_detrac_legacy_replay",
+        4199,
+        4159,
+        40,
+        17
+      ]
+    },
+    {
+      "name": "cluster_audits_no_training_gt",
+      "pass": true,
+      "observed": {
+        "bdd": [
+          false,
+          false
+        ],
+        "ua": [
+          false,
+          false
+        ]
+      },
+      "expected": "required controls / false / false"
+    },
+    {
       "name": "domain_stratified_status_and_count",
       "pass": true,
       "observed": [
