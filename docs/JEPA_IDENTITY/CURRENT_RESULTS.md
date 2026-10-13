@@ -39,7 +39,7 @@ adds uncertainty evidence to the negative H1 direction without changing the
 one-seed scope or claiming a confirmatory multi-seed result. See
 `PAIRED_COMMON_STATE_COMPARISONS_SEED17.json`.
 
-The complete seed17 evidence bundle now passes a 26-check machine audit in
+The complete seed17 evidence bundle now passes a 29-check machine audit in
 `H1_EVIDENCE_AUDIT_SEED17.json`. The gate verifies every required control,
 shared candidate coverage, ranking/correction fields, paired-event identity, the two
 structural candidates, the UA supplement, and domain-stratified coverage while keeping runtime and
@@ -52,6 +52,12 @@ cases, MLP predictive is below CE and ranking but above history-last, while
 Transformer predictive is below CE, ranking, and pairwise-AUC references. The
 replay remains supplementary because its tracks and geometry candidates are
 reconstructed from an existing rollout.
+
+Because frames within a video are correlated, BDD and UA now also have
+video-cluster paired audits. The BDD MLP predictive disadvantage versus CE and
+ranking remains negative after cluster resampling; UA retains a robust AUC
+disadvantage versus CE/ranking while predictive JEPA remains above last-history
+aggregation. See `H1_VIDEO_CLUSTER_PAIRED_SEED17.md`.
 
 The structural source-only trainer and checkpoint evaluator first passed
 real-cache engineering smokes, including a negative reduced candidate-relative
