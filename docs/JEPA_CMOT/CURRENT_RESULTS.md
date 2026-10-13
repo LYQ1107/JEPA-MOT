@@ -253,3 +253,13 @@ GPU7/8/9原外部任务终态后，已对UA main/H2/C2安排完整native child�
 BDD H2 stage2全部19视频/四域已实际回测，五组均4560适应帧、570真实optimizer步、27193确认/seen样例、memory128。相对source均值联合confidence -0.06315、prediction priority +0.04177、appearance-hard +0.11335；CE confidence -0.51344、CE prediction priority -0.33464。prediction priority相对appearance-hard -0.07158 CI[-0.21970,0.07691]；其新rainy域相对source -0.34295，appearance-hard -0.02717。不能由old clear上+0.66329或小宏正号宣称新域改善；final night仍待完整回测。见BDD_FIXED_TEACHER_STAGE2_RESULTS.json。
 
 新增prototype部署已经完成两个完整BDD开发视频。原geometry/last与此前独立全开发集对应轨迹逐字节相同，验证新增子类选择不改变既有默认对照。mean/EMA全19视频仍在运行，不对这两个视频选择方法或改参数。
+
+## BDD第一波完整持续矩阵完成（仍非项目最终结论）
+
+六组完成source→overcast→rainy→night全部44适应视频/8811 native帧，所有4stage×4domain×6指标均已真实回测，final开发覆盖19视频/3844帧。最终等域HOTA / AvgForgetting：CE FT38.9482/.2777，联合FT39.3578/.2048，CE replay39.2745/.0000，联合replay39.1922/.1802，feature KD39.4747/.0555，row KD39.3976/.2895。AssA/IDF1/DetA/MOTA/IDSW、BWT/FWT及逐域负结果完整保存在BDD_FIRST_WAVE_FULL_CONTINUAL_RESULTS.json。
+
+遗忘使用已学会域在final前的historical best减final，主表max(0,·)，另保留signed值；CE replay的0不意味着所有域超过其source模型，也不表示适应成功。最终几何静态基线39.9022，高于这六个学习方法。联合FT比CE FT +.4096 CI[.0359,.7468]，但联合replay比同replay CE -.0823 CI[-.7217,.4466]；feature KD比CE replay +.2002 CI[-.3344,.6734]，比强geometry -.4275 CI[-.9591,-.0294]。联合replay比geometry -.7100 CI[-1.3526,-.2166]。这是固定seed的开发阶段证据，不能由弱FT对照上正差称JEPA持续学习优于强简单方法。
+
+实际final self-teacher步数CE/联合FT1073/1074、两replay1096/1096、两KD1097/1097；样本供给仍可不同，不等价于固定teacher完全同样本。后续H2/C2/RKD、多seed/order、pure预测、crop/official读数与UA仍须完成，sealed未用。图bdd_first_wave_complete_continual_hota.svg；final paired report BDD_FIRST_WAVE_FINAL_PAIRED_COMPARISONS.json。完成矩阵后原BDDseed23/42队列已经满足首个依赖，继续实际完整数据流。
+
+完整4stage源验证error与source开发AssA/HOTA的逐方法配对也已记录：BDD_SOURCE_PREDICTION_ERROR_ASSOCIATION_EXPLORATION.json。每方法只有4个相关的时序点，源descriptor验证与source-MOT开发来自不同视频集合；仅描述Pearson系数，不给p值/因果结论、不跨CE与联合模型loss尺度池化。

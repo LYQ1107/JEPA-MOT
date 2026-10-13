@@ -1,0 +1,182 @@
+{
+  "scope": "complete stage3 native development; fixed seed17, no method-selection correction or multi-seed claim",
+  "comparisons": {
+    "predictive_ranking_replay128_none:discriminative_replay128_none": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.08230510617995357,
+          "percentile_95": [
+            -0.7216644127670064,
+            0.44656152598110455
+          ]
+        },
+        "AssA": {
+          "delta": -0.38799843703728953,
+          "percentile_95": [
+            -1.6648547052994631,
+            0.6938045833831548
+          ]
+        },
+        "IDF1": {
+          "delta": -0.3607703147749515,
+          "percentile_95": [
+            -1.3387158335671256,
+            0.5316826658041491
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_replay0_none:discriminative_replay0_none": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.40963743134726016,
+          "percentile_95": [
+            0.03592753496839123,
+            0.7467945601736399
+          ]
+        },
+        "AssA": {
+          "delta": 0.5601246120640457,
+          "percentile_95": [
+            -0.2068790961053799,
+            1.2887283592211949
+          ]
+        },
+        "IDF1": {
+          "delta": 0.4058493895792701,
+          "percentile_95": [
+            -0.6402536180424808,
+            1.324241483467742
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_replay128_features:discriminative_replay128_none": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.20017683220757299,
+          "percentile_95": [
+            -0.3344365539378794,
+            0.6733759334270029
+          ]
+        },
+        "AssA": {
+          "delta": 0.16112049828752362,
+          "percentile_95": [
+            -0.9428462125777772,
+            1.188779800086439
+          ]
+        },
+        "IDF1": {
+          "delta": 0.006154842686626694,
+          "percentile_95": [
+            -0.8662663064430606,
+            0.7736860102079686
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_replay128_relations:discriminative_replay128_none": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.12315330725891016,
+          "percentile_95": [
+            -0.33690484985902996,
+            0.54580823568572
+          ]
+        },
+        "AssA": {
+          "delta": 0.14426261575784594,
+          "percentile_95": [
+            -0.779798258866162,
+            1.042977282369067
+          ]
+        },
+        "IDF1": {
+          "delta": 0.02857336670979116,
+          "percentile_95": [
+            -0.7779292223434632,
+            0.7881153557069331
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_replay128_none:actual_frozen_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.7099675825684333,
+          "percentile_95": [
+            -1.3526390706939717,
+            -0.2165667622411131
+          ]
+        },
+        "AssA": {
+          "delta": -1.2213758715580134,
+          "percentile_95": [
+            -2.5100707358052716,
+            -0.2685403164386089
+          ]
+        },
+        "IDF1": {
+          "delta": -1.1359920370486591,
+          "percentile_95": [
+            -2.1689679419106156,
+            -0.17321395941390327
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive_ranking_replay128_features:actual_frozen_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.42748564418090673,
+          "percentile_95": [
+            -0.959147838472814,
+            -0.029433198914834317
+          ]
+        },
+        "AssA": {
+          "delta": -0.6722569362332003,
+          "percentile_95": [
+            -1.7910388144207943,
+            0.14873236876027976
+          ]
+        },
+        "IDF1": {
+          "delta": -0.769066879587081,
+          "percentile_95": [
+            -1.8387063304313749,
+            0.08490130210170777
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "reference_note": "geometry is actual full static frozen development on identical images/detections/frame coverage",
+  "target_GT_in_training": false,
+  "sealed_used": false
+}

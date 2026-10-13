@@ -1,0 +1,188 @@
+{
+  "scope": "within each method, four chronological source-validation/source-development stage pairs",
+  "methods": {
+    "discriminative_replay0_none": {
+      "points": [
+        {
+          "stage": 0,
+          "source_validation_prediction_error": 0.6710882126737477,
+          "source_development_AssA": 40.81452454137289,
+          "source_development_HOTA": 37.537638448582925
+        },
+        {
+          "stage": 1,
+          "source_validation_prediction_error": 0.5809108682617994,
+          "source_development_AssA": 40.50236418757184,
+          "source_development_HOTA": 37.12066460552281
+        },
+        {
+          "stage": 2,
+          "source_validation_prediction_error": 0.5669880952670775,
+          "source_development_AssA": 39.220309523586664,
+          "source_development_HOTA": 36.586237726521574
+        },
+        {
+          "stage": 3,
+          "source_validation_prediction_error": 0.5573050535659264,
+          "source_development_AssA": 39.400246525393875,
+          "source_development_HOTA": 36.70466239862337
+        }
+      ],
+      "pearson_error_vs_AssA": 0.7996328965419005,
+      "pearson_error_vs_HOTA": 0.912640711396589
+    },
+    "predictive_ranking_replay0_none": {
+      "points": [
+        {
+          "stage": 0,
+          "source_validation_prediction_error": 0.23259830697900993,
+          "source_development_AssA": 40.34063358949222,
+          "source_development_HOTA": 37.33256258709762
+        },
+        {
+          "stage": 1,
+          "source_validation_prediction_error": 0.18974668183435925,
+          "source_development_AssA": 41.1430417556144,
+          "source_development_HOTA": 37.587106507471724
+        },
+        {
+          "stage": 2,
+          "source_validation_prediction_error": 0.18574519345738444,
+          "source_development_AssA": 39.916262585563054,
+          "source_development_HOTA": 36.96534628547147
+        },
+        {
+          "stage": 3,
+          "source_validation_prediction_error": 0.18571939806689286,
+          "source_development_AssA": 40.704861043574844,
+          "source_development_HOTA": 37.328546068014546
+        }
+      ],
+      "pearson_error_vs_AssA": -0.17402971296681669,
+      "pearson_error_vs_HOTA": 0.14271847158919723
+    },
+    "discriminative_replay128_none": {
+      "points": [
+        {
+          "stage": 0,
+          "source_validation_prediction_error": 0.6710882126737477,
+          "source_development_AssA": 40.81452454137289,
+          "source_development_HOTA": 37.537638448582925
+        },
+        {
+          "stage": 1,
+          "source_validation_prediction_error": 0.5886038077481639,
+          "source_development_AssA": 39.831238536161685,
+          "source_development_HOTA": 36.933885237263624
+        },
+        {
+          "stage": 2,
+          "source_validation_prediction_error": 0.5614551209436567,
+          "source_development_AssA": 40.53519485034,
+          "source_development_HOTA": 37.10349008133853
+        },
+        {
+          "stage": 3,
+          "source_validation_prediction_error": 0.5936822655471138,
+          "source_development_AssA": 41.256914995237445,
+          "source_development_HOTA": 37.64993620914522
+        }
+      ],
+      "pearson_error_vs_AssA": 0.26302239543874983,
+      "pearson_error_vs_HOTA": 0.5446293985067537
+    },
+    "predictive_ranking_replay128_none": {
+      "points": [
+        {
+          "stage": 0,
+          "source_validation_prediction_error": 0.23259830697900993,
+          "source_development_AssA": 40.34063358949222,
+          "source_development_HOTA": 37.33256258709762
+        },
+        {
+          "stage": 1,
+          "source_validation_prediction_error": 0.19196061249717508,
+          "source_development_AssA": 40.36737513237714,
+          "source_development_HOTA": 37.34865987538386
+        },
+        {
+          "stage": 2,
+          "source_validation_prediction_error": 0.20307045739253055,
+          "source_development_AssA": 40.070402705853226,
+          "source_development_HOTA": 37.141164998627964
+        },
+        {
+          "stage": 3,
+          "source_validation_prediction_error": 0.2078971139957654,
+          "source_development_AssA": 39.9494490653611,
+          "source_development_HOTA": 37.087319077090584
+        }
+      ],
+      "pearson_error_vs_AssA": 0.1424128266918306,
+      "pearson_error_vs_HOTA": 0.158280151399179
+    },
+    "predictive_ranking_replay128_features": {
+      "points": [
+        {
+          "stage": 0,
+          "source_validation_prediction_error": 0.23259830697900993,
+          "source_development_AssA": 40.34063358949222,
+          "source_development_HOTA": 37.33256258709762
+        },
+        {
+          "stage": 1,
+          "source_validation_prediction_error": 0.19796668045487376,
+          "source_development_AssA": 40.01308821173809,
+          "source_development_HOTA": 37.07361394212334
+        },
+        {
+          "stage": 2,
+          "source_validation_prediction_error": 0.19811968065532404,
+          "source_development_AssA": 40.478367543000346,
+          "source_development_HOTA": 37.32083289503768
+        },
+        {
+          "stage": 3,
+          "source_validation_prediction_error": 0.21233465302854945,
+          "source_development_AssA": 40.39352539464979,
+          "source_development_HOTA": 37.2900755835754
+        }
+      ],
+      "pearson_error_vs_AssA": 0.24669673007598267,
+      "pearson_error_vs_HOTA": 0.5418637721167854
+    },
+    "predictive_ranking_replay128_relations": {
+      "points": [
+        {
+          "stage": 0,
+          "source_validation_prediction_error": 0.23259830697900993,
+          "source_development_AssA": 40.34063358949222,
+          "source_development_HOTA": 37.33256258709762
+        },
+        {
+          "stage": 1,
+          "source_validation_prediction_error": 0.19500085125979555,
+          "source_development_AssA": 39.76329491785939,
+          "source_development_HOTA": 36.95335430960128
+        },
+        {
+          "stage": 2,
+          "source_validation_prediction_error": 0.19615985333089406,
+          "source_development_AssA": 41.64103246255266,
+          "source_development_HOTA": 37.86813767478496
+        },
+        {
+          "stage": 3,
+          "source_validation_prediction_error": 0.19645320785311565,
+          "source_development_AssA": 40.32565051221433,
+          "source_development_HOTA": 37.20449475294205
+        }
+      ],
+      "pearson_error_vs_AssA": -0.12841900117918395,
+      "pearson_error_vs_HOTA": 0.007063394364404402
+    }
+  },
+  "limitation": "n=4 sequential dependent stages, different source video populations for descriptor validation and MOT development; exploratory coefficients only, no significance/causation claim; no across-objective loss pooling",
+  "target_GT_fed_to_training": false,
+  "sealed_used": false
+}

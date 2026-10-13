@@ -93,3 +93,7 @@ Observation：完整原source-validation上联合replay最终error下降.02470�
 ## 预测需求优先暂未优于普通hard-example
 
 Observation：H2相同328步和15756确认对，prediction priority四域HOTA低于appearance-hard .2982，固定seed配对CI全负；C2增加column相对row仅.00045，无实质量级。Hypothesis：高forecast discrepancy可能不是优质学习需求，保持已有弱关系也不足以增加身份信息。Discriminating experiment：完成旧域/新域矩阵、RKD、相同数据不同顺序、pure预测和多seed，而不提高replay预算或用GT筛对。Next decision：继续已有完整对照，当前不保留“预测priority更优”的结论。
+
+## 最终第一波矩阵没有证明JEPA持续价值
+
+Observation：完整first-wave final所有六组低于强geometry；联合FT优于CE FT .4096，但同replay联合低于CE .0823且遗忘更高（.1802 vs0）。Feature KD比geometry -.4275的固定seed视频CI全负。Hypothesis：普通latent贴近与source分数变化不足以建立更强身份关系，保护弱函数只能恢复部分稳定性；不能由FT弱对照产生的正号推导整体优势。Discriminating experiment：等待已运行的fixed-teacher、RKD、pure预测、多seed/order及crop/official/mean-EMA完整同协议结果。Next decision：保持预注册输入和预算，不通过扩大memory或目标GT阈值调参寻求成功。
