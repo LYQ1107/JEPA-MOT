@@ -1,0 +1,814 @@
+{
+  "status": "COMPLETE_VIDEO_CLUSTER_PAIRED_AUDIT_SEED17",
+  "dataset": "ua_detrac_legacy_replay",
+  "scope": "video-cluster-balanced paired diagnostics on fixed event and candidate cases",
+  "source_case_count": 4199,
+  "candidate_present_case_count": 4159,
+  "candidate_absent_case_count": 40,
+  "video_count": 17,
+  "videos_with_candidate_present_cases": 17,
+  "controls": [
+    "history_last",
+    "mlp_ce",
+    "mlp_jepa_predictive",
+    "mlp_jepa_ranking",
+    "transformer_ce",
+    "transformer_jepa_predictive",
+    "transformer_jepa_ranking"
+  ],
+  "comparisons": [
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "mlp_ce",
+      "metrics": {
+        "top1": {
+          "clusters": 17,
+          "mean_improvement": -0.018985595603103998,
+          "bootstrap_95ci": [
+            -0.04556240726709655,
+            0.009181574420984922
+          ],
+          "permutation_p_two_sided": 0.19768023197680232,
+          "positive_clusters": 3,
+          "negative_clusters": 12,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "mrr": {
+          "clusters": 17,
+          "mean_improvement": -0.014292382662850565,
+          "bootstrap_95ci": [
+            -0.03258629108571339,
+            0.0035735636714491147
+          ],
+          "permutation_p_two_sided": 0.15148485151484853,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 17,
+          "mean_improvement": -0.05639012292644005,
+          "bootstrap_95ci": [
+            -0.07833590431873502,
+            -0.03846652130511506
+          ],
+          "permutation_p_two_sided": 0.00019998000199980003,
+          "positive_clusters": 1,
+          "negative_clusters": 16,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "net_correction": {
+          "clusters": 17,
+          "mean_improvement": -0.018985595603103998,
+          "bootstrap_95ci": [
+            -0.0452736363006286,
+            0.008886152308691846
+          ],
+          "permutation_p_two_sided": 0.20467953204679531,
+          "positive_clusters": 3,
+          "negative_clusters": 12,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "history_last",
+      "metrics": {
+        "top1": {
+          "clusters": 17,
+          "mean_improvement": 0.0880914020854271,
+          "bootstrap_95ci": [
+            0.06357347206196505,
+            0.11302572241452766
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 16,
+          "negative_clusters": 1,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "mrr": {
+          "clusters": 17,
+          "mean_improvement": 0.07502999158989744,
+          "bootstrap_95ci": [
+            0.05741464018674261,
+            0.09302585056592746
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 16,
+          "negative_clusters": 1,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 17,
+          "mean_improvement": 0.006015838154828686,
+          "bootstrap_95ci": [
+            -0.00411526425397302,
+            0.016211618885687715
+          ],
+          "permutation_p_two_sided": 0.26177382261773824,
+          "positive_clusters": 11,
+          "negative_clusters": 6,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "net_correction": {
+          "clusters": 17,
+          "mean_improvement": 0.0880914020854271,
+          "bootstrap_95ci": [
+            0.06349294746663904,
+            0.11351090090212598
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 16,
+          "negative_clusters": 1,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "mlp_jepa_predictive",
+      "reference": "mlp_jepa_ranking",
+      "metrics": {
+        "top1": {
+          "clusters": 17,
+          "mean_improvement": -0.01795875601223536,
+          "bootstrap_95ci": [
+            -0.04211496391337212,
+            0.006100514740651418
+          ],
+          "permutation_p_two_sided": 0.1867813218678132,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "mrr": {
+          "clusters": 17,
+          "mean_improvement": -0.012727096136431592,
+          "bootstrap_95ci": [
+            -0.02876439078448268,
+            0.002684894131369747
+          ],
+          "permutation_p_two_sided": 0.15208479152084792,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 17,
+          "mean_improvement": -0.04656643666461339,
+          "bootstrap_95ci": [
+            -0.06456995366651264,
+            -0.03128233125232287
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 1,
+          "negative_clusters": 16,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "net_correction": {
+          "clusters": 17,
+          "mean_improvement": -0.01795875601223536,
+          "bootstrap_95ci": [
+            -0.041805861419683184,
+            0.006561698068127278
+          ],
+          "permutation_p_two_sided": 0.1812818718128187,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "transformer_ce",
+      "metrics": {
+        "top1": {
+          "clusters": 17,
+          "mean_improvement": -0.036644426896270295,
+          "bootstrap_95ci": [
+            -0.05969404621347503,
+            -0.013884919077804947
+          ],
+          "permutation_p_two_sided": 0.0093990600939906,
+          "positive_clusters": 4,
+          "negative_clusters": 12,
+          "zero_clusters": 1,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "mrr": {
+          "clusters": 17,
+          "mean_improvement": -0.028871083336644336,
+          "bootstrap_95ci": [
+            -0.044733854780819024,
+            -0.012841014592325187
+          ],
+          "permutation_p_two_sided": 0.004199580041995801,
+          "positive_clusters": 3,
+          "negative_clusters": 14,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 17,
+          "mean_improvement": -0.07111643589700686,
+          "bootstrap_95ci": [
+            -0.09311333894214908,
+            -0.05287748926356942
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 0,
+          "negative_clusters": 17,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "net_correction": {
+          "clusters": 17,
+          "mean_improvement": -0.036644426896270295,
+          "bootstrap_95ci": [
+            -0.06076340098236613,
+            -0.013242441078838608
+          ],
+          "permutation_p_two_sided": 0.0082991700829917,
+          "positive_clusters": 4,
+          "negative_clusters": 12,
+          "zero_clusters": 1,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "history_last",
+      "metrics": {
+        "top1": {
+          "clusters": 17,
+          "mean_improvement": 0.05175579682215635,
+          "bootstrap_95ci": [
+            0.028199467710854482,
+            0.07942202123199014
+          ],
+          "permutation_p_two_sided": 0.00039996000399960006,
+          "positive_clusters": 16,
+          "negative_clusters": 1,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "mrr": {
+          "clusters": 17,
+          "mean_improvement": 0.05003652009224101,
+          "bootstrap_95ci": [
+            0.03301736055927787,
+            0.0689564912133589
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 16,
+          "negative_clusters": 1,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 17,
+          "mean_improvement": -0.010693058069078344,
+          "bootstrap_95ci": [
+            -0.020256697557071573,
+            -0.00036597568809443906
+          ],
+          "permutation_p_two_sided": 0.061493850614938506,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "net_correction": {
+          "clusters": 17,
+          "mean_improvement": 0.05175579682215635,
+          "bootstrap_95ci": [
+            0.02720881574614621,
+            0.07888789631615474
+          ],
+          "permutation_p_two_sided": 9.999000099990002e-05,
+          "positive_clusters": 16,
+          "negative_clusters": 1,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        }
+      }
+    },
+    {
+      "candidate": "transformer_jepa_predictive",
+      "reference": "transformer_jepa_ranking",
+      "metrics": {
+        "top1": {
+          "clusters": 17,
+          "mean_improvement": -0.00388929138158514,
+          "bootstrap_95ci": [
+            -0.027449932949650965,
+            0.027524424786761714
+          ],
+          "permutation_p_two_sided": 0.8497150284971503,
+          "positive_clusters": 4,
+          "negative_clusters": 11,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "mrr": {
+          "clusters": 17,
+          "mean_improvement": -0.003186865748881788,
+          "bootstrap_95ci": [
+            -0.020336552055082193,
+            0.018348217008807836
+          ],
+          "permutation_p_two_sided": 0.7964203579642036,
+          "positive_clusters": 4,
+          "negative_clusters": 12,
+          "zero_clusters": 1,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "pairwise_auc": {
+          "clusters": 17,
+          "mean_improvement": 0.0027233502498206588,
+          "bootstrap_95ci": [
+            -0.015693648213714884,
+            0.030904840981124854
+          ],
+          "permutation_p_two_sided": 0.9753024697530247,
+          "positive_clusters": 4,
+          "negative_clusters": 13,
+          "zero_clusters": 0,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        },
+        "net_correction": {
+          "clusters": 17,
+          "mean_improvement": -0.00388929138158514,
+          "bootstrap_95ci": [
+            -0.027557218006956697,
+            0.027066667667796744
+          ],
+          "permutation_p_two_sided": 0.8561143885611439,
+          "positive_clusters": 4,
+          "negative_clusters": 11,
+          "zero_clusters": 2,
+          "cluster_names": [
+            "MVI_20064",
+            "MVI_39211",
+            "MVI_39311",
+            "MVI_40141",
+            "MVI_40201",
+            "MVI_40213",
+            "MVI_40244",
+            "MVI_40712",
+            "MVI_40742",
+            "MVI_40771",
+            "MVI_40774",
+            "MVI_40792",
+            "MVI_40854",
+            "MVI_40864",
+            "MVI_40904",
+            "MVI_40992",
+            "MVI_63544"
+          ]
+        }
+      }
+    }
+  ],
+  "bootstrap_draws": 5000,
+  "permutation_draws": 10000,
+  "seed": 17,
+  "target_GT_used_for_training_or_gate": false,
+  "offline_GT_used_for_diagnosis": true,
+  "sealed_used": false,
+  "interpretation": "Each video contributes one cluster mean; positive means candidate improves the metric over reference. This is a video-balanced diagnostic, not a multi-seed claim.",
+  "limitations": [
+    "video cluster means change the estimand from event-weighted to video-balanced and are reported alongside, not instead of, event-level results",
+    "the cases inherit the recorded rollout and candidate-subset limits of the source audit",
+    "UA uses the existing legacy-track replay and reconstructed geometry candidates",
+    "one seed and no multiple-comparison correction are used"
+  ]
+}
