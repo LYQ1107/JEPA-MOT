@@ -154,7 +154,7 @@ BDD dense规则的1,732个关联改变中，离线一步诊断纠错354、反改
 
 ## 17. 还缺哪些关键证据？
 
-补齐实际运行中的UA持续/通用RKD/官方读数及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
+补齐实际运行中的UA持续/通用RKD/官方读数及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；UA通用RKD的stage0/1已记录于[RKD已完成阶段分析](UA_RKD_COMPLETED_STAGES_0_1_ANALYSIS.json)，BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
 
 ## 已完成BDD八组顺序矩阵：HOTA
 

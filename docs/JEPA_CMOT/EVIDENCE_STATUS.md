@@ -1,6 +1,6 @@
 # 完成证据与仍需执行的工作
 
-状态：ACTIVE。用户于2026-10-13要求限制多种子耗时；当前优先seed17，批量seed23/42已撤下，详见SINGLE_SEED_PRIORITY_USER_UPDATE.json。完整三seed矩阵不再作为当前自动执行门槛；未完成的重复验证须如实列为结论局限。此表用于接续研究，不是完成验收。最后远端提交 0e93e52 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
+状态：ACTIVE。用户于2026-10-13要求限制多种子耗时；当前优先seed17，批量seed23/42已撤下，详见SINGLE_SEED_PRIORITY_USER_UPDATE.json。完整三seed矩阵不再作为当前自动执行门槛；未完成的重复验证须如实列为结论局限。此表用于接续研究，不是完成验收。最后远端提交 d661623 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
 
 | 要求 | 当前证据 | 状态/范围 |
 |---|---|---|
@@ -20,7 +20,7 @@
 | BDD seed17 reverse完整矩阵 | BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json；stage0–3四域native complete markers、实际snapshot/optimizer核对 | 四阶段已验证；固定seed开发结果，不替代UA逆序、跨seed或sealed证据 |
 | UA seed17 H2/C2已完成阶段 | UA_H2_COMPLETED_STAGES_ANALYSIS.json、UA_C2_COMPLETED_STAGES_ANALYSIS.json；stage1/2四域native complete markers、实际snapshot/optimizer核对 | 两组stage1/2已验证；stage3及完整最终矩阵未完成，不能提前报告最终遗忘结论 |
 | UA seed17主线已完成阶段 | UA_MAIN_COMPLETED_STAGE1_ANALYSIS.json；stage1四域native complete marker、实际snapshot/optimizer核对 | stage1已验证；stage2/3及完整最终矩阵未完成 |
-| UA seed17通用RKD已完成阶段 | UA_RKD_COMPLETED_STAGE0_ANALYSIS.json；stage0四域native complete marker、source checkpoint parity核对 | source冻结stage0已验证，online updates=0；后续stage1–3未完成 |
+| UA seed17通用RKD已完成阶段 | UA_RKD_COMPLETED_STAGES_0_1_ANALYSIS.json；stage0/1四域native complete marker、source checkpoint parity与optimizer step核对 | stage0冻结源与stage1已验证；stage1为27440 frames/3395 updates/229359 confirmed-seen、HOTA等域平均62.77113（相对source +0.07434）；stage2–3及最终遗忘仍未完成 |
 | UA official paired readout | paired_readout_v1 UA encoder development complete marker与pipeline_queue.log | UA encoder全17视频已完成；predictor及两读数合并分析仍待完成，不能用encoder单独替代paired全pipeline |
 | 配对视频统计、全域负结果 | BDD full frozen、各partial/final报告、TrackEval raw counts bootstrap2000 | 已完成对应scope；fixed-seed开发、无selection correction |
 | 实际图像到轨迹FPS/latency/显存/更新成本 | FULL_NATIVE_LIVE_EFFICIENCY_RESULTS、RETENTION_ACTUAL_UPDATE_COSTS | 12个整视频live案例+真实update-call成本；非全场景/新增FP32读数live速度 |

@@ -1,0 +1,187 @@
+{
+  "status": "VERIFIED_COMPLETED_STAGES_NOT_FINAL_CONTINUAL_RESULT",
+  "dataset": "ua_detrac",
+  "stages": [
+    0,
+    1
+  ],
+  "order": [
+    "sunny",
+    "cloudy",
+    "rainy",
+    "night"
+  ],
+  "actual_source_stage0_parity": {
+    "predictive_ranking_distance_graph": {
+      "reference": "predictive_ranking",
+      "checkpoint_sha256": "b63b044cad9ced9f9d312e396eabb7f9e44d5ec33fd67bdc5e17c983d7f16c10"
+    }
+  },
+  "actual_boundary_states": {
+    "0": {
+      "predictive_ranking_distance_graph": {
+        "frames": 0,
+        "updates": 0,
+        "confirmed": 0,
+        "seen": 0,
+        "memory": 0,
+        "frozen_source_checkpoint": true,
+        "source_training_step": 2000,
+        "checkpoint_sha256": "b63b044cad9ced9f9d312e396eabb7f9e44d5ec33fd67bdc5e17c983d7f16c10"
+      }
+    },
+    "1": {
+      "predictive_ranking_distance_graph": {
+        "frames": 27440,
+        "updates": 3395,
+        "confirmed": 229359,
+        "seen": 229359,
+        "memory": 128,
+        "frozen_source_checkpoint": false,
+        "checkpoint_sha256": "2f10210cb8df2926ff2523f7257c44940d5645e7e7b1ed2062ce98205434b2a4"
+      }
+    }
+  },
+  "stage_metrics": {
+    "0": {
+      "predictive_ranking_distance_graph": {
+        "sunny": {
+          "HOTA": 56.724407570793375,
+          "AssA": 59.681216272992835,
+          "DetA": 54.01622009370162,
+          "IDF1": 70.39927864972245,
+          "MOTA": 61.020258725897,
+          "IDSW": 92
+        },
+        "cloudy": {
+          "HOTA": 72.06250904778418,
+          "AssA": 77.83702707836642,
+          "DetA": 66.97708288866826,
+          "IDF1": 86.78303911978836,
+          "MOTA": 75.76176569405318,
+          "IDSW": 120
+        },
+        "rainy": {
+          "HOTA": 50.65797315669531,
+          "AssA": 53.13657537071642,
+          "DetA": 48.464984757615234,
+          "IDF1": 60.63281824871228,
+          "MOTA": 51.723321094397726,
+          "IDSW": 130
+        },
+        "night": {
+          "HOTA": 71.34229197156978,
+          "AssA": 73.59589436673278,
+          "DetA": 69.5270399721005,
+          "IDF1": 83.35640077786927,
+          "MOTA": 81.69547074823036,
+          "IDSW": 115
+        }
+      }
+    },
+    "1": {
+      "predictive_ranking_distance_graph": {
+        "sunny": {
+          "HOTA": 56.569536646662236,
+          "AssA": 59.32673879424668,
+          "DetA": 54.047075055036196,
+          "IDF1": 70.32328983342259,
+          "MOTA": 61.07395655357579,
+          "IDSW": 86
+        },
+        "cloudy": {
+          "HOTA": 71.93294762819383,
+          "AssA": 77.5634153352383,
+          "DetA": 66.97278602698184,
+          "IDF1": 86.61496943472294,
+          "MOTA": 75.74238234305946,
+          "IDSW": 117
+        },
+        "rainy": {
+          "HOTA": 49.79774192105911,
+          "AssA": 51.324174564275914,
+          "DetA": 48.48189748183969,
+          "IDF1": 59.22946000309454,
+          "MOTA": 51.772389638077186,
+          "IDSW": 127
+        },
+        "night": {
+          "HOTA": 72.78429707224907,
+          "AssA": 76.61431012293431,
+          "DetA": 69.52189277415076,
+          "IDF1": 85.73030066824899,
+          "MOTA": 81.6498572466339,
+          "IDSW": 107
+        }
+      }
+    }
+  },
+  "delta_from_actual_stage0": {
+    "0": {
+      "predictive_ranking_distance_graph": {
+        "HOTA": {
+          "by_domain": {
+            "sunny": 0.0,
+            "cloudy": 0.0,
+            "rainy": 0.0,
+            "night": 0.0
+          },
+          "equal_domain_average": 0.0
+        },
+        "AssA": {
+          "by_domain": {
+            "sunny": 0.0,
+            "cloudy": 0.0,
+            "rainy": 0.0,
+            "night": 0.0
+          },
+          "equal_domain_average": 0.0
+        },
+        "IDF1": {
+          "by_domain": {
+            "sunny": 0.0,
+            "cloudy": 0.0,
+            "rainy": 0.0,
+            "night": 0.0
+          },
+          "equal_domain_average": 0.0
+        }
+      }
+    },
+    "1": {
+      "predictive_ranking_distance_graph": {
+        "HOTA": {
+          "by_domain": {
+            "sunny": -0.15487092413113857,
+            "cloudy": -0.1295614195903454,
+            "rainy": -0.8602312356362063,
+            "night": 1.442005100679296
+          },
+          "equal_domain_average": 0.07433538033040143
+        },
+        "AssA": {
+          "by_domain": {
+            "sunny": -0.3544774787461549,
+            "cloudy": -0.2736117431281144,
+            "rainy": -1.8124008064405075,
+            "night": 3.0184157562015344
+          },
+          "equal_domain_average": 0.1444814319716894
+        },
+        "IDF1": {
+          "by_domain": {
+            "sunny": -0.07598881629985499,
+            "cloudy": -0.16806968506541864,
+            "rainy": -1.4033582456177456,
+            "night": 2.373899890379718
+          },
+          "equal_domain_average": 0.18162078584917474
+        }
+      }
+    }
+  },
+  "paired_comparisons": {},
+  "target_GT_used_for_training": false,
+  "sealed_used": false,
+  "limitation": "no final forgetting/BWT/FWT before complete matrix; fixed-seed development comparisons, no selection-adjusted or cross-seed claim"
+}
