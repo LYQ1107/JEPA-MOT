@@ -51,6 +51,8 @@ def main():
             report=json.loads((original/'complete.json').read_text())
             if report['frames']!=video['frames'] or report['updates'] or report['GT_read']:
                 raise ValueError('Reuse requires an actual complete frozen native video')
+            if sha256(original/'tracks.txt')!=report['output_sha256']:
+                raise ValueError('Recorded frozen tracks changed')
             source_input=json.loads((args.reference/'inputs'/(video['name']+'.json')).read_text())
             if source_input!=[entry]:raise ValueError('Reuse detection/image/feature paths differ')
             target=output/key/video['name'];target.parent.mkdir(parents=True,exist_ok=True)
@@ -64,6 +66,12 @@ def main():
     (output/'actual_evaluation_reuse.json').write_text(json.dumps(dict(
         scope='identical static stage0 weights/calibration and native inputs; actual outputs reused',
         inputs_verified=True,checkpoints_and_calibrations_verified=True,records=records),indent=2))
+    # The entire frozen evaluation is complete. Its canonical source learner
+    # copies may have been removed after exact-weight cleanup; no replay or
+    # optimizer resume is needed to reuse already verified immutable tracks.
+    (output/'complete.json').write_text(json.dumps(dict(status='COMPLETE',
+        controls=[s['name'] for s in specs],videos=len(videos),
+        shared_image_pair_forwards=0,actual_frozen_evaluation_reused=True),indent=2))
     print('ACTUAL_FROZEN_STAGE0_REUSED',dataset,len(videos),len(specs),flush=True)
 
 

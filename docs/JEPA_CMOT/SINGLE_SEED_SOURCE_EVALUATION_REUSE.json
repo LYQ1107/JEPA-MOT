@@ -1,0 +1,31 @@
+{
+  "status": "BDD_ACTUAL_REUSE_VERIFIED_UA_REUSE_QUEUED",
+  "time_utc": "2026-10-13T07:14:31.190313+00:00",
+  "scope": "Immutable source initialization stage0 only; later learned stages remain independent evaluations",
+  "bdd": {
+    "sequence": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_completion_v1/bdd100k_reverse_seed17",
+    "reference": "runs/JEPA_CMOT/development_all_v1/bdd100k_seed17",
+    "videos": 19,
+    "controls": 8,
+    "verified_records": 152,
+    "complete_marker_sha256": "68d550d9084fa17c0e2d059a1fdcc44bd39d86ae0e6477de82b28d7783f737dd",
+    "actual_completed_run_reentry": "CONTROLS_ALREADY_COMPLETE /data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_completion_v1/bdd100k_reverse_seed17/evaluation/stage0",
+    "reentry_marker_unchanged": true,
+    "local_records": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_completion_v1/bdd100k_reverse_seed17/evaluation/stage0/actual_evaluation_reuse.json"
+  },
+  "ua": {
+    "queue_pid": 24045,
+    "reuse_waiter_pid": 25190,
+    "script": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/scheduler_v1/reuse_ua_seed17_stage0_when_registered.py",
+    "reference": "runs/JEPA_CMOT/development_all_v1/ua_detrac_seed17",
+    "sequences": [
+      "ua_detrac_forward_pure_predictive_seed17",
+      "ua_detrac_reverse_seed17"
+    ],
+    "status": "NOT_EXECUTED_YET"
+  },
+  "validation": "Matched checkpoint SHA/calibration/native inputs; all actual track files matched recorded SHA; no stage0 already in progress overwritten. Whole completion permits reuse after duplicate learner copies were cleaned.",
+  "scientific_limit": "Not new inference, training or efficiency benchmark; preserves existing actual source result, not assumed post-adaptation scores.",
+  "target_GT_in_training": false,
+  "sealed_used": false
+}
