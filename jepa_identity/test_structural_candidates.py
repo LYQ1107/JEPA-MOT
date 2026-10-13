@@ -64,6 +64,21 @@ class StructuralCandidateTest(unittest.TestCase):
             self.assertTrue(torch.isfinite(loss))
             self.assertTrue(torch.isfinite(parts["relation"]))
 
+    def test_candidate_relative_zero_query_has_finite_scores_and_gradients(self):
+        model = CandidateRelativePredictor(CandidateRelativeConfig(
+            feature_dim=self.dim, history=self.length, metadata_dim=self.metadata,
+            hidden_dim=16, relation_dim=8))
+        query = torch.zeros(self.batch, 8, requires_grad=True)
+        scores = model.score(query, self.candidates, self.candidate_mask)
+        loss, _ = candidate_relative_objective(
+            model, query, self.candidates, self.positive,
+            "discriminative", candidate_mask=self.candidate_mask)
+        total = scores[slice(None), :3].mean() + loss
+        total.backward()
+        self.assertTrue(torch.isfinite(scores).all())
+        self.assertTrue(torch.isfinite(total))
+        self.assertTrue(torch.isfinite(query.grad).all())
+
     def test_strictly_past_history_is_checked(self):
         history_frames = torch.tensor([[0, 2, 4, 5], [0, 0, 3, 4]])
         current_frames = torch.tensor([6, 5])
