@@ -113,3 +113,7 @@ Observation：原残差gap2-4的修复51/损害85，gap5-8为8/11；gap1为293/2
 ## 更强head没有建立相对简单几何的优势
 
 Observation：Transformer pure预测39.9719高于自身CE .5317，但比geometry仅+.0698且CI跨0；普通pair源UA rank更高，却BDD部署39.2459低于geometry且CI全负。Hypothesis：源candidate ranking、loss尺度与实际native affinity不是同一任务；更多交互/attention并未自动增加可靠身份信息。Next decision：保留这些同容量强控制的负结果，继续已有pure online/多seed/order/official读数，不将Transformer结构变化本身归为JEPA价值，待UA全域判断域依赖性。
+
+## object-centered target和源时间支持修正的部署边界
+
+Observation：BDD crop pure与dense pure只差.00159、CI跨0；UA完整clips pure相对CE +.33416但相对last +.04196、CI跨0。Hypothesis：源身份排序和更清晰object target并非native图像关联收益的充分条件，普通history与score calibration可解释一部分差。Next decision：保留全域失败与source/readout预算区别，等已运行强geometry/EMA/Transformer/pair及持续矩阵；不改变数据划分或额外调lambda筛到有利分数。

@@ -313,3 +313,11 @@ Transformer纯预测比同Transformer CE +.53167 CI[.10729,.99374]，但比强ge
 从实际C2 final none_graph完整checkpoint复制相同模型/optimizer，使用其真实recent/reservoir的固定4+4选择，每loss先5步warmup再50步，直接调用未修改的ContinualLearner.after_assignment。没有使用GT、合成descriptor或把benchmark θ接续到研究。Replay/feature/row/row+column/RKD-D的p50分别6.703/7.010/7.576/10.731/8.625ms，p95分别13.076/11.307/11.808/14.468/16.942ms；column累计266 active columns。
 
 测量包含实际collation/transfer/history forward/loss/backward/clip/optimizer/stats分支，固定batch插入recent，排除pseudo生成、reservoir draw、image/detector/encoder/matcher。统一源状态与batch索引减少不同sample confound，但仅一组共享server执行、次序固定，不作重复计时显著性或live FPS声称；实际算法全视频开销仍有其它部分。详见RETENTION_ACTUAL_UPDATE_COSTS.json。
+
+## 完整BDD object-centered target与UA source-time-support对照
+
+BDD当前对象crop（context1.5、同source head2,000×64/source-only校准）全部19视频/3844 native帧完成：last39.63293、CE39.79610、pure39.83070、联合39.53546，geometry39.90215。pure相对crop CE +.03460 CI[-.36385,.47258]，相对geometry -.07146 CI[-.55491,.28424]；相对原dense pure39.82910仅+.00159 CI[-.33376,.27957]。源crop排序改善没有自动产生完整部署收益。Crop增加对象分辨率和frozen encoder调用，不声称frozen compute相等；所有域/指标/配对见BDD_FULL_OBJECT_CROP_DEVELOPMENT_RESULTS.json。
+
+UA连续source clips修正时间支持后，全部17开发视频/25460 native帧完成：last62.63948、CE62.34729、pure62.68145、联合62.66136。pure比CE +.33416 CI[.13150,.43021]，比last +.04196 CI[-.15120,.16867]，比联合 +.02009 CI[-.23316,.24214]；无法由CE弱对照的正差宣称JEPA稳定独立价值。全域HOTA分别sunny56.2917/cloudy71.9158/rainy50.0597/night72.4586；AssA/IDF1/DetA/MOTA/IDSW见UA_FULL_CONTIGUOUS_SOURCE_DEVELOPMENT_RESULTS.json。UA同协议强geometry与全部持续对照仍需完整汇总。
+
+已维护EVIDENCE_STATUS逐项注明task scope，不以BDD局部完成替代两数据集、多seed/order、pure/RKD/official readout和最终sealed要求。FINAL_RESEARCH_REPORT更新为当前证据草稿，明确未冻结最终方法、未最终验收；不再保留过时“仅工程smoke”的占位描述。

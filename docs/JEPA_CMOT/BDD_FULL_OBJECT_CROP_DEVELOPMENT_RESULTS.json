@@ -1,0 +1,465 @@
+{
+  "dataset": "bdd100k",
+  "scope": "complete frozen development split",
+  "domains": [
+    "clear",
+    "overcast",
+    "rainy",
+    "night"
+  ],
+  "methods": {
+    "native": {
+      "clear": {
+        "HOTA": 37.87058776467318,
+        "AssA": 41.40920405418712,
+        "DetA": 36.17111347959259,
+        "IDF1": 44.81933858468604,
+        "MOTA": 14.694894146948942,
+        "IDSW": 688
+      },
+      "overcast": {
+        "HOTA": 41.21865670004031,
+        "AssA": 48.96206579358598,
+        "DetA": 36.58058270030131,
+        "IDF1": 46.2419020064155,
+        "MOTA": 10.065189048239896,
+        "IDSW": 317
+      },
+      "rainy": {
+        "HOTA": 44.27010637144635,
+        "AssA": 51.252003123711845,
+        "DetA": 39.84640950175491,
+        "IDF1": 51.37987012987013,
+        "MOTA": 22.550704709522172,
+        "IDSW": 230
+      },
+      "night": {
+        "HOTA": 33.71097166741727,
+        "AssA": 40.179626941676275,
+        "DetA": 29.123630386975385,
+        "IDF1": 39.68975242870573,
+        "MOTA": 15.172274833769897,
+        "IDSW": 404
+      }
+    },
+    "geometry_null": {
+      "clear": {
+        "HOTA": 37.92693970781214,
+        "AssA": 41.3799377540429,
+        "DetA": 36.33635577580363,
+        "IDF1": 45.25825293692984,
+        "MOTA": 17.755784230189423,
+        "IDSW": 614
+      },
+      "overcast": {
+        "HOTA": 41.875008186714744,
+        "AssA": 49.47224316463766,
+        "DetA": 37.28293360861823,
+        "IDF1": 47.12994864460768,
+        "MOTA": 14.10691003911343,
+        "IDSW": 271
+      },
+      "rainy": {
+        "HOTA": 46.057684007493755,
+        "AssA": 53.219086979677336,
+        "DetA": 41.384681763601634,
+        "IDF1": 54.6971466711163,
+        "MOTA": 28.136816775524238,
+        "IDSW": 201
+      },
+      "night": {
+        "HOTA": 33.74898193496485,
+        "AssA": 40.18451674129743,
+        "DetA": 29.088873746588344,
+        "IDF1": 40.28597823030887,
+        "MOTA": 17.529719927463226,
+        "IDSW": 324
+      }
+    },
+    "frozen_last": {
+      "clear": {
+        "HOTA": 37.14258037738548,
+        "AssA": 39.84038937721607,
+        "DetA": 36.291688919754975,
+        "IDF1": 44.04204459870984,
+        "MOTA": 16.89060758995871,
+        "IDSW": 661
+      },
+      "overcast": {
+        "HOTA": 41.716385672259115,
+        "AssA": 49.443293102585365,
+        "DetA": 37.076964138397834,
+        "IDF1": 46.98082547936301,
+        "MOTA": 14.146023468057367,
+        "IDSW": 264
+      },
+      "rainy": {
+        "HOTA": 45.745426106204675,
+        "AssA": 52.700257492566585,
+        "DetA": 41.19390592340388,
+        "IDF1": 54.430274235225475,
+        "MOTA": 27.208662770711584,
+        "IDSW": 184
+      },
+      "night": {
+        "HOTA": 33.92733997461433,
+        "AssA": 40.38058149312391,
+        "DetA": 29.232115864449366,
+        "IDF1": 40.26662383552843,
+        "MOTA": 17.475988985156825,
+        "IDSW": 343
+      }
+    },
+    "discriminative": {
+      "clear": {
+        "HOTA": 37.594205781386094,
+        "AssA": 40.878583475134995,
+        "DetA": 36.14607686227589,
+        "IDF1": 45.090885185550405,
+        "MOTA": 17.454283279805992,
+        "IDSW": 631
+      },
+      "overcast": {
+        "HOTA": 41.24328392567093,
+        "AssA": 48.34631701360491,
+        "DetA": 37.02746022890076,
+        "IDF1": 45.692297658644755,
+        "MOTA": 13.676662320730118,
+        "IDSW": 260
+      },
+      "rainy": {
+        "HOTA": 45.820649556174985,
+        "AssA": 53.086075390524634,
+        "DetA": 41.09590941124863,
+        "IDF1": 54.50454204517043,
+        "MOTA": 27.31179099346854,
+        "IDSW": 182
+      },
+      "night": {
+        "HOTA": 34.526253662989284,
+        "AssA": 41.975505237340386,
+        "DetA": 29.169239411051826,
+        "IDF1": 41.33360112472384,
+        "MOTA": 17.475988985156825,
+        "IDSW": 326
+      }
+    },
+    "predictive": {
+      "clear": {
+        "HOTA": 37.45502435271096,
+        "AssA": 40.67653815803456,
+        "DetA": 36.12138736594915,
+        "IDF1": 44.056012855409435,
+        "MOTA": 16.870944484498917,
+        "IDSW": 640
+      },
+      "overcast": {
+        "HOTA": 41.80072619040275,
+        "AssA": 49.554119546014725,
+        "DetA": 37.146208810949915,
+        "IDF1": 47.08712613784135,
+        "MOTA": 13.79400260756193,
+        "IDSW": 266
+      },
+      "rainy": {
+        "HOTA": 45.610969471461175,
+        "AssA": 52.39873486666837,
+        "DetA": 41.22541479878311,
+        "IDF1": 53.98067954696869,
+        "MOTA": 27.294602956342384,
+        "IDSW": 180
+      },
+      "night": {
+        "HOTA": 34.45606922027566,
+        "AssA": 41.690207675893646,
+        "DetA": 29.201813834685115,
+        "IDF1": 41.10602041636525,
+        "MOTA": 17.71777822553563,
+        "IDSW": 319
+      }
+    },
+    "predictive_ranking": {
+      "clear": {
+        "HOTA": 36.91165199864055,
+        "AssA": 39.36887174106125,
+        "DetA": 36.1951238244829,
+        "IDF1": 43.506493506493506,
+        "MOTA": 17.093793013043193,
+        "IDSW": 653
+      },
+      "overcast": {
+        "HOTA": 41.4037731798292,
+        "AssA": 49.37736370738652,
+        "DetA": 36.638316351069136,
+        "IDF1": 46.54744811382326,
+        "MOTA": 12.868318122555412,
+        "IDSW": 263
+      },
+      "rainy": {
+        "HOTA": 45.46403171965721,
+        "AssA": 52.423893709347766,
+        "DetA": 40.96696470542447,
+        "IDF1": 53.38107928047968,
+        "MOTA": 26.314884840151255,
+        "IDSW": 197
+      },
+      "night": {
+        "HOTA": 34.362395697673726,
+        "AssA": 41.633921335516646,
+        "DetA": 29.15685998621643,
+        "IDF1": 40.82861616283271,
+        "MOTA": 17.435690778427027,
+        "IDSW": 296
+      }
+    }
+  },
+  "equal_domain_average": {
+    "native": {
+      "HOTA": 39.26758062589428,
+      "AssA": 45.4507249782903,
+      "IDF1": 45.53271578741935
+    },
+    "geometry_null": {
+      "HOTA": 39.90215345924637,
+      "AssA": 46.063946159913826,
+      "IDF1": 46.842831620740675
+    },
+    "frozen_last": {
+      "HOTA": 39.632933032615895,
+      "AssA": 45.59113036637298,
+      "IDF1": 46.42994203720669
+    },
+    "discriminative": {
+      "HOTA": 39.79609823155532,
+      "AssA": 46.07162027915123,
+      "IDF1": 46.65533150352236
+    },
+    "predictive": {
+      "HOTA": 39.83069730871264,
+      "AssA": 46.07990006165283,
+      "IDF1": 46.55745973914618
+    },
+    "predictive_ranking": {
+      "HOTA": 39.53546314895017,
+      "AssA": 45.70101262332805,
+      "IDF1": 46.06590926590729
+    }
+  },
+  "videos_by_domain": {
+    "clear": [
+      "b202cae2-672e61c5",
+      "b1df722f-57d21f3f",
+      "b1f0efd9-e900c6e5",
+      "b2208b0f-2796a692",
+      "b2169b74-fa197951"
+    ],
+    "overcast": [
+      "b1ff4656-ebcfeb35",
+      "b23b2649-8349d2a1",
+      "b1ff4656-0435391e",
+      "b23b2649-6af03cd5"
+    ],
+    "rainy": [
+      "0081da60-27997c07",
+      "00810e80-37641274",
+      "b1e1a7b8-65ec7612"
+    ],
+    "night": [
+      "b1ebfc3c-740ec84a",
+      "b214d1e1-f248c616",
+      "b21547c1-73e457f8",
+      "b21d5efb-5e2cd743",
+      "b23f7012-fab06dac",
+      "b2505382-272e7823",
+      "b20eae11-6817ba7a"
+    ]
+  },
+  "frames_by_domain": {
+    "clear": 1013,
+    "overcast": 810,
+    "rainy": 607,
+    "night": 1414
+  },
+  "candidate": "predictive_ranking",
+  "paired_comparisons": {
+    "frozen_last": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.09746988366572751,
+          "percentile_95": [
+            -0.4725316277194999,
+            0.2980535730106161
+          ]
+        },
+        "AssA": {
+          "delta": 0.10988225695506237,
+          "percentile_95": [
+            -0.7089560897226984,
+            1.1221225805774773
+          ]
+        },
+        "IDF1": {
+          "delta": -0.36403277129940115,
+          "percentile_95": [
+            -1.1201083073932494,
+            0.37395412606624306
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "discriminative": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.26063508260515356,
+          "percentile_95": [
+            -0.7582026981505554,
+            0.266538901427912
+          ]
+        },
+        "AssA": {
+          "delta": -0.37060765582318744,
+          "percentile_95": [
+            -1.4759210591912006,
+            0.8450771211015683
+          ]
+        },
+        "IDF1": {
+          "delta": -0.5894222376150697,
+          "percentile_95": [
+            -1.3784444378382423,
+            0.2908878380855785
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictive": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.2952341597624635,
+          "percentile_95": [
+            -0.5561263232890461,
+            0.04726645895758326
+          ]
+        },
+        "AssA": {
+          "delta": -0.378887438324778,
+          "percentile_95": [
+            -0.9285550216144722,
+            0.45292252201014027
+          ]
+        },
+        "IDF1": {
+          "delta": -0.4915504732388918,
+          "percentile_95": [
+            -0.9205402084872779,
+            0.01895238095180601
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "source_checkpoint_hashes_unchanged": true,
+  "sealed_used": false,
+  "pure_prediction_cross_readout_comparisons": {
+    "geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.0714561505337361,
+          "percentile_95": [
+            -0.554905577530961,
+            0.284238257017706
+          ]
+        },
+        "AssA": {
+          "delta": 0.015953901738994247,
+          "percentile_95": [
+            -1.0626933647662713,
+            0.8154265910056233
+          ]
+        },
+        "IDF1": {
+          "delta": -0.285371881594493,
+          "percentile_95": [
+            -1.1655987311487914,
+            0.4317727004346436
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "crop_CE": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.03459907715730992,
+          "percentile_95": [
+            -0.36384742920367386,
+            0.47257839553344394
+          ]
+        },
+        "AssA": {
+          "delta": 0.00827978250159056,
+          "percentile_95": [
+            -0.9673966788409232,
+            0.9318606683514881
+          ]
+        },
+        "IDF1": {
+          "delta": -0.09787176437617795,
+          "percentile_95": [
+            -0.7224133291961807,
+            0.6194534990200813
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "dense_prediction": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.0015947100830882022,
+          "percentile_95": [
+            -0.33375809202687673,
+            0.2795744666220753
+          ]
+        },
+        "AssA": {
+          "delta": -0.1752580487124824,
+          "percentile_95": [
+            -0.9453640335128091,
+            0.4976385360287045
+          ]
+        },
+        "IDF1": {
+          "delta": -0.24019530334814476,
+          "percentile_95": [
+            -0.86189062885878,
+            0.29564936520611157
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "readout_comparison_limitation": "same native detections/images, source head budgets and labels; crop increases object resolution and frozen feature compute, not equal frozen backbone compute"
+}
