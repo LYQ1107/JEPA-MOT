@@ -1,6 +1,12 @@
 # 当前结果
 
-状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA H2/C2 的 stage1/2、主线stage1和通用RKD source冻结stage0、stage1也已通过实际标记和快照/optimizer核验，UA official paired encoder 的17个开发视频也已完成。UA完整持续矩阵、paired predictor、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
+状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA C2 四组完整0–3矩阵、H2 stage1/2、主线stage1和通用RKD source冻结stage0/1也已通过实际标记和快照/optimizer核验，UA official paired encoder/predictor 的17个开发视频与合并分析也已完成。UA主线/H2/RKD后续阶段、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
+
+## 最新已封口的 UA 证据
+
+UA C2 的四个结构保持控制已完成全部四阶段、65,430 native frames 和 8,101 updates。最终四域等权 HOTA/AF/BWT/FWT 为：none 62.61165/.59870/-.56967/.16868，feature 62.83441/.30282/-.26502/.16249，relation 62.65220/.33442/-.33442/.08989，competition 62.65687/.33051/-.33051/.09083。结果来自 [UA C2 完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json)，不能外推到其它 UA family、sealed 或多 seed。
+
+UA official paired frozen development 也已完成 17 个视频/25,460 native frames：masked predictor 的 predictive HOTA 63.22523、predictive+ranking 63.31112；encoder 对应为 62.66640、62.71962。两种读数的信息量和 frozen 计算不同，结果只作正式读数对照。
 
 ## 有效工程证据
 
@@ -336,7 +342,7 @@ BDD paired w4 source来自25个clear source_train视频的原3174帧/38466 GT实
 
 真实源held-out rank1：encoder CE .555494 /pure .497362 /joint .547662；masked predictor CE .473748 /pure .476078 /joint .481818。pure source prediction error为encoder .116265、predictor .039299；1664-D predictor较低的cosine error不能直接解释为更强身份关联，不同读数的latent空间/信息不同。源rank不用于选择目标域视频或调整门控。
 
-两者分享合法4帧window和ROI，但encoder能看到当前像素，official predictor当前两帧像素在patch projection前归零且tokens masked；其额外22973056个frozen predictor参数与计算另计。这里匹配物理样本、源图像/可训练预算和近似head容量，不声称可用信息、frozen参数或算力相同。完整开发MOT部署仍在运行，UA对应pipeline尚未完成，不把源训练/池一致性当成HOTA结果。详见BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json，含六个真实checkpoint SHA、source-cache SHA、原采样定义下重建的seed17 index SHA和复现命令；重建sampler不声称保存了每步训练trace。
+两者分享合法4帧window和ROI，但encoder能看到当前像素，official predictor当前两帧像素在patch projection前归零且tokens masked；其额外22973056个frozen predictor参数与计算另计。这里匹配物理样本、源图像/可训练预算和近似head容量，不声称可用信息、frozen参数或算力相同。BDD与UA的完整开发MOT部署均已完成，不把源训练/池一致性当成HOTA结果。详见BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json，含六个真实checkpoint SHA、source-cache SHA、原采样定义下重建的seed17 index SHA和复现命令；重建sampler不声称保存了每步训练trace。
 
 ## UA完整object-centered target与强geometry对照
 
@@ -368,7 +374,7 @@ encoder pure比同读数CE +.44170 CI[.19336,.75556]，但比geometry -.05653 CI
 
 当前首次有正式全source/head/全native development的1664-D predictor读数证据，替代先前工程cache占位，但不是持续学习或三seed证据。mask predictor不能看到当前两帧像素（patch projection前归零、tokens masked），extra frozen22973056参数与FP32计算另计；encoder1024-D能看到当前像素。相同合法4帧window/ROI、source物理预算和近似可训练容量，不等价于信息量/frozen算力相同。更低source cosine error也不能跨不同latent空间解释为更强identity target。
 
-完整八组逐域六指标、十二项配对视频raw-count区间、source pool/checkpoint/实际prepared annotation SHA和复现命令见BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json，图figures/bdd_complete_official_paired_readouts.svg。全部原prepared detections、native frames和GT评分覆盖逐条匹配，targetGT没有进入训练/gates，sealed未用。UA official pipeline继续，不以BDD seed17 frozen结果替代全项目完成。
+完整八组逐域六指标、十二项配对视频raw-count区间、source pool/checkpoint/实际prepared annotation SHA和复现命令见BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json，图figures/bdd_complete_official_paired_readouts.svg。全部原prepared detections、native frames和GT评分覆盖逐条匹配，targetGT没有进入训练/gates，sealed未用。UA official paired已完成并见UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json；这些frozen读数不替代持续学习或全项目完成。
 
 ## data1磁盘清理
 
@@ -382,7 +388,7 @@ UA MLP/Transformer/pair-MLP/mean4/EMA全部17开发视频/25460 native帧完成�
 
 Transformer pure比同Transformer CE +.68317 CI[.08575,1.29499]，比geometry +.88491 CI[.20845,1.32044]；但比EMA只有+.11875 CI[-.27443,.28213]。MLP pure比EMA -.05180 CI[-.22667,.05772]，比pair +.61997 CI[.39052,.94665]，比last +.31086 CI[.11770,.83744]。EMA本身比geometry +.76616 CI[.16143,1.37539]；因此不能用弱CE/geometry的正差宣称预测损失已超越强简单历史，Transformer best点估计仍无selection correction/cross-seed证据。源时间支持/crop/readout探索不从最佳视频/阶段选结果。
 
-全部方法逐域六指标、十三项全native raw-count配对比较见UA_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json，图figures/ua_complete_strong_heads_hota.svg。结果是seed17 frozen development，仍需UA持续矩阵、多seed/orders与official UA读数；sealed未用。
+全部方法逐域六指标、十三项全native raw-count配对比较见UA_FULL_STRONG_HEAD_DEVELOPMENT_RESULTS.json，图figures/ua_complete_strong_heads_hota.svg。结果是seed17 frozen development，仍需UA持续矩阵与多seed/orders；official UA paired读数已由UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json覆盖；sealed未用。
 
 ## UA完整历史1/2/4/8消融与独立轨迹复现
 
@@ -390,7 +396,7 @@ Transformer pure比同Transformer CE +.68317 CI[.08575,1.29499]，比geometry +.
 
 pure history4比history1 -.19099 CI[-.57326,-.01093]，history8比history1 -.18165 CI[-.50792,.08258]，history8比geometry +.41181 CI[-.14166,.79067]；CE history4比history1 -.22408 CI[-.44736,-.07791]，joint history8比history1 +.02205 CI[-.32898,.36664]。本匹配预算协议未提供更长历史稳定收益，不从K1最佳点选择删掉其它长度，也不等价于证明一切历史结构无效。
 
-history4全部三目标×17视频轨迹与独立完成的UA source-clips部署bytes逐条相同；Source head SHA未变，GT只用于离线指标，sealed未用。完整12组逐域六指标、九项配对raw-count bootstrap、51条轨迹SHA见UA_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS.json，图figures/ua_complete_history_length_hota.svg。磁盘满失败视频已从合法完整节点恢复，不以16/17替代完整scope。尚未完成的持续矩阵/多seed/orders/official UA读数继续。
+history4全部三目标×17视频轨迹与独立完成的UA source-clips部署bytes逐条相同；Source head SHA未变，GT只用于离线指标，sealed未用。完整12组逐域六指标、九项配对raw-count bootstrap、51条轨迹SHA见UA_FULL_HISTORY_LENGTH_DEVELOPMENT_RESULTS.json，图figures/ua_complete_history_length_hota.svg。磁盘满失败视频已从合法完整节点恢复，不以16/17替代完整scope。尚未完成的持续矩阵与多seed/orders继续；official paired读数已单独完成。
 
 ## BDD纯预测FT/Replay完整持续矩阵完成
 

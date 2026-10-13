@@ -1,6 +1,6 @@
 # 最终科研报告（进行中的证据草稿，尚非最终交付）
 
-状态：ACTIVE。用户于2026-10-13要求减少多种子耗时，当前集中seed17，批量seed23/42任务已撤下；完整三seed不再是当前自动执行门槛，仍不得声称已验证跨seed稳健性。本稿回答任务书17问，表格只采用已完成范围的实际结果。尚未冻结最终方法与超参数；sealed测试未执行，UA持续矩阵、UA逆序与多seed尚未齐备。BDD seed17 reverse 已完成四阶段矩阵，但不能据本稿声明全项目完成或CVPR主张成立。
+状态：ACTIVE。用户于2026-10-13要求减少多种子耗时，当前集中seed17，批量seed23/42任务已撤下；完整三seed不再是当前自动执行门槛，仍不得声称已验证跨seed稳健性。本稿回答任务书17问，表格只采用已完成范围的实际结果。尚未冻结最终方法与超参数；sealed测试未执行，UA主线/H2/RKD后续持续矩阵、UA逆序与多seed尚未齐备。BDD seed17 reverse 与 UA C2 已完成四阶段矩阵，但不能据本稿声明全项目完成或CVPR主张成立。
 
 所有分数以百分点表示；开发集按域分别聚合TrackEval后取四域等权平均。视频bootstrap是固定seed开发探索的不确定性，未做模型选择校正，不能替代跨seed均值/标准差或独立测试。以下不同训练目标和不同frozen读数的点估计不自动构成等信息、等算力或等伪对供给的因果对照。
 
@@ -55,7 +55,7 @@ Candidate A预测当前目标的固定identity latent，q=Pθ(H(<t))，以stop-g
 | BDD100K | Prototype/frozen_mean4 | 39.59214 | 45.74879 | 46.52141 |
 | BDD100K | Prototype/frozen_ema | 39.65004 | 45.84466 | 46.36949 |
 
-BDD官方paired frozen读数另有完整19视频结果：encoder pure39.84562、masked predictor pure40.10419。它们具有不同视觉信息/额外frozen计算，单列于[官方读数结果](BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json)，不混进上述相同dense读数表。UA该读数源六head与物理样本池已核验，完整开发评测尚在运行。
+BDD官方paired frozen读数另有完整19视频结果：encoder pure39.84562、masked predictor pure40.10419。UA官方paired也已完成17视频/25,460 native frames：encoder pure62.66640、masked predictor pure63.22523，predictive+ranking分别为62.71962与63.31112。它们具有不同视觉信息/额外frozen计算，单列于[BDD官方读数结果](BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json)和[UA官方读数结果](UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json)，不混进上述相同dense读数表；这些是固定seed frozen development，不是持续学习、sealed或跨seed证据。
 
 ## 7. 两个数据集各域HOTA、AssA、IDF1是多少？
 
@@ -98,7 +98,9 @@ BDD官方paired frozen读数另有完整19视频结果：encoder pure39.84562、
 
 ## 8. 完整顺序学习后平均遗忘降低多少？
 
-BDD seed17 clear→overcast→rainy→night完成44适应视频/8,811 native帧及每阶段19视频冻结回测。以下八组源初始化/自教师伪对并非全相同，AF比较应结合初始性能、最终性能和新域学习，AF低不等于适应成功。AF采用已学习旧域历史最佳阶段到final的非负降幅；signed AF、BWT与FWT另报，不能混用。UA最终矩阵未齐，不能给出两数据集共同的遗忘结论。
+BDD seed17 clear→overcast→rainy→night完成44适应视频/8,811 native帧及每阶段19视频冻结回测。以下八组源初始化/自教师伪对并非全相同，AF比较应结合初始性能、最终性能和新域学习，AF低不等于适应成功。AF采用已学习旧域历史最佳阶段到final的非负降幅；signed AF、BWT与FWT另报，不能混用。UA C2 四组也已完成四阶段回测，但UA主线/H2/RKD其它family仍未齐，不能给出两数据集共同的遗忘结论。
+
+UA C2 的最终四域等权 HOTA/AF/BWT/FWT 为：none 62.61165/.59870/-.56967/.16868，feature 62.83441/.30282/-.26502/.16249，relation 62.65220/.33442/-.33442/.08989，competition 62.65687/.33051/-.33051/.09083。完整六指标与实际预算见 [UA C2 完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json)；这是固定 seed17 development 证据，不能替代其它 UA family、sealed 或跨 seed。
 
 | BDD方法 | final HOTA | final AssA | final IDF1 | HOTA AF |
 |---|---:|---:|---:|---:|
@@ -150,11 +152,11 @@ BDD dense规则的1,732个关联改变中，离线一步诊断纠错354、反改
 
 ## 16. 当前是否足以支撑持续学习核心的CVPR论文？
 
-不足。已有真实多轮结构探索、完整BDD forward/reverse与两数据集frozen负结果，不是仅工程smoke；但未证明稳定超过强非JEPA的MOT/遗忘收益，UA持续矩阵、UA逆序和冻结后的独立测试未齐，三seed稳健性受用户资源约束尚未证明。仅凭弱CE对照的提升、较小cosine error、nonzero relation loss或低AF不能成立主张。最终研究可能得到证据不足的诚实结论，不能预先宣判整个方向失败，也不能伪造支持。
+不足。已有真实多轮结构探索、完整BDD forward/reverse、UA C2完整回测与两数据集frozen负结果，不是仅工程smoke；但未证明稳定超过强非JEPA的MOT/遗忘收益，UA主线/H2/RKD后续持续矩阵、UA逆序和冻结后的独立测试未齐，三seed稳健性受用户资源约束尚未证明。仅凭弱CE对照的提升、较小cosine error、nonzero relation loss或低AF不能成立主张。最终研究可能得到证据不足的诚实结论，不能预先宣判整个方向失败，也不能伪造支持。
 
 ## 17. 还缺哪些关键证据？
 
-补齐实际运行中的UA持续/通用RKD/官方读数及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；UA通用RKD的stage0/1已记录于[RKD已完成阶段分析](UA_RKD_COMPLETED_STAGES_0_1_ANALYSIS.json)，BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
+补齐实际运行中的UA主线/H2/RKD后续持续矩阵及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；UA C2完整结果已记录于[UA C2完整分析](UA_C2_FULL_CONTINUAL_ANALYSIS.json)，UA通用RKD的stage0/1已记录于[RKD已完成阶段分析](UA_RKD_COMPLETED_STAGES_0_1_ANALYSIS.json)，UA official paired frozen development已记录于[UA官方读数结果](UA_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json)，BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
 
 ## 已完成BDD八组顺序矩阵：HOTA
 
