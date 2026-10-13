@@ -1,0 +1,84 @@
+{
+  "status": "COMPLETE_OBSERVED_LOCAL_HEADROOM_NOT_GLOBAL_UPPER_BOUND",
+  "dataset": "bdd100k",
+  "split": "development",
+  "seed": 17,
+  "taxonomy_reference": "runs/JEPA_IDENTITY/h1_wave_a/IDENTITY_ERROR_TAXONOMY.json",
+  "methods": {
+    "predictive_residual_audit": {
+      "recorded_changed_events": 1732,
+      "evaluable_changed_events": 1394,
+      "correct_candidate_present": 1177,
+      "correct_candidate_absent": 217,
+      "local_corrected_events": 354,
+      "local_harmful_events": 300,
+      "corrected_minus_harmful": 54,
+      "corrected_harmful_ratio": 1.18,
+      "observed_event_headroom_rate": 0.2539454806312769,
+      "interpretation": "lower-bound local headroom among recorded changed assignments; not all candidate opportunities"
+    },
+    "predictive_rank_reward": {
+      "recorded_changed_events": 23,
+      "evaluable_changed_events": 16,
+      "correct_candidate_present": 11,
+      "correct_candidate_absent": 5,
+      "local_corrected_events": 1,
+      "local_harmful_events": 1,
+      "corrected_minus_harmful": 0,
+      "corrected_harmful_ratio": 1.0,
+      "observed_event_headroom_rate": 0.0625,
+      "interpretation": "lower-bound local headroom among recorded changed assignments; not all candidate opportunities"
+    },
+    "discriminative_rank_reward": {
+      "recorded_changed_events": 13,
+      "evaluable_changed_events": 10,
+      "correct_candidate_present": 8,
+      "correct_candidate_absent": 2,
+      "local_corrected_events": 1,
+      "local_harmful_events": 1,
+      "corrected_minus_harmful": 0,
+      "corrected_harmful_ratio": 1.0,
+      "observed_event_headroom_rate": 0.1,
+      "interpretation": "lower-bound local headroom among recorded changed assignments; not all candidate opportunities"
+    },
+    "frozen_last_rank_reward": {
+      "recorded_changed_events": 17,
+      "evaluable_changed_events": 12,
+      "correct_candidate_present": 7,
+      "correct_candidate_absent": 5,
+      "local_corrected_events": 0,
+      "local_harmful_events": 0,
+      "corrected_minus_harmful": 0,
+      "corrected_harmful_ratio": null,
+      "observed_event_headroom_rate": 0.0,
+      "interpretation": "lower-bound local headroom among recorded changed assignments; not all candidate opportunities"
+    },
+    "random_rank_reward": {
+      "recorded_changed_events": 0,
+      "evaluable_changed_events": 0,
+      "correct_candidate_present": 0,
+      "correct_candidate_absent": 0,
+      "local_corrected_events": 0,
+      "local_harmful_events": 0,
+      "corrected_minus_harmful": 0,
+      "corrected_harmful_ratio": null,
+      "observed_event_headroom_rate": null,
+      "interpretation": "lower-bound local headroom among recorded changed assignments; not all candidate opportunities"
+    }
+  },
+  "strong_control_comparisons": [
+    "predictive_rank_reward vs frozen_last_rank_reward",
+    "predictive_rank_reward vs discriminative_rank_reward",
+    "predictive_rank_reward vs random_rank_reward",
+    "predictive_residual_audit vs predictive_rank_reward"
+  ],
+  "candidate_coverage_reference": "IDENTITY_ERROR_TAXONOMY.json::coverage_by_domain",
+  "target_GT_used_for_training_or_gate": false,
+  "sealed_used": false,
+  "limitations": [
+    "association diagnoses cover only changed assignments recorded by the existing tracer; absent event files are not evidence of zero opportunities",
+    "the common state is the method's own rollout state, so this is not an independent full-baseline rollout",
+    "candidate lists are the tracer's recorded top candidates and do not expose every detector or post-matcher gate",
+    "this Phase-1 run reuses BDD development evidence; UA event-level logs require a GPU-backed rerun and are not imputed"
+  ]
+}

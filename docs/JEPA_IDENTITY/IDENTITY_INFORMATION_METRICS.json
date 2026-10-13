@@ -1,0 +1,506 @@
+{
+  "status": "COMPLETE_OFFLINE_IDENTITY_RANKING_METRICS",
+  "scope": "existing changed-assignment events only; not all association opportunities",
+  "evaluable_diagnoses": [
+    "both_correct",
+    "corrected_local_identity",
+    "harmful_local_identity",
+    "neither_correct"
+  ],
+  "methods": {
+    "discriminative_rank_reward": {
+      "event_count_by_domain": {
+        "clear": 2,
+        "night": 4,
+        "overcast": 3,
+        "rainy": 1
+      },
+      "native": {
+        "evaluable_changed_events": 10,
+        "events_with_scored_candidates": 10,
+        "correct_candidate_present": 8,
+        "correct_candidate_absent": 2,
+        "candidate_coverage_rate": 0.8,
+        "candidate_coverage_95ci": [
+          0.49016247153664183,
+          0.9433178485456247
+        ],
+        "top1_identity_accuracy_conditional": 0.75,
+        "top1_identity_accuracy_95ci": [
+          0.40927543031016883,
+          0.9285207872478909
+        ],
+        "mrr_conditional": 0.8541666666666666,
+        "mrr_95ci": [
+          0.6666666666666666,
+          1.0
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.75,
+          "3": 1.0,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.91875,
+        "pairwise_auc_95ci": [
+          0.8062499999999999,
+          1.0
+        ],
+        "average_precision": 0.8645833333333333,
+        "average_precision_95ci": [
+          0.6770833333333333,
+          1.0
+        ],
+        "positive_vs_best_negative_margin": 0.42704340081473,
+        "positive_vs_best_negative_margin_95ci": [
+          0.05647896368259374,
+          0.706300877236763
+        ],
+        "candidate_nll_uncalibrated": 0.9555575012458073,
+        "candidate_nll_uncalibrated_95ci": [
+          0.6726636510267764,
+          1.3134550483277678
+        ],
+        "candidate_brier_uncalibrated": 0.358036771393213,
+        "candidate_brier_uncalibrated_95ci": [
+          0.23842718822145784,
+          0.4951398131168284
+        ],
+        "winner_ece_uncalibrated": 0.49709600889483996,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "intervention": {
+        "evaluable_changed_events": 10,
+        "events_with_scored_candidates": 10,
+        "correct_candidate_present": 8,
+        "correct_candidate_absent": 2,
+        "candidate_coverage_rate": 0.8,
+        "candidate_coverage_95ci": [
+          0.49016247153664183,
+          0.9433178485456247
+        ],
+        "top1_identity_accuracy_conditional": 0.75,
+        "top1_identity_accuracy_95ci": [
+          0.40927543031016883,
+          0.9285207872478909
+        ],
+        "mrr_conditional": 0.8541666666666666,
+        "mrr_95ci": [
+          0.6458333333333333,
+          1.0
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.75,
+          "3": 1.0,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.91875,
+        "pairwise_auc_95ci": [
+          0.8187499999999999,
+          1.0
+        ],
+        "average_precision": 0.8645833333333333,
+        "average_precision_95ci": [
+          0.6770833333333334,
+          1.0
+        ],
+        "positive_vs_best_negative_margin": 0.43272617369243627,
+        "positive_vs_best_negative_margin_95ci": [
+          0.053782954236400504,
+          0.7054279382660206
+        ],
+        "candidate_nll_uncalibrated": 0.9520912664567598,
+        "candidate_nll_uncalibrated_95ci": [
+          0.6785243210679986,
+          1.3106604805107365
+        ],
+        "candidate_brier_uncalibrated": 0.3569391160578443,
+        "candidate_brier_uncalibrated_95ci": [
+          0.24016634618959273,
+          0.4984359894333833
+        ],
+        "winner_ece_uncalibrated": 0.49736684328477615,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "local_diagnosis_counts": {
+        "both_correct": 6,
+        "corrected_local_identity": 1,
+        "harmful_local_identity": 1,
+        "neither_correct": 2
+      }
+    },
+    "frozen_last_rank_reward": {
+      "event_count_by_domain": {
+        "clear": 3,
+        "night": 2,
+        "overcast": 6,
+        "rainy": 1
+      },
+      "native": {
+        "evaluable_changed_events": 12,
+        "events_with_scored_candidates": 12,
+        "correct_candidate_present": 7,
+        "correct_candidate_absent": 5,
+        "candidate_coverage_rate": 0.5833333333333334,
+        "candidate_coverage_95ci": [
+          0.31951131254954973,
+          0.8067396863412435
+        ],
+        "top1_identity_accuracy_conditional": 0.8571428571428571,
+        "top1_identity_accuracy_95ci": [
+          0.4868721707256811,
+          0.9743203756552565
+        ],
+        "mrr_conditional": 0.9285714285714286,
+        "mrr_95ci": [
+          0.7857142857142857,
+          1.0
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.8571428571428571,
+          "3": 1.0,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.9285714285714286,
+        "pairwise_auc_95ci": [
+          0.8571428571428571,
+          0.9821428571428571
+        ],
+        "average_precision": 0.8928571428571429,
+        "average_precision_95ci": [
+          0.7738095238095236,
+          0.9761904761904762
+        ],
+        "positive_vs_best_negative_margin": 0.45076843547950624,
+        "positive_vs_best_negative_margin_95ci": [
+          0.13437268218769988,
+          0.7043494881072692
+        ],
+        "candidate_nll_uncalibrated": 0.7193470050341688,
+        "candidate_nll_uncalibrated_95ci": [
+          0.655346512393091,
+          0.7799496034931442
+        ],
+        "candidate_brier_uncalibrated": 0.2630066788059379,
+        "candidate_brier_uncalibrated_95ci": [
+          0.23079219818420116,
+          0.29755634402626946
+        ],
+        "winner_ece_uncalibrated": 0.5980853867605607,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "intervention": {
+        "evaluable_changed_events": 12,
+        "events_with_scored_candidates": 12,
+        "correct_candidate_present": 7,
+        "correct_candidate_absent": 5,
+        "candidate_coverage_rate": 0.5833333333333334,
+        "candidate_coverage_95ci": [
+          0.31951131254954973,
+          0.8067396863412435
+        ],
+        "top1_identity_accuracy_conditional": 0.8571428571428571,
+        "top1_identity_accuracy_95ci": [
+          0.4868721707256811,
+          0.9743203756552565
+        ],
+        "mrr_conditional": 0.9285714285714286,
+        "mrr_95ci": [
+          0.7857142857142857,
+          1.0
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.8571428571428571,
+          "3": 1.0,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.9285714285714286,
+        "pairwise_auc_95ci": [
+          0.8571428571428571,
+          0.9821428571428571
+        ],
+        "average_precision": 0.8928571428571429,
+        "average_precision_95ci": [
+          0.7738095238095237,
+          0.9761904761904762
+        ],
+        "positive_vs_best_negative_margin": 0.4536832495441959,
+        "positive_vs_best_negative_margin_95ci": [
+          0.20930761596841782,
+          0.7552190044953847
+        ],
+        "candidate_nll_uncalibrated": 0.7177370372444074,
+        "candidate_nll_uncalibrated_95ci": [
+          0.6502423861414222,
+          0.7830477229930468
+        ],
+        "candidate_brier_uncalibrated": 0.26221499065293946,
+        "candidate_brier_uncalibrated_95ci": [
+          0.23138781620500756,
+          0.29581597270774973
+        ],
+        "winner_ece_uncalibrated": 0.5984341406417,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "local_diagnosis_counts": {
+        "both_correct": 7,
+        "corrected_local_identity": 0,
+        "harmful_local_identity": 0,
+        "neither_correct": 5
+      }
+    },
+    "predictive_rank_reward": {
+      "event_count_by_domain": {
+        "clear": 5,
+        "night": 2,
+        "overcast": 7,
+        "rainy": 2
+      },
+      "native": {
+        "evaluable_changed_events": 16,
+        "events_with_scored_candidates": 16,
+        "correct_candidate_present": 11,
+        "correct_candidate_absent": 5,
+        "candidate_coverage_rate": 0.6875,
+        "candidate_coverage_95ci": [
+          0.44404355834740666,
+          0.8583535614521796
+        ],
+        "top1_identity_accuracy_conditional": 0.8181818181818182,
+        "top1_identity_accuracy_95ci": [
+          0.523019438039156,
+          0.9486323102539149
+        ],
+        "mrr_conditional": 0.893939393939394,
+        "mrr_95ci": [
+          0.7424242424242423,
+          1.0
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.8181818181818182,
+          "3": 1.0,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.9181818181818181,
+        "pairwise_auc_95ci": [
+          0.8363636363636363,
+          0.9772727272727273
+        ],
+        "average_precision": 0.8712121212121211,
+        "average_precision_95ci": [
+          0.7348484848484848,
+          0.9696969696969696
+        ],
+        "positive_vs_best_negative_margin": 0.31304904650921606,
+        "positive_vs_best_negative_margin_95ci": [
+          0.07995306228708053,
+          0.5382460631950158
+        ],
+        "candidate_nll_uncalibrated": 0.8770282960571992,
+        "candidate_nll_uncalibrated_95ci": [
+          0.6550515410287062,
+          1.1892330760334318
+        ],
+        "candidate_brier_uncalibrated": 0.3258072412119061,
+        "candidate_brier_uncalibrated_95ci": [
+          0.23144970843822563,
+          0.42600206785106226
+        ],
+        "winner_ece_uncalibrated": 0.5584609036098986,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "intervention": {
+        "evaluable_changed_events": 16,
+        "events_with_scored_candidates": 16,
+        "correct_candidate_present": 11,
+        "correct_candidate_absent": 5,
+        "candidate_coverage_rate": 0.6875,
+        "candidate_coverage_95ci": [
+          0.44404355834740666,
+          0.8583535614521796
+        ],
+        "top1_identity_accuracy_conditional": 0.8181818181818182,
+        "top1_identity_accuracy_95ci": [
+          0.523019438039156,
+          0.9486323102539149
+        ],
+        "mrr_conditional": 0.893939393939394,
+        "mrr_95ci": [
+          0.712121212121212,
+          1.0
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.8181818181818182,
+          "3": 1.0,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.9181818181818181,
+        "pairwise_auc_95ci": [
+          0.843181818181818,
+          0.9772727272727273
+        ],
+        "average_precision": 0.8712121212121211,
+        "average_precision_95ci": [
+          0.7575757575757575,
+          0.9696969696969696
+        ],
+        "positive_vs_best_negative_margin": 0.3158591708294594,
+        "positive_vs_best_negative_margin_95ci": [
+          0.04010753971046579,
+          0.5498811508108625
+        ],
+        "candidate_nll_uncalibrated": 0.875056823890027,
+        "candidate_nll_uncalibrated_95ci": [
+          0.6544009807695559,
+          1.1517804862447407
+        ],
+        "candidate_brier_uncalibrated": 0.325035894958253,
+        "candidate_brier_uncalibrated_95ci": [
+          0.2301478194354658,
+          0.42907787251857515
+        ],
+        "winner_ece_uncalibrated": 0.558936755621691,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "local_diagnosis_counts": {
+        "both_correct": 9,
+        "corrected_local_identity": 1,
+        "harmful_local_identity": 1,
+        "neither_correct": 5
+      }
+    },
+    "predictive_residual_audit": {
+      "event_count_by_domain": {
+        "clear": 717,
+        "night": 300,
+        "overcast": 208,
+        "rainy": 169
+      },
+      "native": {
+        "evaluable_changed_events": 1394,
+        "events_with_scored_candidates": 1394,
+        "correct_candidate_present": 1177,
+        "correct_candidate_absent": 217,
+        "candidate_coverage_rate": 0.8443328550932568,
+        "candidate_coverage_95ci": [
+          0.8243577504933239,
+          0.86241541247318
+        ],
+        "top1_identity_accuracy_conditional": 0.973661852166525,
+        "top1_identity_accuracy_95ci": [
+          0.9628581448611228,
+          0.9813837698100897
+        ],
+        "mrr_conditional": 0.9850467289719627,
+        "mrr_95ci": [
+          0.9793826111583122,
+          0.9898612291135657
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.973661852166525,
+          "3": 0.9966015293118097,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.9884158702577466,
+        "pairwise_auc_95ci": [
+          0.9840211410367791,
+          0.9925933970460467
+        ],
+        "average_precision": 0.9846219201359387,
+        "average_precision_95ci": [
+          0.9797932596998016,
+          0.9895497026338148
+        ],
+        "positive_vs_best_negative_margin": 0.7569273348500575,
+        "positive_vs_best_negative_margin_95ci": [
+          0.7378832426789784,
+          0.7729508963161139
+        ],
+        "candidate_nll_uncalibrated": 0.9435181920809954,
+        "candidate_nll_uncalibrated_95ci": [
+          0.924652774461614,
+          0.961509770138994
+        ],
+        "candidate_brier_uncalibrated": 0.3675690930122317,
+        "candidate_brier_uncalibrated_95ci": [
+          0.35921746503135993,
+          0.37621687441210905
+        ],
+        "winner_ece_uncalibrated": 0.6564813488347925,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "intervention": {
+        "evaluable_changed_events": 1394,
+        "events_with_scored_candidates": 1394,
+        "correct_candidate_present": 1177,
+        "correct_candidate_absent": 217,
+        "candidate_coverage_rate": 0.8443328550932568,
+        "candidate_coverage_95ci": [
+          0.8243577504933239,
+          0.86241541247318
+        ],
+        "top1_identity_accuracy_conditional": 0.9745114698385726,
+        "top1_identity_accuracy_95ci": [
+          0.9638470912964472,
+          0.9820885308450276
+        ],
+        "mrr_conditional": 0.9854715378079865,
+        "mrr_95ci": [
+          0.9801472670631552,
+          0.9903001982441234
+        ],
+        "recall_at_k_conditional": {
+          "1": 0.9745114698385726,
+          "3": 0.9966015293118097,
+          "5": 1.0
+        },
+        "pairwise_auc": 0.9899724876918621,
+        "pairwise_auc_95ci": [
+          0.9859180422820736,
+          0.9933825658847378
+        ],
+        "average_precision": 0.9846927216086093,
+        "average_precision_95ci": [
+          0.9787029170206742,
+          0.989450580572076
+        ],
+        "positive_vs_best_negative_margin": 0.6605927551652326,
+        "positive_vs_best_negative_margin_95ci": [
+          0.6463007689765181,
+          0.6739262403559415
+        ],
+        "candidate_nll_uncalibrated": 0.9831928216549932,
+        "candidate_nll_uncalibrated_95ci": [
+          0.9636771670547091,
+          1.0022668107508594
+        ],
+        "candidate_brier_uncalibrated": 0.38569035738750546,
+        "candidate_brier_uncalibrated_95ci": [
+          0.3767276754436727,
+          0.3936623538020524
+        ],
+        "winner_ece_uncalibrated": 0.6701488927852188,
+        "score_definition": "lower matcher cost is better; candidate list is the tracer's recorded top subset",
+        "probability_warning": "NLL/Brier/ECE use softmax(-recorded cost) without a fresh calibration fit and are diagnostic only"
+      },
+      "local_diagnosis_counts": {
+        "both_correct": 485,
+        "corrected_local_identity": 354,
+        "harmful_local_identity": 300,
+        "neither_correct": 255
+      }
+    }
+  },
+  "limitations": [
+    "a correct target absent from the recorded candidate subset is reported as coverage loss, not ranking loss",
+    "the event set is conditioned on changed assignments and each method's own rollout state",
+    "native and intervention scores are read from the tracer; no common-state rerun or independent calibration was performed",
+    "random_rank_reward has no changed-event rows in this audit and therefore has no event-level ranking estimate"
+  ]
+}
