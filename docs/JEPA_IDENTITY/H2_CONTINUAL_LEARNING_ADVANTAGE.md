@@ -22,6 +22,9 @@ gain relative to the frozen checkpoint with the same initialization, along
 with HOTA, AssA, IDF1, IDSW, average/signed forgetting, BWT, FWT, update
 count, and update magnitude.
 
-No H2 training was started in this phase because the GPU driver is unavailable
-and the user requested that multi-seed work remain limited.
+H2 is frozen in this phase for two independent reasons: the current host has
+no usable NVIDIA driver, and the registered H1 structural candidates did not
+produce a held-out identity-ranking gain that would open the H2 gate. The
+protocol-readiness audit is recorded in `H2_PROTOCOL_READINESS.json`; it lists
+the four cells and shared invariants without creating a result.
 
