@@ -23,13 +23,20 @@ with HOTA, AssA, IDF1, IDSW, average/signed forgetting, BWT, FWT, update
 count, and update magnitude.
 
 H2 remains independently unresolved. The current host has no usable NVIDIA
-driver, and the registered full-video Wave-A run has not been allocated in the
-present resource window. The negative H1 structural result does not close H2
+driver, and the NAS SSHFS endpoint is currently disconnected. The registered
+full-video Wave-A run has not been allocated in the present resource window.
+The negative H1 structural result does not close H2
 or act as a prerequisite: a model can have limited frozen identity evidence
 yet still have a useful predictive online update, and that possibility must be
 tested directly. The protocol-readiness audit is recorded in
 `H2_PROTOCOL_READINESS.json`; it lists the four cells and shared invariants
 without creating a result.
+
+The latest zero-training preflight is
+`H2_WAVE_A_PREFLIGHT_SEED17.json`. It verifies all 19 local prepared streams,
+their 3,844 frames, target-GT isolation, 1024-D feature offsets, and the D/P
+source snapshots. It records the two runtime blockers and confirms that no
+Wave-A process was launched.
 
 As a bounded Wave-B diagnostic, one BDD seed17 fixed-teacher comparison has
 now been executed. All four cells used the same 153 recorded pseudo-pairs and
