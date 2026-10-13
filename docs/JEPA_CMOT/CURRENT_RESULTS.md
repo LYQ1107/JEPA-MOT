@@ -1,6 +1,6 @@
 # 当前结果
 
-状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；UA H2/C2 的 stage1/2 与 BDD reverse 的 stage1/2 已通过实际标记和快照核验，UA official paired encoder 的17个开发视频也已完成。完整多域矩阵、paired predictor、最终遗忘指标、多种子或 sealed 结果仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
+状态：ACTIVE。两个数据集的正式 source 模型和首个完整开发视频对照已完成；BDD seed17 reverse 四阶段矩阵已完成，UA H2/C2 的 stage1/2 与主线stage1也已通过实际标记和快照核验，UA official paired encoder 的17个开发视频也已完成。UA完整持续矩阵、paired predictor、最终sealed结果和跨seed稳健性仍未齐，尚不能支持 H1/H2/H3。当前容器没有可用 GPU，但外部运行节点仍在更新既有日志和标记，因此不重复启动任务。
 
 ## 有效工程证据
 

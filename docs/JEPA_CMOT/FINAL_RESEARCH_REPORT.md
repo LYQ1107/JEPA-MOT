@@ -1,6 +1,6 @@
 # 最终科研报告（进行中的证据草稿，尚非最终交付）
 
-状态：ACTIVE。用户于2026-10-13要求减少多种子耗时，当前集中seed17，批量seed23/42任务已撤下；完整三seed不再是当前自动执行门槛，仍不得声称已验证跨seed稳健性。本稿回答任务书17问，表格只采用已完成范围的实际结果。尚未冻结最终方法与超参数；sealed测试未执行，UA持续矩阵、多seed与逆序尚未齐备。不能据本稿声明全项目完成或CVPR主张成立。
+状态：ACTIVE。用户于2026-10-13要求减少多种子耗时，当前集中seed17，批量seed23/42任务已撤下；完整三seed不再是当前自动执行门槛，仍不得声称已验证跨seed稳健性。本稿回答任务书17问，表格只采用已完成范围的实际结果。尚未冻结最终方法与超参数；sealed测试未执行，UA持续矩阵、UA逆序与多seed尚未齐备。BDD seed17 reverse 已完成四阶段矩阵，但不能据本稿声明全项目完成或CVPR主张成立。
 
 所有分数以百分点表示；开发集按域分别聚合TrackEval后取四域等权平均。视频bootstrap是固定seed开发探索的不确定性，未做模型选择校正，不能替代跨seed均值/标准差或独立测试。以下不同训练目标和不同frozen读数的点估计不自动构成等信息、等算力或等伪对供给的因果对照。
 
@@ -150,11 +150,11 @@ BDD dense规则的1,732个关联改变中，离线一步诊断纠错354、反改
 
 ## 16. 当前是否足以支撑持续学习核心的CVPR论文？
 
-不足。已有真实多轮结构探索、完整BDD forward与两数据集frozen负结果，不是仅工程smoke；但未证明稳定超过强非JEPA的MOT/遗忘收益，UA持续矩阵、逆序和冻结后的独立测试未齐，三seed稳健性受用户资源约束尚未证明。仅凭弱CE对照的提升、较小cosine error、nonzero relation loss或低AF不能成立主张。最终研究可能得到证据不足的诚实结论，不能预先宣判整个方向失败，也不能伪造支持。
+不足。已有真实多轮结构探索、完整BDD forward/reverse与两数据集frozen负结果，不是仅工程smoke；但未证明稳定超过强非JEPA的MOT/遗忘收益，UA持续矩阵、UA逆序和冻结后的独立测试未齐，三seed稳健性受用户资源约束尚未证明。仅凭弱CE对照的提升、较小cosine error、nonzero relation loss或低AF不能成立主张。最终研究可能得到证据不足的诚实结论，不能预先宣判整个方向失败，也不能伪造支持。
 
 ## 17. 还缺哪些关键证据？
 
-补齐实际运行中的UA持续/通用RKD/官方读数及两数据集seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
+补齐实际运行中的UA持续/通用RKD/官方读数及UA seed17 forward/reverse完整矩阵，分析全域最终性能与AF/BWT/FWT；BDD seed17 reverse完整结果已记录于[反向持续分析](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。按用户要求限制重复种子工作，仅对少量明确候选考虑必要复验，三seed均值/标准差缺失应列为局限；开发阶段冻结方法/超参数后执行sealed一次性独立评测。随后汇总全范围因果审计、错误归因、效率适用范围、最终checkpoint与SHA、关键训练/评测命令、所有主表/核心消融/诊断图和完整实验索引。若新增读数成为最终方法，现有FP16 dense速度不能替代其效率。没有把运行中的任务或partial标记当成完成证据；当前状态仍ACTIVE。
 
 ## 已完成BDD八组顺序矩阵：HOTA
 
@@ -194,6 +194,21 @@ Stage0为source冻结初始化；stage1/2/3为分别适应overcast/rainy/night�
 | predictive_replay128_none | 1 | 38.23754 | 41.14415 | 46.09964 | 33.83891 |
 | predictive_replay128_none | 2 | 37.76928 | 40.62740 | 46.09111 | 33.86889 |
 | predictive_replay128_none | 3 | 38.05258 | 41.16282 | 45.60539 | 33.97116 |
+
+## BDD seed17 reverse完整四阶段结果：最终平均与遗忘
+
+逆序为clear→night→rainy→overcast，四域等权平均，结果来自19个完整development视频和实际stage0–3快照；AF为非负截断，BWT/FWT保留有符号值。完整HOTA/AssA/IDF1逐域矩阵和定义见[BDD reverse full continual analysis](BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json)。
+
+| 方法 | final HOTA | HOTA AF | HOTA BWT | HOTA FWT |
+|---|---:|---:|---:|---:|
+| discriminative_replay0_none | 38.92826 | 0.57363 | -0.47127 | -0.07952 |
+| predictive_ranking_replay0_none | 39.32286 | 0.07810 | -0.00357 | -0.16620 |
+| discriminative_replay128_none | 39.04392 | 0.31759 | -0.25703 | -0.14313 |
+| predictive_ranking_replay128_none | 39.21328 | 0.17325 | -0.08774 | -0.12030 |
+| predictive_ranking_replay128_features | 38.94321 | 0.43060 | -0.35052 | -0.03942 |
+| predictive_ranking_replay128_relations | 38.96842 | 0.29433 | -0.23746 | -0.11847 |
+| predictive_replay0_none | 39.63099 | 0.02702 | +0.01053 | -0.07663 |
+| predictive_replay128_none | 39.70039 | 0.08116 | -0.04689 | -0.03039 |
 
 ## 复现与全部证据入口（最终附录待补齐）
 

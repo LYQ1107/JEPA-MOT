@@ -1,6 +1,6 @@
 # 完成证据与仍需执行的工作
 
-状态：ACTIVE。用户于2026-10-13要求限制多种子耗时；当前优先seed17，批量seed23/42已撤下，详见SINGLE_SEED_PRIORITY_USER_UPDATE.json。完整三seed矩阵不再作为当前自动执行门槛；未完成的重复验证须如实列为结论局限。此表用于接续研究，不是完成验收。最后推送提交 e09e9b2 与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
+状态：ACTIVE。用户于2026-10-13要求限制多种子耗时；当前优先seed17，批量seed23/42已撤下，详见SINGLE_SEED_PRIORITY_USER_UPDATE.json。完整三seed矩阵不再作为当前自动执行门槛；未完成的重复验证须如实列为结论局限。此表用于接续研究，不是完成验收。最后本地提交 1e11033（待推送）与本地完整标记；只有相应完整 split/stage 的实际结果支持对应范围。
 
 | 要求 | 当前证据 | 状态/范围 |
 |---|---|---|
@@ -17,7 +17,7 @@
 | 普通关系蒸馏RKD控制 | GENERIC_RELATIONAL_KD_ACTUAL_VERIFICATION、BDD/UA_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY | BDD full4×4完成，三边界五组样本/1094更新对齐；RKD-D/column增量无可靠证据；UA三边界五组物理样本/RNG/8101更新对齐通过，UA完整回测仍待完成 |
 | 多seed最终MOT均值/标准差 | source seeds17/23/42已完成；BDD23/42 forward已按用户要求暂停，后续多seed reverse撤下 | 未完成；Transformer三目标seed23/42队列已按用户要求撤下，不能用源seed或video CI替代 |
 | 反向域顺序与pure-prediction在线贡献 | REMAINING_SEQUENCE_REGISTRATION、原始/补齐configs、实际queued_sequences handles | BDD pure seed17 forward完整；未可靠超自身frozen或geometry；seed17反向/UA仍运行；批量多seed延后 |
-| BDD seed17 reverse已完成阶段 | BDD_REVERSE_SEED17_COMPLETED_STAGE_ANALYSIS.json；stage1/2四域native complete markers、实际snapshot/optimizer核对 | stage1/2已验证；stage3未完成，不能计算最终AF/BWT/FWT或替代完整逆序矩阵 |
+| BDD seed17 reverse完整矩阵 | BDD_REVERSE_SEED17_FULL_CONTINUAL_ANALYSIS.json；stage0–3四域native complete markers、实际snapshot/optimizer核对 | 四阶段已验证；固定seed开发结果，不替代UA逆序、跨seed或sealed证据 |
 | UA seed17 H2/C2已完成阶段 | UA_H2_COMPLETED_STAGES_ANALYSIS.json、UA_C2_COMPLETED_STAGES_ANALYSIS.json；stage1/2四域native complete markers、实际snapshot/optimizer核对 | 两组stage1/2已验证；stage3及完整最终矩阵未完成，不能提前报告最终遗忘结论 |
 | UA seed17主线已完成阶段 | UA_MAIN_COMPLETED_STAGE1_ANALYSIS.json；stage1四域native complete marker、实际snapshot/optimizer核对 | stage1已验证；stage2/3及完整最终矩阵未完成 |
 | UA official paired readout | paired_readout_v1 UA encoder development complete marker与pipeline_queue.log | UA encoder全17视频已完成；predictor及两读数合并分析仍待完成，不能用encoder单独替代paired全pipeline |
