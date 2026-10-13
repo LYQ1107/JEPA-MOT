@@ -1,16 +1,18 @@
 # Next action
 
-1. Implement a common-state one-step evaluator that snapshots one native
+1. The common-state one-step evaluator is complete: it snapshots one native
    tracker state and one candidate set, then scores A0--A10 under identical
    inputs and eligibility.
-2. Add leakage tests for past-only history, candidate-independent queries,
-   target-GT exclusion, and deterministic candidate ordering.
-3. Reuse the existing BDD cache for a CPU smoke test and retain the full local
-   case audit. Do not start another full-video or multi-seed training job.
-4. When a GPU is available, run one small registered common-state comparison
-   with predictive residual, EMA, temporal control, random/shuffled, and
-   constant/affine calibration controls.
-5. The common-state result has selected two structural H1 candidates, in this
+2. Leakage tests now cover past-only history, candidate-independent queries,
+   target-GT exclusion from the forward contract, and deterministic candidate
+   ordering (`jepa_identity.test_structural_candidates`).
+3. The existing BDD cache and full local case audit are retained; no new
+   full-video or multi-seed training job has been started.
+4. When a GPU is available, run one registered common-state comparison using
+   the structural candidate protocol in
+   `STRUCTURAL_CANDIDATE_PROTOCOL.md`, with residual JEPA and its matched
+   ranking-only control first.
+5. The common-state result selected two structural H1 candidates, in this
    order: identity-residual JEPA, then candidate-relative JEPA. Train at most
    one of them in the next GPU window, together with its matched CE control.
 6. Only after a structural candidate produces a held-out common-state gain,
