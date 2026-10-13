@@ -14,11 +14,11 @@ P-to-P experiment. The readiness and gating decision is machine-readable in
 ## Wave-A preflight (seed17)
 
 The zero-training preflight is recorded in
-`H2_WAVE_A_PREFLIGHT_SEED17.json`. All 19 BDD development streams are locally
-structurally valid: 3,844 declared frames have `native_full_frames=true`,
-`gt_read=false`, zero GT annotations, and 1024-D float32 dense caches whose
-offsets agree with the prepared streams. The D/P source checkpoints and source
-calibrations are present and hashed. Execution is still blocked because the
+`H2_WAVE_A_PREFLIGHT_SEED17.json`. All 63 BDD Wave-A streams (44 adaptation
+and 19 development) are locally structurally valid: 12,655 declared frames
+have `native_full_frames=true`, `gt_read=false`, zero GT annotations, and
+1024-D float32 dense caches whose offsets agree with the prepared streams.
+The D/P source checkpoints and source calibrations are present. Execution is still blocked because the
 NAS SSHFS mount returns `Transport endpoint is not connected` for the native
 images and the host NVIDIA driver is unavailable. No Wave-A process was
 started; the legacy retention-graph protocol remains excluded from the causal
