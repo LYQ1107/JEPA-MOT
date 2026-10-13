@@ -1,0 +1,449 @@
+{
+  "status": "VERIFIED_ACTUAL_DOMAIN_BOUNDARY_PARITY_NOT_MOT_RESULT",
+  "scope": {
+    "dataset": "ua_detrac",
+    "order": [
+      "sunny",
+      "cloudy",
+      "rainy",
+      "night"
+    ],
+    "teacher_calibration_sha256": "ad3b5bcf394f01c0db6332a144537f53080e78a23a12d6a5ea138ea708a43b41"
+  },
+  "common_control_except_retention": {
+    "method": "online",
+    "online_config": {
+      "method": "predictive_ranking",
+      "enabled": true,
+      "replay": 128,
+      "batch": 8,
+      "interval": 8,
+      "learning_rate": 0.0001,
+      "reliability": "confidence",
+      "seed": 17,
+      "need_threshold": 0.05,
+      "retention_weight": 1.0
+    },
+    "geometry_duplicates": true,
+    "checkpoint_sha256": "b63b044cad9ced9f9d312e396eabb7f9e44d5ec33fd67bdc5e17c983d7f16c10",
+    "calibration_sha256": "146220a56328d48f98cbfe75d40d4a8699c9e183d798368252e43ff30b04c04c"
+  },
+  "compared_sample_fields": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7,
+    8
+  ],
+  "compared_supply_stats": [
+    "proposed",
+    "delayed_confirmed",
+    "reliability_rejected",
+    "need_rejected",
+    "video_resets",
+    "updates"
+  ],
+  "excluded_sample_fields": {
+    "5": "learner-dependent old candidate response",
+    "6": "learner-dependent old predicted query"
+  },
+  "limitation": "Compares stored boundary counters, optimizer steps, RNG, ordered reservoir and remaining recent samples. Does not log every update batch or prove per-frame parity between separate runs.",
+  "target_GT_read": false,
+  "stages": [
+    {
+      "stage": 1,
+      "controls": [
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_none_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_none_graph/MVI_40191/learner.pt",
+          "checkpoint_sha256": "8f54e003e6bda043b8ef296426a4ea3afc1674c0239ac0b4827083e63bdfb48c",
+          "frames": 27440,
+          "updates": 3395,
+          "seen": 229359,
+          "optimizer_steps": [
+            3395
+          ],
+          "stats": {
+            "proposed": 302178,
+            "delayed_confirmed": 229359,
+            "reliability_rejected": 65435,
+            "need_rejected": 0,
+            "video_resets": 18,
+            "updates": 3395
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_features_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_features_graph/MVI_40191/learner.pt",
+          "checkpoint_sha256": "6c3b2ab9c47eed56876564ae42ae0c21e23071f5983213f444b2375b70fcb05f",
+          "frames": 27440,
+          "updates": 3395,
+          "seen": 229359,
+          "optimizer_steps": [
+            3395
+          ],
+          "stats": {
+            "proposed": 302178,
+            "delayed_confirmed": 229359,
+            "reliability_rejected": 65435,
+            "need_rejected": 0,
+            "video_resets": 18,
+            "updates": 3395
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_relations_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_relations_graph/MVI_40191/learner.pt",
+          "checkpoint_sha256": "0504e03d2b6e6b4b2f2fc361d775fb7126b703559c664e588ff630bfd6a9f243",
+          "frames": 27440,
+          "updates": 3395,
+          "seen": 229359,
+          "optimizer_steps": [
+            3395
+          ],
+          "stats": {
+            "proposed": 302178,
+            "delayed_confirmed": 229359,
+            "reliability_rejected": 65435,
+            "need_rejected": 0,
+            "video_resets": 18,
+            "updates": 3395
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_competition_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_competition_graph/MVI_40191/learner.pt",
+          "checkpoint_sha256": "678b9576d211fdd1b1529c10076409de56a6db995aef33090b0fde1c4369c996",
+          "frames": 27440,
+          "updates": 3395,
+          "seen": 229359,
+          "optimizer_steps": [
+            3395
+          ],
+          "stats": {
+            "proposed": 302178,
+            "delayed_confirmed": 229359,
+            "reliability_rejected": 65435,
+            "need_rejected": 0,
+            "video_resets": 18,
+            "updates": 3395,
+            "competition_columns": 42185
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_distance_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17/adaptation/stage1_cloudy/MVI_40191/predictive_ranking_distance_graph/MVI_40191/learner.pt",
+          "checkpoint_sha256": "2f10210cb8df2926ff2523f7257c44940d5645e7e7b1ed2062ce98205434b2a4",
+          "frames": 27440,
+          "updates": 3395,
+          "seen": 229359,
+          "optimizer_steps": [
+            3395
+          ],
+          "stats": {
+            "proposed": 302178,
+            "delayed_confirmed": 229359,
+            "reliability_rejected": 65435,
+            "need_rejected": 0,
+            "video_resets": 18,
+            "updates": 3395
+          },
+          "memory": 128,
+          "recent": 28,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        }
+      ]
+    },
+    {
+      "stage": 2,
+      "controls": [
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_none_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_none_graph/MVI_40891/learner.pt",
+          "checkpoint_sha256": "a280e4a78d8ac14c6b24061231d7bd499ac14c50ca3e688514f0057e3a17d49c",
+          "frames": 42140,
+          "updates": 5232,
+          "seen": 337223,
+          "optimizer_steps": [
+            5232
+          ],
+          "stats": {
+            "proposed": 456835,
+            "delayed_confirmed": 337223,
+            "reliability_rejected": 107114,
+            "need_rejected": 0,
+            "video_resets": 29,
+            "updates": 5232
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_features_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_features_graph/MVI_40891/learner.pt",
+          "checkpoint_sha256": "7b76c159f09b63215450ee394fa0a8810c212c44c3e79dfe441650e9563951af",
+          "frames": 42140,
+          "updates": 5232,
+          "seen": 337223,
+          "optimizer_steps": [
+            5232
+          ],
+          "stats": {
+            "proposed": 456835,
+            "delayed_confirmed": 337223,
+            "reliability_rejected": 107114,
+            "need_rejected": 0,
+            "video_resets": 29,
+            "updates": 5232
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_relations_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_relations_graph/MVI_40891/learner.pt",
+          "checkpoint_sha256": "1de6b0235b8c177de55ff806271dc6ea9c0682c32aa85ffe6c6947f90b056df9",
+          "frames": 42140,
+          "updates": 5232,
+          "seen": 337223,
+          "optimizer_steps": [
+            5232
+          ],
+          "stats": {
+            "proposed": 456835,
+            "delayed_confirmed": 337223,
+            "reliability_rejected": 107114,
+            "need_rejected": 0,
+            "video_resets": 29,
+            "updates": 5232
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_competition_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_competition_graph/MVI_40891/learner.pt",
+          "checkpoint_sha256": "0e83f0df0ebabbe9563c562706f072a203317bb37a893fb318dafa68304f0016",
+          "frames": 42140,
+          "updates": 5232,
+          "seen": 337223,
+          "optimizer_steps": [
+            5232
+          ],
+          "stats": {
+            "proposed": 456835,
+            "delayed_confirmed": 337223,
+            "reliability_rejected": 107114,
+            "need_rejected": 0,
+            "video_resets": 29,
+            "updates": 5232,
+            "competition_columns": 65191
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_distance_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17/adaptation/stage2_rainy/MVI_40891/predictive_ranking_distance_graph/MVI_40891/learner.pt",
+          "checkpoint_sha256": "2522bd99f8da14efe778ad21892ecf02eb09342a428be988c2b36386a17c3331",
+          "frames": 42140,
+          "updates": 5232,
+          "seen": 337223,
+          "optimizer_steps": [
+            5232
+          ],
+          "stats": {
+            "proposed": 456835,
+            "delayed_confirmed": 337223,
+            "reliability_rejected": 107114,
+            "need_rejected": 0,
+            "video_resets": 29,
+            "updates": 5232
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        }
+      ]
+    },
+    {
+      "stage": 3,
+      "controls": [
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_none_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_none_graph/MVI_40793/learner.pt",
+          "checkpoint_sha256": "b056310aa7b5cf9d29c56ae99339d1771222d37a8884a2923d90bd4f94d2a707",
+          "frames": 65430,
+          "updates": 8101,
+          "seen": 442278,
+          "optimizer_steps": [
+            8101
+          ],
+          "stats": {
+            "proposed": 598636,
+            "delayed_confirmed": 442278,
+            "reliability_rejected": 138239,
+            "need_rejected": 0,
+            "video_resets": 45,
+            "updates": 8101
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_features_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_features_graph/MVI_40793/learner.pt",
+          "checkpoint_sha256": "783b471fb95b93edeafb108cf4002777492e3d5563c1d04fd60a6f2b9b30ebea",
+          "frames": 65430,
+          "updates": 8101,
+          "seen": 442278,
+          "optimizer_steps": [
+            8101
+          ],
+          "stats": {
+            "proposed": 598636,
+            "delayed_confirmed": 442278,
+            "reliability_rejected": 138239,
+            "need_rejected": 0,
+            "video_resets": 45,
+            "updates": 8101
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_relations_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_relations_graph/MVI_40793/learner.pt",
+          "checkpoint_sha256": "b5ce7758f8f8eca160efe2a50f36e1b2ceb75de7def785de64dd6177727eeed5",
+          "frames": 65430,
+          "updates": 8101,
+          "seen": 442278,
+          "optimizer_steps": [
+            8101
+          ],
+          "stats": {
+            "proposed": 598636,
+            "delayed_confirmed": 442278,
+            "reliability_rejected": 138239,
+            "need_rejected": 0,
+            "video_resets": 45,
+            "updates": 8101
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_competition_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_competition_graph/MVI_40793/learner.pt",
+          "checkpoint_sha256": "55d669af9f55f91d8840c91b66ffeff1c1e0892b2cb4dea16866c53142e2be15",
+          "frames": 65430,
+          "updates": 8101,
+          "seen": 442278,
+          "optimizer_steps": [
+            8101
+          ],
+          "stats": {
+            "proposed": 598636,
+            "delayed_confirmed": 442278,
+            "reliability_rejected": 138239,
+            "need_rejected": 0,
+            "video_resets": 45,
+            "updates": 8101,
+            "competition_columns": 87797
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        },
+        {
+          "sequence": "runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17",
+          "control": "predictive_ranking_distance_graph",
+          "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17/adaptation/stage3_night/MVI_40793/predictive_ranking_distance_graph/MVI_40793/learner.pt",
+          "checkpoint_sha256": "053eff309f6ba9284fa0d69d5304b2560236c3d9706f2cdda3d5cf7700669e03",
+          "frames": 65430,
+          "updates": 8101,
+          "seen": 442278,
+          "optimizer_steps": [
+            8101
+          ],
+          "stats": {
+            "proposed": 598636,
+            "delayed_confirmed": 442278,
+            "reliability_rejected": 138239,
+            "need_rejected": 0,
+            "video_resets": 45,
+            "updates": 8101
+          },
+          "memory": 128,
+          "recent": 32,
+          "sample_fields_and_order_equal": true,
+          "replay_rng_equal": true
+        }
+      ]
+    }
+  ],
+  "invocation": [
+    "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+    "-m",
+    "jepa_cmot.audit_matched_replay_buffers",
+    "--sequences",
+    "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17",
+    "runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17",
+    "--out",
+    "docs/JEPA_CMOT/UA_GRAPH_RKD_ACTUAL_BOUNDARY_PARITY.json"
+  ],
+  "protocols": {
+    "runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17": "ba194492fb40e2f2aad70559d38908f96ada961a6c00f429010b2f866bfaa845",
+    "runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17": "707ecb8fbfaf5b29d9687aed3614113e26caacc5323c1b55d238ab91e6b782d5"
+  },
+  "audit_code_sha256": "1d85b26f30e94029a642e46d3fbb8340a64db6ca87a6e806650046d542823d4d"
+}
