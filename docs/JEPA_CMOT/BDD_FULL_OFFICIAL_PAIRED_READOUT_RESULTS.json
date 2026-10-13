@@ -1,0 +1,1043 @@
+{
+  "status": "COMPLETE_OFFICIAL_PAIRED_READOUT_FROZEN_DEVELOPMENT",
+  "dataset": "bdd100k",
+  "seed": 17,
+  "videos": 19,
+  "domain_metrics": {
+    "encoder/frozen_last": {
+      "clear": {
+        "HOTA": 38.41509854034575,
+        "AssA": 42.573716136650695,
+        "DetA": 36.259525702603334,
+        "IDF1": 46.328682779851974,
+        "MOTA": 17.388739594940027,
+        "IDSW": 592
+      },
+      "overcast": {
+        "HOTA": 40.78127660776866,
+        "AssA": 47.813409156291584,
+        "DetA": 36.72060242957985,
+        "IDF1": 45.08437031728451,
+        "MOTA": 12.672750977835722,
+        "IDSW": 279
+      },
+      "rainy": {
+        "HOTA": 45.43670972882558,
+        "AssA": 52.036007272833274,
+        "DetA": 41.221489112273844,
+        "IDF1": 54.21666666666667,
+        "MOTA": 28.033688552767273,
+        "IDSW": 187
+      },
+      "night": {
+        "HOTA": 33.42034864594478,
+        "AssA": 39.32988894020576,
+        "DetA": 29.126776280323956,
+        "IDF1": 39.84902023771282,
+        "MOTA": 17.381959836120625,
+        "IDSW": 331
+      }
+    },
+    "encoder/discriminative": {
+      "clear": {
+        "HOTA": 37.379469110955746,
+        "AssA": 40.18776692413423,
+        "DetA": 36.389824070124,
+        "IDF1": 44.23890583489127,
+        "MOTA": 17.428065805859603,
+        "IDSW": 649
+      },
+      "overcast": {
+        "HOTA": 41.136582126588266,
+        "AssA": 48.47842533528562,
+        "DetA": 36.847761707708145,
+        "IDF1": 46.449435284953914,
+        "MOTA": 13.207301173402868,
+        "IDSW": 299
+      },
+      "rainy": {
+        "HOTA": 45.856487184061585,
+        "AssA": 52.9699066086142,
+        "DetA": 41.20320134652782,
+        "IDF1": 54.5015809618905,
+        "MOTA": 27.48367136473015,
+        "IDSW": 195
+      },
+      "night": {
+        "HOTA": 33.24314540219904,
+        "AssA": 39.10717825676361,
+        "DetA": 28.983211577333744,
+        "IDF1": 39.23994697304463,
+        "MOTA": 17.180468802471623,
+        "IDSW": 358
+      }
+    },
+    "encoder/predictive": {
+      "clear": {
+        "HOTA": 38.49001685636832,
+        "AssA": 42.71849227303548,
+        "DetA": 36.234257554233956,
+        "IDF1": 46.495480151971705,
+        "MOTA": 16.9037163269319,
+        "IDSW": 656
+      },
+      "overcast": {
+        "HOTA": 41.05466083579958,
+        "AssA": 48.00940272895819,
+        "DetA": 36.96958784355219,
+        "IDF1": 46.011590805495864,
+        "MOTA": 12.855280312907432,
+        "IDSW": 301
+      },
+      "rainy": {
+        "HOTA": 46.12039861964322,
+        "AssA": 53.685702174511526,
+        "DetA": 41.161890212355964,
+        "IDF1": 54.57418496340652,
+        "MOTA": 27.363355104847027,
+        "IDSW": 198
+      },
+      "night": {
+        "HOTA": 33.71739799812257,
+        "AssA": 40.02527043418084,
+        "DetA": 29.13761101800818,
+        "IDF1": 40.16083634901488,
+        "MOTA": 17.523003559674926,
+        "IDSW": 356
+      }
+    },
+    "encoder/predictive_ranking": {
+      "clear": {
+        "HOTA": 37.851404196887025,
+        "AssA": 41.10169565057607,
+        "DetA": 36.45302880620337,
+        "IDF1": 45.529573590096284,
+        "MOTA": 17.637805597430685,
+        "IDSW": 652
+      },
+      "overcast": {
+        "HOTA": 41.101099093568486,
+        "AssA": 48.09193943494214,
+        "DetA": 36.98876341904933,
+        "IDF1": 45.933263816475495,
+        "MOTA": 13.3116036505867,
+        "IDSW": 285
+      },
+      "rainy": {
+        "HOTA": 46.161523923929174,
+        "AssA": 53.54478246354857,
+        "DetA": 41.30498968007803,
+        "IDF1": 54.98917208062636,
+        "MOTA": 27.86180818150567,
+        "IDSW": 185
+      },
+      "night": {
+        "HOTA": 33.265713935941086,
+        "AssA": 39.014340627866545,
+        "DetA": 29.07274366036806,
+        "IDF1": 39.70919023136247,
+        "MOTA": 17.09315602122372,
+        "IDSW": 352
+      }
+    },
+    "predictor/frozen_last": {
+      "clear": {
+        "HOTA": 37.40913566396864,
+        "AssA": 40.39350201724539,
+        "DetA": 36.27508054095959,
+        "IDF1": 44.47502047502048,
+        "MOTA": 17.80821917808219,
+        "IDSW": 593
+      },
+      "overcast": {
+        "HOTA": 40.95980293181728,
+        "AssA": 48.38104847933696,
+        "DetA": 36.5668811005847,
+        "IDF1": 45.76348574783119,
+        "MOTA": 12.398956975228161,
+        "IDSW": 266
+      },
+      "rainy": {
+        "HOTA": 45.61237374458059,
+        "AssA": 52.50353395688316,
+        "DetA": 41.15827049333528,
+        "IDF1": 54.16076634735527,
+        "MOTA": 27.50085940185631,
+        "IDSW": 181
+      },
+      "night": {
+        "HOTA": 34.15468305639892,
+        "AssA": 40.932935285133006,
+        "DetA": 29.194204320950394,
+        "IDF1": 40.65275935527956,
+        "MOTA": 17.61703270871113,
+        "IDSW": 299
+      }
+    },
+    "predictor/discriminative": {
+      "clear": {
+        "HOTA": 37.22137213168632,
+        "AssA": 40.405014874063205,
+        "DetA": 35.9756053456252,
+        "IDF1": 44.432056663168936,
+        "MOTA": 16.51045421773612,
+        "IDSW": 670
+      },
+      "overcast": {
+        "HOTA": 40.81448624362567,
+        "AssA": 48.00527799980457,
+        "DetA": 36.686820424320224,
+        "IDF1": 45.86053799947767,
+        "MOTA": 13.01173402868318,
+        "IDSW": 280
+      },
+      "rainy": {
+        "HOTA": 46.131820566553756,
+        "AssA": 53.662944621118456,
+        "DetA": 41.20166718930543,
+        "IDF1": 54.571190674437965,
+        "MOTA": 27.39773117909935,
+        "IDSW": 202
+      },
+      "night": {
+        "HOTA": 34.09559661200912,
+        "AssA": 40.77052110820083,
+        "DetA": 29.220578634592858,
+        "IDF1": 40.73002090368226,
+        "MOTA": 17.49613808852173,
+        "IDSW": 328
+      }
+    },
+    "predictor/predictive": {
+      "clear": {
+        "HOTA": 38.04384560180063,
+        "AssA": 42.11265987393098,
+        "DetA": 36.0211594329847,
+        "IDF1": 45.940645836057,
+        "MOTA": 17.041358065150423,
+        "IDSW": 619
+      },
+      "overcast": {
+        "HOTA": 41.19363084343449,
+        "AssA": 48.83779397591583,
+        "DetA": 36.6957037846143,
+        "IDF1": 46.205051230176856,
+        "MOTA": 13.01173402868318,
+        "IDSW": 255
+      },
+      "rainy": {
+        "HOTA": 46.42210975554887,
+        "AssA": 54.370598182757604,
+        "DetA": 41.123240071658664,
+        "IDF1": 55.26096381524095,
+        "MOTA": 27.68992781024407,
+        "IDSW": 175
+      },
+      "night": {
+        "HOTA": 34.757155551616336,
+        "AssA": 42.37888184176328,
+        "DetA": 29.225395248049413,
+        "IDF1": 41.52944011567194,
+        "MOTA": 17.758076432265433,
+        "IDSW": 309
+      }
+    },
+    "predictor/predictive_ranking": {
+      "clear": {
+        "HOTA": 36.91774967906812,
+        "AssA": 39.74254183370638,
+        "DetA": 35.99174214614549,
+        "IDF1": 43.91570805886016,
+        "MOTA": 16.825063905092744,
+        "IDSW": 667
+      },
+      "overcast": {
+        "HOTA": 41.00979351396442,
+        "AssA": 48.388217785736835,
+        "DetA": 36.7265346020583,
+        "IDF1": 45.469371778981014,
+        "MOTA": 12.920469361147328,
+        "IDSW": 270
+      },
+      "rainy": {
+        "HOTA": 45.68333061478778,
+        "AssA": 52.722331764920725,
+        "DetA": 41.15569484036815,
+        "IDF1": 53.72313843078461,
+        "MOTA": 27.294602956342384,
+        "IDSW": 200
+      },
+      "night": {
+        "HOTA": 34.25220858008442,
+        "AssA": 41.085941670823125,
+        "DetA": 29.208540463291932,
+        "IDF1": 41.251606683804624,
+        "MOTA": 17.77150916784203,
+        "IDSW": 323
+      }
+    }
+  },
+  "equal_domain_average": {
+    "encoder/frozen_last": {
+      "HOTA": 39.51335838072119,
+      "AssA": 45.43825537649533,
+      "IDF1": 46.36968500037899
+    },
+    "encoder/discriminative": {
+      "HOTA": 39.403920955951165,
+      "AssA": 45.185819281199414,
+      "IDF1": 46.10746726369508
+    },
+    "encoder/predictive": {
+      "HOTA": 39.84561857748343,
+      "AssA": 46.10971690267151,
+      "IDF1": 46.81052306747224
+    },
+    "encoder/predictive_ranking": {
+      "HOTA": 39.59493528758144,
+      "AssA": 45.43818954423333,
+      "IDF1": 46.540299929640156
+    },
+    "predictor/frozen_last": {
+      "HOTA": 39.53399884919136,
+      "AssA": 45.55275493464963,
+      "IDF1": 46.26300798137162
+    },
+    "predictor/discriminative": {
+      "HOTA": 39.56581888846871,
+      "AssA": 45.71093965079677,
+      "IDF1": 46.39845156019171
+    },
+    "predictor/predictive": {
+      "HOTA": 40.10418543810008,
+      "AssA": 46.924983468591925,
+      "IDF1": 47.23402524928669
+    },
+    "predictor/predictive_ranking": {
+      "HOTA": 39.465770596976185,
+      "AssA": 45.48475826379677,
+      "IDF1": 46.089956238107604
+    }
+  },
+  "actual_protocols": {
+    "encoder": {
+      "dataset": "bdd100k",
+      "split": "development",
+      "controls": [
+        {
+          "name": "frozen_last",
+          "method": "frozen_last",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/encoder/seed17/frozen_last.json"
+        },
+        {
+          "name": "discriminative",
+          "method": "trained",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/encoder/seed17/discriminative.json",
+          "checkpoint": "runs/JEPA_CMOT/paired_readout_v1/models/bdd100k/encoder/seed17/discriminative/final.pt"
+        },
+        {
+          "name": "predictive",
+          "method": "trained",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/encoder/seed17/predictive.json",
+          "checkpoint": "runs/JEPA_CMOT/paired_readout_v1/models/bdd100k/encoder/seed17/predictive/final.pt"
+        },
+        {
+          "name": "predictive_ranking",
+          "method": "trained",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/encoder/seed17/predictive_ranking.json",
+          "checkpoint": "runs/JEPA_CMOT/paired_readout_v1/models/bdd100k/encoder/seed17/predictive_ranking/final.pt"
+        }
+      ],
+      "checkpoint_sha256": {
+        "discriminative": "ba95a29b603ce9d6f33169613c5006f49e41ee8453b1a224d7450a4d3f76b182",
+        "predictive": "0fcd3e15f9899a13525d6fd21a95d6bb0344c65fa34bd3869c65c3b3287a6df8",
+        "predictive_ranking": "f3cd0f43668395d87722225980efbfdbeb0e660cb965cabbbacdf3903cef424f"
+      },
+      "sealed_test_used": false,
+      "evaluation_GT_scope": "offline metrics only",
+      "updates_enabled": false,
+      "feature_name": "features_encoder_w4.npz"
+    },
+    "predictor": {
+      "dataset": "bdd100k",
+      "split": "development",
+      "controls": [
+        {
+          "name": "frozen_last",
+          "method": "frozen_last",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/predictor/seed17/frozen_last.json"
+        },
+        {
+          "name": "discriminative",
+          "method": "trained",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/predictor/seed17/discriminative.json",
+          "checkpoint": "runs/JEPA_CMOT/paired_readout_v1/models/bdd100k/predictor/seed17/discriminative/final.pt"
+        },
+        {
+          "name": "predictive",
+          "method": "trained",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/predictor/seed17/predictive.json",
+          "checkpoint": "runs/JEPA_CMOT/paired_readout_v1/models/bdd100k/predictor/seed17/predictive/final.pt"
+        },
+        {
+          "name": "predictive_ranking",
+          "method": "trained",
+          "geometry_duplicates": true,
+          "calibration": "runs/JEPA_CMOT/paired_readout_v1/calibration/bdd100k/predictor/seed17/predictive_ranking.json",
+          "checkpoint": "runs/JEPA_CMOT/paired_readout_v1/models/bdd100k/predictor/seed17/predictive_ranking/final.pt"
+        }
+      ],
+      "checkpoint_sha256": {
+        "discriminative": "1e3e9f05a2945aa7fba8f7106aa9a3a7a304e9575c012a19b3efe2b2b129ab8a",
+        "predictive": "5b26f234a115aa230859412e6234c26ed06fe422f63a33ee1a89118736d936d3",
+        "predictive_ranking": "cbefcdaf2e33a40d2662b0a6829dc5358fd689e32835b36848f75944b3699a27"
+      },
+      "sealed_test_used": false,
+      "evaluation_GT_scope": "offline metrics only",
+      "updates_enabled": false,
+      "feature_name": "features_predictor_w4.npz"
+    }
+  },
+  "identical_prepared_inputs": {
+    "b23f7012-fab06dac": {
+      "domain": "night",
+      "frames": 202,
+      "annotation_sha256": "a8197218e2a353594425c86ab7c217878564a0c10f6d5c6426d029b4c850eb54"
+    },
+    "b2208b0f-2796a692": {
+      "domain": "clear",
+      "frames": 203,
+      "annotation_sha256": "5ed477e2068e20b6a052f8f0c75816ceda1a5a7b5b451527f3fa3323b90b3be2"
+    },
+    "b214d1e1-f248c616": {
+      "domain": "night",
+      "frames": 200,
+      "annotation_sha256": "91fcd9ee56696e6df6f71a661be701085baeef27e7c2181e554c9f8f91f2221c"
+    },
+    "b23b2649-8349d2a1": {
+      "domain": "overcast",
+      "frames": 202,
+      "annotation_sha256": "26f498ec1480ece7e4b020a5c9009461545c84fa0be19c3e98e0580b3713bf1d"
+    },
+    "b202cae2-672e61c5": {
+      "domain": "clear",
+      "frames": 203,
+      "annotation_sha256": "f797d22985bf4f61de977f297a6fb3624b64be726d8275f5f404f763f76a5d84"
+    },
+    "b2505382-272e7823": {
+      "domain": "night",
+      "frames": 202,
+      "annotation_sha256": "8acad177e7b1ce145af8789221d8885b567eda2efd97f499db4c36e2ba5c6f56"
+    },
+    "b1e1a7b8-65ec7612": {
+      "domain": "rainy",
+      "frames": 202,
+      "annotation_sha256": "e26b30736597dc2ec3794c4aba179b7448c3bf0c247fb9a020a42408ffb4c755"
+    },
+    "b1ebfc3c-740ec84a": {
+      "domain": "night",
+      "frames": 203,
+      "annotation_sha256": "a57f63d6f8f35883d6e53c6475b36b1409bae8f0621f00fefef5ebb6a75653a6"
+    },
+    "0081da60-27997c07": {
+      "domain": "rainy",
+      "frames": 203,
+      "annotation_sha256": "2f669f2c556a733e7df717b9fd20e9518bf2e799736784374aa703bd705a5a9a"
+    },
+    "b1df722f-57d21f3f": {
+      "domain": "clear",
+      "frames": 202,
+      "annotation_sha256": "43a17dafcfaa2d332a47c483ddda8c75e190bd6b5fb8be2dd6cfe20c9edb17b4"
+    },
+    "b20eae11-6817ba7a": {
+      "domain": "night",
+      "frames": 202,
+      "annotation_sha256": "e4dd111f0a5edba3f0d2898071a1bb9c56f14d4087596a2ff9ec6c659ef0679b"
+    },
+    "b2169b74-fa197951": {
+      "domain": "clear",
+      "frames": 203,
+      "annotation_sha256": "a84b9c06a7c186c533d0bfff3c0569c8556a14ed1dd38e66ea6b2f7f3f358ddd"
+    },
+    "00810e80-37641274": {
+      "domain": "rainy",
+      "frames": 202,
+      "annotation_sha256": "9350510acbefd0fe84e2c8916a540bbe7f70351ad6cce31f22f3026335b2f029"
+    },
+    "b1ff4656-ebcfeb35": {
+      "domain": "overcast",
+      "frames": 203,
+      "annotation_sha256": "cbd8469b3538927d5c00d5d7ae4bb483e5e278d8cfb0547549c9fa41f91da9de"
+    },
+    "b23b2649-6af03cd5": {
+      "domain": "overcast",
+      "frames": 203,
+      "annotation_sha256": "7c28834ac3d43cf9cc387326ebcfbc2d6cbe854ad778f4bf75396061e939c472"
+    },
+    "b21547c1-73e457f8": {
+      "domain": "night",
+      "frames": 203,
+      "annotation_sha256": "61f29e269f79d2fd9b666ef2a3aedbedb55734f5d450b4d2731e7d7be35c5a9e"
+    },
+    "b21d5efb-5e2cd743": {
+      "domain": "night",
+      "frames": 202,
+      "annotation_sha256": "f026a97251d5a6283d1a0eff32a3720f0e7cb9b8996977c36a17c7c4cd70ca50"
+    },
+    "b1f0efd9-e900c6e5": {
+      "domain": "clear",
+      "frames": 202,
+      "annotation_sha256": "4748d2e5afab7ee2de36e7425d64ececa243c1a732640494a2b8b2a0d2f8eb5e"
+    },
+    "b1ff4656-0435391e": {
+      "domain": "overcast",
+      "frames": 202,
+      "annotation_sha256": "c35a9edc562b1d35f00ea4d2cbf9a73d90f28bb309590ecb885b9c94178c184a"
+    }
+  },
+  "source_pool_audit": {
+    "status": "VERIFIED_ACTUAL_SOURCE_POOLS_NOT_TARGET_MOT_RESULT",
+    "dataset": "bdd100k",
+    "source_GT_read": true,
+    "target_GT_read": false,
+    "history": 4,
+    "prediction_gaps": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "equal_physical_fields": [
+      "boxes",
+      "frame_ids",
+      "video_ids",
+      "track_ids",
+      "segment_ids",
+      "image_ids",
+      "offsets"
+    ],
+    "splits": [
+      {
+        "split": "fit",
+        "videos": [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "samples": 83146,
+        "physical_examples_sha256": "ae838fa6929e959b03d626fc5e0041c0053dc4dbaabdfabb03589d3558e3cb0f",
+        "history_positive_and_ordered_negatives_equal": true
+      },
+      {
+        "split": "validation",
+        "videos": [
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "samples": 20175,
+        "physical_examples_sha256": "60c19a46731675c5b240b23cc2baf970142b50750d08c78339deeecca838ca64",
+        "history_positive_and_ordered_negatives_equal": true
+      }
+    ],
+    "source_training": {
+      "encoder": {
+        "discriminative": {
+          "parameters": 662400,
+          "source_validation_rank1": 0.5554936035090072,
+          "source_validation_prediction_error": 0.620081104529096,
+          "checkpoint_sha256": "ba95a29b603ce9d6f33169613c5006f49e41ee8453b1a224d7450a4d3f76b182",
+          "cache_sha256": "01cf9f1b6cb6a950c402de44ec025658d96b26cfe84b112995b39e62ca6fb5af",
+          "experiment_fingerprint": "4069f13c1d14c691b5794342655bec75d36774aec1625032c1c2be5a0703a20e"
+        },
+        "predictive": {
+          "parameters": 662400,
+          "source_validation_rank1": 0.49736225246349086,
+          "source_validation_prediction_error": 0.11626513340511582,
+          "checkpoint_sha256": "0fcd3e15f9899a13525d6fd21a95d6bb0344c65fa34bd3869c65c3b3287a6df8",
+          "cache_sha256": "01cf9f1b6cb6a950c402de44ec025658d96b26cfe84b112995b39e62ca6fb5af",
+          "experiment_fingerprint": "f51649ca220022bcc6d250e980c6decca9eb1734d639f161b56226341738b614"
+        },
+        "predictive_ranking": {
+          "parameters": 662400,
+          "source_validation_rank1": 0.5476621291717189,
+          "source_validation_prediction_error": 0.23124611201044057,
+          "checkpoint_sha256": "f3cd0f43668395d87722225980efbfdbeb0e660cb965cabbbacdf3903cef424f",
+          "cache_sha256": "01cf9f1b6cb6a950c402de44ec025658d96b26cfe84b112995b39e62ca6fb5af",
+          "experiment_fingerprint": "173786abaddc338b839dcc315af1d26a3eef9c2122aa624914a67de48e52b4f5"
+        }
+      },
+      "predictor": {
+        "discriminative": {
+          "parameters": 662657,
+          "source_validation_rank1": 0.47374804301923684,
+          "source_validation_prediction_error": 0.6765729924500948,
+          "checkpoint_sha256": "1e3e9f05a2945aa7fba8f7106aa9a3a7a304e9575c012a19b3efe2b2b129ab8a",
+          "cache_sha256": "d2bf25fd92140abfdb7e44b74754962ac801f6f71231e9dd4d9622e0267c4507",
+          "experiment_fingerprint": "af339a6110e0b212076e78ec0fd8da530b3f2d29c78d0d162b306d178adda3b8"
+        },
+        "predictive": {
+          "parameters": 662657,
+          "source_validation_rank1": 0.4760776580103859,
+          "source_validation_prediction_error": 0.039298735007625235,
+          "checkpoint_sha256": "5b26f234a115aa230859412e6234c26ed06fe422f63a33ee1a89118736d936d3",
+          "cache_sha256": "d2bf25fd92140abfdb7e44b74754962ac801f6f71231e9dd4d9622e0267c4507",
+          "experiment_fingerprint": "9794edac3c96e98d905f5cf74ef2f59fe5479fdcd5fda32a33d3aef837bff4e6"
+        },
+        "predictive_ranking": {
+          "parameters": 662657,
+          "source_validation_rank1": 0.4818179075573161,
+          "source_validation_prediction_error": 0.1440914970407403,
+          "checkpoint_sha256": "cbefcdaf2e33a40d2662b0a6829dc5358fd689e32835b36848f75944b3699a27",
+          "cache_sha256": "d2bf25fd92140abfdb7e44b74754962ac801f6f71231e9dd4d9622e0267c4507",
+          "experiment_fingerprint": "e706e1930f9d1533824dda2c9cc27eacfa223fd3bf50e5b41ce006e32511e275"
+        }
+      }
+    },
+    "reconstructed_seed17_sampler_indices_sha256": "53ce13c7b09a2e2107136d1eb9a5f66635385859662037b2e88935176b5fce5c",
+    "sampler_scope": "Reconstructed uniform-with-replacement indices from seed and actual sample list; not a saved per-update training trace.",
+    "limitation": "Predictor readout masks current pixels and has 1664 dimensions; encoder observes them and has 1024. Frozen parameters, information and compute are different. Prediction-error scales across readouts do not measure identity benefit.",
+    "invocation": [
+      "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+      "-m",
+      "jepa_cmot.audit_paired_source_pools",
+      "--root",
+      "runs/JEPA_CMOT/paired_readout_v1",
+      "--dataset",
+      "bdd100k",
+      "--out",
+      "docs/JEPA_CMOT/BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json"
+    ],
+    "audit_code_sha256": "7b7d18cd15c6fc6c6d62410b5592faee8db82187559a7b3a184c8fdbfaccb657"
+  },
+  "paired_comparisons": {
+    "encoder/predictive:encoder/discriminative": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.44169762153226344,
+          "percentile_95": [
+            0.19336011592843488,
+            0.7555603818626606
+          ]
+        },
+        "AssA": {
+          "delta": 0.9238976214720953,
+          "percentile_95": [
+            0.29044194571482174,
+            1.7946064085776272
+          ]
+        },
+        "IDF1": {
+          "delta": 0.7030558037771648,
+          "percentile_95": [
+            0.27221616435666635,
+            1.2989844060279065
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "encoder/predictive:encoder/frozen_last": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.3322601967622294,
+          "percentile_95": [
+            -0.07236286597862818,
+            0.7486533704329199
+          ]
+        },
+        "AssA": {
+          "delta": 0.6714615261761825,
+          "percentile_95": [
+            -0.2481775459367654,
+            1.6245790246892142
+          ]
+        },
+        "IDF1": {
+          "delta": 0.44083806709324946,
+          "percentile_95": [
+            -0.26112700425789825,
+            1.1826778042601154
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "encoder/predictive_ranking:encoder/predictive": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.2506832899019802,
+          "percentile_95": [
+            -0.6222361039906357,
+            0.009925968681616168
+          ]
+        },
+        "AssA": {
+          "delta": -0.671527358438178,
+          "percentile_95": [
+            -1.5515118713883846,
+            -0.11328630383631207
+          ]
+        },
+        "IDF1": {
+          "delta": -0.2702231378320903,
+          "percentile_95": [
+            -0.7605052316032478,
+            0.1351761211392061
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "encoder/predictive:actual_frozen_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.056534881762948075,
+          "percentile_95": [
+            -0.37276646269324826,
+            0.2419889598023154
+          ]
+        },
+        "AssA": {
+          "delta": 0.04577074275768034,
+          "percentile_95": [
+            -0.6668187786571992,
+            0.7219307868249432
+          ]
+        },
+        "IDF1": {
+          "delta": -0.03230855326843063,
+          "percentile_95": [
+            -0.7338177715254527,
+            0.7811777205748829
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "encoder/discriminative:actual_frozen_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.4982325032952115,
+          "percentile_95": [
+            -0.8811530356948158,
+            -0.18279041299553636
+          ]
+        },
+        "AssA": {
+          "delta": -0.878126878714415,
+          "percentile_95": [
+            -1.6637202648726523,
+            -0.262026050162881
+          ]
+        },
+        "IDF1": {
+          "delta": -0.7353643570455954,
+          "percentile_95": [
+            -1.434231100093118,
+            -0.09847269579478114
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/predictive:predictor/discriminative": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.5383665496313661,
+          "percentile_95": [
+            0.20394752868273902,
+            0.829592894779087
+          ]
+        },
+        "AssA": {
+          "delta": 1.214043817795158,
+          "percentile_95": [
+            0.45402298258386464,
+            1.8779744423797553
+          ]
+        },
+        "IDF1": {
+          "delta": 0.8355736890949785,
+          "percentile_95": [
+            0.03684219882361774,
+            1.4343478659383853
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/predictive:predictor/frozen_last": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.5701865889087241,
+          "percentile_95": [
+            0.2139665264030993,
+            0.931519086751362
+          ]
+        },
+        "AssA": {
+          "delta": 1.3722285339422964,
+          "percentile_95": [
+            0.5538353645053984,
+            2.1882772665521855
+          ]
+        },
+        "IDF1": {
+          "delta": 0.9710172679150624,
+          "percentile_95": [
+            0.23776260290264375,
+            1.52432567209817
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/predictive_ranking:predictor/predictive": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.638414841123895,
+          "percentile_95": [
+            -1.092352089792816,
+            -0.2256698395952844
+          ]
+        },
+        "AssA": {
+          "delta": -1.4402252047951567,
+          "percentile_95": [
+            -2.524676522638303,
+            -0.5458915104541608
+          ]
+        },
+        "IDF1": {
+          "delta": -1.1440690111790843,
+          "percentile_95": [
+            -1.873704217511467,
+            -0.3054471999889915
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/predictive:actual_frozen_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.20203197885371083,
+          "percentile_95": [
+            -0.20708565291194136,
+            0.5971933427511394
+          ]
+        },
+        "AssA": {
+          "delta": 0.8610373086780925,
+          "percentile_95": [
+            -0.022643261152639028,
+            1.7714490674882217
+          ]
+        },
+        "IDF1": {
+          "delta": 0.3911936285460129,
+          "percentile_95": [
+            -0.4249444967032844,
+            1.0878018343629878
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/discriminative:actual_frozen_geometry": {
+      "metrics": {
+        "HOTA": {
+          "delta": -0.3363345707776553,
+          "percentile_95": [
+            -0.6696508898986654,
+            0.04483049058941241
+          ]
+        },
+        "AssA": {
+          "delta": -0.35300650911706555,
+          "percentile_95": [
+            -1.0659403460885815,
+            0.5164448995013127
+          ]
+        },
+        "IDF1": {
+          "delta": -0.4443800605489656,
+          "percentile_95": [
+            -1.1650894426259877,
+            0.38194278265402615
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/predictive:encoder/predictive": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.2585668606166589,
+          "percentile_95": [
+            -0.11894873492016238,
+            0.6464126852569716
+          ]
+        },
+        "AssA": {
+          "delta": 0.8152665659204121,
+          "percentile_95": [
+            0.08323548121970052,
+            1.6339078403817529
+          ]
+        },
+        "IDF1": {
+          "delta": 0.42350218181444355,
+          "percentile_95": [
+            -0.25565611512648145,
+            0.9739935145675912
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    },
+    "predictor/frozen_last:encoder/frozen_last": {
+      "metrics": {
+        "HOTA": {
+          "delta": 0.02064046847016421,
+          "percentile_95": [
+            -0.43575535549255723,
+            0.4774555540238493
+          ]
+        },
+        "AssA": {
+          "delta": 0.11449955815429824,
+          "percentile_95": [
+            -0.8280746863856756,
+            1.1804031329677118
+          ]
+        },
+        "IDF1": {
+          "delta": -0.10667701900736937,
+          "percentile_95": [
+            -0.7130249531497677,
+            0.5332651338264219
+          ]
+        }
+      },
+      "repeats": 2000,
+      "seed": 17,
+      "estimator": "paired videos resampled within each domain; aggregate TrackEval then equal-domain mean",
+      "scope": "fixed-seed development uncertainty, no cross-seed or selection-adjusted claim"
+    }
+  },
+  "geometry_reference": {
+    "clear": {
+      "HOTA": 37.92693970781214,
+      "AssA": 41.3799377540429,
+      "DetA": 36.33635577580363,
+      "IDF1": 45.25825293692984,
+      "MOTA": 17.755784230189423,
+      "IDSW": 614
+    },
+    "overcast": {
+      "HOTA": 41.875008186714744,
+      "AssA": 49.47224316463766,
+      "DetA": 37.28293360861823,
+      "IDF1": 47.12994864460768,
+      "MOTA": 14.10691003911343,
+      "IDSW": 271
+    },
+    "rainy": {
+      "HOTA": 46.057684007493755,
+      "AssA": 53.219086979677336,
+      "DetA": 41.384681763601634,
+      "IDF1": 54.6971466711163,
+      "MOTA": 28.136816775524238,
+      "IDSW": 201
+    },
+    "night": {
+      "HOTA": 33.74898193496485,
+      "AssA": 40.18451674129743,
+      "DetA": 29.088873746588344,
+      "IDF1": 40.28597823030887,
+      "MOTA": 17.529719927463226,
+      "IDSW": 324
+    }
+  },
+  "native_frames": 3844,
+  "limitation": "Same physical causal window/ROI/source sampling and near-matched trainable capacity, but encoder sees current pixels while the masked predictor does not. Feature dimensions and frozen parameters/compute differ. Cross-readout contrasts are descriptive, not equal-information or equal-compute causal effects. Fixed-seed development uncertainty, no selection adjustment, cross-seed or continual-performance claim.",
+  "invocation": [
+    "/home/liuyeqiang/anaconda3/envs/GMT/bin/python",
+    "-m",
+    "jepa_cmot.paired_readout_development_analysis",
+    "--root",
+    "runs/JEPA_CMOT/paired_readout_v1",
+    "--dataset",
+    "bdd100k",
+    "--frozen",
+    "runs/JEPA_CMOT/development_all_v1/bdd100k_seed17",
+    "--source-audit",
+    "docs/JEPA_CMOT/BDD_OFFICIAL_PAIRED_SOURCE_POOL_AUDIT.json",
+    "--out",
+    "docs/JEPA_CMOT/BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json"
+  ],
+  "analysis_code_sha256": "98f0a664a7ae9e0806fbe7390f053d75de832744c67a3ef404a9e7db58dbde00",
+  "target_GT_in_training": false,
+  "sealed_used": false
+}

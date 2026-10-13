@@ -1,0 +1,64 @@
+{
+  "status": "ACTUALLY_RUNNING_NOT_RESULT",
+  "pid": 10351,
+  "gpu": 3,
+  "replaced_pending_scheduler_pid": 34445,
+  "command": [
+    "./run_python.sh",
+    "-u",
+    "-m",
+    "jepa_cmot.continual_controls",
+    "--dataset",
+    "ua_detrac",
+    "--manifest",
+    "runs/JEPA_CMOT/native_protocol_v3/manifest.json",
+    "--detections",
+    "runs/JEPA_CMOT/formal_detection_streams_v1/ua_detrac",
+    "--feature-producer-pid",
+    "0",
+    "--controls",
+    "runs/JEPA_CMOT/controls_v1/ua_detrac_generic_rkd_continual.json",
+    "--teacher-calibration",
+    "runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json",
+    "--compact-intermediate",
+    "--out",
+    "runs/JEPA_CMOT/continual_generic_rkd_v1/ua_detrac_forward_seed17"
+  ],
+  "scientific_protocol_changed": false,
+  "reason": "All 62 UA adaptation/development inputs ready and GPU3 free; independent registered RKD run does not require C2 frozen evaluation to finish. Old pending starter terminated to prevent duplicate execution.",
+  "native_video_markers": 0,
+  "actual_protocol": {
+    "dataset": "ua_detrac",
+    "order": [
+      "sunny",
+      "cloudy",
+      "rainy",
+      "night"
+    ],
+    "controls": [
+      {
+        "name": "predictive_ranking_distance_graph",
+        "method": "online",
+        "checkpoint": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_history_v2/ua_dense_current/seed17/predictive_ranking/final.pt",
+        "calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/predictive_ranking.json",
+        "geometry_duplicates": true,
+        "online_config": {
+          "method": "predictive_ranking",
+          "enabled": true,
+          "replay": 128,
+          "batch": 8,
+          "interval": 8,
+          "learning_rate": 0.0001,
+          "reliability": "confidence",
+          "retention": "distance_graph",
+          "seed": 17
+        }
+      }
+    ],
+    "target_GT_in_training": false,
+    "sealed_test_used": false,
+    "evaluation": "all saved stages, isolated frozen weights after training; no evaluation feedback",
+    "fixed_teacher_calibration": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_calibration_v1/ua_dense_current/seed17/frozen_last.json",
+    "actual_update_counts_matched_each_frame": true
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "time_utc": "2026-10-13T04:39:14.506799+00:00",
+  "scope": "JEPA_MOT_resume_20261012 derived experimental storage only",
+  "converted_adaptation_states": [
+    {
+      "sequence": "continual_multiseed_v1/bdd100k_forward_seeds23_42",
+      "converted_full_intermediates": 168,
+      "bytes_released": 2567257679,
+      "full_report": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_multiseed_v1/bdd100k_forward_seeds23_42/checkpoint_compaction.json"
+    },
+    {
+      "sequence": "continual_v1/ua_detrac_forward_seed17",
+      "converted_full_intermediates": 168,
+      "bytes_released": 2668482104,
+      "full_report": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_v1/ua_detrac_forward_seed17/checkpoint_compaction.json"
+    },
+    {
+      "sequence": "continual_competition_v1/ua_detrac_forward_seed17",
+      "converted_full_intermediates": 52,
+      "bytes_released": 1014090860,
+      "full_report": "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/continual_competition_v1/ua_detrac_forward_seed17/checkpoint_compaction.json"
+    }
+  ],
+  "frozen_duplicates_removed": 2313,
+  "frozen_bytes_released": 6145063075,
+  "detector_intermediate_snapshots_removed": 6,
+  "detector_bytes_released": 1982788710,
+  "total_bytes_released": 14377682428,
+  "data1_free_bytes": 17377456128,
+  "retained": [
+    "NAS original datasets and historical archive",
+    "project code and formal source feature caches",
+    "official V-JEPA and GeneralTrack weights",
+    "source detector checkpoints iter500/1500/3000",
+    "all source/domain-boundary learning states and latest two completed videos per stage",
+    "adaptation model parameters in compact exports",
+    "all recorded tracks/metrics/research reports"
+  ],
+  "verification": "Removed frozen checkpoints matched canonical source tensors exactly; actual completed-run reuse passed, tracks and complete marker SHA unchanged. Source detector final checkpoint SHA unchanged. Restored truncated uncommitted analysis source from original executed patch, matching existing report code SHA.",
+  "full_local_manifests": [
+    "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/frozen_checkpoint_cleanup.json",
+    "/data1/liuyeqiang/JEPA_MOT_resume_20261012/runs/JEPA_CMOT/source_detector_snapshot_cleanup.json"
+  ],
+  "cleanup_export_start_unix": 1791864994.933368
+}

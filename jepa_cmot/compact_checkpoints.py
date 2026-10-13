@@ -8,19 +8,30 @@ import torch
 from .train_source import sha256
 
 
-def compact(root):
+def compact(root, completed_native=False):
     root=Path(root)
     snapshots=json.loads((root/'snapshots.json').read_text())
     kept={str(Path(path).resolve()) for stage in snapshots for path in stage.values()}
+    if completed_native:
+        # Keep resume states for the latest complete videos, including an
+        # in-progress domain. Earlier complete native videos need only weights.
+        for stage in (root/'adaptation').glob('*'):
+            videos=sorted([v for v in stage.iterdir() if (v/'complete.json').is_file()],
+                          key=lambda v:(v/'complete.json').stat().st_mtime)
+            for video in videos[-2:]:
+                kept.update(str(p.resolve()) for p in video.glob('*/*/learner.pt'))
     completed_stages=len(snapshots)-1;records=[]
     report_path=root/'checkpoint_compaction.json'
     if report_path.exists():records=json.loads(report_path.read_text())['intermediate_states']
     for checkpoint in root.glob('adaptation/*/*/*/*/learner.pt'):
         relative=checkpoint.relative_to(root)
         stage=int(relative.parts[1].split('_')[0][5:])
-        if stage>completed_stages or str(checkpoint.resolve()) in kept:continue
+        if (stage>completed_stages and not completed_native) or str(checkpoint.resolve()) in kept:continue
         if not (checkpoint.parents[2]/'complete.json').exists():continue
         payload=torch.load(checkpoint,map_location='cpu')
+        if completed_native and (payload.get('physical_video_complete') is False or
+                                 (payload.get('physical_video_complete') is True and payload['pending'])):
+            raise ValueError('Native intermediate is not a complete physical video state')
         lightweight=checkpoint.with_name('learner_weights.pt')
         export={key:payload[key] for key in ['state_dict','config','online_config',
                                            'source_feature_metadata','frames','updates','stats']}
@@ -32,9 +43,13 @@ def compact(root):
         record=dict(original=str(checkpoint.resolve()),original_sha256=sha256(checkpoint),
                     original_bytes=checkpoint.stat().st_size,weights=str(lightweight.resolve()),
                     weights_sha256=sha256(lightweight),weights_bytes=lightweight.stat().st_size,
-                    frames=payload['frames'],updates=payload['updates'])
+                    frames=payload['frames'],updates=payload['updates'],
+                    completion_evidence=('payload physical_video_complete and native marker'
+                        if payload.get('physical_video_complete') else 'native complete marker; legacy payload schema'))
         checkpoint.unlink();records.append(record)
-    result=dict(scope='completed adaptation stages only; source and domain-boundary full states retained',
+    scope=('completed native videos; source, domain boundaries and latest two videos per stage retain full states'
+           if completed_native else 'completed adaptation stages only; source and domain-boundary full states retained')
+    result=dict(scope=scope,
                 intermediate_states=records,domain_snapshots_retained=sorted(kept),
                 bytes_released=sum(r['original_bytes']-r['weights_bytes'] for r in records))
     report_path.write_text(json.dumps(result,indent=2))
@@ -96,8 +111,9 @@ def main():
     targets=parser.add_mutually_exclusive_group(required=True)
     targets.add_argument('--root',type=Path)
     targets.add_argument('--source-root',type=Path)
+    parser.add_argument('--completed-native',action='store_true')
     args=parser.parse_args();torch.set_num_threads(4)
-    if args.root:compact(args.root)
+    if args.root:compact(args.root, completed_native=args.completed_native)
     else:compact_source(args.source_root)
 
 

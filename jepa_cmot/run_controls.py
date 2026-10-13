@@ -36,6 +36,12 @@ def main():
     protocol_path=args.out/'protocol.json'
     if protocol_path.exists() and json.loads(protocol_path.read_text())!=protocol:
         raise ValueError('Existing controls experiment differs')
+    completed_path=args.out/'complete.json'
+    if completed_path.is_file():
+        completed=json.loads(completed_path.read_text())
+        if completed['status']=='COMPLETE' and set(completed['controls'])=={s['name'] for s in specs}:
+            print('CONTROLS_ALREADY_COMPLETE',args.out,flush=True)
+            return
     protocol_path.write_text(json.dumps(protocol,indent=2))
     learners={};reports={s['name']:[] for s in specs};shared=None
     for spec in specs:

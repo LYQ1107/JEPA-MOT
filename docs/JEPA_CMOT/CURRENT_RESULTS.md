@@ -359,3 +359,17 @@ Final HOTA/AF：Replay39.300926/.255566、feature39.235753/.349849、row39.30327
 实际静态geometry39.90215仍更强；五组相对geometry的HOTA区间均在0以下，RKD-D差-.598671 CI[-1.184840,-.130581]，column差-.575856 CI[-1.117550,-.146660]。候选竞争命名、非零loss和较小AF不足以建立MOT-specific创新；通用RKD-D没有产生可靠独立增量。这与实际update-call中column p50较高的成本一起，削弱当前H3主张。没有根据这些target评测GT调整门控/超参数。
 
 完整六指标5×4×4、AF/signedAF/BWT/FWT、十一项final raw-count配对比较、actual protocol/checkpoint SHA/预算及复现命令见BDD_FULL_GRAPH_RKD_RETENTION_RESULTS.json，图figures/bdd_complete_graph_rkd_retention.svg。当前仅BDD seed17 forward，UA RKD及多seed/order尚未完整；sealed仍未用，不能因此宣布全项目完成。
+
+## BDD官方masked predictor与encoder配对读数完整部署
+
+两种official w4读数均完成全部19开发视频/3844 native帧。平均HOTA encoder last39.51336/CE39.40392/pure39.84562/joint39.59494；masked predictor last39.53400/CE39.56582/pure40.10419/joint39.46577。三目标每读数2,000×64 source-only训练，83146 fit/20175 validation物理history/positive/ordered negatives完全一致，head662400/662657参数；source真实checkpoint SHA与完整部署protocol一致，θ未更新。
+
+encoder pure比同读数CE +.44170 CI[.19336,.75556]，但比geometry -.05653 CI[-.37277,.24199]。masked predictor pure比同读数CE +.53837 CI[.20395,.82959]，比last +.57019 CI[.21397,.93152]，比geometry +.20203 CI[-.20709,.59719]。联合目标比pure -.63841 CI[-1.09235,-.22567]。predictor pure比encoder pure +.25857 CI[-.11895,.64641]，不能从多个探索候选中的最大点估计或未经选择校正的开发区间宣称稳定独立优势。
+
+当前首次有正式全source/head/全native development的1664-D predictor读数证据，替代先前工程cache占位，但不是持续学习或三seed证据。mask predictor不能看到当前两帧像素（patch projection前归零、tokens masked），extra frozen22973056参数与FP32计算另计；encoder1024-D能看到当前像素。相同合法4帧window/ROI、source物理预算和近似可训练容量，不等价于信息量/frozen算力相同。更低source cosine error也不能跨不同latent空间解释为更强identity target。
+
+完整八组逐域六指标、十二项配对视频raw-count区间、source pool/checkpoint/实际prepared annotation SHA和复现命令见BDD_FULL_OFFICIAL_PAIRED_READOUT_RESULTS.json，图figures/bdd_complete_official_paired_readouts.svg。全部原prepared detections、native frames和GT评分覆盖逐条匹配，targetGT没有进入训练/gates，sealed未用。UA official pipeline继续，不以BDD seed17 frozen结果替代全项目完成。
+
+## data1磁盘清理
+
+磁盘曾出现ENOSPC，按已完成native状态保留source/domain-boundary及每阶段最近两个完整视频的续跑状态，388个更早中间状态仅保留逐tensor一致的模型参数；清理2313个已完成frozen评测的重复权重（与canonical source θ逐tensor核对），以及6个非主要detector快照（保留500/1500/3000，final SHA不变）。本次释放13.39 GiB，核对时可用16.18 GiB；NAS原数据、主要checkpoint、轨迹/指标/报告保留。完成的run_controls可直接复用完整标记；实际清理后重入验证通过，轨迹与完成标记SHA未改变。未提交的analysis源码因失败写入变空，已从原执行patch恢复，SHA与既有结果记录一致。详细清单/保留策略见DATA1_STORAGE_CLEANUP.json和本地runs manifest。空间不足期间的任务终态与续跑节点还需单独核验，不以旧PID声称仍在运行。
