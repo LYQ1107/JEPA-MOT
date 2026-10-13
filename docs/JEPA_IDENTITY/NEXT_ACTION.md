@@ -13,24 +13,28 @@
    candidate-relative predictive methods were each paired with a same-budget
    ranking-only control. Neither passed the H1 gate; see
    `STRUCTURAL_FORMAL_SEED17.json`.
-5. Do not start a threshold sweep or additional seeds. The candidate-relative
+5. A supplementary UA legacy-track CPU replay is complete for 17 existing
+   development videos. It scored 4,199 shared states and again put predictive
+   JEPA below CE and ranking controls. It is explicitly not the registered
+   GPU event tracer; see `UA_LEGACY_TRACK_REPLAY_SEED17.md`.
+6. Do not start a threshold sweep or additional seeds. The candidate-relative
    numerical-stability failures are fixed in the final implementation and the
    discarded attempts remain engineering diagnostics only.
-6. Keep H2 as an independent controlled, same-initialization protocol. The
+7. Keep H2 as an independent controlled, same-initialization protocol. The
    negative H1 result does not cancel it. When a usable GPU or an explicitly
    bounded CPU window is available, run one seed and one forward order first;
    do not expand to reverse order or more seeds yet.
-7. The bounded BDD seed17 fixed-teacher Wave-B diagnostic is complete. It
+8. The bounded BDD seed17 fixed-teacher Wave-B diagnostic is complete. It
    used the same 153 recorded pseudo-pairs and 128-step schedule in all four
    cells; D updates produced larger fixed-bank ranking gains than P updates.
    Treat this as objective-level evidence only, not as a full H2 result.
-8. The Wave-D mechanism probe added the equal-weight ranking term to the
+9. The Wave-D mechanism probe added the equal-weight ranking term to the
    predictive update in two additional cells without adding a seed. It raised
    the fixed-bank gain to +7.84 points from Source-D and +1.96 from Source-P,
    but the P-cell hybrid gradient was almost identical to the discriminative
    gradient. Treat it as a partial ranking-objective rescue, not a predictive
    H2 advantage; see `H2_WAVE_D_PREDICTIVE_RANKING_SEED17.json`.
-9. The next execution is the registered full-video Wave-A factorial with
+10. The next execution is the registered full-video Wave-A factorial with
    frozen controls and stagewise metrics, using one seed and one forward order
    when a usable GPU or explicitly bounded CPU window is available. Keep
    reverse order and additional seeds deferred.
