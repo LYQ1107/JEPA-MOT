@@ -83,6 +83,31 @@ def _forward_loss(model, candidate: str, method: str, batch, device: str):
     return loss, components, scores, positive_index
 
 
+def _clip_gradients(parameters, max_norm: float = 1.0) -> torch.Tensor:
+    """Clip finite gradients with a float64 norm accumulator.
+
+    Candidate-relative source gradients can be individually finite but large
+    enough that the default float32 sum of squares overflows before clipping.
+    Accumulating in float64 preserves the same max-norm budget without
+    converting a valid gradient into an apparent non-finite failure.
+    """
+    params = [parameter for parameter in parameters if parameter.grad is not None]
+    total_sq = torch.zeros((), dtype=torch.float64)
+    for parameter in params:
+        gradient = parameter.grad
+        if not torch.isfinite(gradient).all():
+            raise FloatingPointError("non-finite structural gradient")
+        total_sq = total_sq + gradient.detach().double().pow(2).sum()
+    total_norm = total_sq.sqrt()
+    if not torch.isfinite(total_norm):
+        raise FloatingPointError("non-finite structural gradient norm")
+    coefficient = min(1.0, max_norm / (float(total_norm) + 1e-12))
+    if coefficient < 1.0:
+        for parameter in params:
+            parameter.grad.mul_(coefficient)
+    return total_norm.to(dtype=torch.float32)
+
+
 def _validation(model, candidate: str, valid: SourcePairs, batch_size: int, device: str):
     loader = DataLoader(valid, batch_size=batch_size, num_workers=0)
     hits = 0.0
@@ -185,9 +210,7 @@ def train(args) -> dict:
             raise FloatingPointError("non-finite structural objective")
         optimizer.zero_grad(set_to_none=True)
         loss.backward()
-        norm = torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
-        if not torch.isfinite(norm):
-            raise FloatingPointError("non-finite structural gradient")
+        norm = _clip_gradients(model.parameters(), 1.0)
         optimizer.step()
         losses.append({
             "step": step + 1,
